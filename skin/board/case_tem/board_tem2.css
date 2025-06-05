@@ -1,0 +1,185 @@
+/* 컨텐츠 css */
+.bo_tem_2 {overflow:hidden; width:100%; max-width:1100px; margin:0 auto; background:#fff; text-align:center;}
+
+/* section step title */
+.bo_tem_2 .step_tit {color:#a8b4d4; font-size:48px; font-weight:700; line-height:1;}
+
+/* section title */
+.bo_tem_2 h3.sec_tit {position:relative; padding-top:27px; color:#0f1b4b; font-size:48px; font-weight:800; letter-spacing:-0.04rem;}
+.bo_tem_2 h3.sec_tit.white {color:#fff;}
+.bo_tem_2 h3.sec_tit span {font-weight:400;}
+
+/* section01 */
+.bo_tem_2 .section01 {position:relative; padding:150px 0 460px; background:url('/images/img_tem2/section01_bg.jpg') no-repeat center/cover;}
+.bo_tem_2 .section01 .box .logo {padding-bottom:70px;}
+.bo_tem_2 .section01 .box h5 {display:inline-block; width:440px; padding:6px 0; border:1px solid rgba(255,255,255,.4); border-width:1px 0; color:#fff; font-size:40px; font-weight:700; letter-spacing:-0.03rem;}
+.bo_tem_2 .section01 .box h3 {padding:40px 0; color:#fff; font-size:64px; font-weight:800; letter-spacing:-0.03rem; line-height:78px;}
+.bo_tem_2 .section01 .box p {color:#fff; font-size:24px; letter-spacing:-0.03rem; line-height:38px; opacity:.8;}
+
+/* section02 */
+.bo_tem_2 .section02 {padding:100px 0 120px; background:#d9dfef;}
+.bo_tem_2 .section02 .sub {padding-top:45px; color:#5b5c64; font-size:25px; letter-spacing:-0.04rem; line-height:38px; word-break:keep-all;}
+.bo_tem_2 .section02 .sub span {background:url('/images/img_tem2/section02_line.png') no-repeat bottom center/100% 30%;}
+.bo_tem_2 .section02 .sub strong {color:#0f1b4b; font-weight:400;}
+
+/* section03 */
+.bo_tem_2 .section03 {position:relative; z-index:1; padding:120px 0;}
+.bo_tem_2 .section03:before {display:block; position:absolute; top:50px; left:0; width:178px; height:202px; background:url('/images/img_tem2/section03_pictogram01.png') no-repeat center; content:'';}
+.bo_tem_2 .section03:after {display:block; position:absolute; bottom:40px; right:0; width:122px; height:191px; background:url('/images/img_tem2/section03_pictogram02.png') no-repeat center; content:'';}
+.bo_tem_2 .section03 .step_list {width:80%; margin:60px auto 0; border-top:1px solid #e0e0e0; text-align:left;}
+.bo_tem_2 .section03 .step_list li {padding:37px 35px; border-bottom:1px solid #e0e0e0; color:#5b5c64; font-size:30px; text-align:left; letter-spacing:-0.04rem; line-height:44px; word-break:keep-all;}
+.bo_tem_2 .section03 .step_list li strong {display:block; padding-bottom:5px; color:#a8b4d4; font-size:25px; font-weight:400; letter-spacing:-0.02rem; line-height:1;}
+.bo_tem_2 .section03 .step_list li span {color:#0f1b4b; font-weight:700;}
+
+/* section04 */
+.bo_tem_2 .section04 {position:relative; padding:120px 10% 90px; background:url('/images/img_tem2/section04_bg.jpg') no-repeat center/cover;}
+.bo_tem_2 .section04 .process {margin-left:-10px; padding-top:80px; font-size:0;}
+.bo_tem_2 .section04 .process li {display:inline-block; position:relative; width:33.33%; margin-bottom:30px; padding-left:10px; text-align:left;}
+.bo_tem_2 .section04 .process li .box {overflow:hidden; position:relative; height:260px; padding:42px 25px 0; background:url('/images/img_tem2/section04_process_bg.png') no-repeat center/100% 100%;}
+.bo_tem_2 .section04 .process li .box span {color:#fff; font-size:24px; letter-spacing:-0.04rem;}
+.bo_tem_2 .section04 .process li .box p {padding:45px 0 25px; color:#fff; font-size:28px; font-weight:700; letter-spacing:-0.04rem;}
+
+/* section05 */
+.bo_tem_2 .section05 {padding:110px 0 120px; background:url('/images/img_tem2/section05_bg.jpg') no-repeat center/cover;}
+.bo_tem_2 .section05 .cnt {margin-top:45px;}
+.bo_tem_2 .section05 .cnt .img {padding-bottom:45px;}
+.bo_tem_2 .section05 .cnt dl dt {padding-bottom:50px; color:#0f1b4b; font-size:40px; font-weight:800; letter-spacing:-0.04rem;}
+.bo_tem_2 .section05 .cnt dl dt i {position:relative; font-style:normal;}
+.bo_tem_2 .section05 .cnt dl dt i:after {position:absolute; top:-10px; left:50%; width:6px; height:6px; margin-left:-3px; border-radius:50%; background:#0f1b4b; content:'';}
+.bo_tem_2 .section05 .cnt dl dd {color:#3e3e3e; font-size:26px; letter-spacing:-0.04rem; line-height:40px; word-break:keep-all;}
+
+/* section06 */
+.bo_tem_2 .section06 {padding:120px 0 80px; background:url('/images/img_tem2/section06_bg.jpg') no-repeat bottom center/cover;}
+.bo_tem_2 .section06 .result {padding-top:50px;}
+.bo_tem_2 .section06 .result .txt p {display:inline-block; padding:18px 0; border:1px solid #d9d9d9; border-width:1px 0; color:#0f1b4b; font-size:38px; font-weight:400; letter-spacing:-0.03rem;}
+.bo_tem_2 .section06 .result .txt p span {font-size:46px; font-weight:700;}
+.bo_tem_2 .section06 .result .img {padding-top:60px;}
+.bo_tem_2 .section06 .result .img span {display:inline-block; position:relative; z-index:1;}
+.bo_tem_2 .section06 .result .img span img {max-width:100%;}
+
+/* section07 */
+.bo_tem_2 .section07 {padding-top:120px;}
+.bo_tem_2 .section07 .lawyer {padding-top:70px;}
+.bo_tem_2 .section07 .lawyer img {max-width:100%;}
+
+/* 전화번호 */
+.bo_tem_2 .tel_info {padding:40px 0; background:#d9dfef; font-size:0;}
+.bo_tem_2 .tel_info li {display:inline-block; width:50%; color:#0f1b4b; font-size:22px; letter-spacing:-0.04rem;}
+.bo_tem_2 .tel_info li span {display:inline-block; padding-left:40px; background:no-repeat left center;}
+.bo_tem_2 .tel_info li.kakao span {background-image:url('/images/img_tem2/tel_info_kakao.png');}
+.bo_tem_2 .tel_info li.call span {background-image:url('/images/img_tem2/tel_info_call.png');}
+.bo_tem_2 .tel_info li span strong,
+.bo_tem_2 .tel_info li span a {padding-left:5px; color:inherit; font-size:28px; font-weight:800;}
+
+
+@media screen and (max-width: 900px) { 
+	/* section step title */
+	.bo_tem_2 .step_tit {font-size:32px;}
+
+	/* section title */
+	.bo_tem_2 h3.sec_tit {font-size:32px;}
+
+	/* section01 */
+	.bo_tem_2 .section01 .box h5 {font-size:30px;}
+	.bo_tem_2 .section01 .box h3 {font-size:47px; font-weight:800; letter-spacing:-0.03rem; line-height:60px;}
+	.bo_tem_2 .section01 .box p {font-size:20px; line-height:32px;}
+
+	/* section02 */
+	.bo_tem_2 .section02 .sub {font-size:20px; line-height:33px;}
+
+	/* section03 */
+	.bo_tem_2 .section03:before {width:110px; background-size:100% auto;}
+	.bo_tem_2 .section03:after {width:100px; background-size:100% auto;}
+	.bo_tem_2 .section03 .step_list {position:relative; z-index:1; width:90%;}
+	.bo_tem_2 .section03 .step_list li {font-size:22px; line-height:36px;}
+	.bo_tem_2 .section03 .step_list li strong {font-size:18px;}
+
+	/* section04 */
+	.bo_tem_2 .section04 {padding:120px 5% 90px;}
+	.bo_tem_2 .section04 .process li .box {padding:46px 25px 0;}
+	.bo_tem_2 .section04 .process li .box span {font-size:18px;}
+	.bo_tem_2 .section04 .process li .box p {font-size:24px;}
+
+	/* section05 */
+	.bo_tem_2 .section05 .cnt dl dt {font-size:30px;}
+	.bo_tem_2 .section05 .cnt dl dd {font-size:20px; line-height:32px;}
+
+	/* section06 */
+	.bo_tem_2 .section06 .result .txt p {font-size:30px;}
+	.bo_tem_2 .section06 .result .txt p span {font-size:38px;}
+	.bo_tem_2 .section06 .result .img span {display:inline-block; width:80%;}
+
+	/* section07 */
+	.bo_tem_2 .section07 .lawyer .img {padding:0 5%;}
+
+	/* 전화번호 */
+	.bo_tem_2 .tel_info {padding:30px 0;}
+	.bo_tem_2 .tel_info li {font-size:16px;}
+	.bo_tem_2 .tel_info li span {padding-left:35px; background-size:25px auto;}
+	.bo_tem_2 .tel_info li span strong,
+	.bo_tem_2 .tel_info li span a {font-size:20px;}
+}
+
+
+@media screen and (max-width: 768px) { 
+	/* section step title */
+	.bo_tem_2 .step_tit {font-size:24px;}
+
+	/* section title */
+	.bo_tem_2 h3.sec_tit {padding-top:15px; font-size:24px;}
+
+	/* section01 */
+	.bo_tem_2 .section01 {padding:75px 0 330px;}
+	.bo_tem_2 .section01 .box .logo {padding-bottom:35x;}
+	.bo_tem_2 .section01 .box h5 {width:250px; padding:6px 0; font-size:20px;}
+	.bo_tem_2 .section01 .box h3 {padding:20px 0; font-size:32px; line-height:39px;}
+	.bo_tem_2 .section01 .box p {font-size:13px; line-height:18px;}
+
+	/* section02 */
+	.bo_tem_2 .section02 {padding:50px 0 60px;}
+	.bo_tem_2 .section02 .sub {padding-top:23px; font-size:13px; line-height:20px;}
+
+	/* section03 */
+	.bo_tem_2 .section03 {padding:60px 0;}
+	.bo_tem_2 .section03:before {top:15px; width:90px; height:110px;}
+	.bo_tem_2 .section03:after {bottom:10px; width:61px; height:100px;}
+	.bo_tem_2 .section03 .step_list {width:90%; margin:30px auto 0;}
+	.bo_tem_2 .section03 .step_list li {padding:19px 16px; font-size:15px; line-height:22px;}
+	.bo_tem_2 .section03 .step_list li strong {padding-bottom:3px; font-size:13px;}
+
+	/* section04 */
+	.bo_tem_2 .section04 {padding:60px 5% 45px;}
+	.bo_tem_2 .section04 .process {margin-left:-5px; padding-top:35px;}
+	.bo_tem_2 .section04 .process li {margin-bottom:15px; padding-left:5px;}
+	.bo_tem_2 .section04 .process li .box {height:130px; padding:21px 13px 0;}
+	.bo_tem_2 .section04 .process li .box span {font-size:13px;}
+	.bo_tem_2 .section04 .process li .box p {padding:20px 0 10px; font-size:15px;}
+	.bo_tem_2 .section04 .process li .box img {width:26px;}
+
+	/* section05 */
+	.bo_tem_2 .section05 {padding:55px 0 60px;}
+	.bo_tem_2 .section05 .cnt {margin-top:23px;}
+	.bo_tem_2 .section05 .cnt .img {padding-bottom:23px;}
+	.bo_tem_2 .section05 .cnt .img img {width:101px;}
+	.bo_tem_2 .section05 .cnt dl dt {padding-bottom:25px; font-size:20px;}
+	.bo_tem_2 .section05 .cnt dl dt i:after {top:-6px; width:4px; height:4px; margin-left:-2px;}
+	.bo_tem_2 .section05 .cnt dl dd {font-size:14px; line-height:21px;}
+
+	/* section06 */
+	.bo_tem_2 .section06 {padding:60px 0 40px;}
+	.bo_tem_2 .section06 .result {padding-top:25px;}
+	.bo_tem_2 .section06 .result .txt p {padding:9px 0; font-size:18px;}
+	.bo_tem_2 .section06 .result .txt p span {font-size:22px;}
+	.bo_tem_2 .section06 .result .img {padding-top:30px;}
+
+	/* section07 */
+	.bo_tem_2 .section07 {padding-top:60px;}
+	.bo_tem_2 .section07 .lawyer {padding-top:35px;}
+
+	/* 전화번호 */
+	.bo_tem_2 .tel_info {padding:20px 0; font-size:0;}
+	.bo_tem_2 .tel_info li {font-size:11px;}
+	.bo_tem_2 .tel_info li span {padding-left:20px; background-size:15px auto;}
+	.bo_tem_2 .tel_info li span strong,
+	.bo_tem_2 .tel_info li span a {padding-left:2px; font-size:14px;}
+}
