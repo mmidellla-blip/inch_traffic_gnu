@@ -96,6 +96,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		</div>
 		<?php } ?>
 
+		<div class="write_div">
+			<label for="wr_2" class="sound_only">메타 Title</label>
+			<input type="text" name="wr_2" value="<?php echo $wr_2 ?>" id="wr_2" class="frm_input full_input" size="50" maxlength="255" placeholder="타이틀(SEO)">
+		</div>
+		<div class="write_div">
+			<label for="wr_3" class="sound_only">메타 Description</label>
+			<input type="text" name="wr_3" value="<?php echo $wr_3 ?>" id="wr_3" class="frm_input full_input" size="50" maxlength="255" placeholder="설명(SEO)">
+		</div>
+		<div class="write_div">
+			<label for="wr_4" class="sound_only">메타 Keywords</label>
+			<input type="text" name="wr_4" value="<?php echo $wr_4 ?>" id="wr_4" class="frm_input full_input" size="50" maxlength="255" placeholder="키워드(SEO)">
+		</div>
+
 		<div class="bo_w_tit write_div">
 			<label for="wr_subject" class="sound_only">제목<strong>필수</strong></label>
 			
