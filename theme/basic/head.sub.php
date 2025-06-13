@@ -143,7 +143,6 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="theme-color" content="#ffffff">
 
-<title><?php echo $g5_head_title; ?></title>
 <?php
 $shop_css = '';
 if (defined('_SHOP_')) $shop_css = '_shop';
