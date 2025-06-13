@@ -45,8 +45,94 @@ if (G5_IS_MOBILE) {
     echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">'.PHP_EOL;
 }
 
-if($config['cf_add_meta'])
-    echo $config['cf_add_meta'].PHP_EOL;
+$scheme = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'];
+$uri  = $_SERVER['REQUEST_URI']; // ? 포함 전체 경로
+$canonical = $scheme . '://' . $host . $uri;
+$metaTitleConf = $g5_head_title;
+//음주운전변호사 법무법인 동주입니다. 음주운전 전문 상담을 통해 음주운전 사고 사건을 대처하세요. 음주운전 전문 변호사가 사건을 직접 진행합니다. 음주 사고, 음주운전 처벌, 음주운전 구제에 관한 정보를 지금 바로 확인하세요.
+$metaDescriptionConf = '음주운전변호사 | 음주전문변호사 | 음주운전처벌 | 음주운전사고 | 법무법인 동주 음주운전센터';
+$metaKeywordConf = '음주 면허 취소,음주운전 행정심판,음주운전 면허취소,행정소송,행정심판,행정법전문변호사,행정사,영업정지 구제, 행정처분';
+
+if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
+	$metaTitle = $write['wr_2'];
+	$metaDescription = $write['wr_3'];
+	$metaKeyword = $write['wr_4'];
+?>
+
+  <!-- $config['cf_add_meta'] 대체 시작 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="<?php echo (!empty($metaDescription))? $metaDescription : $metaDescriptionConf; ?>">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="<?php echo (!empty($metaTitle))? $metaTitle : $metaTitleConf; ?>">
+  <meta name="twitter:description" content="<?php echo (!empty($metaDescription))? $metaDescription : $metaDescriptionConf; ?>">
+  <meta name="Copyright" content="법무법인 동주 음주운전센터">
+
+  <title><?php echo (!empty($metaTitle))? $metaTitle : $metaTitleConf; ?></title>
+  <link rel="stylesheet" type="text/css" href="/css/template.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/slick.css">
+  <link rel="stylesheet" type="text/css" href="/css/swiper.css">
+  <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y8PRSX800T&amp;cx=c&amp;gtm=45He56b1v897078899za200&amp;tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104617979~104617981~104661466~104661468~104718208~104736445~104736447~104748473~104748475"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NH48DGS"></script><script src="/js/jquery-1.8.3.min.js"></script>
+  <script src="/js/jquery.fullPage.min.js"></script>
+  <script src="/js/slick.js"></script>
+  <script src="/js/swiper.js"></script>
+  <script src="/js/video.js"></script>
+  <script src="/js/jquery.counterup.js"></script>
+
+  <meta name="keywords" content="<?php echo (!empty($metaKeyword))? $metaKeyword : $metaKeywordConf; ?>">
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta property="og:url" content="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<?php echo (!empty($metaTitle))? $metaTitle : $metaTitleConf; ?>">
+  <meta property="og:description" content="<?php echo (!empty($metaDescription))? $metaDescription : $metaDescriptionConf; ?>">
+  <meta property="og:image" content="/images/common/ogimg-brand.png">
+  <!-- $config['cf_add_meta'] 대체 끝 -->
+
+<?php 
+}else{
+?>  
+
+  <!-- $config['cf_add_meta'] 대체 시작 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="<?php echo $metaDescriptionConf; ?>">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="<?php echo $metaTitleConf; ?>">
+  <meta name="twitter:description" content="<?php echo $metaDescriptionConf; ?>">
+  <meta name="Copyright" content="법무법인 동주 음주운전센터">
+
+  <title><?php echo $metaTitleConf; ?></title>
+  <link rel="stylesheet" type="text/css" href="/css/template.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/slick.css">
+  <link rel="stylesheet" type="text/css" href="/css/swiper.css">
+  <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y8PRSX800T&amp;cx=c&amp;gtm=45He56b1v897078899za200&amp;tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104617979~104617981~104661466~104661468~104718208~104736445~104736447~104748473~104748475"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NH48DGS"></script><script src="/js/jquery-1.8.3.min.js"></script>
+  <script src="/js/jquery.fullPage.min.js"></script>
+  <script src="/js/slick.js"></script>
+  <script src="/js/swiper.js"></script>
+  <script src="/js/video.js"></script>
+  <script src="/js/jquery.counterup.js"></script>
+
+  <meta name="keywords" content="<?php echo $metaKeywordConf; ?>">
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta property="og:url" content="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<?php echo $metaTitleConf; ?>">
+  <meta property="og:description" content="<?php echo $metaDescriptionConf; ?>">
+  <meta property="og:image" content="/images/common/ogimg-brand.png">
+  <!-- $config['cf_add_meta'] 대체 끝 -->
+
+<?php 
+}
+// if($config['cf_add_meta']){
+//     echo $config['cf_add_meta'].PHP_EOL;
+// }
 ?>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/images/common/favicon/apple-touch-icon.png">
