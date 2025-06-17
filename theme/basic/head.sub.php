@@ -46,7 +46,7 @@ if (G5_IS_MOBILE) {
 }
 
 $scheme = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http';
-$host = $_SERVER['HTTP_HOST'];
+$host = 'trafficdrinking-law-dongju.com';
 $uri  = $_SERVER['REQUEST_URI']; // ? 포함 전체 경로
 $canonical = $scheme . '://' . $host . $uri;
 $metaTitleConf = $g5_head_title;
