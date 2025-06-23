@@ -102,7 +102,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 							<input type="hidden" id="secret" name="secret" value="secret">
 							<input type="hidden" id="gclid_field" name="gclid_field" value="gclid_field">
 							<ul class="input-wrap">
-								<li><label for="h_tel">연락처</label><input class="sec07_input" type="text" name="h_tel" id="h_tel" placeholder="연락처를 입력하세요." required/></li>
+								<li><label for="h_tel">연락처</label><input class="sec07_input" type="tel" name="h_tel" id="h_tel" placeholder="연락처를 입력하세요." required/></li>
 								<li class="full"><label for="wr_content">내용</label><textarea name="wr_content" id="wr_content" cols="30" rows="10" placeholder="내용을 입력하세요."></textarea></li>
 								<li><input type="checkbox" id="chk" required/><label for="chk">개인정보 수집동의</label><a href="#">자세히보기</a></li>
 							</ul>
@@ -208,7 +208,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 							<input type="hidden" id="secret" name="secret" value="secret">
 							<input type="hidden" id="gclid_field" name="gclid_field" value="gclid_field">
 							<ul class="input-wrap">
-								<li><label for="h_tel">연락처</label><input class="sec07_input" type="text" name="h_tel" id="h_tel" placeholder="연락처를 입력하세요." required/></li>
+								<li><label for="h_tel">연락처</label><input class="sec07_input" type="tel" name="h_tel" id="h_tel" placeholder="연락처를 입력하세요." required/></li>
 								<li>
 									<label for="wr_5">분류</label>
 									<select CLASS="sec07_input" name="wr_5" id="wr_5" placeholder="분류를 입력하세요." required>

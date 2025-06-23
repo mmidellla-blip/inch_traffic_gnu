@@ -212,7 +212,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 							</li>
 							<li>
 								<label for="h_tel">전화번호</label>
-								<input type="text" name="h_tel" id="h_tel" required/>
+								<input type="tel" name="h_tel" id="h_tel" required/>
 							</li>
 						</ul>
 						<div class="submit"><button id='submit_btn'>5분 이내 결과 분석 받기</button></div>
