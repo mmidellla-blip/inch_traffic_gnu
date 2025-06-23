@@ -93,7 +93,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 						<h5>철저한 익명 보장 원칙<br>30분 이내 신속 답변 서비스</h5>
 					</div>
 					<div class="space"></div>
-					<div class="telnum"><div class="telnum_icon"></div>1522-3394</div>
+					<a href="tel:1522-3394"><div class="telnum"><div class="telnum_icon"></div>1522-3394</div></a>
 					<p>남겨 주신 문의 신속히 확인한 후<br>유선으로 안내해 드립니다.</p>
 					<!-- <div class="telnum"><div class="telnum_icon"></div>1522-3394</div> -->
 					<section class="online-form">
