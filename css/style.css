@@ -2544,6 +2544,7 @@ a {
 	vertical-align:top;
 }
 .main-online .online-form .input-wrap input[type="text"] ,
+.main-online .online-form .input-wrap input[type="tel"],
 .main-online .online-form .input-wrap select { 
 	padding:0 20px;
 	height:58px;
