@@ -527,82 +527,32 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 					<!-- 서울 본사무소 -->
 					<div class="map-box on">
 						<a href="http://kko.to/dBj8nGkHz" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
-						<div id="daumRoughmapContainer1656517417699" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-						<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-						<script charset="UTF-8">
-							new daum.roughmap.Lander({
-								"timestamp" : "1656517417699",
-								"key" : "2ashv",
-								"mapWidth" : "1200",
-								"mapHeight" : "580"
-							}).render();
-						</script>
+						<img src="/images/main/main-location/map01.jpg" alt="서울본사무소">
 					</div>
 					<!-- 서울 분사무소 -->
 					<div class="map-box">
 						<a href="http://kko.to/dBj8nGkHz" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
-						<div id="daumRoughmapContainer1725338695304" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-						<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-						<script charset="UTF-8">
-							new daum.roughmap.Lander({
-								"timestamp" : "1725338695304",
-								"key" : "2kiy4",
-								"mapWidth" : "1200",
-								"mapHeight" : "580"
-							}).render();
-						</script>
+						<img src="/images/main/main-location/map02.jpg" alt="서울분사무소">
 					</div>
 					<!-- 수원 사무소 -->
 					<div class="map-box">
 						<a href="http://kko.to/2tQ_xcEhY" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
-						<div id="daumRoughmapContainer1656517629822" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-						<script charset="UTF-8">
-							new daum.roughmap.Lander({
-								"timestamp" : "1656517629822",
-								"key" : "2ashx",
-								"mapWidth" : "1000",
-								"mapHeight" : "580"
-							}).render();
-						</script>
+						<img src="/images/main/main-location/map03.jpg" alt="수원사무소">
 					</div>
 					<!-- 인천 사무소 -->
 					<div class="map-box">
 						<a href="http://kko.to/R_cP-PPp4" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
-						<div id="daumRoughmapContainer1656517597419" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-						<script charset="UTF-8">
-							new daum.roughmap.Lander({
-								"timestamp" : "1656517597419",
-								"key" : "2ashw",
-								"mapWidth" : "1200",
-								"mapHeight" : "580"
-							}).render();
-						</script>
+						<img src="/images/main/main-location/map04.jpg" alt="인천사무소">
 					</div>
 					<!-- 형사연구센터 -->
 					<div class="map-box">
 						<a href="http://kko.to/aOffz8ovvw" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
-						<div id="daumRoughmapContainer1684296519713" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-						<script charset="UTF-8">
-							new daum.roughmap.Lander({
-								"timestamp" : "1684296519713",
-								"key" : "2eteb",
-								"mapWidth" : "1200",
-								"mapHeight" : "580"
-							}).render();
-						</script>
+						<img src="/images/main/main-location/map05.jpg" alt="형사연구센터">
 					</div>
 					<!-- 청소년연구센터 -->
 					<div class="map-box">
 						<a href="http://kko.to/aOffz8ovvw" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
-						<div id="daumRoughmapContainer1737424323144" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-						<script charset="UTF-8">
-							new daum.roughmap.Lander({
-								"timestamp" : "1737424323144",
-								"key" : "2mu5i",
-								"mapWidth" : "1200",
-								"mapHeight" : "580"
-							}).render();
-						</script>
+						<img src="/images/main/main-location/map06.jpg" alt="청소년연구센터">
 					</div>
 				</div>
 				<!-- 사무소 사진 -->

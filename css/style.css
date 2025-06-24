@@ -3886,12 +3886,17 @@ a {
 .main-location .location-map-wrap .map-box.on {
 	height:580px;
 }
+.main-location .location-map-wrap .map-box > img {
+	display:block;
+	width:100%;
+	height:auto;
+}
 .main-location .location-map-wrap .map-box .root_daum_roughmap {
 	width:100% !important;
 }
 .main-location .location-map-wrap .map-box .map-view {
 	position:absolute; top:0; left:0;
-	z-index:22;
+	z-index:22 !important;
 	padding-top:23px;
 	width:108px; height:108px;
 	background:#00296B;
@@ -4038,7 +4043,7 @@ a {
 	}
 
 	.main-location .location-map-wrap .map-box.on {
-		height:380px;
+		height:260px;
 	}
 	.main-location .location-map-wrap .root_daum_roughmap .wrap_map {
 		height:380px !important;
