@@ -528,31 +528,37 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 					<div class="map-box on">
 						<a href="http://kko.to/dBj8nGkHz" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
 						<img src="/images/main/main-location/map01.jpg" alt="서울본사무소">
+						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
 					</div>
 					<!-- 서울 분사무소 -->
 					<div class="map-box">
 						<a href="http://kko.to/dBj8nGkHz" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
 						<img src="/images/main/main-location/map02.jpg" alt="서울분사무소">
+						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
 					</div>
 					<!-- 수원 사무소 -->
 					<div class="map-box">
 						<a href="http://kko.to/2tQ_xcEhY" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
 						<img src="/images/main/main-location/map03.jpg" alt="수원사무소">
+						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
 					</div>
 					<!-- 인천 사무소 -->
 					<div class="map-box">
 						<a href="http://kko.to/R_cP-PPp4" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
 						<img src="/images/main/main-location/map04.jpg" alt="인천사무소">
+						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
 					</div>
 					<!-- 형사연구센터 -->
 					<div class="map-box">
 						<a href="http://kko.to/aOffz8ovvw" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
 						<img src="/images/main/main-location/map05.jpg" alt="형사연구센터">
+						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
 					</div>
 					<!-- 청소년연구센터 -->
 					<div class="map-box">
 						<a href="http://kko.to/aOffz8ovvw" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
 						<img src="/images/main/main-location/map06.jpg" alt="청소년연구센터">
+						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
 					</div>
 				</div>
 				<!-- 사무소 사진 -->
