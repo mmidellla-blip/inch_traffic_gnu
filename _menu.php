@@ -183,7 +183,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<option value="일반 교통범죄">일반 교통범죄</option>
 					</select>
 				</li>
-				<li><label for="h_tel">연락처</label><input class="sec07_input" type="text" name="h_tel" id="h_tel" required <?=__ONLY_NUM?> /></li>
+				<li>
+					<label for="h_tel">연락처</label>
+					<input class="sec07_input" type="tel" name="h_tel" id="h_tel" required pattern="[0-9]*" inputmode="numeric" />
+				</li>
 				<li>
 				<li><input type="checkbox" id="chk" required/><label for="chk">개인정보 수집동의</label><a href="#">자세히보기</a></li>
 			</ul>
