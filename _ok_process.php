@@ -166,9 +166,17 @@ function lmsSend($sHp, $rHp, $msg) {
 include_once(G5_LIB_PATH.'/icode.lms.lib.php'); 
  
 $sHp = "01034888359"; // 발송번호
-$rHp = "01034888359"; // 수신번호
+$phoneNums = "010-3488-8359,010-6452-2103,010-9772-4546"; // 수신번호
+$phoneNums = str_replace("-", "", $phoneNums); // - 제거
 $msg = "[음주진단] ".$wr_name." / ".$wr_1." / ".$wr_6." / ".$wr_7." / ".$wr_3." / ".$wr_4." / ".$wr_5." / ".$wr_8." ";  // 문자 내용    
-lmsSend($sHp,$rHp,$msg);
+
+$phoneNums = array_filter(
+    array_map('trim', explode(',', $phoneNums))
+);
+
+foreach ($phoneNums as $index => $phone) {
+    lmsSend($sHp, $phone, $msg);
+}
 
 /*
 include_once(G5_LIB_PATH.'/icode.sms.lib.php'); 

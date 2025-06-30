@@ -122,21 +122,30 @@ sql_query(" update $write_table set wr_parent = '$wr_id' where wr_id = '$wr_id' 
 
 include_once(G5_LIB_PATH.'/icode.sms.lib.php'); 
 // 문의글 등록시 관리자에게 전송 
-  $send_hp_mb = "010-3488-8359"; // 보내는 전화번호 
-  $recv_hp_mb = "010-3488-8359"; //  받는 전화번호 
-  $send_hp = str_replace("-","",$send_hp_mb); // - 제거 
-  $recv_hp = str_replace("-","",$recv_hp_mb); // - 제거 
-  $send_number =  "$send_hp"; 
-  $recv_number = "$recv_hp"; 
+$send_hp_mb = "010-3488-8359"; // 보내는 전화번호 
+$recv_hp_mb = "010-3488-8359"; //  받는 전화번호 
+$send_hp = str_replace("-","",$send_hp_mb); // - 제거 
+$recv_hp = str_replace("-","",$recv_hp_mb); // - 제거 
+$send_number =  "$send_hp"; 
+$recv_number = "$recv_hp"; 
 
-  $send_number = "01034888359"; 
-  $recv_number = "01034888359"; 
-      $sms_content ="[교통음주] ".$wr_name." / ".$wr_1." / ".$wr_email." 님의 상담신청";  // 문자 내용      
-      $SMS = new SMS; // SMS 연결 
-      
-      $SMS->SMS_con($config['cf_icode_server_ip'], $config['cf_icode_id'], $config['cf_icode_pw'], $config['cf_icode_server_port']); 
-      $SMS->Add($recv_number, $send_number, $config['cf_icode_id'], iconv("utf-8", "euc-kr", stripslashes($sms_content)), ""); 
-      $SMS->Send(); 
+$send_number = "01034888359"; 
+$phoneNums = "010-3488-8359,010-6452-2103,010-9772-4546"; // 수신번호
+$phoneNums = str_replace("-", "", $phoneNums); // - 제거
+$phoneNums = array_filter(
+    array_map('trim', explode(',', $phoneNums))
+);
+
+    
+$sms_content ="[교통음주] ".$wr_name." / ".$wr_1." / ".$wr_email." 님의 상담신청";  // 문자 내용      
+
+foreach ($phoneNums as $index => $phone) {
+    $SMS = new SMS; // SMS 연결 
+
+    $SMS->SMS_con($config['cf_icode_server_ip'], $config['cf_icode_id'], $config['cf_icode_pw'], $config['cf_icode_server_port']); 
+    $SMS->Add($phone, $send_number, $config['cf_icode_id'], iconv("utf-8", "euc-kr", stripslashes($sms_content)), ""); 
+    $SMS->Send(); 
+}
 
 
 //----------------------------------------------------------
