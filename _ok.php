@@ -29,6 +29,18 @@ if (!$is_admin)
 if (!isset($_POST['h_tel']) || !trim($_POST['h_tel'])){
 	 alert('연락처를 입력하여 주십시오.');
 }
+
+$uip = $_SERVER['REMOTE_ADDR'];
+$minutes = date('Y-m-d H:i:s', strtotime('-5 minutes'));
+$sql = "select count(*) as cnt from g5_write_online where wr_datetime >= '$minutes' and (wr_1 = '$wr_1' OR wr_ip = '$uip') ";
+$row = sql_fetch($sql);
+
+if ($row['cnt'] > 1) {
+    // 30분 이내에 이미 신청한 경우
+    alert("5분 이내에 2건 이상 신청한 기록이 있습니다. 나중에 다시 시도해주세요.");
+    exit;
+}
+
 /*
 if (!isset($_POST['h_name']) || !trim($_POST['h_name'])){
 	 alert('이름을 입력하여 주십시오.');
@@ -130,7 +142,7 @@ $send_number =  "$send_hp";
 $recv_number = "$recv_hp"; 
 
 $send_number = "01034888359"; 
-$phoneNums = "010-3488-8359,010-6452-2103,010-9772-4546"; // 수신번호
+$phoneNums = "010-3488-8359"; // 수신번호
 $phoneNums = str_replace("-", "", $phoneNums); // - 제거
 $phoneNums = array_filter(
     array_map('trim', explode(',', $phoneNums))

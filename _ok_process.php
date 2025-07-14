@@ -31,6 +31,16 @@ if( isset($wr_name) && !preg_replace("/[a-zA-Z0-9]/",'', $wr_name) ) die;
 if (!$is_admin)
 	$sql_ip = " , wr_ip = '{$_SERVER['REMOTE_ADDR']}' ";
 
+$uip = $_SERVER['REMOTE_ADDR'];
+$minutes = date('Y-m-d H:i:s', strtotime('-5 minutes'));
+$sql = "select count(*) as cnt from g5_write_selftest where wr_datetime >= '$minutes' and (wr_1 = '$wr_1' OR wr_ip = '$$uip') ";
+$row = sql_fetch($sql);
+
+if ($row['cnt'] > 1) {
+    // 30분 이내에 이미 신청한 경우
+    alert("5분 이내에 2건 이상 신청한 기록이 있습니다. 나중에 다시 시도해주세요.");
+    exit;
+}
 
 if (isset($_SESSION['ss_datetime'])) {
 	if ($_SESSION['ss_datetime'] >= (G5_SERVER_TIME - $config['cf_delay_sec']) && !$is_admin)
@@ -166,7 +176,7 @@ function lmsSend($sHp, $rHp, $msg) {
 include_once(G5_LIB_PATH.'/icode.lms.lib.php'); 
  
 $sHp = "01034888359"; // 발송번호
-$phoneNums = "010-3488-8359,010-6452-2103,010-9772-4546"; // 수신번호
+$phoneNums = "010-3488-8359"; // 수신번호
 $phoneNums = str_replace("-", "", $phoneNums); // - 제거
 $msg = "[음주진단] ".$wr_name." / ".$wr_1." / ".$wr_6." / ".$wr_7." / ".$wr_3." / ".$wr_4." / ".$wr_5." / ".$wr_8." ";  // 문자 내용    
 
