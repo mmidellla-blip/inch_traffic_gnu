@@ -3,8 +3,8 @@
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 if($w==""){
-include_once(G5_LIB_PATH.'/icode.sms.lib.php'); 
-
+// include_once(G5_LIB_PATH.'/icode.sms.lib.php'); 
+include_once(G5_LIB_PATH.'/icode.lms.lib.php'); 
 
 
  // 문의글 등록시 관리자에게 전송 
@@ -17,11 +17,27 @@ include_once(G5_LIB_PATH.'/icode.sms.lib.php');
 
   $send_number = "01034888359"; 
   $recv_number = "01034888359"; 
-  $sms_content ="[교통음주] ".$wr_name." / ".$wr_1." / ".$wr_email." 님의 상담신청";  // 문자 내용           
-  $SMS = new SMS; // SMS 연결 
+  $sms_content ="[교통음주] ".$wr_name." / ".$wr_1." / ".$wr_email." 님의 상담신청\n 상담분야 : ".$wr_5."\n 제목 : ".$wr_subject."\n 내용 : ".$wr_content;  // 문자 내용           
+  $sms_content = str_replace("<br/>", "", $sms_content);
+  $strDest = array(); 
+    $strDest[0] = $recv_number; 
+    $SMS = new LMS; // SMS 연결 
+    $SMS->SMS_con($config['cf_icode_server_ip'], 
+                                $config['cf_icode_id'], 
+                                $config['cf_icode_pw'], 
+                                '1'); 
+    $SMS->Add($strDest, 
+                        $send_number, 
+                        $config['cf_icode_id'],
+                        "",
+                        "", 
+                        iconv("utf-8", "euc-kr", $sms_content), 
+                        "",
+                        "1"); 
+  //   $SMS = new SMS; // SMS 연결 
       
-      $SMS->SMS_con($config['cf_icode_server_ip'], $config['cf_icode_id'], $config['cf_icode_pw'], $config['cf_icode_server_port']); 
-     $SMS->Add($recv_number, $send_number, $config['cf_icode_id'], iconv("utf-8", "euc-kr", stripslashes($sms_content)), ""); 
+//       $SMS->SMS_con($config['cf_icode_server_ip'], $config['cf_icode_id'], $config['cf_icode_pw'], $config['cf_icode_server_port']); 
+//      $SMS->Add($recv_number, $send_number, $config['cf_icode_id'], iconv("utf-8", "euc-kr", stripslashes($sms_content)), ""); 
       $SMS->Send(); 
 }
 
