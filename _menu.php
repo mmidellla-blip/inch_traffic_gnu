@@ -190,6 +190,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<li>
 				<li><input type="checkbox" id="chk" required/><label for="chk">개인정보 수집동의</label><a href="#">자세히보기</a></li>
 			</ul>
+			<section class="footerPop">
+				<h2>개인정보보호를 위한 이용자 동의 사항</h2>
+				<section class="pop-inner">
+					1. 개인정보의 수집 및 이용 목적 : 문의에 대한 답변<br>
+					2. 수집항목 : 연락처, 이메일<br>
+					3. 개인정보의 보유 및 이용기간 :  이용목적이 달성된 때까지 보유합니다.
+				</section>
+				<a href="#" class="pop-close">개인정보수집및이용안내닫기</a>
+			</section>
 		</section>
 		<p class="btn-wrap"><button id='submit_btn'>상담신청</button></p>
 	</form>
@@ -302,6 +311,16 @@ $(function(){
 		$(".business-detail-outer>section").removeClass("on");
 		$(".business-detail-outer>section").eq(tabnum).addClass("on");
 		return false;
+	});
+
+	// 푸터온라인 개인정보동의 모달팝업
+	$(".footer-online .input-wrap li:last-child a").click(function(e){
+		e.preventDefault();
+		$(".footerPop").show();
+		});
+		$(".footerPop .pop-close").click(function(e){
+		e.preventDefault();
+		$(".footerPop").hide();
 	});
 
 	$(".business-faq h1").unbind("click").bind("click",function(e){
