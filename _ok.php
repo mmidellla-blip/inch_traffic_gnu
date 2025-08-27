@@ -1,6 +1,9 @@
 <?php include('_common.php');
 
 $wr_1=$_POST['h_tel'];
+if($wr_1 == '01033323333') {
+    exit;
+}
 $wr_5=$_POST['wr_5'];
 $ca_name=$_POST['h_cate'];
 //$wr_subject=cut_str($_POST['h_name'],1,'**')."님의 메인 빠른 상담 신청";
