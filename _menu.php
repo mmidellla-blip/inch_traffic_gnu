@@ -172,10 +172,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</dl>
 		<section class="footer-online-wrap">
 			<p>신속상담신청</p>
-			<ul class="input-wrap">형사 / 행정 / 민사 / 성범죄 / 기타
-
+			<ul class="input-wrap">
+				<li><input class="sec07_input" type="text" name="h_tel" id="h_tel" placeholder="연락처 입력" required <?=__ONLY_NUM?> /></li>
+				<li><input class="sec07_input" type="text" name="h_place" id="h_place" placeholder="지역 입력" required /></li>
 				<li>
-					<label for="wr_5">상담분야 선택</label>
 					<select CLASS="sec07_input" name="wr_5" id="wr_5">
 						<option>상담분야 선택</option>
 						<option value="음주 행정심판">음주 행정심판</option>
@@ -183,12 +183,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<option value="일반 교통범죄">일반 교통범죄</option>
 					</select>
 				</li>
-				<li>
+				<!-- <li>
 					<label for="h_tel">연락처</label>
 					<input class="sec07_input" type="tel" name="h_tel" id="h_tel" required pattern="[0-9]*" inputmode="numeric" />
-				</li>
-				<li>
-				<li><input type="checkbox" id="chk" required/><label for="chk">개인정보 수집동의</label><a href="#">자세히보기</a></li>
+				</li> -->
+				<li><input type="checkbox" id="chk" required/><label for="chk">개인정보 수집동의</label><a href="#">자세히 보기</a></li>
 			</ul>
 			<section class="footerPop">
 				<h2>개인정보보호를 위한 이용자 동의 사항</h2>
@@ -197,10 +196,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					2. 수집항목 : 연락처, 이메일<br>
 					3. 개인정보의 보유 및 이용기간 :  이용목적이 달성된 때까지 보유합니다.
 				</section>
-				<a href="#" class="pop-close">개인정보수집및이용안내닫기</a>
+				<a href="#" class="pop-close"></a>
 			</section>
+			<p class="btn-wrap"><button id='submit_btn'>상담신청</button></p>
 		</section>
-		<p class="btn-wrap"><button id='submit_btn'>상담신청</button></p>
 	</form>
 </section>
 <!--//!--footer-online -->
