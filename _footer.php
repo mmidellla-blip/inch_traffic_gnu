@@ -18,7 +18,7 @@
 				<p>법무법인 동주</p>
 				<p class="footer-address-telNum"><a href="tel:1522-3394" target="_blank">1522-3394</a><span>번호를 눌러 전화상담을 받아보세요.</span></p>
 				<ul class="footer-address-conts">
-					<li>대표변호사 : 이세환</li>
+					<li>대표변호사 : 이세환<br>광고책임변호사 : 이세진</li>
 					<li>주소 :
 						<ul class="adress-list">
 							<li>서울 사무소 - 서울 서초구 서초중앙로 123 (서초동), 13층 (서초동, 엘렌타워)</li>
