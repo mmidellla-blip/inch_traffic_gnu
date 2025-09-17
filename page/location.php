@@ -21,16 +21,13 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 	<h1 class="sub-conts-title"><span><?php echo $g5['title']; ?></span></h1>
 	<section class="location-wrap">
 		<ul class="location-tab">
-			<li class="on"><a href="#">서울 본사무소</a></li>
-			<li><a href="#">서울 분사무소</a></li>
+			<li class="on"><a href="#">서울사무소</a></li>
 			<li><a href="#">수원사무소</a></li>
 			<li><a href="#">인천사무소</a></li>
-			<li><a href="#">형사연구센터</a></li>
-			<li><a href="#">청소년연구센터</a></li>
 		</ul>
 		<section class="location-detail">
 			
-			<!-- 서울 본사무소 -->
+			<!-- 서울사무소 -->
 			<section class="location-inner on">
 				<section class="location-map">
 					<div id="daumRoughmapContainer1656517417699" class="root_daum_roughmap root_daum_roughmap_landing"></div>
@@ -45,7 +42,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 					</script>
 				</section>
 				<section class="location-address">
-					<h1><span>Location</span>서울 본사무소</h1>
+					<h1><span>Location</span>서울사무소</h1>
 					<section class="location-address-wrap">
 						<p>서울시 서초구 서초중앙로 123, 13층(서초동, 엘렌타워)</p>
 						<dl>
@@ -59,34 +56,6 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 				</section>
 			</section>
 			
-			<!-- 서울 분사무소 -->
-			<section class="location-inner">
-				<section class="location-map">
-					<div id="daumRoughmapContainer1725338695304" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-					<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-					<script charset="UTF-8">
-						new daum.roughmap.Lander({
-							"timestamp" : "1725338695304",
-							"key" : "2kiy4",
-							"mapWidth" : "1200",
-							"mapHeight" : "520"
-						}).render();
-					</script>
-				</section>
-				<section class="location-address">
-					<h1><span>Location</span>서울 분사무소</h1>
-					<section class="location-address-wrap">
-						<p>서울시 서초구 서초중앙로 123, 3층(서초동, 엘렌타워)</p>
-						<dl>
-							<dt>Tel.</dt>
-							<dd>1522-3394</dd>
-							<dt>Fax.</dt>
-							<dd>02-523-7260</dd>
-						</dl>
-					</section>
-					<a href="https://kko.to/dBj8nGkHz" target="_blank">Go to map</a>
-				</section>
-			</section>
 
 			<!-- 수원 -->
 			<section class="location-inner">
@@ -145,63 +114,6 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 				</section>
 			</section>
 
-			<!-- 형사연구센터 -->
-			<section class="location-inner">
-				<section class="location-map">
-					<div id="daumRoughmapContainer1684296519713" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-					<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-					<script charset="UTF-8">
-						new daum.roughmap.Lander({
-							"timestamp" : "1684296519713",
-							"key" : "2eteb",
-							"mapWidth" : "1200",
-							"mapHeight" : "520"
-						}).render();
-					</script>
-				</section>
-				<section class="location-address">
-					<h1><span>Location</span>형사 연구센터</h1>
-					<section class="location-address-wrap">
-						<p>서울 강남구 강남대로66길 8, 8층(카이로스빌딩)</p>
-						<!-- <dl>
-							<dt>Tel.</dt>
-							<dd>1522-3394</dd>
-							<dt>Fax.</dt>
-							<dd>02-523-7260</dd>
-						</dl> --> <!-- 연구센터의 전화번호, 팩스 제거(25.01.21) -->
-					</section>
-					<a href="https://kko.to/aOffz8ovvw" target="_blank">Go to map</a>
-				</section>
-			</section>
-
-			<!-- 청소년년연구센터 -->
-			<section class="location-inner">
-				<section class="location-map">
-					<div id="daumRoughmapContainer1737424323144" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-					<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-					<script charset="UTF-8">
-						new daum.roughmap.Lander({
-							"timestamp" : "1737424323144",
-							"key" : "2mu5i",
-							"mapWidth" : "1200",
-							"mapHeight" : "520"
-						}).render();
-					</script>
-				</section>
-				<section class="location-address">
-					<h1><span>Location</span>청소년 연구센터</h1>
-					<section class="location-address-wrap">
-						<p>서울 강남구 강남대로66길 8, 4층(카이로스빌딩)</p>
-						<!-- <dl>
-							<dt>Tel.</dt>
-							<dd>1522-3394</dd>
-							<dt>Fax.</dt>
-							<dd>02-523-7260</dd>
-						</dl> --> <!-- 연구센터의 전화번호, 팩스 제거(25.01.21) -->
-					</section>
-					<a href="https://kko.to/aOffz8ovvw" target="_blank">Go to map</a>
-				</section>
-			</section>
 
 		</section>
 	</section>

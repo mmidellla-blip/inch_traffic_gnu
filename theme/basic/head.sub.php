@@ -34,6 +34,17 @@ header("Pragma: no-cache"); // HTTP/1.0
 <!doctype html>
 <html lang="ko">
 <head>
+	
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8Q53R3V6W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P8Q53R3V6W');
+</script>
+
 <meta charset="utf-8">
 <?php
 if (G5_IS_MOBILE) {
@@ -90,10 +101,6 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <meta property="og:title" content="<?php echo (!empty($metaTitle))? $metaTitle : $metaTitleConf; ?>">
   <meta property="og:description" content="<?php echo (!empty($metaDescription))? $metaDescription : $metaDescriptionConf; ?>">
   <meta property="og:image" content="/images/common/ogimg-brand.png">
-  <meta property="og:image" content="<?php echo G5_DATA_URL; ?>/carousel/1.jpg">
-  <meta property="og:image" content="<?php echo G5_DATA_URL; ?>/carousel/2.jpg">
-  <meta property="og:image" content="<?php echo G5_DATA_URL; ?>/carousel/3.jpg">
-  <meta property="og:image" content="<?php echo G5_DATA_URL; ?>/carousel/4.jpg">
   <!-- $config['cf_add_meta'] 대체 끝 -->
 
 <?php 
@@ -130,10 +137,6 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <meta property="og:title" content="<?php echo $metaTitleConf; ?>">
   <meta property="og:description" content="<?php echo $metaDescriptionConf; ?>">
   <meta property="og:image" content="/images/common/ogimg-brand.png">
-  <meta property="og:image" content="<?php echo G5_DATA_URL; ?>/carousel/1.jpg">
-  <meta property="og:image" content="<?php echo G5_DATA_URL; ?>/carousel/2.jpg">
-  <meta property="og:image" content="<?php echo G5_DATA_URL; ?>/carousel/3.jpg">
-  <meta property="og:image" content="<?php echo G5_DATA_URL; ?>/carousel/4.jpg">
   <!-- $config['cf_add_meta'] 대체 끝 -->
 
 <?php 
@@ -200,52 +203,6 @@ if(!defined('G5_IS_ADMIN'))
     echo $config['cf_add_script'];
 ?>
 <link rel="canonical" href="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
-<script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "법무법인 동주 음주운전센터",
-            "url": "<?php echo G5_URL; ?>/",
-            "mainEntityOfPage": "<?php echo G5_URL; ?>/"
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-          "@context": "http://schema.org",
-          "@type": "ItemList",
-          "name": "법무법인 동주 변호사 리스트",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "name": "박동진 대표 변호사",
-              "image": "<?php echo G5_DATA_URL; ?>/carousel/1.jpg",
-              "url": "<?php echo G5_URL; ?>/page/lawyer_view.php?me_code=1020&wr_id=32",
-              "position": 1
-            },
-            {
-              "@type": "ListItem",
-              "name": "이세환 대표 변호사",
-              "image": "<?php echo G5_DATA_URL; ?>/carousel/2.jpg",
-              "url": "<?php echo G5_URL; ?>/page/lawyer_view.php?me_code=1020&wr_id=1",
-              "position": 2
-            },
-            {
-              "@type": "ListItem",
-              "name": "조원진 파트너 변호사",
-              "image": "<?php echo G5_DATA_URL; ?>/carousel/3.jpg",
-              "url": "<?php echo G5_URL; ?>/page/lawyer_view.php?me_code=1020&wr_id=2",
-              "position": 3
-            },
-            {
-              "@type": "ListItem",
-              "name": "김윤서 파트너 변호사",
-              "image": "<?php echo G5_DATA_URL; ?>/carousel/4.jpg",
-              "url": "<?php echo G5_URL; ?>/page/lawyer_view.php?me_code=1020&wr_id=5",
-              "position": 4
-            }
-          ]
-        }
-    </script>
 </head>
 <body<?php echo isset($g5['body_script']) ? $g5['body_script'] : ''; ?>>
 <?php

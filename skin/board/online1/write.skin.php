@@ -3,6 +3,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
+include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
 ?>
 
 <style type="text/css" title="">
@@ -49,6 +50,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 									<option value="일반 교통범죄">일반 교통범죄</option>
 							</select>
 
+						</dd>
+					</dl>
+				</div>
+				<div class="split full">
+					<dl>
+						<dt>지역 <span class="required"></span></dt>
+						<dd>
+							<input type="text" name="wr_8" value="<?php echo $wr_8 ?>" id="wr_8" required class="frm_input" placeholder="지역을 입력하세요.">
 						</dd>
 					</dl>
 				</div>
@@ -168,7 +177,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 					<input type="submit" value="작성완료" id="btn_submit" accesskey="s" class="btn_submit btn">
 			        <a href="./board.php?bo_table=<?php echo $bo_table ?>" class="btn_cancel btn">취소</a>
 			    </div>
-				
+				<div class="captcha-wrap">
+					<?php echo captcha_html(); ?>
+				</div>
 			</section>
 		</form>
 	</section>
@@ -280,6 +291,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		
 
         <?php echo $captcha_js; // 캡챠 사용시 자바스크립트에서 입력된 캡챠를 검사함  ?>
+		<?php echo chk_captcha_js(); ?>
 
         document.getElementById("btn_submit").disabled = "disabled";
 
