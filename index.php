@@ -1,6 +1,18 @@
 <?php include('_common.php');?>
 <!DOCTYPE html>
 <html lang="ko">
+<head>
+	
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8Q53R3V6W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P8Q53R3V6W');
+</script>
+
 <meta charset="utf-8">
 <?php
 echo '<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">'.PHP_EOL;
@@ -501,28 +513,16 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 					<h2><span>Contact US</span>오시는 길</h2>
 					<!-- 탭 -->
 					<ul class="main-location-tab">
-						<li class="on"><a href="#">서울 본사무소</a></li>
-						<li><a href="#">서울 분사무소</a></li>
-						<li><a href="#">수원 사무소</a></li>
-						<li><a href="#">인천 사무소</a></li>
-						<li><a href="#">형사연구센터</a></li>
-						<li><a href="#">청소년연구센터</a></li>
+						<li class="on"><a href="#">서울사무소</a></li>
+						<li><a href="#">수원사무소</a></li>
+						<li><a href="#">인천사무소</a></li>
 					</ul>
 					<!-- 사무소 정보 -->
 					<section class="location-address-wrap">
-						<!-- 서울 본사무소 -->
+						<!-- 서울사무소 -->
 						<dl class="on">
 							<dt>주소</dt>
 							<dd>서울 서초구 서초중앙로 123 (서초동), 13층 (서초동, 엘렌타워)</dd>
-							<dt>TEL.</dt>
-							<dd><strong>1522-3394</strong></dd>
-							<dt>FAX.</dt>
-							<dd><span>02-523-7260</span></dd>
-						</dl>
-						<!-- 서울 분사무소 -->
-						<dl>
-							<dt>주소</dt>
-							<dd>서울 서초구 서초중앙로 123 (서초동), 3층 (서초동, 엘렌타워)</dd>
 							<dt>TEL.</dt>
 							<dd><strong>1522-3394</strong></dd>
 							<dt>FAX.</dt>
@@ -546,70 +546,32 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 							<dt>FAX.</dt>
 							<dd><span>032-719-4059</span></dd>
 						</dl>
-						<!-- 형사연구센터 -->
-						<dl>
-							<dt>주소</dt>
-							<dd>서울 강남구 강남대로66길 8, 8층(카이로스빌딩)</dd>
-							<!-- <dt>TEL.</dt>
-							<dd><strong>1522-3394</strong></dd>
-							<dt>FAX.</dt>
-							<dd><span>02-523-7260</span></dd> -->
-							<div></div> <!-- 연구센터의 전화번호, 팩스 제거로 인한 간격 조정(25.01.21) -->
-						</dl>
-						<!-- 청소년연구센터 -->
-						<dl>
-							<dt>주소</dt>
-							<dd>서울 강남구 강남대로66길 8, 4층(카이로스빌딩)</dd>
-							<!-- <dt>TEL.</dt>
-							<dd><strong>1522-3394</strong></dd>
-							<dt>FAX.</dt>
-							<dd><span>02-523-7260</span></dd> -->
-							<div></div> <!-- 연구센터의 전화번호, 팩스 제거로 인한 간격 조정(25.01.21) -->
-						</dl>
 					</section>
 				</div>
 				<!-- 지도 -->
 				<div class="location-map-wrap">
-					<!-- 서울 본사무소 -->
+					<!-- 서울사무소 -->
 					<div class="map-box on">
 						<a href="http://kko.to/dBj8nGkHz" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
-						<img src="/images/main/main-location/map01.jpg" alt="서울본사무소">
+						<img src="/images/main/main-location/map01.jpg" alt="서울사무소">
 						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
 					</div>
-					<!-- 서울 분사무소 -->
-					<div class="map-box">
-						<a href="http://kko.to/dBj8nGkHz" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
-						<img src="/images/main/main-location/map02.jpg" alt="서울분사무소">
-						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
-					</div>
-					<!-- 수원 사무소 -->
+					<!-- 수원사무소 -->
 					<div class="map-box">
 						<a href="http://kko.to/2tQ_xcEhY" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
 						<img src="/images/main/main-location/map03.jpg" alt="수원사무소">
 						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
 					</div>
-					<!-- 인천 사무소 -->
+					<!-- 인천사무소 -->
 					<div class="map-box">
 						<a href="http://kko.to/R_cP-PPp4" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
 						<img src="/images/main/main-location/map04.jpg" alt="인천사무소">
 						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
 					</div>
-					<!-- 형사연구센터 -->
-					<div class="map-box">
-						<a href="http://kko.to/aOffz8ovvw" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
-						<img src="/images/main/main-location/map05.jpg" alt="형사연구센터">
-						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
-					</div>
-					<!-- 청소년연구센터 -->
-					<div class="map-box">
-						<a href="http://kko.to/aOffz8ovvw" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt=""><span>카카오맵 보기</span></a>
-						<img src="/images/main/main-location/map06.jpg" alt="청소년연구센터">
-						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵"></div>
-					</div>
 				</div>
 				<!-- 사무소 사진 -->
 				<div class="lawfirm-interior-wrap">
-					<!-- 서울 본사무소 -->
+					<!-- 서울사무소 -->
 					<div class="lawfirm-interior-box on">
 						<div class="interior-slide"><img src="/images/main/interior1_01.jpg" alt=""></div>
 						<div class="interior-slide"><img src="/images/main/interior1_02.jpg" alt=""></div>
@@ -621,13 +583,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 						<div class="interior-slide"><img src="/images/main/interior1_08.jpg" alt=""></div>
 						<div class="interior-slide"><img src="/images/main/interior1_09.jpg" alt=""></div>
 						<div class="interior-slide"><img src="/images/main/interior1_10.jpg" alt=""></div>
-					</div>
-					<!-- 서울 분사무소 -->
-					<div class="lawfirm-interior-box">
-						<div class="interior-slide"><img src="/images/main/interior5_01.jpg" alt=""></div>
-						<div class="interior-slide"><img src="/images/main/interior5_02.jpg" alt=""></div>
-						<div class="interior-slide"><img src="/images/main/interior5_03.jpg" alt=""></div>
-						<div class="interior-slide"><img src="/images/main/interior5_04.jpg" alt=""></div>
 					</div>
 					<!-- 수원 사무소 -->
 					<div class="lawfirm-interior-box">
@@ -642,18 +597,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 						<div class="interior-slide"><img src="/images/main/interior3_02.jpg" alt=""></div>
 						<div class="interior-slide"><img src="/images/main/interior3_03.jpg" alt=""></div>
 						<div class="interior-slide"><img src="/images/main/interior3_04.jpg" alt=""></div>
-					</div>
-					<!-- 형사연구센터 -->
-					<div class="lawfirm-interior-box">
-						<div class="interior-slide"><img src="/images/main/interior4_01.jpg" alt=""></div>
-						<div class="interior-slide"><img src="/images/main/interior4_02.jpg" alt=""></div>
-						<div class="interior-slide"><img src="/images/main/interior4_03.jpg" alt=""></div>
-						<div class="interior-slide"><img src="/images/main/interior4_04.jpg" alt=""></div>
-					</div>
-					<!-- 청소년연구센터 -->
-					<div class="lawfirm-interior-box">
-						<div class="interior-slide"><img src="/images/main/interior6_01.jpg" alt=""></div>
-						<div class="interior-slide"><img src="/images/main/interior6_02.jpg" alt=""></div>
 					</div>
 				</div>
 				<ul class="hashtag">

@@ -9,6 +9,9 @@ enp('send', 'conversion', 'truemate', { device: 'B', convType: 'etc', productNam
 <?php include('_common.php');
 
 $wr_1=$_POST['h_tel'];
+if($wr_1 == '01033323333') {
+    exit;
+}
 $wr_3=$_POST['wr_3'];
 $wr_4=$_POST['wr_4'];
 $wr_5=$_POST['wr_5'];

@@ -74,6 +74,7 @@ $sql = " insert {$write_table}
                      wr_2 = '접수완료',
                      wr_3 = '{$wr_3}',
                      wr_6 = '{$wr_6}',
+                     wr_8 = '{$wr_place}',
                      wr_5 = '{$wr_5}'
 					 {$sql_ip}
                      {$sql_password}";
@@ -130,9 +131,11 @@ sql_query(" update $write_table set wr_parent = '$wr_id' where wr_id = '$wr_id' 
      // 중복된 메일 주소는 제거
     $unique_email = array_unique($array_email);
     $unique_email = array_values($unique_email);
-    for ($i=0; $i<count($unique_email); $i++) {
-        mailer($wr_name, $unique_email[$i], $unique_email[$i], $wr_subject, $content, 1);
-    }
+    // for ($i=0; $i<count($unique_email); $i++) {
+    //     mailer($wr_name, $unique_email[$i], $unique_email[$i], $wr_subject, $content, 1);
+    // }
+    mailer($wr_name, $config['cf_admin_email'], 'rnaple09@naver.com', $wr_subject, $content, 1);
+    mailer($wr_name, $config['cf_admin_email'], 'godyh2003@naver.com', $wr_subject, $content, 1);
 //}
 
 include_once(G5_LIB_PATH.'/icode.sms.lib.php'); 
@@ -152,7 +155,7 @@ $phoneNums = array_filter(
 );
 
     
-$sms_content ="[교통음주] ".$wr_name." / ".$wr_1." / ".$wr_email." 님의 상담신청";  // 문자 내용      
+$sms_content ="[교통음주] ".$wr_place." / ".$wr_5." / ".$wr_1." / ".$wr_name." / ".$wr_email." 님의 상담신청";  // 문자 내용      
 
 foreach ($phoneNums as $index => $phone) {
     $SMS = new SMS; // SMS 연결 
