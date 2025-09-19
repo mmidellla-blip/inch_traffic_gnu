@@ -85,7 +85,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/slick.css">
   <link rel="stylesheet" type="text/css" href="/css/swiper.css">
-  <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y8PRSX800T&amp;cx=c&amp;gtm=45He56b1v897078899za200&amp;tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104617979~104617981~104661466~104661468~104718208~104736445~104736447~104748473~104748475"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NH48DGS"></script><script src="/js/jquery-1.8.3.min.js"></script>
+  <script src="/js/jquery-1.8.3.min.js"></script>
   <script src="/js/jquery.fullPage.min.js"></script>
   <script src="/js/slick.js"></script>
   <script src="/js/swiper.js"></script>
@@ -121,7 +121,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/slick.css">
   <link rel="stylesheet" type="text/css" href="/css/swiper.css">
-  <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y8PRSX800T&amp;cx=c&amp;gtm=45He56b1v897078899za200&amp;tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104617979~104617981~104661466~104661468~104718208~104736445~104736447~104748473~104748475"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NH48DGS"></script><script src="/js/jquery-1.8.3.min.js"></script>
+  <script src="/js/jquery-1.8.3.min.js"></script>
   <script src="/js/jquery.fullPage.min.js"></script>
   <script src="/js/slick.js"></script>
   <script src="/js/swiper.js"></script>
