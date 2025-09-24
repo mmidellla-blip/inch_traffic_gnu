@@ -6,6 +6,20 @@ enp('send', 'conversion', 'truemate', { device: 'B', convType: 'etc', productNam
 </script>
 <!-- Enliple Tracker End -->
 
+
+
+<script type='text/javascript' src='//wcs.naver.net/wcslog.js'></script>
+<script type='text/javascript'>
+    if(window.wcs){
+    if(!wcs_add) var wcs_add = {};
+    wcs_add['wa'] = 's_59bf2b5a701';
+    var _conv = {};
+    	_conv.type = 'lead';    	
+    wcs.trans(_conv);
+    }
+</script>
+
+
 <?php include('_common.php');
 
 $wr_1=$_POST['h_tel'];
