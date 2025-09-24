@@ -84,9 +84,9 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 	<?php include('_menu.php');?>
 	<section class="quick-menu">
 		<ul>
-			<li><a href="/page/self_test.php?me_code=7010" target="_blank"><img src="/images/common/quick_icon_self.png" alt="">음주진단</a></li>
-			<li><a href="tel:1522-3394" target="_blank"><img src="/images/common/quick_icon01.png" alt="">전화상담</a></li>
-			<li><a href="https://pf.kakao.com/_Rpbxmxb/chat" target="_blank"><img src="/images/common/quick_icon02.png" alt="">카톡상담</a></li>
+			<li><a href="/page/self_test.php?me_code=7010" target="_blank" onMouseDown="javascript:try{NA_Check();}catch(e){}"><img src="/images/common/quick_icon_self.png" alt="">음주진단</a></li>
+			<li><a href="tel:1522-3394" target="_blank" onMouseDown="javascript:try{NA_Call();}catch(e){}"><img src="/images/common/quick_icon01.png" alt="">전화상담</a></li>
+			<li><a href="https://pf.kakao.com/_Rpbxmxb/chat" target="_blank" onMouseDown="javascript:try{NA_Katalk();}catch(e){}"><img src="/images/common/quick_icon02.png" alt="">카톡상담</a></li>
 			<li><a href="/bbs/board.php?bo_table=online&me_code=6010"><img src="/images/common/quick_icon03.png" alt="">온라인 상담</a></li>
 			<li><a href="/page/location.php?me_code=1040"><img src="/images/common/quick_icon04.png" alt="">오시는 길</a></li>
 		</ul>
@@ -105,7 +105,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 						<h5>철저한 익명 보장 원칙<br>30분 이내 신속 답변 서비스</h5>
 					</div>
 					<div class="space"></div>
-					<a href="tel:1522-3394"><div class="telnum"><div class="telnum_icon"></div>1522-3394</div></a>
+					<a href="tel:1522-3394" onMouseDown="javascript:try{NA_Call();}catch(e){}"><div class="telnum"><div class="telnum_icon"></div>1522-3394</div></a>
 					<p>남겨 주신 문의 신속히 확인한 후<br>유선으로 안내해 드립니다.</p>
 					<!-- <div class="telnum"><div class="telnum_icon"></div>1522-3394</div> -->
 					<section class="online-form">
@@ -607,6 +607,45 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 		</section>
 		<!--//main-location -->
 
+		<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+		<script type='text/javascript'>
+		function NA_Call(){
+			if(window.wcs){
+			if(!wcs_add) var wcs_add = {};
+			wcs_add["wa"] = "s_59bf2b5a701";
+			var _conv = {};
+				_conv.type = 'custom001';
+			wcs.trans(_conv);
+			}
+		}
+		</script>
+		
+		<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+		<script type='text/javascript'>
+		function NA_Katalk(){
+			if(window.wcs){
+			if(!wcs_add) var wcs_add = {};
+			wcs_add["wa"] = "s_59bf2b5a701";
+			var _conv = {};
+				_conv.type = 'custom002';
+			wcs.trans(_conv);
+			}
+		}
+		</script>
+		
+		<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+		<script type='text/javascript'>
+		function NA_Check(){
+			if(window.wcs){
+			if(!wcs_add) var wcs_add = {};
+			wcs_add["wa"] = "s_59bf2b5a701";
+			var _conv = {};
+				_conv.type = 'custom003';
+			wcs.trans(_conv);
+			}
+		}
+		</script>
+		
 		<script>
 
 			$(".main-visual-wrap").slick({

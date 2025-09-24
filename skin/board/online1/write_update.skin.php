@@ -1,3 +1,16 @@
+
+<script type='text/javascript' src='//wcs.naver.net/wcslog.js'></script>
+<script type='text/javascript'>
+    if(window.wcs){
+    if(!wcs_add) var wcs_add = {};
+    wcs_add['wa'] = 's_59bf2b5a701';
+    var _conv = {};
+    	_conv.type = 'lead';    	
+    wcs.trans(_conv);
+    }
+</script>
+
+
 <?php 
 
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
@@ -197,6 +210,8 @@ include_once(G5_LIB_PATH.'/icode.sms.lib.php');
 //----------------------------------------------------------
 // SMS 문자전송 끝
 //----------------------------------------------------------
+
+
 
 if($w==""){
 	$_SESSION['LOGGER']="ODR";	//20200518 LOGGER
