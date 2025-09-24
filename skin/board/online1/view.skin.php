@@ -20,7 +20,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 <article id="bo_v" style="width:<?php echo $width; ?>">
    <div class="bo_header">
-        <h2 id="bo_v_title">
+        <span id="bo_v_title">
             <?php if ($category_name) { ?>
             <span class="bo_v_cate">[<?php echo $view['ca_name']; // 분류 출력 끝 ?>]</span> 
             <?php } ?>
@@ -28,18 +28,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <?php
             echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력
             ?></span>
-        </h2>
+        </span>
     </div>
 
     <section id="bo_v_info">
-        <h2>페이지 정보</h2>
+        
         <span class="sound_only">작성자</span> <strong><?php echo $view['wr_name'] ?>(Tel: <?php echo $view['wr_1'] ?>)</strong>
         <strong class="if_date"><span class="sound_only">작성일</span><?php echo date("y-m-d H:i", strtotime($view['wr_datetime'])) ?></strong>
 
     </section>
 
     <section id="bo_w">
-        <h2 id="bo_v_atc_title">본문</h2>
+        <span id="bo_v_atc_title">본문</span>
 
         <!-- 본문 내용 시작 { -->
     	<div class="bo_w_select write_div">

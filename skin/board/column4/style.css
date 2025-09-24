@@ -175,7 +175,7 @@ html.no-overflowscrolling #autosave_pop {height:auto;max-height:10000px !importa
 
 #bo_v_table {position:absolute;top:0;right:16px;margin:0;padding:0 5px;height:25px;background:#565e60;color:#fff;font-weight:bold;line-height:2.2em}
 
-#bo_v_title {padding:25px 20px ; font-weight: 400;font-size:24px; color:#333;}
+#bo_v_title {display: block; padding:25px 20px ; font-weight: 400;font-size:24px; color:#333;}
 #bo_v_title .cate-name {color:#5285cd;}
 
 @media screen and (max-width: 768px) { 

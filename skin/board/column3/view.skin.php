@@ -24,16 +24,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 	<article id="bo_v" style="width:<?php echo $width; ?>">
 		<header>
-			<h1 id="bo_v_title"><!-- 
+			<span id="bo_v_title"><!-- 
 				<span class="cate-name">[<?php if ($category_name) echo $view['ca_name']; // 분류 출력 끝 ?>]</span> -->
 				<?php
 				echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력
 				?>
-			</h1>
+			</span>
 		</header>
 
 		<section id="bo_v_info">
-			<h2>페이지 정보</h2>
+			
 			 <strong><?php echo $view['name'] ?><!-- <?php if ($is_ip_view) { echo "&nbsp;($ip)"; } ?> --></strong>
 			<span class="sound_only">작성일</span><strong><?php echo date("y-m-d", strtotime($view['wr_datetime'])) ?></strong>
 <!-- 			조회<strong><?php echo number_format($view['wr_hit']) ?>회</strong>
@@ -53,7 +53,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		<?php if($cnt) { ?>
 		<!-- 첨부파일 시작 { -->
 		<section id="bo_v_file">
-			<h2>첨부파일</h2>
+			<span>첨부파일</span>
 			<ul>
 			<?php
 			// 가변 파일
@@ -83,7 +83,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		 ?>
 		 <!-- 관련링크 시작 { -->
 		<section id="bo_v_link">
-			<h2>관련링크</h2>
+			<span>관련링크</span>
 			<ul>
 			<?php
 			// 링크
@@ -139,7 +139,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		<!-- } 게시물 상단 버튼 끝 -->
 
 		<section id="bo_v_atc">
-			<h2 id="bo_v_atc_title">본문</h2>
+			<span id="bo_v_atc_title">본문</span>
 
 			<?php
 			// 파일 출력
