@@ -82,7 +82,7 @@ function split_lms_body_chunks(string $bodyUtf8, int $usableBytesPerPart): array
     return $chunks;
 }
 
-function send_lms_multipart_with_icode($recv_number, $send_number, $subject, $body, array $opts = []): bool
+function send_lms_multipart_with_icode($recv_number, $send_number, $subject, $body, array $opts = [], $phone): bool
 {
     global $config;
 
@@ -96,7 +96,7 @@ function send_lms_multipart_with_icode($recv_number, $send_number, $subject, $bo
     if ($useIndexSuffix) {
         $total = count($parts);
         foreach ($parts as $i => &$p) {
-            $tag = " [" . ($i+1) . "/$total]";
+            $tag = " [" . ($i+1) . "/$total] ".$phone;
             // 꼬리표까지 합쳐 2,000바이트 이하가 되도록 뒤에서 줄임
             while (euckr_len($p . $tag) > LMS_BODY_BYTE_LIMIT && $p !== '') {
                 $p = mb_substr($p, 0, mb_strlen($p, 'UTF-8') - 1, 'UTF-8');
@@ -181,7 +181,8 @@ if (!empty($_FILES['bf_file']['name'][2])) {
     $send_number,
     $wr_subject,               // 제목(40바이트 이내 자동 조정)
     $sms_content,             // 긴 본문(UTF-8)
-    ['index_suffix' => true]  // 각 파트 끝에 [1/N] 꼬리표
+    ['index_suffix' => true],  // 각 파트 끝에 [1/N] 꼬리표
+    $wr_1                     
 );
 }
 
