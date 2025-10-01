@@ -322,7 +322,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 					$thumb_width = '350';    //썸네일 넓이
 					$thumb_height = '220';    //썸네일 높이
 
-					$result=sql_query("select ca_name, wr_subject, wr_id, wr_content, wr_datetime, wr_id, wr_10, wr_1 from g5_write_review order by wr_id desc limit 12");
+					$result=sql_query("select ca_name, wr_subject, wr_id, wr_content, wr_datetime, wr_id, wr_10, wr_1 from g5_write_review order by wr_5 desc, wr_id desc limit 12");
 					for ($i=0; $list=sql_fetch_array($result); $i++){
 					?>
 					<div class="main-review-slide">
@@ -376,7 +376,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 					$thumb_width = '380';    //썸네일 넓이
 					$thumb_height = '240';    //썸네일 높이
 
-					$result=sql_query("select ca_name, wr_subject, wr_id, wr_content, wr_datetime, wr_id, wr_10, wr_1 from g5_write_media order by wr_id desc limit 12");
+					$result=sql_query("select ca_name, wr_subject, wr_id, wr_content, wr_datetime, wr_id, wr_10, wr_1 from g5_write_media order by wr_5 desc, wr_id desc limit 12");
 					for ($i=0; $list=sql_fetch_array($result); $i++){
 					?>
 					<div class="main-media-slide">

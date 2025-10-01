@@ -28,7 +28,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		if ($is_notice || $is_html || $is_secret || $is_mail) {
 			$option = '';
 			if ($is_notice) {
-				$option .= "\n".'<input type="checkbox" id="notice" name="notice" value="1" '.$notice_checked.'>'."\n".'<label for="notice">공지</label>';
+				$notiCheck = ($wr_5) ? 'checked' : '';
+				$option .= "\n".'<input type="checkbox" id="notice" name="wr_5" value="1" '.$notiCheck.'>'."\n".'<label for="notice">공지</label>';
 			}
 
 			if ($is_html) {
