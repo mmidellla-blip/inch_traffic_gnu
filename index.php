@@ -113,7 +113,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 										<option>상담분야 선택</option>
 										<option>음주 행정심판</option>
 										<option>음주 형사처벌</option>
-										<option>상담분야 선택</option>
+										<option>일반 교통범죄</option>
 									</select>
 								</li>
 								<li><input type="checkbox" id="chk" required/><label for="chk">개인정보 수집동의</label><a href="#">자세히보기</a></li>
