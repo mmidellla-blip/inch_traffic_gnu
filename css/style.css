@@ -1830,6 +1830,13 @@ a {
 	width: 70px; height: auto; display: inline-block;
 	margin-right: 10px;
 }
+.main-visual .main-box01 .online-form .input-wrap li select {
+	width: 260px; height: 40px;
+	padding-left: 10px;
+	border: 1px solid #0466CB; box-sizing: border-box;
+	font-family: 'SUIT'; font-weight: 400; font-size: 15px; color: #666;
+}
+
 .main-visual .main-box01 .online-form .input-wrap li input {
 	width: 260px; height: 40px;
 	padding: 10px;
@@ -2021,6 +2028,9 @@ a {
 		font-size: 24px;
 		width: 120px;
 	}
+	.main-visual .main-box01 .online-form .input-wrap li select {
+		width: 350px; height: 45px; font-size: 16px;
+	}
 	.main-visual .main-box01 .online-form .input-wrap li input {
 		width: 350px; height: 45px;
 	}
@@ -2168,6 +2178,11 @@ a {
 	.main-visual .main-box01 .online-form .input-wrap li label {
 		font-size: 15px;
 		width: 40px;
+	}
+	.main-visual .main-box01 .online-form .input-wrap li select {
+		width: 180px; height: 28px;
+		padding-left: 6px;
+		font-size: 13px;
 	}
 	.main-visual .main-box01 .online-form .input-wrap li input {
 		width: 180px; height: 28px;
