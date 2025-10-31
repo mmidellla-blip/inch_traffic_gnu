@@ -29,7 +29,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 			$option = '';
 			if ($is_notice) {
 				$notiCheck = ($wr_5) ? 'checked' : '';
-				$option .= "\n".'<input type="checkbox" id="notice" name="wr_5" value="1" '.$notiCheck.'>'."\n".'<label for="notice">공지</label>';
+				$option .= "\n".'<input type="checkbox" id="notice" name="wr_5" value="1" '.$notiCheck.'>'."\n".'<label for="notice">메인노출</label> | ';
+
+				$notiCheck2 = ($wr_6) ? 'checked' : '';
+				$option .= "\n".'<input type="checkbox" id="notice2" name="wr_6" value="1" '.$notiCheck2.'>'."\n".'<label for="notice2">공지</label> | ';
+
+				$option .= "\n".'<label for="notice3">공지 중요도 : </label><input type="number" id="notice3" placeholder="높을수록 우선출력" name="wr_7" value="'.$wr_7.'" >'."\n";
 			}
 
 			if ($is_html) {

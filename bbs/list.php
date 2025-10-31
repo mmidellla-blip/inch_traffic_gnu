@@ -147,9 +147,10 @@ $td_width = (int)(100 / $bo_gallery_cols);
 //if (!$sst || ($sst && !(strstr($sst, 'wr_id') || strstr($sst, "wr_datetime")))) {
 if (!$sst) {
     if ($board['bo_sort_field']) {
-        $sst = $board['bo_sort_field'];
+        // $sst = $board['bo_sort_field'];
+        $sst  = "wr_6 desc, wr_7 desc, wr_num asc, wr_reply";
     } else {
-        $sst  = "wr_num, wr_reply";
+        $sst  = "wr_6 desc, wr_7 desc, wr_num asc, wr_reply";
         $sod = "";
     }
 } else {
@@ -165,7 +166,7 @@ if (!$sst) {
 }
 
 if(!$sst)
-    $sst  = "wr_num, wr_reply";
+    $sst  = "wr_6 desc, wr_7 desc, wr_num asc, wr_reply";
 
 if ($sst) {
     $sql_order = " order by {$sst} {$sod} ";
