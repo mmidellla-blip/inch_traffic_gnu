@@ -107,15 +107,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 							<ul class="input-wrap">
 								<li><label for="h_tel">연락처</label><input class="sec07_input" type="tel" name="h_tel" id="h_tel" placeholder="연락처를 입력하세요." required/></li>
 								<li><label for="h_place">지역</label><input class="sec07_input" type="text" name="h_place" id="h_place" placeholder="지역을 입력하세요." required/></li>
-								<li class="full">
-									<label for="wr_5">분야</label>
-									<select required="required" class="sec07_input" name="wr_5" id="wr_5">
-										<option>상담분야 선택</option>
-										<option value="음주 행정심판">음주 행정심판</option>
-										<option value="음주 형사처벌">음주 형사처벌</option>
-										<option value="일반 교통범죄">일반 교통범죄</option>
-									</select>
-								</li>
 								<li><input type="checkbox" id="chk" required/><label for="chk">개인정보 수집동의</label><a href="#">자세히보기</a></li>
 							</ul>
 							<p class="btn-wrap"><button id='submit_btn'>상담신청</button></p>
