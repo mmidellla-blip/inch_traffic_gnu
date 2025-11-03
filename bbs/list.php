@@ -145,12 +145,16 @@ $td_width = (int)(100 / $bo_gallery_cols);
 // 정렬
 // 인덱스 필드가 아니면 정렬에 사용하지 않음
 //if (!$sst || ($sst && !(strstr($sst, 'wr_id') || strstr($sst, "wr_datetime")))) {
+$textTo = '';
+if($bo_table!='online'){
+    $textTo = 'wr_6 desc, wr_7 desc, ';
+}
 if (!$sst) {
     if ($board['bo_sort_field']) {
         // $sst = $board['bo_sort_field'];
-        $sst  = "wr_6 desc, wr_7 desc, wr_num asc, wr_reply";
+        $sst  = $textTo." wr_num asc, wr_reply";
     } else {
-        $sst  = "wr_6 desc, wr_7 desc, wr_num asc, wr_reply";
+        $sst  = $textTo." wr_num asc, wr_reply";
         $sod = "";
     }
 } else {
@@ -166,7 +170,7 @@ if (!$sst) {
 }
 
 if(!$sst)
-    $sst  = "wr_6 desc, wr_7 desc, wr_num asc, wr_reply";
+    $sst  = $textTo." wr_num asc, wr_reply";
 
 if ($sst) {
     $sql_order = " order by {$sst} {$sod} ";
