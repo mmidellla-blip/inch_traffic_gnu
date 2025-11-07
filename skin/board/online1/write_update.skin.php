@@ -176,6 +176,27 @@ if (!empty($_FILES['bf_file']['name'][2])) {
   $sms_content ="[교통음주] ".$wr_8." / ".$wr_name." / ".$wr_1." / ".$wr_email." 님의 상담신청\n 상담분야 : ".$wr_5."\n 파일첨부 : ".$fileCheck."\n 제목 : ".$wr_subject."\n 내용 : ".$wr_content;  // 문자 내용           
   $sms_content = html_to_text($sms_content);
 
+// JANDI Webhook URL
+$webhook_url = "https://wh.jandi.com/connect-api/webhook/26797910/0dc66ef5a0c8f2ce358362b58556987c";
+
+// 보낼 데이터 구성
+$data = [
+    "body" => $sms_content,
+    "connectColor" => "#00C473"
+];
+
+// JSON으로 변환
+$json_data = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+// CURL로 전송
+$ch = curl_init($webhook_url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+curl_close($ch);
+  
   $ok = send_lms_multipart_with_icode(
     $recv_number,
     $send_number,
