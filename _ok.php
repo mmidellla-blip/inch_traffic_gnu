@@ -98,27 +98,6 @@ $wr_id = sql_insert_id();
 // 부모 아이디에 UPDATE
 sql_query(" update $write_table set wr_parent = '$wr_id' where wr_id = '$wr_id' ");
 
-// JANDI Webhook URL
-$webhook_url = "https://wh.jandi.com/connect-api/webhook/26797910/0dc66ef5a0c8f2ce358362b58556987c";
-
-// 보낼 데이터 구성
-$data = [
-    "body" => $wr_content,
-    "connectColor" => "#00C473"
-];
-
-// JSON으로 변환
-$json_data = json_encode($data, JSON_UNESCAPED_UNICODE);
-
-// CURL로 전송
-$ch = curl_init($webhook_url);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($ch);
-curl_close($ch);
-
 // 메일발송 사용
 //if ($config['cf_email_use'] && $board['bo_use_email']) {
 
@@ -189,6 +168,27 @@ $phoneNums = array_filter(
 
     
 $sms_content ="[교통음주] ".$wr_place." / ".$wr_5." / ".$wr_1." / ".$wr_name." / ".$wr_email." 님의 상담신청";  // 문자 내용      
+
+// JANDI Webhook URL
+$webhook_url = "https://wh.jandi.com/connect-api/webhook/26797910/0dc66ef5a0c8f2ce358362b58556987c";
+
+// 보낼 데이터 구성
+$data = [
+    "body" => $sms_content,
+    "connectColor" => "#00C473"
+];
+
+// JSON으로 변환
+$json_data = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+// CURL로 전송
+$ch = curl_init($webhook_url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+curl_close($ch);
 
 foreach ($phoneNums as $index => $phone) {
     $SMS = new SMS; // SMS 연결 
