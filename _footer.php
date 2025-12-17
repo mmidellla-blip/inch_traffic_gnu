@@ -26,9 +26,14 @@
 							<li>인천 사무소 - 인천시 미추홀구 학익소로 66, 403-404호(학익동, 선정빌딩)</li>
 						</ul>
 					</li>
-					<li>전화번호 : 1522-3394</li>
-					<li>팩스 : 02-523-7260</li>
-					<li>COPYRIGHT &copy; 2022 법무법인 동주 All rights reserved.</li>
+					<li>
+						<div class="info-wrap">
+							<p>전화번호 : 1522-3394</p>
+							<p>팩스 : 02-523-7260</p>
+							<p>사업자등록번호 : 128-88-01756</p>
+							<p>COPYRIGHT &copy; 2022 법무법인 동주 All rights reserved.</p>
+						</div>
+					</li>
 				</ul>
 			</section>
 		</footer>

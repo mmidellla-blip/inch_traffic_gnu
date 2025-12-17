@@ -1435,6 +1435,22 @@ a {
 	width: auto;
 	margin-bottom: 4px;
 }
+#footer .footer-address .footer-address-conts .info-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 20px;
+}
+#footer .footer-address .footer-address-conts .info-wrap p {
+	width: auto;
+	margin: 0;
+    padding: 2px 0;
+
+	font-size: 14px; font-weight: 300; font-style: normal; color: #999;
+}
+#footer .footer-address .footer-address-conts .info-wrap p:nth-child(4) {
+    width: 100%;
+}
 
 @media screen and (max-width: 950px) { 
 	#footer .footer-utils { 
@@ -1508,6 +1524,9 @@ a {
 	}
 	#footer .footer-address .footer-address-conts li .adress-list {
 		padding-left: 8px;
+	}
+	#footer .footer-address .footer-address-conts .info-wrap p:nth-child(4) {
+		margin-bottom: 40px;
 	}
 }
 
@@ -6134,7 +6153,7 @@ a {
 /* -------------------- 업무분야 추가 -------------------- */
 /* 서브페이지 배경 */
 .subPage-wrapper {
-	padding: 50px 0;
+	padding: 80px 0;
 	background: linear-gradient(135deg, #edf1f7 0%, #d8e3f0 100%);
 }
 
@@ -6157,6 +6176,9 @@ a {
         inset 0 1px 0 rgba(255, 255, 255, 0.6);
 
     font-family: 'Pretendard', 'noto sans kr', sans-serif;
+}
+.subPage_sec:last-child {
+	margin-bottom: 0;
 }
 .subPage_sec h1,h2,h3,h4,h5,h6 {
 	font-family: 'Pretendard', 'noto sans kr', sans-serif;
@@ -7112,7 +7134,7 @@ a {
         height: 200px;
     }
     #area_specialized01-05 .link_default {
-        padding: 20px 15px; /* 모바일 내부 패딩도 축소 */
+        padding: 20px 15px;
     }
     #area_specialized01-05 .icon_box {
         width: 50px;
@@ -7124,7 +7146,7 @@ a {
         font-size: 1.2rem;
     }
     #area_specialized01-05 .view_more {
-        font-size: 0.9rem; /* 모바일 크기 조정 */
+        font-size: 0.9rem;
         padding: 6px 15px;
         margin-top: 10px;
     }
