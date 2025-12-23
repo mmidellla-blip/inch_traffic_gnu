@@ -43,7 +43,7 @@ $g5['title'] = $row['wr_subject'];
 	</section>
 	<section class="member-view-header lawyer_view">
 		<div class="txt-wrap">
-			<h1><strong><?=$row['wr_subject'];?> </strong> </h1>
+			<h2><strong><?=$row['wr_subject'];?> </strong> </h2>
 			<ul>
 				<?php if($row['wr_8'] != "") { ?>
 				<!-- <li>대한변호사협회 등록</li> -->
@@ -59,7 +59,7 @@ $g5['title'] = $row['wr_subject'];
 		<div class="member-view-box">
 			
 			<?php if($row['wr_3'] != "") { ?>
-			<h1>학력</h1>
+			<h3>학력</h3>
 			<ul>
 				
 			<?php
@@ -73,7 +73,7 @@ $g5['title'] = $row['wr_subject'];
 			</ul>
 			<?php } ?>
 
-			<h1>경력</h1>
+			<h3>경력</h3>
 			<ul>
 				<?php
 					//경력
@@ -83,7 +83,7 @@ $g5['title'] = $row['wr_subject'];
 				?>
 			</ul>
 			<?php if($row['wr_5'] != "") { ?>
-			<h1>저서 및 연구</h1>
+			<h3>저서 및 연구</h3>
 			<ul>
 							
 			<?php
@@ -98,7 +98,7 @@ $g5['title'] = $row['wr_subject'];
 			<?php } ?>
 			
 			<?php if($row['wr_10'] != "") { ?>
-			<h1>언론 및 강연</h1>
+			<h3>언론 및 강연</h3>
 			<ul>
 				
 			<?php
@@ -114,7 +114,7 @@ $g5['title'] = $row['wr_subject'];
 		
 	
 			<?php if($row['wr_6'] != "") { ?>
-			<h1>인터뷰</h1>
+			<h3>인터뷰</h3>
 			<ul>
 				
 			<?php
@@ -136,7 +136,7 @@ $g5['title'] = $row['wr_subject'];
 		</div>
 		<div class="member-view-case">
 			<div class="member-view-case-wrap">
-				<h1>동주의 성공사례</h1>
+				<h3>동주의 성공사례</h3>
 				<?php
 				include_once('lawyer_view_case.php');
 				?>
