@@ -467,7 +467,7 @@
                         slidesToScroll: 1,
                         centerMode: true,
                         centerPadding: '20px',
-                        autoplay: true,
+                        autoplay: false,
                         autoplaySpeed: 4000,
                     }
                 }

@@ -6153,8 +6153,19 @@ a {
 /* -------------------- 업무분야 추가 -------------------- */
 /* 서브페이지 배경 */
 .subPage-wrapper {
-	padding: 80px 0;
-	background: linear-gradient(135deg, #edf1f7 0%, #d8e3f0 100%);
+	padding: 120px 0;
+	background: linear-gradient(
+	0deg,
+	#c9d6e6 0%,
+	#dfe7f2 3%,
+	#edf1f7 10%,
+	#d8e3f0 100%
+	);
+}
+@media (max-width: 768px) {
+	.subPage-wrapper {
+		padding: 80px 0;
+	}
 }
 
 /* 섹션 공통 */
@@ -6231,6 +6242,9 @@ a {
     text-align: center;
     font-weight: 500;
 }
+.subPage_sec .sec_header p.mo {
+		display: none;
+	}
 .subPage_sec .success_phrase {
     display: flex;
     align-items: center;
@@ -6295,9 +6309,15 @@ a {
 	}
 	.subPage_sec .sec_header p,
 	.subPage_sec .success_phrase {
-		font-size: 1rem;
+		font-size: 1.1rem;
         line-height: 1.5;
-		letter-spacing: -0.8px;
+		letter-spacing: -1px;
+	}
+	.subPage_sec .sec_header p.pc {
+		display: none;
+	}
+	.subPage_sec .sec_header p.mo {
+		display: block;
 	}
 	.subPage_sec .success_phrase {
 		margin-top: 12px;
@@ -6424,8 +6444,9 @@ a {
 		box-shadow: 0 4px 8px rgba(0, 71, 171, 0.3);
 	}
 	#area_specialized01-01 .slider-arrow:hover::before {
-    color: #fff;
-}
+    	color: #fff;
+		background-color: #fff;
+	}
 }
 #area_specialized01-01 .slider-prev {
     right: 46px;
@@ -6436,17 +6457,31 @@ a {
 }
 #area_specialized01-01 .slider-prev::before,
 #area_specialized01-01 .slider-next::before {
-    content: '⯇';
-    font-size: 1.1rem;
-    color: #0047AB;
+    content: '';
+	width: 18px;
+    height: 18px;
+    display: inline-block;
+	background-color: #0047AB;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-	transition: color 0.3s ease;
+	transition: all 0.3s ease;
+
+	-webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+}
+#area_specialized01-01 .slider-prev::before {
+	-webkit-mask-image: url('../images/sub/speMemList/icon-arrow-prev.svg');
+    mask-image: url('../images/sub/speMemList/icon-arrow-prev.svg');
 }
 #area_specialized01-01 .slider-next::before {
-	content: '⯈';
+	-webkit-mask-image: url('../images/sub/speMemList/icon-arrow-next.svg');
+    mask-image: url('../images/sub/speMemList/icon-arrow-next.svg');
 }
 @media (max-width: 1200px) {
     #area_specialized01-01 .slider-prev { right: 46px; left: auto; }
@@ -6480,7 +6515,6 @@ a {
     padding: 0 10px;
     box-sizing: border-box;
 }
-
 #area_specialized01-02 .member_link {
     display: block;
     position: relative;
@@ -6580,40 +6614,51 @@ a {
     line-height: 0;
     transition: background-color 0.3s, border-color 0.3s;
 }
-#area_specialized01-02 .slider-arrow:hover {
-    background-color: #0047AB;
-    border-color: #0047AB;
-}
-#area_specialized01-02 .slider-arrow:hover::before {
-    color: #fff;
+@media (hover: hover) {
+	#area_specialized01-02 .slider-arrow:hover {
+		background-color: #0047AB;
+		border-color: #0047AB;
+	}
+	#area_specialized01-02 .slider-arrow:hover::before {
+		color: #fff;
+		background-color: #fff;
+	}
 }
 #area_specialized01-02 .slider-prev {
     right: 46px; 
     left: auto;
 }
-#area_specialized01-02 .slider-prev::before {
-    content: '⯇';
-    font-size: 1.1rem;
-    color: #0047AB;
+#area_specialized01-02 .slider-prev::before,
+#area_specialized01-02 .slider-next::before {
+    content: '';
+	width: 18px;
+    height: 18px;
+    display: inline-block;
+	background-color: #0047AB;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: color 0.3s;
+	transition: all 0.3s ease;
+
+	-webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+}
+#area_specialized01-02 .slider-prev::before {
+	-webkit-mask-image: url('../images/sub/speMemList/icon-arrow-prev.svg');
+    mask-image: url('../images/sub/speMemList/icon-arrow-prev.svg');
+}
+#area_specialized01-02 .slider-next::before {
+	-webkit-mask-image: url('../images/sub/speMemList/icon-arrow-next.svg');
+    mask-image: url('../images/sub/speMemList/icon-arrow-next.svg');
 }
 #area_specialized01-02 .slider-next {
     right: 0;
     left: auto;
-}
-#area_specialized01-02 .slider-next::before {
-    content: '⯈';
-    font-size: 1.1rem;
-    color: #0047AB;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: color 0.3s;
 }
 @media (max-width: 768px) {
     #area_specialized01-02 .slider-arrow {
@@ -6726,6 +6771,9 @@ a {
     object-fit: cover;
     transition: transform 0.5s ease;
 }
+#area_specialized01-03 .img_box img.mo {
+    display: none;
+}
 @media (hover:hover) {
 	#area_specialized01-03 .special_point_item:hover .img_box img {
 		transform: scale(1.03);
@@ -6774,6 +6822,12 @@ a {
         height: 250px;
         margin: 0;
     }
+	#area_specialized01-03 .img_box img.pc {
+		display: none;
+	}
+	#area_specialized01-03 .img_box img.mo {
+		display: block;
+	}
     #area_specialized01-03 .point_tit {
         font-size: 1.3rem;
     }
@@ -6857,6 +6911,38 @@ a {
     word-break: keep-all;
     line-height: 1.6;
 }
+#area_specialized01-04 .tel-link {
+	display: inline-flex;           /* 아이콘 + 텍스트 + 화살표를 한 줄에 */
+    align-items: center;
+	gap: 10px;
+	
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #ffffff;
+	line-height: 1;
+    background-color: #0047AB;      /* 버튼 배경색 */
+    padding: 6px 14px;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.2s; /* 호버 애니메이션 */
+}
+#area_specialized01-04 .tel-link::before {
+    content: "☎";            /* 화살표 문자 */
+    font-size: 1.2em;
+}
+#area_specialized01-04 .tel-link::after {
+    content: "→";                  /* 오른쪽 화살표 */
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+@media (hover: hover) {
+	#area_specialized01-04 .tel-link:hover {
+		background-color: #002F7F;      /* 호버 시 색 변화 */
+    transform: translateY(-2px); /* 살짝 떠오르는 효과 */
+	}
+	#area_specialized01-04 .tel-link:hover::after {
+		transform: translateX(5px);
+	}
+}
 #area_specialized01-04 .area_tags {
     display: flex;
     flex-wrap: wrap;
@@ -6864,7 +6950,7 @@ a {
     margin-top: 10px;
 }
 #area_specialized01-04 .area_tags span {
-    background-color: #F5F5F5;
+    background-color: #F0F0F0;
     color: #666;
     padding: 4px 10px;
     border-radius: 15px;
@@ -7034,10 +7120,15 @@ a {
     transition: opacity 0.4s ease, transform 0.4s ease; 
     /* background-color: #fff; */
 }
+#area_specialized01-05 .link_header {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	margin-bottom: 20px;
+}
 #area_specialized01-05 .icon_box {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 25px;
+    width: 65px;
+    height: 65px;
     
     background-color: #EDF4FF;
     border-radius: 50%;
@@ -7045,6 +7136,8 @@ a {
     align-items: center;
     justify-content: center;
     padding: 10px;
+
+	transition: all 0.3s ease;
 }
 #area_specialized01-05 .icon_box img {
     width: 100%;
@@ -7052,11 +7145,10 @@ a {
     object-fit: contain;
 }
 #area_specialized01-05 .link_tit {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #0047AB;
-    margin: 0 0 10px 0;
-	transition: color 0.3s ease;
+	transition: all 0.3s ease;
 }
 #area_specialized01-05 .link_desc {
     font-size: 1rem;
@@ -7064,7 +7156,7 @@ a {
     text-align: center;
     line-height: 1.5;
     margin: 0;
-	transition: color 0.3s ease;
+	transition: all 0.3s ease;
 }
 #area_specialized01-05 .link_hover_bg {
     position: absolute;
@@ -7112,9 +7204,13 @@ a {
 	/* #area_specialized01-05 .link_item:hover .link_default {
 		opacity: 0;
 	} */
+	 #area_specialized01-05 .link_item:hover .icon_box {
+		background-color: rgba(255, 255, 255, 0.8);
+	 }
 	#area_specialized01-05 .link_item:hover .link_tit, 
 	#area_specialized01-05 .link_item:hover .link_desc {
 		color: #fff;
+		text-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
 	}
 	#area_specialized01-05 .link_item:hover .view_more {
 		color: #fff;
@@ -7139,7 +7235,6 @@ a {
     #area_specialized01-05 .icon_box {
         width: 50px;
         height: 50px;
-        margin-bottom: 15px;
 		padding: 8px;
     }
     #area_specialized01-05 .link_tit {

@@ -66,6 +66,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
         $('.js-case-slider').slick({
             slidesToShow: 4, 
             slidesToScroll: 1, 
+            infinite: true,
             
             prevArrow: '<button type="button" class="slider-arrow slider-prev"></button>',
             nextArrow: '<button type="button" class="slider-arrow slider-next"></button>',
@@ -86,6 +87,9 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
                         centerPadding: '20px',
                         autoplay: true,
                         autoplaySpeed: 4000,
+                        pauseOnFocus: false, 
+                        pauseOnHover: false,
+                        pauseOnDotsHover: false
                     }
                 }
             ]

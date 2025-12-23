@@ -10,7 +10,7 @@ if(!$is_admin && $group['gr_device'] == 'mobile')
     alert($group['gr_subject'].' 그룹은 모바일에서만 접근할 수 있습니다.');
 
 $g5['title'] = "음주운전 사건특화";
-$gr_id ='business';
+$gr_id ='empty';
 include_once('../_header.php');
 include_once(G5_LIB_PATH.'/latest.lib.php');
 ?>
@@ -70,7 +70,8 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
                     </ul>
                 </div>
                 <div class="img_box">
-                    <img src="../images/sub/areas/point01.jpg" alt="차별점 형사처벌방어">
+                    <img src="../images/sub/areas/point01.jpg" alt="차별점 형사처벌방어" class="pc">
+                    <img src="../images/sub/areas/point01-mo.jpg" alt="차별점 형사처벌방어" class="mo">
                 </div>
             </div>
 
@@ -88,7 +89,8 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
                     </ul>
                 </div>
                 <div class="img_box">
-                    <img src="../images/sub/areas/point03.jpg" alt="차별점 면허취소구제">
+                    <img src="../images/sub/areas/point02.jpg" alt="차별점 면허취소구제" class="pc">
+                    <img src="../images/sub/areas/point02-mo.jpg" alt="차별점 면허취소구제" class="mo">
                 </div>
             </div>
 
@@ -106,7 +108,8 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
                     </ul>
                 </div>
                 <div class="img_box">
-                    <img src="../images/sub/areas/point02.jpg" alt="차별점 음주운전재판">
+                    <img src="../images/sub/areas/point03.jpg" alt="차별점 음주운전재판" class="pc">
+                    <img src="../images/sub/areas/point03-mo.jpg" alt="차별점 음주운전재판" class="mo">
                 </div>
             </div>
         </div>
@@ -117,8 +120,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
         <div class="sec_header">
             <h2 class="header_title pc">음주운전전문변호사 법률상담 추천</h2>
             <h2 class="header_title mo">음주운전전문변호사<br>법률상담 추천</h2>
-            <p>
+            <p class="pc">
                 “선임료 수임료 비용 걱정 때문에 망설이고 계시나요?”<br>
+                여러분과 가까운 동주를 찾아주세요.
+            </p>
+            <p class="mo">
+                “선임료 수임료 비용 걱정 때문에<br>망설이고 계시나요?”<br>
                 여러분과 가까운 동주를 찾아주세요.
             </p>
         </div>
@@ -131,17 +138,17 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
                     <h4 class="office_name">법무법인 동주 서울 사무소</h4>
                     <ul class="info_list">
                         <li class="info_row">
+                            <span class="icon_box"><img src="../images/sub/areas/office-icon02.png" alt="사무소 전화번호"></span>
+                            <div class="txt_group">
+                                <strong>전화번호</strong>
+                                <a href="tel:1522-3394" class="tel-link">1522-3394</a>
+                            </div>
+                        </li>
+                        <li class="info_row">
                             <span class="icon_box"><img src="../images/sub/areas/office-icon01.png" alt="사무소 주소"></span>
                             <div class="txt_group">
                                 <strong>주소</strong>
                                 <p>서울 서초구 서초중앙로 123 엘렌타워 13층</p>
-                            </div>
-                        </li>
-                        <li class="info_row">
-                            <span class="icon_box"><img src="../images/sub/areas/office-icon02.png" alt="사무소 전화번호"></span>
-                            <div class="txt_group">
-                                <strong>전화번호</strong>
-                                <p>1522-3394</p>
                             </div>
                         </li>
                         <li class="info_row">
@@ -202,17 +209,17 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
                     <h4 class="office_name">법무법인 동주 수원 사무소</h4>
                     <ul class="info_list">
                         <li class="info_row">
+                            <span class="icon_box"><img src="../images/sub/areas/office-icon02.png" alt="사무소 전화번호"></span>
+                            <div class="txt_group">
+                                <strong>전화번호</strong>
+                                <a href="tel:1522-3394" class="tel-link">1522-3394</a>
+                            </div>
+                        </li>
+                        <li class="info_row">
                             <span class="icon_box"><img src="../images/sub/areas/office-icon01.png" alt="사무소 주소"></span>
                             <div class="txt_group">
                                 <strong>주소</strong>
                                 <p>경기 수원시 영통구 광교중앙로248번길 7-2 원희캐슬광교 B동 902호, 903호</p>
-                            </div>
-                        </li>
-                        <li class="info_row">
-                            <span class="icon_box"><img src="../images/sub/areas/office-icon02.png" alt="사무소 전화번호"></span>
-                            <div class="txt_group">
-                                <strong>전화번호</strong>
-                                <p>1522-3394</p>
                             </div>
                         </li>
                         <li class="info_row">
@@ -271,17 +278,17 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
                     <h4 class="office_name">법무법인 동주 인천 사무소</h4>
                     <ul class="info_list">
                         <li class="info_row">
+                            <span class="icon_box"><img src="../images/sub/areas/office-icon02.png" alt="사무소 전화번호"></span>
+                            <div class="txt_group">
+                                <strong>전화번호</strong>
+                                <a href="tel:1522-3394" class="tel-link">1522-3394</a>
+                            </div>
+                        </li>
+                        <li class="info_row">
                             <span class="icon_box"><img src="../images/sub/areas/office-icon01.png" alt="사무소 주소"></span>
                             <div class="txt_group">
                                 <strong>주소</strong>
                                 <p>인천 미추홀구 학익소로 66 선정빌딩 403호, 404호</p>
-                            </div>
-                        </li>
-                        <li class="info_row">
-                            <span class="icon_box"><img src="../images/sub/areas/office-icon02.png" alt="사무소 전화번호"></span>
-                            <div class="txt_group">
-                                <strong>전화번호</strong>
-                                <p>1522-3394</p>
                             </div>
                         </li>
                         <li class="info_row">
@@ -357,10 +364,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
                 <div class="link_hover_bg" style="background-image: url('../images/sub/areas/link-hover01.jpg');"></div>
                 
                 <div class="link_default">
-                    <div class="icon_box">
-                        <img src="../images/sub/areas/link-icon01.png" alt="링크 고객후기 아이콘">
+                    <div class="link_header">
+                        <div class="icon_box">
+                            <img src="../images/sub/areas/link-icon01.png" alt="링크 고객후기 아이콘">
+                        </div>
+                        <h3 class="link_tit">고객후기</h3>
                     </div>
-                    <h3 class="link_tit">고객후기</h3>
                     <p class="link_desc">고객들의 높은 만족도 입증 후기</p>
                     <span class="view_more">후기가 궁금하면 CLICK ➜</span>
                 </div>
@@ -370,10 +379,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
             <a href="/bbs/board.php?bo_table=media&me" class="link_item">
                 <div class="link_hover_bg" style="background-image: url('../images/sub/areas/link-hover02.jpg');"></div>
                 <div class="link_default">
-                    <div class="icon_box">
-                        <img src="../images/sub/areas/link-icon02.png" alt="링크 언론보도 아이콘">
+                    <div class="link_header">
+                        <div class="icon_box">
+                            <img src="../images/sub/areas/link-icon02.png" alt="링크 언론보도 아이콘">
+                        </div>
+                        <h3 class="link_tit">언론보도</h3>
                     </div>
-                    <h3 class="link_tit">언론보도</h3>
                     <p class="link_desc">다양한 언론사로부터 인정</p>
                     <span class="view_more">보도자료 궁금하면 CLICK ➜</span>
                 </div>
@@ -383,10 +394,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
             <a href="tel:1522-3394" class="link_item">
                 <div class="link_hover_bg" style="background-image: url('../images/sub/areas/link-hover03.jpg');"></div>
                 <div class="link_default">
-                    <div class="icon_box">
-                        <img src="../images/sub/areas/link-icon03.png" alt="링크 전화상담 아이콘">
+                    <div class="link_header">
+                        <div class="icon_box">
+                            <img src="../images/sub/areas/link-icon03.png" alt="링크 전화상담 아이콘">
+                        </div>
+                        <h3 class="link_tit">전화상담</h3>                                     
                     </div>
-                    <h3 class="link_tit">전화상담</h3>
                     <p class="link_desc">상황 분석 기반의 정확한 상담</p>
                     <span class="view_more">전문가와 상담은 CLICK ➜</span>
                 </div>
@@ -396,10 +409,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
             <a href="https://trafficdrinking-law-dongju.com/page/self_test.php" class="link_item">
                 <div class="link_hover_bg" style="background-image: url('../images/sub/areas/link-hover04.jpg');"></div>
                 <div class="link_default">
-                    <div class="icon_box">
-                        <img src="../images/sub/areas/link-icon04.png" alt="링크 자가진단 아이콘">
+                    <div class="link_header">
+                        <div class="icon_box">
+                            <img src="../images/sub/areas/link-icon04.png" alt="링크 자가진단 아이콘">
+                        </div>
+                        <h3 class="link_tit">자가진단</h3>
                     </div>
-                    <h3 class="link_tit">자가진단</h3>
                     <p class="link_desc">20초 이내로 끝나는 자가진단</p>
                     <span class="view_more">내 상황에 맞는 솔루션 CLICK ➜</span>
                 </div>
