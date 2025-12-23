@@ -28,7 +28,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 <script src="/js/jquery.fullPage.min.js"></script>
 <script src="/js/slick.js"></script>
 <script src="/js/swiper.js"></script>
-<script src="/js/jquery.counterup.js"></script>
+<!-- <script src="/js/jquery.counterup.js"></script> -->
 <script src="/js/main-case.js"></script>
 
 <!-- 우클릭&드래그 금지 -->
@@ -802,32 +802,32 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 			}
 		});
 			
-		function numberCounter(target_frame, target_number) {
-			this.count = 0; this.diff = 0;
-			this.target_count = parseInt(target_number);
-			this.target_frame = document.getElementById(target_frame);
-			this.timer = null;
-			this.counter();
-		};
-		numberCounter.prototype.counter = function() {
-			var self = this;
-			this.diff = this.target_count - this.count;
+		// function numberCounter(target_frame, target_number) {
+		// 	this.count = 0; this.diff = 0;
+		// 	this.target_count = parseInt(target_number);
+		// 	this.target_frame = document.getElementById(target_frame);
+		// 	this.timer = null;
+		// 	this.counter();
+		// };
+		// numberCounter.prototype.counter = function() {
+		// 	var self = this;
+		// 	this.diff = this.target_count - this.count;
 			 
-			if(this.diff > 0) {
-				self.count += Math.ceil(this.diff / 50);
-			}
+		// 	if(this.diff > 0) {
+		// 		self.count += Math.ceil(this.diff / 50);
+		// 	}
 			 
-			this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		// 	this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			 
-			if(this.count < this.target_count) {
-				this.timer = setTimeout(function() { self.counter(); }, 15);
-			} else {
-				clearTimeout(this.timer);
-			}
-		};
+		// 	if(this.count < this.target_count) {
+		// 		this.timer = setTimeout(function() { self.counter(); }, 15);
+		// 	} else {
+		// 		clearTimeout(this.timer);
+		// 	}
+		// };
 
-		new numberCounter("counter1", 1071);
-		new numberCounter("counter2", 80);
+		// new numberCounter("counter1", 1071);
+		// new numberCounter("counter2", 80);
 
 		//비디오 팝업
 		function onVideoLayer(youtubeCODE) { //실행

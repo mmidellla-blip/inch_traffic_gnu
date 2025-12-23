@@ -80,7 +80,6 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <script src="/js/slick.js"></script>
   <script src="/js/swiper.js"></script>
   <script src="/js/video.js"></script>
-  <script src="/js/jquery.counterup.js"></script>
 
   <meta name="keywords" content="<?php echo (!empty($metaKeyword))? $metaKeyword : $metaKeywordConf; ?>">
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
@@ -116,7 +115,6 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <script src="/js/slick.js"></script>
   <script src="/js/swiper.js"></script>
   <script src="/js/video.js"></script>
-  <script src="/js/jquery.counterup.js"></script>
 
   <meta name="keywords" content="<?php echo $metaKeywordConf; ?>">
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
