@@ -122,15 +122,15 @@ a {text-decoration:none}
 /* // 요일별 모달 팝업 */
 
 /* 게시판용 버튼 */
-a.btn_b01,.btn_b01 {display:inline-block;font-weight: 400;font-size:14px;line-height:35px;min-width:100px;height:35px;padding:0 10px;text-align:center;background:#27282b;color:#fff;text-decoration:none;vertical-align:middle}
+a.btn_b01,.btn_b01 {display:inline-block;font-size:14px;line-height:35px;min-width:100px;height:35px;padding:0 10px;text-align:center;background:#27282b;color:#fff;text-decoration:none;vertical-align:middle}
 .btn_b01:hover, .btn_b01:hover {background:#333; }
-a.btn_b02,.btn_b02 {display:inline-block;font-weight: 400;font-size:14px;line-height:35px;min-width:100px;height:35px;padding:0 10px;text-align:center;background:#0d3776;padding:0 10px;color:#fff;text-decoration:none;border:0;vertical-align:middle;}
+a.btn_b02,.btn_b02 {display:inline-block;font-size:14px;line-height:35px;min-width:100px;height:35px;padding:0 10px;text-align:center;background:#0d3776;padding:0 10px;color:#fff;text-decoration:none;border:0;vertical-align:middle;}
 a.btn_b02:hover, .btn_b02:hover {background:#4a5460}
 a.btn_b03, .btn_b03 {display:inline-block;font-size:14px;line-height:35px;min-width:100px;height:35px;padding:0 10px;text-align:center;background:#fff;border:1px solid #b9bdd3;color:#646982;text-decoration:none;vertical-align:middle}
 a.btn_b03:hover, .btn_b03:hover {background:#ebedf6}
 a.btn_b04, .btn_b04 {display:inline-block;font-size:14px;line-height:35px;min-width:100px;height:35px;padding:0 10px;text-align:center;background:#fff;border:1px solid #ccc;color:#707070;text-decoration:none;vertical-align:middle}
 a.btn_b04:hover, .btn_b04:hover {color:#333;background:#f9f9f9}
-a.btn_admin,.btn_admin {display:inline-block;font-weight: 400;font-size:14px;line-height:35px;min-width:100px;height:35px;padding:0 10px;text-align:center;background:#27282b;color:#fff;text-decoration:none;vertical-align:middle} /* 관리자 전용 버튼 */
+a.btn_admin,.btn_admin {display:inline-block;font-size:14px;line-height:35px;min-width:100px;height:35px;padding:0 10px;text-align:center;background:#27282b;color:#fff;text-decoration:none;vertical-align:middle} /* 관리자 전용 버튼 */
 .btn_admin:hover, a.btn_admin:hover {background:#27282b}
 
 .btn_bo_adm {float:left}
@@ -167,7 +167,7 @@ a.btn_admin,.btn_admin {display:inline-block;font-weight: 400;font-size:14px;lin
 	position:relative; 
 	display:block; 
 	padding:0 25px; 
-	font-weight:300; font-size:18px; 
+	font-size:18px; 
 	color:#333;
 }
 #bo_cate ul li a:before { 
@@ -542,7 +542,7 @@ a {
 .hader-inner .gnb .gnb-1depth-li >a { 
 	position:relative;
 	display:block;
-	font-weight: 400;
+	
 	font-size:18px; line-height:99px;
 	color:#fff;
 }
@@ -721,7 +721,7 @@ a {
 		position:relative;
 		display:block;
 		border-bottom:1px solid #e0e0e0;
-		font-weight:400;
+		
 		font-size:20px; line-height: 60px;
 		color:#262626 !important;
 	}
@@ -740,7 +740,7 @@ a {
 	}
 	#header .gnb-2depth-a { 
 		display:block;
-		font-weight:300;
+		
 		padding:0 20px;
 		font-size:16px; line-height: 40px;
 		color:#808080;
@@ -855,7 +855,7 @@ a {
 	display:block;
 	border-radius:26px;
 	background:#0b132f;
-	font-weight:300; font-size:16px; line-height:51px;
+	font-size:16px; line-height:51px;
 	color:#fff;
 	letter-spacing:-1px;
 	text-align:center;
@@ -931,7 +931,7 @@ a {
 }
 #footer .footer-utils li a { 
 	display:block;
-	font-weight:300; font-size:15px; text-align: center;
+	font-size:15px; text-align: center;
 	color:#ccc;
 }
 #footer .footer-address { 
@@ -1237,7 +1237,7 @@ a {
 #menu ul li a {	
 	position:relative;
 	display:block;
-	font-weight:300; font-size:14px; line-height:40px;
+	font-size:14px; line-height:40px;
 	color:rgba(51,51,51,.5);
 }
 #menu ul li a:before { 
@@ -1851,7 +1851,7 @@ a {
 .main-conts-tit-wrap h2 span { 
 	display:block;
 	margin-bottom:5px;
-	font-weight:400; font-size:18px;
+	 font-size:18px;
 }
 .main-conts-tit-wrap h2 em { 
 	position:relative; z-index:11;
@@ -1888,7 +1888,7 @@ a {
 .main-conts-tit-wrap .lawyer-tit span { 
 	display:block;
 	margin-bottom:5px;
-	font-weight:400; font-size:18px;
+	 font-size:18px;
 }
 .main-conts-tit-wrap .lawyer-tit em { 
 	position:relative; z-index:11;
@@ -1916,7 +1916,7 @@ a {
 .main-conts-tit-wrap .success-tit span { 
 	display:block;
 	margin-bottom:5px;
-	font-weight:400; font-size:18px;
+	 font-size:18px;
 }
 .main-conts-tit-wrap .success-tit em { 
 	position:relative; z-index:11;
@@ -2031,7 +2031,7 @@ a {
 	display:table-cell;
 	padding:40px;
 	background:#06182a;
-	font-weight:400; font-size:26px;
+	 font-size:26px;
 	font-family:'Montserrat', 'Noto Sans KR', sans-serif;
 	color:#fff;
 	vertical-align:middle;
@@ -2074,7 +2074,7 @@ a {
 }
 .main-online .main-conts-tit-wrap dl dt { 
 	display:block;
-	font-weight:300; font-size:28px;
+	font-size:28px;
 	font-family:'Montserrat', 'Noto Sans KR', sans-serif; 
 	color:#06182a;
 }
@@ -2089,7 +2089,7 @@ a {
 	margin-top:15px; padding:0 35px;
 	border-radius:20px;
 	border:1px solid #c2c2c2;
-	font-weight:300; font-size:22px; line-height:38px;
+	font-size:22px; line-height:38px;
 	color:#666;
 }
 
@@ -2123,14 +2123,14 @@ a {
 	padding:0 20px;
 	height:58px;
 	border:1px solid #e0e0e0;
-	font-weight:400; font-size:16px;
+	 font-size:16px;
 	color:#666;
 }
 .main-online .online-form .input-wrap textarea { 
 	padding:15px 20px;
 	height:160px;
 	border:1px solid #e0e0e0;
-	font-weight:400; font-size:16px;
+	 font-size:16px;
 	font-family:'Noto Sans KR', sans-serif;
 	color:#666;
 }
@@ -2187,7 +2187,7 @@ a {
 .main-online .main-online-list > ul > li li { 
 	display:inline-block;
 	width:calc(50% - 98px);
-	font-weight:400; font-size:18px; line-height:40px;
+	 font-size:18px; line-height:40px;
 	font-family:'Montserrat', 'Noto Sans KR', sans-serif;
 	color:#1a1a1a;
 	vertical-align:top;
@@ -2435,7 +2435,7 @@ a {
 .main-youtube .youtube-box .text p {
 	padding-top:30px;
 	font-size:20px;
-	font-weight:300;
+	
 	line-height:30px;
 	letter-spacing:-0.04rem;
 	opacity:.7;
@@ -2450,7 +2450,7 @@ a {
 	color:#fff;
 	border:1px solid rgba(255,255,255,.2);
 	font-size:15px;
-	font-weight:300;
+	
 	text-align:center;
 }
 .main-youtube .youtube-box .text .btn-wrap a span {
@@ -2546,14 +2546,14 @@ a {
 	border-top:0 none;
 }
 .main-review-list .main-review-slide .cate { 
-	font-weight:300; font-size:16px;
+	font-size:16px;
 	color:#0b132f;
 }
 .main-review-list .main-review-slide .subject { 
 	overflow:hidden;
 	display:block;
 	margin:20px 0 15px;
-	font-weight:400; font-size:22px;
+	 font-size:22px;
 	color:#1a1a1a;
 	white-space:nowrap;
 	text-overflow:ellipsis;
@@ -2575,7 +2575,7 @@ a {
 	margin:0 auto;
 	width:250px;
 	border:1px solid #0b132f;
-	font-weight:400; font-size:14px; line-height:58px;
+	 font-size:14px; line-height:58px;
 	font-family:'Montserrat', sans-serif;
 	color:#0b132f;
 	letter-spacing:0;
@@ -2805,7 +2805,7 @@ a {
 	margin:40px auto 0;
 	width:250px;
 	border:1px solid rgba(255,255,255,.4);
-	font-weight:400; font-size:14px; line-height:58px;
+	 font-size:14px; line-height:58px;
 	font-family:'Montserrat', sans-serif;
 	color:#fff;
 	letter-spacing:0;
@@ -2951,7 +2951,7 @@ a {
 	padding:0 30px;
 	width:100%; height:80px;
 	background:#06182a url('/images/main/main_center_arrow_w.png') no-repeat 90% center;
-	font-weight:400; font-size:18px;
+	 font-size:18px;
 	color:#fff;
 	transition:.3s;
 	word-break:keep-all;
@@ -3073,7 +3073,7 @@ a {
 	width:100%;
 	border:1px solid #515b6d; 
 	background:#515b6d;
-	font-weight:300; font-size:16px; line-height:48px;
+	font-size:16px; line-height:48px;
 	color:#fff;
 	text-align:center;
 	transition:.3s;
@@ -3111,13 +3111,13 @@ a {
 }
 .main-lawyer .member-list .txt-wrap em { 
 	display:block;
-	font-style: normal; font-weight:300; font-size:20px;
+	font-style: normal; font-size:20px;
 	color:#1a1a1a;
 }
 .main-lawyer .member-list .txt-wrap span { 
 	position:relative;
 	display:block;
-	font-weight:300; font-size:20px;
+	font-size:20px;
 	color:#1a1a1a;
 }
 .main-lawyer .member-list .txt-wrap strong { 
@@ -3367,7 +3367,7 @@ a {
 }
 .main-location .txt-wrap > h2 span {
 	display: block;
-	font-weight:400; font-size:18px;
+	 font-size:18px;
 	color: #0b132f;
 }
 
@@ -3493,7 +3493,7 @@ a {
 }
 .main-location .location-map-wrap .map-box .map-view span {
 	display:block;
-	font-weight:300; font-size:16px; line-height:1;
+	font-size:16px; line-height:1;
 	color:#fff;
 }
 
@@ -3537,7 +3537,7 @@ a {
 	margin-right:10px;
 	width:106px;
 	border:1px solid #e6e6e6;
-	font-weight:400; font-size:14px; line-height:28px;
+	 font-size:14px; line-height:28px;
 	font-family:'Montserrat', sans-serif;
 	color:#1a1a1a;
 	text-align:center;
@@ -3758,7 +3758,7 @@ a {
 }
 .footer-online .input-wrap li:last-child label { 
 	display:inline-block;
-	font-weight:300; font-size:14px; line-height:1;
+	font-size:14px; line-height:1;
 	color:#fff;
 	vertical-align:middle;
 }
@@ -3976,7 +3976,7 @@ a {
 	position:relative; top:-3px;
 	display:inline-block;
 	margin-left:15px;
-	font-weight:400; font-size:16px;
+	 font-size:16px;
 	font-family:'Montserrat', sans-serif;
 	letter-spacing:0;
 	text-transform: uppercase;
@@ -4003,7 +4003,7 @@ a {
 }
 .sub-visual + div ul li a { 
 	display:block;
-	font-weight:400; font-size:20px; line-height:80px;
+	 font-size:20px; line-height:80px;
 	color:#808080;
 	letter-spacing:-1.5px;
 }
@@ -4130,7 +4130,7 @@ a {
 }
 
 .greetings-wrap .txt-wrap h3 { 
-	font-weight:300; font-size:32px; line-height:1.2;
+	font-size:32px; line-height:1.2;
 	color:#1a1a1a;
 	word-break:keep-all;
 }
@@ -4138,7 +4138,7 @@ a {
 	font-weight: 700; 
 }
 .greetings-wrap .txt-wrap p { 
-	font-weight:400; font-size:18px; line-height:1.6;
+	 font-size:18px; line-height:1.6;
 	color:#666;
 	word-break:keep-all;
 	margin: 40px 0;
@@ -4148,7 +4148,7 @@ a {
 {
 	font-size: 17px;
 	color:#666;
-	font-weight: 400;
+	
 	line-height: 1.6;
 	position: relative;
 	padding-left: 15px;
@@ -4166,21 +4166,21 @@ a {
  }
 .greetings-wrap .txt-wrap p > strong { 
 	display:block;
-	font-weight:400; font-size:28px; 
+	 font-size:28px; 
 	color:#000;
 	line-height: 1.4;
 	
 }
 .greetings-wrap .txt-wrap p span { 
 	color: #06182a;
-	font-weight: 400;
+	
     box-shadow: inset 0 -7px 0 rgb(6 24 42 / 30%);	
 }
 .greetings-wrap .txt-wrap p em { 
 	display:block;
 	margin-top:55px;
 	font-style: normal;
-	font-weight:400; font-size:18px; 
+	 font-size:18px; 
 	color:#1a1a1a;
 	text-align:right;
 }
@@ -4293,7 +4293,7 @@ a {
 	width:100%;
 	border:1px solid #515b6d; 
 	background:#515b6d;
-	font-weight:300; font-size:16px; line-height:48px;
+	font-size:16px; line-height:48px;
 	color:#fff;
 	text-align:center;
 	transition:.3s;
@@ -4319,13 +4319,13 @@ a {
 }
 .member-list ul li .txt-wrap em { 
 	display:block;
-	font-style: normal; font-weight:300; font-size:20px;
+	font-style: normal; font-size:20px;
 	color:#1a1a1a;
 }
 .member-list ul li .txt-wrap span { 
 	position:relative;
 	display:block;
-	font-weight:300; font-size:20px;
+	font-size:20px;
 	color:#1a1a1a;
 }
 .member-list ul li .txt-wrap strong { 
@@ -4469,7 +4469,7 @@ a {
 }
 .member-view-header .txt-wrap h2 { 
 	margin-bottom:20px;
-	font-weight:300; font-size:30px;
+	font-size:30px;
 	color:#000;
 }
 .member-view-header .txt-wrap h2 strong { 
@@ -4477,7 +4477,7 @@ a {
 }
 .member-view-header .txt-wrap ul li { 
 	margin:8px 0;
-	font-weight:300; font-size:20px;
+	font-size:20px;
 	color:#000;
 	word-break:keep-all;
 }
@@ -4515,7 +4515,7 @@ a {
 .member-view-detail .member-view-box ul li { 
 	position:relative;
 	margin:8px 0; padding-left:14px;;
-	font-weight:400; font-size:18px;
+	 font-size:18px;
 	color:#666;
 	word-break:keep-all;
 }
@@ -4575,7 +4575,7 @@ a {
 	overflow:hidden;
 	display:block;
 	padding-left:9px;
-	font-weight:400; font-size:18px;
+	 font-size:18px;
 	color:#666;
 	text-overflow:ellipsis;
 	white-space:nowrap;
@@ -4804,7 +4804,7 @@ a {
 	word-break:keep-all;
 }
 .differentiation-box .txt-wrap p { 
-	font-weight:400; font-size:18px; line-height:1.6;
+	 font-size:18px; line-height:1.6;
 	color:#666;
 	word-break:keep-all;
 }
@@ -4862,7 +4862,7 @@ a {
 }
 .location-tab li a { 
 	display:block;
-	font-weight:400; font-size:20px;
+	 font-size:20px;
 	color:#808080;
 }
 .location-tab li.on { 
@@ -4918,7 +4918,7 @@ a {
 	display:block;
 	/* 명칭 길어짐에 따라 y축 위치 수정 */
 	margin-bottom:40px;
-	font-weight:400; font-size:14px;
+	 font-size:14px;
 	font-family:'Montserrat', sans-serif;
 	color:rgba(255,255,255,.6);
 	letter-spacing:0;
@@ -4931,7 +4931,7 @@ a {
 }
 .location-detail .location-address .location-address-wrap p { 
 	margin-bottom:20px;
-	font-weight:400; font-size:24px;
+	 font-size:24px;
 	font-family:'Montserrat', 'Noto Sans KR', sans-serif;
 	color:#1a1a1a;
 	word-break:keep-all;
@@ -4939,7 +4939,7 @@ a {
 .location-detail .location-address .location-address-wrap dl dt,
 .location-detail .location-address .location-address-wrap dl dd { 
 	display:inline-block;
-	font-weight:400; font-size:20px;
+	 font-size:20px;
 	font-family:'Montserrat', 'Noto Sans KR', sans-serif;
 	color:#00296B;
 	letter-spacing:0;
@@ -5049,7 +5049,7 @@ a {
 	전담센터
 */
 .center-info-wrap h1 { 
-	font-weight:300; font-size:28px;
+	font-size:28px;
 	color:#1a1a1a;
 	word-break:keep-all;
 }
@@ -5082,7 +5082,7 @@ a {
 	padding:26px 75px 26px 30px;
 	border:1px solid #e6e6e6; border-top:0 none;
 	background:#fff url('/images/sub/center_info_arrow.png') no-repeat 90% center;
-	font-weight:400; font-size:18px;
+	 font-size:18px;
 	color:#1a1a1a;
 	word-break:keep-all;
 	transition:.3s;
@@ -6136,7 +6136,7 @@ a {
 #area_specialized01-02 .mem_desc {
     display: block;
     font-size: 0.9rem;
-    font-weight: 300;
+    
     color: #EBEBEB;
     opacity: 1;
 }
@@ -6834,7 +6834,7 @@ a {
 	vertical-align:middle;
 }
 .business-visual p { 
-	font-weight:400; font-size:48px; line-height:1.3;
+	 font-size:48px; line-height:1.3;
 	color:#fff;
 	word-break:keep-all;
 }
@@ -6940,7 +6940,7 @@ a {
 .business-wrap .business-tit-wrap h1 { 
 	display:inline-block;
 	width:calc(100% - 280px);
-	font-weight:400; font-size:36px; line-height:1.5;
+	 font-size:36px; line-height:1.5;
 	font-family:'Montserrat', 'Noto Sans KR', sans-serif;
 	color:#1a1a1a;
 	word-break:keep-all;
@@ -6949,7 +6949,7 @@ a {
 .business-wrap .business-tit-wrap p{ 
 	font-size:18px;
 	color:#666;
-	font-weight: 300;
+	
 	line-height: 1.5;
 	letter-spacing: -0.5px; 
 }
@@ -6960,7 +6960,7 @@ a {
 }
 .business-wrap .business-tit-wrap h1 span { 
 	display:block;
-	font-weight:400; font-size:22px; line-height:1.3;
+	 font-size:22px; line-height:1.3;
 }
 .business-wrap .business-tit-wrap h1 strong { 
 	font-weight: 700;
@@ -6978,7 +6978,7 @@ a {
 	border:1px solid #0b132f;
 	background:#fff url('/images/sub/business_arrow.png') no-repeat 90% center;
 	box-shadow:11px 0 16px rgba(38,43,45,.11);
-	font-weight:400; font-size:16px; line-height:48px;
+	 font-size:16px; line-height:48px;
 	color:#0b132f;
 	vertical-align:middle;
 }
@@ -6989,7 +6989,7 @@ a {
 .business-wrap .business-box ul li { 
 	position:relative;
 	margin:10px 0; padding-left:13px;
-	font-weight:300; font-size:17px;
+	font-size:17px;
 	color:#666;
 	word-break:keep-all;
 }
@@ -7018,7 +7018,7 @@ a {
 .business-wrap .business-slogan > h1 { 
 	display:inline-block;
 	width:35%;
-	font-weight:400; font-size:20px;
+	 font-size:20px;
 	color:#1a1a1a;
 	vertical-align:top;
 }
@@ -7055,7 +7055,7 @@ a {
 .business-wrap table tbody th { 
 	padding:15px 30px; 
 	background:#fff; 
-	font-weight:400; font-size:17px;
+	 font-size:17px;
 	color:#1a1a1a;
 	word-break:normal;
 }
@@ -7111,7 +7111,7 @@ a {
 */
 .business-wrap .business-tab li a { 
 	display:block;
-	font-weight:300; font-size:17px;
+	font-size:17px;
 	color:#666;
 }
 .business-wrap .business-tab li.on a { 
@@ -7161,7 +7161,7 @@ a {
 	border:1px solid #0b132f;
 	background:#fff url('/images/sub/business_arrow.png') no-repeat 90% center;
 	box-shadow:11px 0 16px rgba(38,43,45,.11);
-	font-weight:400; font-size:16px; line-height:48px;
+	 font-size:16px; line-height:48px;
 	color:#0b132f;
 	vertical-align:middle;	
 	margin-top: 30px;
@@ -7188,7 +7188,7 @@ a {
 	position: relative;
     margin: 10px 0;
     padding-left: 13px;
-    font-weight: 300;
+    
     font-size: 17px;
     color: #666;
     word-break: keep-all;	
@@ -7208,7 +7208,7 @@ a {
 
 .business-wrap .business-detail-box .sub-tit { 
 	margin-top:35px; margin-bottom:13px;
-	font-weight:400; font-size:18px;
+	 font-size:18px;
 	font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
 	color:#1a1a1a;
 }
@@ -7225,7 +7225,7 @@ a {
 	background:rgba(6,70,99,.25);
 }
 .business-wrap .business-detail-box p { 
-	font-weight:300; font-size:18px; line-height:1.6;
+	font-size:18px; line-height:1.6;
 	color:#666;
 	word-break:keep-all;
 }
@@ -7265,7 +7265,7 @@ a {
 	position:relative;
 	margin:10px 0;
 	padding-left:13px; 
-	font-weight:300; font-size:16px;
+	font-size:16px;
 	color:#666;
 	word-break:keep-all;
 }
@@ -7300,7 +7300,7 @@ a {
 .business-wrap .business-detail-box dl dd { 
 	display:inline-block;
 	margin:4px 0;
-	font-weight:300; font-size:18px;
+	font-size:18px;
 	color:#666;
 	vertical-align:middle;
 }
@@ -7320,7 +7320,7 @@ a {
 .business-wrap .business-detail-box .qna-wrap h1 { 
 	position:relative;
 	padding-left:28px;
-	font-weight:300; font-size:16px; line-height:1.5;
+	font-size:16px; line-height:1.5;
 	color:#1a1a1a;
 }
 .business-wrap .business-detail-box .qna-wrap h1 span { 
@@ -7337,7 +7337,7 @@ a {
 	position:relative;
 	margin:16px 0 20px;
 	padding-left:28px;
-	font-weight:300; font-size:16px; line-height:1.5;
+	font-size:16px; line-height:1.5;
 	color:#1a1a1a;
 	word-break:keep-all;
 }
@@ -7355,7 +7355,7 @@ a {
 .business-wrap .business-detail-box .qna-wrap span { 
 	display:block;
 	text-align:right;
-	font-weight:300; font-size:12px;
+	font-size:12px;
 	color:#666;
 }
 .business-wrap .business-conts > .img-wrap { 
@@ -7390,7 +7390,7 @@ a {
 }
 .business-wrap  table.table-crime tbody td ol li { 
 	margin:10px 0; 
-	font-weight:300; font-size:17px;
+	font-size:17px;
 	color:#666;
 }
 .business-wrap  table.table-crime tbody td ol li span { 
@@ -7798,14 +7798,14 @@ a {
 .online-wrap .online-box .online-box-inner h1 span { 
 	display:block;
 	margin-bottom:30px;
-	font-weight:400; font-size:15px;
+	 font-size:15px;
 	font-family:'Roboto', sans-serif;
 	letter-spacing:0;
 	text-align:right;
 }
 .online-wrap .online-box .online-box-inner p { 
 	margin-top:20px;
-	font-weight:400; font-size:17px; line-height:1.65;
+	 font-size:17px; line-height:1.65;
 	color:#666;
 	letter-spacing:-1.5px;
 	word-break:keep-all;
@@ -7873,14 +7873,14 @@ a {
 .online-wrap .online-box .online-box-inner h1 span { 
 	display:block;
 	margin-bottom:30px;
-	font-weight:400; font-size:15px;
+	 font-size:15px;
 	font-family:'Roboto', sans-serif;
 	letter-spacing:0;
 	text-align:right;
 }
 .online-wrap .online-box .online-box-inner p { 
 	margin-top:20px;
-	font-weight:400; font-size:17px; line-height:1.65;
+	 font-size:17px; line-height:1.65;
 	color:#666;
 	letter-spacing:-1.5px;
 	word-break:keep-all;
@@ -8123,7 +8123,7 @@ a {
 /* .self-test-wrap .self-wrap .diagnosis .submit-fild .case .text p {
 	color: #000;
 	font-size: 20px;
-	font-weight: 400;
+	
 	line-height: 28px;
 }
 .self-test-wrap .self-wrap .diagnosis .submit-fild .case .text p strong {
@@ -8163,7 +8163,7 @@ a {
 	padding-top:10px;
 	color: #000;
 	font-size: 18px;
-	font-weight: 300;
+	
 	line-height: 24px;
 }
 .self-test-wrap .self-wrap .diagnosis .submit-fild ul {
@@ -8192,7 +8192,7 @@ a {
 	height:38px;
 	border:2px solid #212959;
 	font-size:14px;
-	font-weight:300;
+	
 }
 .self-test-wrap .self-wrap .diagnosis .submit-fild .submit * {
 	width:100%;
@@ -8484,7 +8484,7 @@ a {
     padding: 0 18px;
     border-radius: 15px;
     background: #c12720;
-    font-weight: 400;
+    
     font-size: 13px;
     line-height: 26px;
     color: #fff;
@@ -8528,7 +8528,7 @@ a {
 	vertical-align:middle;
 }
 .case-list > li .name li:first-child { 
-	font-weight:300; font-size:14px;
+	font-size:14px;
 	color:#333;
 }
 .case-list > li .name li:first-child strong { 
@@ -8693,7 +8693,7 @@ a {
 	position:absolute; top:-1px; left:-1px;
 	padding:0 12px;
 	background:#333;
-	font-weight:400; font-size:16px; line-height:30px;
+	 font-size:16px; line-height:30px;
 	font-family:'Noto Serif KR', serif;
 	color:#fff;
 	display:none;
@@ -8702,7 +8702,7 @@ a {
 	position:absolute; top:31px; left:0;
 	padding:0 10px;
 	background:#FFB500;
-	font-weight:400; font-size:20px; line-height:33px;
+	 font-size:20px; line-height:33px;
 	font-family:'Noto Serif KR', serif;
 	color:#fff;
 	text-align:right;
@@ -8890,7 +8890,7 @@ a {
 	position:absolute; top:-1px; left:-1px;
 	padding:0 12px;
 	background:#333;
-	font-weight:400; font-size:16px; line-height:30px;
+	 font-size:16px; line-height:30px;
 	font-family:'Noto Serif KR', serif;
 	color:#fff;
 	display:none;
@@ -8900,7 +8900,7 @@ a {
 	padding:0 10px;
 /*	width:117px; */
 	background:#343841;
-	font-weight:400; font-size:16px; line-height:30px;
+	 font-size:16px; line-height:30px;
 	font-family:'Noto Serif KR', serif;
 	color:#fff;
 	text-align:right;
@@ -9140,7 +9140,7 @@ a {
 }
 .case-box-lawyer .swiper-slide .name li:last-child { 
 	width:calc(100% - 86px);
-	font-weight:300; font-size:16px; line-height:1.5;
+	font-size:16px; line-height:1.5;
 	color:#fff; 
 	text-align:left;
 }
@@ -9419,7 +9419,7 @@ a {
 	vertical-align:middle;
 }
 .case-image-list-lawyer > li .name li:first-child { 
-	font-weight:300; font-size:14px;
+	font-size:14px;
 	color:#333;
 }
 .case-image-list-lawyer > li .name li:first-child strong { 
@@ -9568,7 +9568,7 @@ a {
 	display:inline-block;
 	padding-left:16px; padding-right:20px;
 	width:calc(100% - 48px);
-	font-weight:300; font-size:20px; line-height:48px;
+	font-size:20px; line-height:48px;
 	color:#1a1a1a;
 	letter-spacing:-1px;
 	vertical-align:top;
@@ -9594,12 +9594,12 @@ a {
 	padding:0 14px;
 	width:100%; height:40px; 
 	border:1px solid #e6e6e6; 
-	font-weight:300; font-size:14px;
+	font-size:14px;
 	color:#999;
 }
 .board-quick .online-form .tel-info { 
 	margin:20px 0; 
-	font-weight:300; font-size:14px;
+	font-size:14px;
 	color:#1a1a1a;
 }
 .board-quick .online-form .check { 
@@ -9614,7 +9614,7 @@ a {
 	display:inline-block;
 	padding-left:10px;
 	width:calc(100% - 16px);
-	font-weight:300; font-size:14px; line-height: 16px;
+	font-size:14px; line-height: 16px;
 	color:#666;
 }
 .board-quick .online-form .btn-wrap { 
@@ -10183,7 +10183,7 @@ a {
 	padding:0 20px;
 	border:1px solid #e0e0e0;
 	font-size:16px;
-	font-weight:300;
+	
 	color:#999;
 }
 .online-board-wrap .board-list .split dl:nth-child(2) dd .frm_input
@@ -10223,7 +10223,7 @@ a {
 	border:1px solid #e0e0e0;
 	color:#999;
 	font-size:16px;
-	font-weight:300;
+	
 	line-height:50px;
 	text-align:center;
 	cursor:pointer;
