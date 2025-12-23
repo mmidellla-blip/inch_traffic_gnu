@@ -80,6 +80,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <script src="/js/slick.js"></script>
   <script src="/js/swiper.js"></script>
   <script src="/js/video.js"></script>
+  <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
 
   <meta name="keywords" content="<?php echo (!empty($metaKeyword))? $metaKeyword : $metaKeywordConf; ?>">
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
@@ -115,6 +116,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <script src="/js/slick.js"></script>
   <script src="/js/swiper.js"></script>
   <script src="/js/video.js"></script>
+  <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
 
   <meta name="keywords" content="<?php echo $metaKeywordConf; ?>">
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
@@ -141,6 +143,10 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
 <link rel="mask-icon" href="/images/common/favicon/safari-pinned-tab.svg" color="#877b77">
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="theme-color" content="#ffffff">
+
+<link rel="preload" as="image" href="/images/main/mainvisual/main-03-lawyer01.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/images/main/mainvisual/main-03-lawyer02.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/images/main/mainvisual/main-03-lawyer03.jpg" fetchpriority="high">
 
 <?php
 $shop_css = '';

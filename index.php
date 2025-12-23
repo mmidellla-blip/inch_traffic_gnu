@@ -1,62 +1,7 @@
 <?php include('_common.php');?>
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-	
-
-<meta charset="utf-8">
-<?php
-echo '<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">'.PHP_EOL;
-echo '<meta name="HandheldFriendly" content="true">'.PHP_EOL;
-echo '<meta name="format-detection" content="telephone=no">'.PHP_EOL;
-
-if($config['cf_add_meta'])
-    echo $config['cf_add_meta'].PHP_EOL;
-?>
-<?php
-define('_INDEX_', true);
-if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
-
-?>
-
-<title><?php echo $config['cf_title']; ?></title>
-<link rel="stylesheet" type="text/css" href="/css/template.css" />
-<link rel="stylesheet" type="text/css" href="/css/style.css" />
-<link rel="stylesheet" type="text/css" href="/css/slick.css" />
-<link rel="stylesheet" type="text/css" href="/css/swiper.css" />
-<script src="/js/jquery-1.8.3.min.js"></script>
-<script src="/js/jquery.fullPage.min.js"></script>
-<script src="/js/slick.js"></script>
-<script src="/js/swiper.js"></script>
-<!-- <script src="/js/jquery.counterup.js"></script> -->
-<script src="/js/main-case.js"></script>
-
-<!-- 우클릭&드래그 금지 -->
-<script type="text/javascript">
-   document.oncontextmenu = function(){return false;}
-</script>
-
-<meta data-n-head="ssr" data-hid="description" name="description" content="음주운전변호사 법무법인 동주입니다. 음주운전 전문 상담을 통해 음주운전 사고 사건을 대처하세요. 음주운전 전문 변호사가 사건을 직접 진행합니다. 음주 사고, 음주운전 처벌, 음주운전 구제에 관한 정보를 지금 바로 확인하세요.">
-<meta name="keywords" content="음주 면허 취소,음주운전 행정심판,음주운전 면허취소,행정소송,행정심판,행정법전문변호사,행정사,영업정지 구제, 행정처분">
-<link rel="canonical" href="https://trafficdrinking-law-dongju.com/">
-<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<meta property="og:url" content="https://trafficdrinking-law-dongju.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="법무법인 동주 교통음주전담센터">
-<meta property="og:description" content="음주운전변호사 법무법인 동주입니다. 음주운전 전문 상담을 통해 음주운전 사고 사건을 대처하세요. 음주운전 전문 변호사가 사건을 직접 진행합니다. 음주 사고, 음주운전 처벌, 음주운전 구제에 관한 정보를 지금 바로 확인하세요.">
-<meta property="og:image" content="/images/common/ogimg-adm.png">
-
-<link rel="apple-touch-icon" sizes="180x180" href="/images/common/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/common/favicon/favicon-32x32.png">
-<link rel="icon" type="image/ico" sizes="16x16" href="/images/common/favicon/favicon.ico">
-<link rel="manifest" href="/images/common/favicon/site.webmanifest">
-<link rel="mask-icon" href="/images/common/favicon/safari-pinned-tab.svg" color="#877b77">
-<meta name="msapplication-TileColor" content="#000000">
-<meta name="theme-color" content="#ffffff">
-
-</head>
+<?php include_once(G5_THEME_PATH.'/head.sub.php'); ?>
 <body class="index">
 <meta name="naver-site-verification" content="8aca2004fc829309d2ad81a2bea09be81918272d" />
 
@@ -598,7 +543,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 		</section>
 		<!--//main-location -->
 
-		<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 		<script type='text/javascript'>
 		function NA_Call(){
 			if(window.wcs){
@@ -611,7 +555,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 		}
 		</script>
 		
-		<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 		<script type='text/javascript'>
 		function NA_Katalk(){
 			if(window.wcs){
@@ -624,7 +567,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 		}
 		</script>
 		
-		<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 		<script type='text/javascript'>
 		function NA_Check(){
 			if(window.wcs){

@@ -1,6 +1,4 @@
 @charset "utf-8";
-@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
 
 
 /* 초기화 */
@@ -36,459 +34,6 @@ a {text-decoration:none}
 }
 /* fonts
 ------------------------------------------------------ */
-
-@font-face {
-   font-family: 'Noto Sans KR';
-   font-style: normal;
-   font-weight: 100;
-   src: url(/fonts/NotoSans-Thin.woff2) format('woff2'),
-        url(/fonts/NotoSans-Thin.woff) format('woff'),
-		url('/fonts/NotoSans-Thin.eot?#iefix') format('embedded-opentype'),
-        url(/fonts/NotoSans-Thin.otf) format('opentype');
- }
-@font-face {
-   font-family: 'Noto Sans KR';
-   font-style: normal;
-   font-weight: 300;
-   src: url(/fonts/NotoSans-Light.woff) format('woff'),
-		url('/fonts/NotoSans-Light.eot?#iefix') format('embedded-opentype'),
-        url(/fonts/NotoSans-Light.otf) format('opentype');
- }
- @font-face {
-   font-family: 'Noto Sans KR';
-   font-style: normal;
-   font-weight: 350;
-   src: url(/fonts/NotoSans-DemiLight.woff2) format('woff2'),
-        url(/fonts/NotoSans-DemiLight.woff) format('woff'),
-		url('/fonts/NotoSans-DemiLight.eot?#iefix') format('embedded-opentype'),
-        url(/fonts/NotoSans-DemiLight.otf) format('opentype');
- }
-@font-face {
-   font-family: 'Noto Sans KR';
-   font-style: normal;
-   font-weight: 400;
-   src: url(/fonts/NotoSans-Regular.woff) format('woff'),
-		url('/fonts/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
-        url(/fonts/NotoSans-Regular.otf) format('opentype');
- }
- @font-face {
-   font-family: 'Noto Sans KR';
-   font-style: normal;
-   font-weight: 500;
-   src: url(/fonts/NotoSans-Medium.woff) format('woff'),
-		url('/fonts/NotoSans-Medium.eot?#iefix') format('embedded-opentype'),
-        url(/fonts/NotoSans-Medium.otf) format('opentype');
- }
- @font-face {
-   font-family: 'Noto Sans KR';
-   font-style: normal;
-   font-weight: 700;
-   src: url(/fonts/NotoSans-Bold.woff) format('woff'),
-		url('/fonts/NotoSans-Bold.eot?#iefix') format('embedded-opentype'),
-        url(/fonts/NotoSans-Bold.otf) format('opentype');
- }
- @font-face {
-   font-family: 'Noto Sans KR';
-   font-style: normal;
-   font-weight: 900;
-   src: url(/fonts/NotoSans-Black.woff) format('woff'),
-		url('/fonts/NotoSans-Black.eot?#iefix') format('embedded-opentype'),
-        url(/fonts/NotoSans-Black.otf) format('opentype');
- }
-
-/* SUIT */
-@font-face {
-	font-family: 'SUIT';
-	font-style: normal;
-	font-weight: 100;
-	src: url(/fonts/SUIT-Thin.otf) format('opentype');
-}
-@font-face {
-	font-family: 'SUIT';
-	font-style: normal;
-	font-weight: 200;
-	src: url(/fonts/SUIT-ExtraLight.otf) format('opentype');
-}
-@font-face {
-	font-family: 'SUIT';
-	font-style: normal;
-	font-weight: 300;
-	src: url(/fonts/SUIT-Light.otf) format('opentype');
-}
-@font-face {
-	font-family: 'SUIT';
-	font-style: normal;
-	font-weight: 400;
-	src: url(/fonts/SUIT-Regular.otf) format('opentype');
-}
-@font-face {
-	font-family: 'SUIT';
-	font-style: normal;
-	font-weight: 500;
-	src: url(/fonts/SUIT-Medium.otf) format('opentype');
-}
-@font-face {
-	font-family: 'SUIT';
-	font-style: normal;
-	font-weight: 600;
-	src: url(/fonts/SUIT-SemiBold.otf) format('opentype');
-}
-@font-face {
-	font-family: 'SUIT';
-	font-style: normal;
-	font-weight: 700;
-	src: url(/fonts/SUIT-Bold.otf) format('opentype');
-}
-@font-face {
-	font-family: 'SUIT';
-	font-style: normal;
-	font-weight: 800;
-	src: url(/fonts/SUIT-ExtraBold.otf) format('opentype');
-}
-@font-face {
-	font-family: 'SUIT';
-	font-style: normal;
-	font-weight: 900;
-	src: url(/fonts/SUIT-Heavy.otf) format('opentype');
-}
-
-/* montserrat-100 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 100;
-  src: url('/fonts/montserrat-v15-latin-100.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/montserrat-v15-latin-100.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/montserrat-v15-latin-100.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/montserrat-v15-latin-100.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/montserrat-v15-latin-100.svg#Montserrat') format('svg'); /* Legacy iOS */
-}
-/* montserrat-200 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 200;
-  src: url('/fonts/montserrat-v15-latin-200.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/montserrat-v15-latin-200.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/montserrat-v15-latin-200.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/montserrat-v15-latin-200.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/montserrat-v15-latin-200.svg#Montserrat') format('svg'); /* Legacy iOS */
-}
-/* montserrat-300 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 300;
-  src: url('/fonts/montserrat-v15-latin-300.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/montserrat-v15-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/montserrat-v15-latin-300.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/montserrat-v15-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/montserrat-v15-latin-300.svg#Montserrat') format('svg'); /* Legacy iOS */
-}
-/* montserrat-regular - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/montserrat-v15-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/montserrat-v15-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/montserrat-v15-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/montserrat-v15-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/montserrat-v15-latin-regular.svg#Montserrat') format('svg'); /* Legacy iOS */
-}
-/* montserrat-500 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  src: url('/fonts/montserrat-v15-latin-500.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/montserrat-v15-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/montserrat-v15-latin-500.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/montserrat-v15-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/montserrat-v15-latin-500.svg#Montserrat') format('svg'); /* Legacy iOS */
-}
-/* montserrat-600 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/montserrat-v15-latin-600.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/montserrat-v15-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/montserrat-v15-latin-600.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/montserrat-v15-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/montserrat-v15-latin-600.svg#Montserrat') format('svg'); /* Legacy iOS */
-}
-/* montserrat-700 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/montserrat-v15-latin-700.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/montserrat-v15-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/montserrat-v15-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/montserrat-v15-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/montserrat-v15-latin-700.svg#Montserrat') format('svg'); /* Legacy iOS */
-}
-/* montserrat-800 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 800;
-  src: url('/fonts/montserrat-v15-latin-800.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/montserrat-v15-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/montserrat-v15-latin-800.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/montserrat-v15-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/montserrat-v15-latin-800.svg#Montserrat') format('svg'); /* Legacy iOS */
-}
-/* montserrat-900 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 900;
-  src: url('/fonts/montserrat-v15-latin-900.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/montserrat-v15-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/montserrat-v15-latin-900.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/montserrat-v15-latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/montserrat-v15-latin-900.svg#Montserrat') format('svg'); /* Legacy iOS */
-}
-
-/* KOHI배움체 */
-@font-face {
-	font-family: 'KOHIBaeumOTF';
-	font-style: normal;
-	font-weight: 900;
-	src: url(/fonts/KOHIBaeumOTF.otf) format('opentype');
-  }
-
-
- /* poppins-100 - latin */
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 100;
-  src: url('/fonts/poppins-v15-latin-100.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/poppins-v15-latin-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/poppins-v15-latin-100.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/poppins-v15-latin-100.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/poppins-v15-latin-100.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/poppins-v15-latin-100.svg#Poppins') format('svg'); /* Legacy iOS */
-}
-/* poppins-200 - latin */
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 200;
-  src: url('/fonts/poppins-v15-latin-200.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/poppins-v15-latin-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/poppins-v15-latin-200.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/poppins-v15-latin-200.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/poppins-v15-latin-200.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/poppins-v15-latin-200.svg#Poppins') format('svg'); /* Legacy iOS */
-}
-/* poppins-300 - latin */
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 300;
-  src: url('/fonts/poppins-v15-latin-300.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/poppins-v15-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/poppins-v15-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/poppins-v15-latin-300.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/poppins-v15-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/poppins-v15-latin-300.svg#Poppins') format('svg'); /* Legacy iOS */
-}
-/* poppins-regular - latin */
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/poppins-v15-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/poppins-v15-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/poppins-v15-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/poppins-v15-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/poppins-v15-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/poppins-v15-latin-regular.svg#Poppins') format('svg'); /* Legacy iOS */
-}
-/* poppins-500 - latin */
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  src: url('/fonts/poppins-v15-latin-500.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/poppins-v15-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/poppins-v15-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/poppins-v15-latin-500.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/poppins-v15-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/poppins-v15-latin-500.svg#Poppins') format('svg'); /* Legacy iOS */
-}
-/* poppins-600 - latin */
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/poppins-v15-latin-600.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/poppins-v15-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/poppins-v15-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/poppins-v15-latin-600.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/poppins-v15-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/poppins-v15-latin-600.svg#Poppins') format('svg'); /* Legacy iOS */
-}
-/* poppins-700 - latin */
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/poppins-v15-latin-700.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/poppins-v15-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/poppins-v15-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/poppins-v15-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/poppins-v15-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/poppins-v15-latin-700.svg#Poppins') format('svg'); /* Legacy iOS */
-}
-/* poppins-800 - latin */
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 800;
-  src: url('/fonts/poppins-v15-latin-800.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/poppins-v15-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/poppins-v15-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/poppins-v15-latin-800.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/poppins-v15-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/poppins-v15-latin-800.svg#Poppins') format('svg'); /* Legacy iOS */
-}
-/* poppins-900 - latin */
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 900;
-  src: url('/fonts/poppins-v15-latin-900.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/poppins-v15-latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/poppins-v15-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/poppins-v15-latin-900.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/poppins-v15-latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/poppins-v15-latin-900.svg#Poppins') format('svg'); /* Legacy iOS */
-}
-
-
-/* noto-serif-kr-200 - latin_korean */
-@font-face {
-  font-family: 'Noto Serif KR';
-  font-style: normal;
-  font-weight: 200;
-  src: url('/fonts/noto-serif-kr-v7-latin_korean-200.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/noto-serif-kr-v7-latin_korean-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/noto-serif-kr-v7-latin_korean-200.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-200.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-200.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/noto-serif-kr-v7-latin_korean-200.svg#NotoSerifKR') format('svg'); /* Legacy iOS */
-}
-/* noto-serif-kr-300 - latin_korean */
-@font-face {
-  font-family: 'Noto Serif KR';
-  font-style: normal;
-  font-weight: 300;
-  src: url('/fonts/noto-serif-kr-v7-latin_korean-300.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/noto-serif-kr-v7-latin_korean-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/noto-serif-kr-v7-latin_korean-300.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-300.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-300.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/noto-serif-kr-v7-latin_korean-300.svg#NotoSerifKR') format('svg'); /* Legacy iOS */
-}
-/* noto-serif-kr-regular - latin_korean */
-@font-face {
-  font-family: 'Noto Serif KR';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/noto-serif-kr-v7-latin_korean-regular.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/noto-serif-kr-v7-latin_korean-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/noto-serif-kr-v7-latin_korean-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-regular.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/noto-serif-kr-v7-latin_korean-regular.svg#NotoSerifKR') format('svg'); /* Legacy iOS */
-}
-/* noto-serif-kr-500 - latin_korean */
-@font-face {
-  font-family: 'Noto Serif KR';
-  font-style: normal;
-  font-weight: 500;
-  src: url('/fonts/noto-serif-kr-v7-latin_korean-500.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/noto-serif-kr-v7-latin_korean-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/noto-serif-kr-v7-latin_korean-500.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-500.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-500.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/noto-serif-kr-v7-latin_korean-500.svg#NotoSerifKR') format('svg'); /* Legacy iOS */
-}
-/* noto-serif-kr-600 - latin_korean */
-@font-face {
-  font-family: 'Noto Serif KR';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/noto-serif-kr-v7-latin_korean-600.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/noto-serif-kr-v7-latin_korean-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/noto-serif-kr-v7-latin_korean-600.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-600.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-600.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/noto-serif-kr-v7-latin_korean-600.svg#NotoSerifKR') format('svg'); /* Legacy iOS */
-}
-/* noto-serif-kr-700 - latin_korean */
-@font-face {
-  font-family: 'Noto Serif KR';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/noto-serif-kr-v7-latin_korean-700.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/noto-serif-kr-v7-latin_korean-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/noto-serif-kr-v7-latin_korean-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-700.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/noto-serif-kr-v7-latin_korean-700.svg#NotoSerifKR') format('svg'); /* Legacy iOS */
-}
-/* noto-serif-kr-900 - latin_korean */
-@font-face {
-  font-family: 'Noto Serif KR';
-  font-style: normal;
-  font-weight: 900;
-  src: url('/fonts/noto-serif-kr-v7-latin_korean-900.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/fonts/noto-serif-kr-v7-latin_korean-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/noto-serif-kr-v7-latin_korean-900.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-900.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/noto-serif-kr-v7-latin_korean-900.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/noto-serif-kr-v7-latin_korean-900.svg#NotoSerifKR') format('svg'); /* Legacy iOS */
-}
 
 
 /* 팝업레이어 */
@@ -754,7 +299,7 @@ a.btn_admin,.btn_admin {display:inline-block;font-weight: 400;font-size:14px;lin
 .tbl_head01 td {color:#333;background:#fff;padding:10px 5px;border-top:1px solid #ecf0f1;line-height:1.4em;height:50px;word-break:break-all; text-align: center;}
 .tbl_head01 tbody tr:hover td{background:#fafafa;}
 .tbl_head01 a:hover {text-decoration:underline}
-.bo_tit a {font-weight: 400; color:#333;}
+.bo_tit a {color:#333;}
 .td_num2 {text-align:center;}
 
  @media screen and (max-width: 768px) { 
@@ -844,7 +389,7 @@ box-shadow: inset 1px 1px 2px #222542;
 body { 
 	min-width:320px;
 	background: #fff;
-	font-weight: 400; font-size:15px; line-height: 1.3;
+	font-size:15px; line-height: 1.3;
 	font-family:'Noto Sans KR', dotum, sans-serif;
 	letter-spacing:-0.5px;
 	color:#666;
@@ -1400,7 +945,7 @@ a {
 }
 #footer .footer-address p {
 	order: 1;
-	font-size: 15px; font-weight: 400; color: #fff;
+	font-size: 15px; color: #fff;
 	width: 150px;
 }
 #footer .footer-address .footer-address-telNum {
@@ -1411,7 +956,7 @@ a {
 	order: 3;
 	width: calc(100%-150px); height: 100%;
 	display: flex; flex-flow: row nowrap;
-	font-size: 14px; font-weight: 300; font-style: normal; color: #999;
+	font-size: 14px; font-style: normal; color: #999;
 }
 #footer .footer-address .footer-address-conts li {
 	width: auto; margin-right: 20px;
@@ -1441,7 +986,7 @@ a {
 	margin: 0;
     padding: 2px 0;
 
-	font-size: 14px; font-weight: 300; font-style: normal; color: #999;
+	font-size: 14px; font-style: normal; color: #999;
 }
 #footer .footer-address .footer-address-conts .info-wrap p:nth-child(4) {
     width: 100%;
@@ -1765,7 +1310,7 @@ a {
 	background-color: #013A63;
 }
 .main-visual .main-box01 .anony {
-	font-family: 'SUIT'; font-weight: 300; font-size: 28px; letter-spacing: .125rem; color: #fff;
+	font-family: 'SUIT'; font-size: 28px; letter-spacing: .125rem; color: #fff;
 	display: flex; flex-flow: row nowrap; align-items: center;
 	margin-bottom: 10px;
 }
@@ -1803,7 +1348,7 @@ a {
 	margin-bottom: 30px;
 }
 .main-visual .main-box01 > p {
-	font-family: 'SUIT'; font-weight: 400; font-size: 18px; letter-spacing: .04rem; color: #fff; line-height: 28px; text-align: center;
+	font-family: 'SUIT'; font-size: 18px; letter-spacing: .04rem; color: #fff; line-height: 28px; text-align: center;
 	width: 420px;
 	margin-bottom: 30px;
 }
@@ -1848,7 +1393,7 @@ a {
 	width: 260px; height: 40px;
 	padding-left: 10px;
 	border: 1px solid #0466CB; box-sizing: border-box;
-	font-family: 'SUIT'; font-weight: 400; font-size: 15px; color: #666;
+	font-family: 'SUIT'; font-size: 15px; color: #666;
 }
 
 .main-visual .main-box01 .online-form .input-wrap li input {
@@ -1857,10 +1402,10 @@ a {
 	border: 1px solid #0466CB; box-sizing: border-box;
 }
 .main-visual .main-box01 .online-form .input-wrap li input[type="text"] {
-	font-family: 'SUIT'; font-weight: 400; font-size: 15px; color: #000;
+	font-family: 'SUIT'; font-size: 15px; color: #000;
 }
 .main-visual .main-box01 .online-form .input-wrap li textarea {
-	font-family: 'SUIT'; font-weight: 400; font-size: 15px; color: #000;
+	font-family: 'SUIT'; font-size: 15px; color: #000;
 	width: 260px; height: 140px;
 	padding: 10px;
 	border: 1px solid #0466CB; box-sizing: border-box;
@@ -1876,7 +1421,7 @@ a {
 	display: flex; flex-flow: row nowrap; justify-content: end;
 }
 .main-visual .main-box01 .online-form .input-wrap li:last-child label {
-	font-family: 'SUIT'; font-weight: 700; font-size: 10px; color: #aaaaaa;
+	font-family: 'SUIT'; font-weight: 900; font-size: 10px; color: #aaaaaa;
 	margin-right: 127px;
 }
 .main-visual .main-box01 .online-form .input-wrap li:last-child a {
@@ -1964,7 +1509,7 @@ a {
 }
 .main-visual .main-area01 .main-box03 .box03_list .profile .profile-name > p {
 	width: auto; display: inline-block;
-	font-family: 'SUIT'; font-weight: 300; font-size: 14px; color: #fff;
+	font-family: 'SUIT'; font-size: 14px; color: #fff;
 }
 .main-visual .main-area01 .main-box03 .box03_list .profile .profile-name > p strong {
 	font-weight: 800; font-size: 20px;
@@ -2322,7 +1867,7 @@ a {
 }
 .main-conts-tit-wrap p { 
 	margin-top: 20px;
-	font-weight: 400; font-size:24px;
+	font-size:24px;
 	color:#666;
 	word-break:keep-all;
 }
@@ -2602,7 +2147,7 @@ a {
 }
 .main-online .online-form .input-wrap li:last-child a { 
 	float:right;
-	font-weight:300; font-size:16px; line-height:26px;
+	font-size:16px; line-height:26px;
 	color:#1a1a1a;
 	text-decoration:underline;
 }
@@ -3020,7 +2565,7 @@ a {
     -webkit-line-clamp:2;
     -webkit-box-orient: vertical;
 	width:100%; height:52px;
-	font-weight: 300; font-size:16px; line-height:26px;
+	font-size:16px; line-height:26px;
 	color:#666;
 	word-break:keep-all;
 	text-overflow:ellipsis;
@@ -3216,7 +2761,7 @@ a {
     -webkit-line-clamp:3;
     -webkit-box-orient: vertical;
 	width:100%; height:66px;
-	font-weight: 300; font-size:15px; line-height:22px;
+	font-size:15px; line-height:22px;
 	color:#666;
 	word-break:keep-all;
 	text-overflow:ellipsis;
@@ -3759,7 +3304,7 @@ a {
 }
 .main-members .txt-wrap {
 	width: 100%;
-	font-size: 17px; font-weight: 200; color: #333; text-align: left; line-height: 1.6;
+	font-size: 17px; color: #333; text-align: left; line-height: 1.6;
 	padding: 15px 15px 0 15px;
 }
 .main-members .txt-wrap strong {
@@ -3886,7 +3431,7 @@ a {
 /* 지름길 */
 .main-location .location-address-wrap dl .location-shorts {
 	width: calc(100%);
-	font-size: 16px; font-weight: 300; line-height: 24px;
+	font-size: 16px; line-height: 24px;
 	margin-top: 0;
 	padding-left: 95px;
 }
@@ -4146,7 +3691,7 @@ a {
 	width: auto;
 	margin:0 auto; padding:25px 0;
 	display: flex; flex-flow: row nowrap; justify-content: center; align-items: center; gap: 80px;
-	font-family: 'Pretendard'; font-weight: 400; line-height: 1;
+	font-family: 'Pretendard'; line-height: 1;
 }
 .footer-online dl dt,
 .footer-online dl dd { 
@@ -4352,7 +3897,7 @@ a {
 .sub-conts-wrap { 
 	margin:0 auto; padding:80px 0 125px;
 	width:1200px;
-	font-weight: 400; font-size:18px;
+	font-size:18px;
 	color:#666;
 	letter-spacing:-1px;
 	word-break:keep-all;
@@ -5720,7 +5265,7 @@ a {
 	margin-bottom: 20px;
 }
 .areasWrap .areas-sec .drunkenCate .cont-box p {
-	font-weight: 400; letter-spacing: 0.2px; color: #555555; line-height: 1.6;
+	letter-spacing: 0.2px; color: #555555; line-height: 1.6;
 	font-size: 16px;
 }
 .areasWrap .areas-sec .drunkenCate .cont-box img {
@@ -5744,7 +5289,7 @@ a {
 	padding: 0 30px;
 }
 .areasWrap .areas-sec .drunkenCate .cont-box ul li {
-	color: #666666; font-weight: 300; letter-spacing: 0.2px; line-height: 1.4;
+	color: #666666; letter-spacing: 0.2px; line-height: 1.4;
 	font-size: 15px;
 }
 .areasWrap .areas-sec .drunkenCate .cont-box > .spa-topic {
@@ -5764,7 +5309,7 @@ a {
 /* 업무분야(교통음주)::공통 - ipad air */
 @media screen and (max-width: 820px) {
 	.areasWrap .areas-sec .drunkenCate .cont-box p {
-		font-weight: 400; letter-spacing: 0.2px; color: #555555; line-height: 1.6;
+		letter-spacing: 0.2px; color: #555555; line-height: 1.6;
 		font-size: 16px;
 	}
 	.areasWrap .areas-sec .drunkenCate .cont-box h4 {
@@ -5858,7 +5403,7 @@ a {
 	padding: 30px;
 }
 .areasWrap .areas-sec .drunkenCate .support > div .list p {
-	font-weight: 400; color: #333; line-height: 1.4;
+	color: #333; line-height: 1.4;
 	font-size: 18px;
 }
 .areasWrap .areas-sec .drunkenCate .support > div .list p span {
@@ -5964,7 +5509,7 @@ a {
 	}
 }
 /* 업무분야 내 헤더 링크 페이지별 컬러 지정 (25.04.01) */
-.sub-visual + div ul li a {font-family: 'Pretendard'; font-weight: 400; letter-spacing: 0.2px;}
+.sub-visual + div ul li a {font-family: 'Pretendard'; letter-spacing: 0.2px;}
 .sub-visual + div ul li a .areas-01 {color: #0047AB !important; font-weight: 700; display: inline;}
 .sub-visual + div ul li a .areas-02 {color: #2FC2EE !important; font-weight: 700; display: inline;}
 
@@ -6031,7 +5576,7 @@ a {
 	margin-bottom: 10px;
 }
 .area-case-slide .conts-wrap .bo-content {
-	font-weight: 400; color: #333333; line-height: 1.5;
+	color: #333333; line-height: 1.5;
 	font-size: 16px;
 	padding: 0 5px;
 	overflow: hidden;
@@ -7892,7 +7437,7 @@ a {
 	font-style: normal; font-weight: 500;
 }
 .business-wrap .business-tit span { 
-	font-weight: 400; 
+	
 }
 
 
@@ -8965,7 +8510,7 @@ a {
     -webkit-line-clamp:3;
     -webkit-box-orient: vertical;
 	width:100%; height:65px;
-	font-weight: 300; font-size:15px; line-height:22px;
+	font-size:15px; line-height:22px;
 	color:#666;
 	word-break:break-word;
 	text-overflow:ellipsis;
@@ -9191,7 +8736,7 @@ a {
     -webkit-box-orient: vertical;
 	margin-top:12px;
 	width:100%; height:72px;
-	font-weight: 400; font-size:16px; line-height:24px;
+	font-size:16px; line-height:24px;
 	color:#666;
 	word-break:break-all;
 	text-align: justify;
@@ -9208,7 +8753,7 @@ a {
 }
 .case-box1 .name li:first-child { 
 	width:calc(100% - 100px); 
-	font-weight: 300; font-size:16px;
+	font-size:16px;
 	color:#333;
 }
 .case-box1 .name li:first-child  strong { 
@@ -9377,7 +8922,7 @@ a {
     -webkit-box-orient: vertical;
 	margin-top:12px; margin-bottom:50px;
 	width:100%; height:72px;
-	font-weight: 400; font-size:16px; line-height:24px;
+	font-size:16px; line-height:24px;
 	color:#666;
 	word-break:keep-all;
 	text-overflow:ellipsis;
@@ -9530,7 +9075,7 @@ a {
 	padding:0 18px;
 	border-radius:18px;
 	background: #6a5947;
-	font-weight: 300; font-size:16px; line-height:35px;
+	font-size:16px; line-height:35px;
 	color:#fff;
 	text-align:center;
 }
@@ -9554,7 +9099,7 @@ a {
     -webkit-line-clamp:5;
     -webkit-box-orient: vertical;
 	width:100%; height:130px;
-	font-weight: 300; font-size:16px; line-height:26px;
+	font-size:16px; line-height:26px;
 	color:#fff;
 	word-break:keep-all;
 	text-overflow:ellipsis;
@@ -9634,7 +9179,7 @@ a {
 	width:250px;
 	border:1px solid rgba(255,255,255,.6);
 	background:rgba(0,0,0,.1);
-	font-weight: 400; font-size:20px; line-height:76px;
+	font-size:20px; line-height:76px;
 	color:#fff;
 	text-align:center;
 	transition:.3s;
@@ -9836,7 +9381,7 @@ a {
 	padding:0 18px;
 	border-radius:15px;
 	background: #c12720;
-	font-weight: 400; font-size:14px; line-height:30px;
+	font-size:14px; line-height:30px;
 	color:#fff;
 	text-align:center;
 }
@@ -9856,7 +9401,7 @@ a {
     -webkit-line-clamp:4;
     -webkit-box-orient: vertical;
 	width:100%; height:48px;
-	font-weight: 300; font-size:15px; line-height:22px;
+	font-size:15px; line-height:22px;
 	color:#666;
 	word-break:break-word;
 	text-overflow:ellipsis;
@@ -10218,7 +9763,7 @@ a {
 	-webkit-box-orient:vertical; 
 	text-overflow:ellipsis;
 	height:90px;
-	font-weight: 300; font-size:16px; line-height:22px;
+	font-size:16px; line-height:22px;
 	color:#888;
 }
 
@@ -10227,7 +9772,7 @@ a {
 	background: #fff;
 	border:0 none;
 	text-align:center;
-	font-weight: 300; font-size:16px;
+	font-size:16px;
 }
 .gallery1-list .no-data:hover { 
 	box-shadow:none;
@@ -10349,7 +9894,7 @@ a {
     -webkit-line-clamp:2;
     -webkit-box-orient: vertical;
 	width:100%; height:52px;
-	font-weight: 300; font-size:16px; line-height:26px;
+	font-size:16px; line-height:26px;
 	color:#666;
 	word-break:keep-all;
 	text-overflow:ellipsis;
@@ -10515,7 +10060,7 @@ a {
 	-webkit-box-orient:vertical; 
 	text-overflow:ellipsis;
 	height:90px;
-	font-weight: 300; font-size:16px; line-height:22px;
+	font-size:16px; line-height:22px;
 	color:#888;
 }
 
@@ -10524,7 +10069,7 @@ a {
 	background: #fff;
 	border:0 none;
 	text-align:center;
-	font-weight: 300; font-size:16px;
+	font-size:16px;
 }
 .gallery3-list .no-data:hover { 
 	box-shadow:none;
