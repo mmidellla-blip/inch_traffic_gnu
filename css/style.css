@@ -4589,12 +4589,12 @@ a {
     background: #f7f7f7;
 }
 
-.greetings-wrap .txt-wrap h1 { 
+.greetings-wrap .txt-wrap h3 { 
 	font-weight:300; font-size:32px; line-height:1.2;
 	color:#1a1a1a;
 	word-break:keep-all;
 }
-.greetings-wrap .txt-wrap h1 strong { 
+.greetings-wrap .txt-wrap h3 strong { 
 	font-weight: 700; 
 }
 .greetings-wrap .txt-wrap p { 
@@ -4677,10 +4677,10 @@ a {
 }
 @media screen and (max-width: 767px) { 
 	
-	.greetings-wrap .txt-wrap h1 { 
+	.greetings-wrap .txt-wrap h3 { 
 		font-size:27px; 
 	}
-	.greetings-wrap .txt-wrap h1 strong br
+	.greetings-wrap .txt-wrap h3 strong br
 	{
 		display: none;
 	}
@@ -4927,12 +4927,12 @@ a {
 	position:absolute; left:50%; bottom:15%;
 	margin-left:-600px;
 }
-.member-view-header .txt-wrap h1 { 
+.member-view-header .txt-wrap h2 { 
 	margin-bottom:20px;
 	font-weight:300; font-size:30px;
 	color:#000;
 }
-.member-view-header .txt-wrap h1 strong { 
+.member-view-header .txt-wrap h2 strong { 
 	font-weight: 700; font-size:46px; 
 }
 .member-view-header .txt-wrap ul li { 
@@ -4952,17 +4952,17 @@ a {
 	width:50%;
 	vertical-align:top;
 }
-.member-view-detail .member-view-box h1 { 
+.member-view-detail .member-view-box h3 { 
 	position:relative;
 	display:inline-block;
 	margin:70px 0 20px;
 	font-weight:700; font-size:28px;
 	color:#1a1a1a;
 }
-.member-view-detail .member-view-box h1:first-child { 
+.member-view-detail .member-view-box h3:first-child { 
 	margin-top:0; 
 }
-.member-view-detail .member-view-box h1:after { 
+.member-view-detail .member-view-box h3:after { 
 	content:'';
 	position:absolute; top:50%; left:100%;
 	margin-top:-1px; margin-left:18px;
@@ -5013,14 +5013,14 @@ a {
 	min-width:400px;
 	text-align:left;
 }
-.member-view-detail .member-view-case-wrap h1 { 
+.member-view-detail .member-view-case-wrap h3 { 
 	position:relative;
 	margin-bottom:30px; padding-bottom:30px;
 	border-bottom:1px solid #e0e0e0;
 	font-weight: 500; font-size:24px;
 	color:#1a1a1a;
 }
-.member-view-detail .member-view-case-wrap h1:after { 
+.member-view-detail .member-view-case-wrap h3:after { 
 	content:'';
 	position:absolute; top:7px; right:0;
 	width:43px; height:14px;
@@ -5121,11 +5121,11 @@ a {
 	.member-view-header.lawyer_view12 { 
 		background-position:44% bottom; 
 	}
-	.member-view-header .txt-wrap h1 { 
+	.member-view-header .txt-wrap h2 { 
 		margin-bottom: 10px;
 		font-size:22px; 
 	}
-	.member-view-header .txt-wrap h1 strong { 
+	.member-view-header .txt-wrap h2 strong { 
 		font-size:30px; 
 	}
 	.member-view-header .txt-wrap ul li { 
@@ -5137,11 +5137,11 @@ a {
 		margin-top: 45px;
 		padding:0 20px 60px;
 	}
-	.member-view-detail .member-view-box h1 { 
+	.member-view-detail .member-view-box h3 { 
 		margin:50px 0 15px;
 		font-size:22px;
 	}
-	.member-view-detail .member-view-box h1:after { 
+	.member-view-detail .member-view-box h3:after { 
 		margin-left: 12px;
 		width:25px; 
 	}
@@ -5156,11 +5156,11 @@ a {
 	.member-view-detail .member-view-case { 
 		margin-top:40px; 
 	}
-	.member-view-detail .member-view-case-wrap h1 { 
+	.member-view-detail .member-view-case-wrap h3 { 
 		margin-bottom:20px; padding-bottom:20px;
 		font-size:18px; 
 	}
-	.member-view-detail .member-view-case-wrap h1:after { 
+	.member-view-detail .member-view-case-wrap h3:after { 
 		background-size:auto 10px; 
 	}
 	.member-view-case .lawyer-case-list li { 
@@ -5257,7 +5257,7 @@ a {
 	padding-left:5%;
 	width:calc(100% - 119px); 
 }
-.differentiation-box .txt-wrap h1 { 
+.differentiation-box .txt-wrap h3 { 
 	margin-bottom:20px;
 	font-weight: 500; font-size:26px;
 	color:#1a1a1a;
@@ -5286,7 +5286,7 @@ a {
 		padding-left:0;
 		width:100%;
 	}
-	.differentiation-box .txt-wrap h1 { 
+	.differentiation-box .txt-wrap h3 { 
 		margin-bottom:10px;
 		font-size:18px; 
 	}
@@ -5362,7 +5362,7 @@ a {
 	padding-left:50px;
 	font-size:0;
 }
-.location-detail .location-address h1 { 
+.location-detail .location-address h3 { 
 	position:relative; z-index:111;
 	display:inline-block;
 	margin-top:-80px;
@@ -5374,7 +5374,7 @@ a {
 	color:#fff;
 	vertical-align:top;
 }
-.location-detail .location-address h1 span { 
+.location-detail .location-address h3 span { 
 	display:block;
 	/* 명칭 길어짐에 따라 y축 위치 수정 */
 	margin-bottom:40px;
@@ -5466,12 +5466,12 @@ a {
 	.location-detail .location-address { 
 		padding:0 20px; 
 	}
-	.location-detail .location-address h1 { 
+	.location-detail .location-address h3 { 
 		margin-top:-25px; padding:15px 20px;
 		width:auto; height:auto; 
 		font-size:16px;
 	}
-	.location-detail .location-address h1 span { 
+	.location-detail .location-address h3 span { 
 		display:inline-block;
 		margin-bottom:0; margin-right:15px;
 		font-size:12px; 

@@ -20,7 +20,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 	<h1 class="sub-conts-title"><span><?php echo $g5['title']; ?></span></h1>
 	<section class="greetings-wrap">
 		<div class="txt-wrap">
-			<h1>안녕하십니까? <br><strong>법무법인 동주의 교통음주 분야를 이끌고 있는<br>대표 변호사 이세환입니다.</strong></h1>
+			<h3>안녕하십니까? <br><strong>법무법인 동주의 교통음주 분야를 이끌고 있는<br>대표 변호사 이세환입니다.</strong></h3>
 
 			<p>
 				초기에 대응할수록 사건 결과가 천차만별로 달라지는 분야가 존재합니다.

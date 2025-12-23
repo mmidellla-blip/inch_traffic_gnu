@@ -42,7 +42,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 					</script>
 				</section>
 				<section class="location-address">
-					<h1><span>Location</span>서울사무소</h1>
+					<h3><span>Location</span>서울사무소</h3>
 					<section class="location-address-wrap">
 						<p>서울시 서초구 서초중앙로 123, 13층(서초동, 엘렌타워)</p>
 						<dl>
@@ -71,7 +71,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 					</script>
 				</section>
 				<section class="location-address">
-					<h1><span>Location</span>수원사무소</h1>
+					<h3><span>Location</span>수원사무소</h3>
 					<section class="location-address-wrap">
 						<p>수원시 영통구 광교중앙로248번길 7-2, B동 902-903호(하동, 원희캐슬광교)</p>
 						<dl>
@@ -100,7 +100,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 					</script>
 				</section>
 				<section class="location-address">
-					<h1><span>Location</span>인천사무소</h1>
+					<h3><span>Location</span>인천사무소</h3>
 					<section class="location-address-wrap">
 						<p>인천시 미추홀구 학익소로 66, 403-404호(학익동, 선정빌딩)</p>
 						<dl>

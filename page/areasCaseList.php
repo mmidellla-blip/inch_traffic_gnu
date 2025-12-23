@@ -16,7 +16,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 
 <section class="sec-areasCase">
 	<section class="area-case">
-		<h1 class="caseList-tit">성공사례</h1>
+		<h2 class="caseList-tit">성공사례</h2>
 		<div class="area-case-list">
 			<?php 
 			include_once(G5_LIB_PATH.'/thumbnail.lib.php');
