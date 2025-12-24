@@ -79,7 +79,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <script src="/js/jquery.fullPage.min.js"></script>
   <script src="/js/slick.js"></script>
   <script src="/js/swiper.js"></script>
-  <script src="/js/video.js"></script>
+  <script src="/js/main-case.js"></script>
   <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
 
   <meta name="keywords" content="<?php echo (!empty($metaKeyword))? $metaKeyword : $metaKeywordConf; ?>">
@@ -115,7 +115,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <script src="/js/jquery.fullPage.min.js"></script>
   <script src="/js/slick.js"></script>
   <script src="/js/swiper.js"></script>
-  <script src="/js/video.js"></script>
+  <script src="/js/main-case.js"></script>
   <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
 
   <meta name="keywords" content="<?php echo $metaKeywordConf; ?>">
