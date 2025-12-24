@@ -369,8 +369,8 @@
 						<p>음주운전 · 교통사고 분야 전문가들이 TF로 구성됩니다.</p>
 					</div>
 					<div class="slider-container">
-						<button class="slider-nav prev" aria-label="Previous Slide">←</button>
-						<button class="slider-nav next" aria-label="Next Slide">→</button>
+						<button class="slider-nav prev" aria-label="Previous Slide"><</button>
+						<button class="slider-nav next" aria-label="Next Slide">></button>
 						<div class="slider-wrapper">
 						<?php
 						$sql = "select * from g5_write_member order by wr_1 asc";
