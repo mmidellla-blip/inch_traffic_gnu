@@ -1,14 +1,5 @@
 <?php include_once(G5_PATH.'/head.sub.php'); ?>
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
-<link rel="stylesheet" type="text/css" href="/css/template.css" />
-<link rel="stylesheet" type="text/css" href="/css/style.css" />
-<link rel="stylesheet" type="text/css" href="/css/swiper.css" />
-<link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
-<script src="/js/jquery-1.8.3.min.js"></script>
-<script src="/js/swiper.js"></script>
-<script src="/js/main-case.js"></script>
-
 <!-- 우클릭&드래그 금지 -->
 <script type="text/javascript">
    document.oncontextmenu = function(){return false;}
