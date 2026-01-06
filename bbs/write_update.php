@@ -277,7 +277,42 @@ if ($w == '' || $w == 'r') {
         $wr_num = get_next_num($write_table);
         $wr_reply = '';
     }
-
+    if(strpos($write_table, 'online') !== false){
+        $sql = " insert into $write_table
+                set wr_num = '$wr_num',
+                     wr_reply = '$wr_reply',
+                     wr_comment = 0,
+                     ca_name = '$ca_name',
+                     wr_option = '$html,$secret,$mail',
+                     wr_subject = '신속 상담 신청',
+                     wr_content = '$wr_content',
+                     wr_seo_title = '$wr_seo_title',
+                     wr_link1 = '$wr_link1',
+                     wr_link2 = '$wr_link2',
+                     wr_link1_hit = 0,
+                     wr_link2_hit = 0,
+                     wr_hit = 0,
+                     wr_good = 0,
+                     wr_nogood = 0,
+                     mb_id = '{$member['mb_id']}',
+                     wr_password = '$wr_password',
+                     wr_name = '$wr_name',
+                     wr_email = '$wr_email',
+                     wr_homepage = '$wr_homepage',
+                     wr_datetime = '".G5_TIME_YMDHIS."',
+                     wr_last = '".G5_TIME_YMDHIS."',
+                     wr_ip = '{$_SERVER['REMOTE_ADDR']}',
+                     wr_1 = '$wr_1',
+                     wr_2 = '$wr_2',
+                     wr_3 = '$wr_3',
+                     wr_4 = '$wr_4',
+                     wr_5 = '$wr_5',
+                     wr_6 = '$wr_6',
+                     wr_7 = '$wr_7',
+                     wr_8 = '$wr_8',
+                     wr_9 = '$wr_9',
+                     wr_10 = '$wr_10' ";
+    }else{
     $sql = " insert into $write_table
                 set wr_num = '$wr_num',
                      wr_reply = '$wr_reply',
@@ -312,6 +347,8 @@ if ($w == '' || $w == 'r') {
                      wr_8 = '$wr_8',
                      wr_9 = '$wr_9',
                      wr_10 = '$wr_10' ";
+    }
+    
     sql_query($sql);
 
     $wr_id = sql_insert_id();
