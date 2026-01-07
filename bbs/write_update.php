@@ -224,11 +224,30 @@ if ($w == '' || $w == 'u') {
 }
 
 $is_use_captcha = ((($board['bo_use_captcha'] && $w !== 'u') || $is_guest) && !$is_admin) ? 1 : 0;
-/*
-if ($is_use_captcha && !chk_captcha()) {
-    alert('자동등록방지 숫자가 틀렸습니다.');
+
+// 온라인 상담 게시판일 경우 봇방지 및 캡챠 검사
+if ($_POST["bo_table"]=='online') {
+    // User-Agent 검사
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+
+    $blockedAgents = ['python', 'curl', 'wget'];
+
+    foreach ($blockedAgents as $agent) {
+        if (stripos($userAgent, $agent) !== false) {
+            http_response_code(403);
+            exit('Forbidden');
+        }
+    }
+    // UA가 아예 없는 경우
+    if (trim($userAgent) === '') {
+        http_response_code(403);
+        exit('Forbidden');
+    }
+    // 캡챠 검사
+    if(!chk_captcha()){
+        alert('자동등록방지 숫자가 틀렸습니다.');
+    }
 }
-*/
 
 if ($w == '' || $w == 'r') {
     if (isset($_SESSION['ss_datetime'])) {
