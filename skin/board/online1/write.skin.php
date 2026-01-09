@@ -3,12 +3,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
-// online 게시판은 네이버 캡차 사용
-if (isset($bo_table) && $bo_table == 'online') {
-    include_once(G5_LIB_PATH.'/naver_captcha.lib.php');
-} else {
-    include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
-}
+include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
 ?>
 
 <style type="text/css" title="">
@@ -183,14 +178,8 @@ if (isset($bo_table) && $bo_table == 'online') {
 			        <a href="./board.php?bo_table=<?php echo $bo_table ?>" class="btn_cancel btn">취소</a>
 			    </div>
 				<div class="captcha-wrap">
-					<?php echo $captcha_html; ?>
-					<?php if (isset($bo_table) && $bo_table == 'online') { ?>
-					<script>
-					<?php echo naver_captcha_js(); ?>
-					</script>
-					<?php } ?>
+					<?php echo captcha_html(); ?>
 				</div>
-
 			</section>
 		</form>
 	</section>
@@ -301,60 +290,8 @@ if (isset($bo_table) && $bo_table == 'online') {
         }
 		
 
-        <?php if (isset($bo_table) && $bo_table == 'online') { ?>
-        // 네이버 캡차 검증 - AJAX로 서버에서 검증
-        var naver_captcha_input = document.getElementById("naver_captcha_input");
-        var naver_captcha_key = document.getElementById("naver_captcha_key");
-        
-        if (!naver_captcha_input || !naver_captcha_key) {
-            alert("자동등록방지 오류가 발생했습니다. 페이지를 새로고침해주세요.");
-            return false;
-        }
-        
-        if (!naver_captcha_input.value || naver_captcha_input.value.trim() === '') {
-            alert("자동등록방지 문자를 입력해주세요.");
-            naver_captcha_input.focus();
-            return false;
-        }
-        
-        if (!naver_captcha_key.value || naver_captcha_key.value.trim() === '') {
-            alert("자동등록방지 오류가 발생했습니다. 페이지를 새로고침해주세요.");
-            return false;
-        }
-        
-        // AJAX로 네이버 캡차 검증
-        var captcha_result = false;
-        var captcha_message = '';
-        $.ajax({
-            type: 'POST',
-            url: g5_bbs_url + '/naver_captcha_verify.php',
-            data: {
-                'naver_captcha_input': naver_captcha_input.value,
-                'naver_captcha_key': naver_captcha_key.value
-            },
-            dataType: 'json',
-            async: false,
-            cache: false,
-            success: function(data) {
-                captcha_result = data.success;
-                captcha_message = data.message;
-            },
-            error: function() {
-                captcha_result = false;
-                captcha_message = '자동등록방지 검증 중 오류가 발생했습니다.';
-            }
-        });
-        
-        if (!captcha_result) {
-            alert(captcha_message || '자동등록방지 문자가 틀렸습니다. 다시 입력해주세요.');
-            naver_captcha_input.focus();
-            naver_captcha_input.select();
-            return false;
-        }
-        <?php } else { ?>
         <?php echo $captcha_js; // 캡챠 사용시 자바스크립트에서 입력된 캡챠를 검사함  ?>
 		<?php echo chk_captcha_js(); ?>
-        <?php } ?>
 
         document.getElementById("btn_submit").disabled = "disabled";
 

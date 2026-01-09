@@ -239,7 +239,7 @@ include_once(G5_LIB_PATH.'/icode.sms.lib.php');
 
 if($w==""){
 	$_SESSION['LOGGER']="ODR";	//20200518 LOGGER
-	// alert("상담이 정상적으로 접수되었습니다. 영업시간[평일 09:00~19:00] 외 상담신청은 응대가 늦어질 수 있으니 조금만 기다려 주십시오. 감사합니다.", '/bbs/write.php?bo_table='.$bo_table);
+	alert("상담이 정상적으로 접수되었습니다. 영업시간[평일 09:00~19:00] 외 상담신청은 응대가 늦어질 수 있으니 조금만 기다려 주십시오. 감사합니다.", '/bbs/write.php?bo_table='.$bo_table);
 }
 
 ?>

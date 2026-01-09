@@ -1,31 +1,24 @@
 <?php
-error_log("=== write_update.php 시작 ===");
-error_log("POST bo_table: " . (isset($_POST['bo_table']) ? $_POST['bo_table'] : 'not set'));
-error_log("GET bo_table: " . (isset($_GET['bo_table']) ? $_GET['bo_table'] : 'not set'));
-
 include_once('./_common.php');
-error_log("_common.php 로드 완료");
-
 include_once(G5_LIB_PATH.'/naver_syndi.lib.php');
-// online 게시판은 네이버 캡차 사용, 나머지는 기존 캡차 사용
-if (isset($_POST['bo_table']) && $_POST['bo_table'] == 'online') {
-    include_once(G5_LIB_PATH.'/naver_captcha.lib.php');
-    error_log("네이버 캡차 라이브러리 로드");
-} else {
-    include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
-    error_log("기존 캡차 라이브러리 로드");
+include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
+
+if(!$is_admin)
+{
+	$wr_name = trim(preg_replace('/[^\x{1100}-\x{11FF}\x{3130}-\x{318F}\x{AC00}-\x{D7AF}\s]/u', "", $wr_name));
+	if( empty($wr_name) ) die;
+
+	if( isset($wr_name) && !preg_replace("/[a-zA-Z0-9]/",'', $wr_name) ) die;
+
+	if(strstr($wr_name,'텔레')) die;
+
+	if (preg_match('/[a-zA-Z]/', $wr_name)) {
+		die;
+	}
 }
 
-error_log("=== 초기 검증 시작 ===");
-error_log("is_admin: " . ($is_admin ? 'true' : 'false'));
-
-// wr_name은 나중에 설정되므로 여기서는 체크하지 않음
-// 이 검증은 나중에 wr_name이 설정된 후에 수행됨
-
 // 토큰체크
-error_log("토큰 체크 시작");
 check_write_token($bo_table);
-error_log("토큰 체크 완료");
 
 $g5['title'] = '게시글 저장';
 
@@ -232,15 +225,8 @@ if ($w == '' || $w == 'u') {
 
 $is_use_captcha = ((($board['bo_use_captcha'] && $w !== 'u') || $is_guest) && !$is_admin) ? 1 : 0;
 
-// 온라인 상담 게시판일 경우 봇방지 및 네이버 캡챠 검사
-// bo_table 확인 (여러 방법으로 확인)
-$current_bo_table = isset($bo_table) ? $bo_table : (isset($_POST['bo_table']) ? $_POST['bo_table'] : '');
-$is_online_board = ($current_bo_table == 'online');
-
-// 온라인 게시판이고 새글/답변 작성이며 관리자가 아닌 경우 - 네이버 캡차 필수 검증
-if ($is_online_board && ($w == '' || $w == 'r') && !$is_admin) {
-    error_log("=== 네이버 캡차 검증 시작 ===");
-    error_log("bo_table: " . $current_bo_table . ", w: " . $w . ", is_admin: " . ($is_admin ? 'true' : 'false'));
+// 온라인 상담 게시판일 경우 봇방지 및 캡챠 검사
+if ($_POST["bo_table"]=='online') {
     // User-Agent 검사
     $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
@@ -257,72 +243,11 @@ if ($is_online_board && ($w == '' || $w == 'r') && !$is_admin) {
         http_response_code(403);
         exit('Forbidden');
     }
-    // 온라인 게시판은 항상 네이버 캡차 검사 - 필수 체크
-    $naver_captcha_input = isset($_POST['naver_captcha_input']) ? trim($_POST['naver_captcha_input']) : '';
-    $naver_captcha_key = isset($_POST['naver_captcha_key']) ? trim($_POST['naver_captcha_key']) : '';
-    
-    error_log("POST 데이터 확인:");
-    error_log("  - naver_captcha_input: " . ($naver_captcha_input ? '있음(' . strlen($naver_captcha_input) . '자)' : '없음'));
-    error_log("  - naver_captcha_key: " . ($naver_captcha_key ? '있음(' . strlen($naver_captcha_key) . '자)' : '없음'));
-    
-    // 입력값 체크 - 필수 (빈 값이면 즉시 차단)
-    if (empty($naver_captcha_input) || trim($naver_captcha_input) === '') {
-        error_log("ERROR: 네이버 캡차 입력값 없음 - 차단");
-        alert('자동등록방지 문자를 입력해주세요.', G5_BBS_URL.'/write.php?bo_table='.$current_bo_table);
-        exit;
+    // 캡챠 검사
+    if(!chk_captcha()){
+        alert('자동등록방지 숫자가 틀렸습니다.');
     }
-    if (empty($naver_captcha_key) || trim($naver_captcha_key) === '') {
-        error_log("ERROR: 네이버 캡차 키 없음 - 차단");
-        alert('자동등록방지 오류가 발생했습니다. 페이지를 새로고침해주세요.', G5_BBS_URL.'/write.php?bo_table='.$current_bo_table);
-        exit;
-    }
-    
-    // 네이버 캡차 검증 - AJAX에서 이미 검증했는지 확인
-    $session_key = 'naver_captcha_verified_' . $naver_captcha_key;
-    $ajax_verified = get_session($session_key);
-    
-    error_log("AJAX 검증 여부 확인:");
-    error_log("  - 세션 키: " . substr($session_key, 0, 30) . "...");
-    error_log("  - AJAX 검증 완료: " . ($ajax_verified ? 'YES' : 'NO'));
-    
-    if ($ajax_verified) {
-        // AJAX에서 이미 검증 완료된 경우 세션 플래그 삭제하고 통과
-        set_session($session_key, '');
-        error_log("AJAX 검증 완료 - 서버 측 검증 생략");
-        
-        // 작성 완료 시 세션에 저장된 폼 데이터도 삭제 (복원 방지)
-        if (isset($_SESSION['write_form_data'])) {
-            unset($_SESSION['write_form_data']);
-            error_log("작성 완료 - 세션 폼 데이터 삭제");
-        }
-    } else {
-        // AJAX 검증이 없거나 실패한 경우 서버 측에서 직접 검증
-        error_log("AJAX 검증 없음 - 서버 측 검증 시작");
-        $verify_result = naver_captcha_verify($naver_captcha_input, $naver_captcha_key);
-        error_log("네이버 캡차 검증 API 결과: " . var_export($verify_result, true));
-        
-        // 검증 실패 시 즉시 차단
-        if ($verify_result !== true) {
-            error_log("ERROR: 네이버 캡차 검증 실패 - 차단");
-            error_log("  - bo_table: " . $current_bo_table);
-            error_log("  - 입력값: " . $naver_captcha_input);
-            error_log("  - 키: " . substr($naver_captcha_key, 0, 20) . "...");
-            
-            // 폼 데이터를 세션에 저장하여 복원 가능하게 함
-            $_SESSION['write_form_data'] = $_POST;
-            $_SESSION['write_form_data']['captcha_error'] = true;
-            
-            alert('자동등록방지 문자가 틀렸습니다. 다시 입력해주세요.', G5_BBS_URL.'/write.php?bo_table='.$current_bo_table);
-            exit;
-        }
-    }
-    
-    error_log("네이버 캡차 검증 통과 - 계속 진행");
 }
-
-error_log("=== write_update.php 진행 중 ===");
-error_log("w 값: " . $w . ", bo_table: " . (isset($bo_table) ? $bo_table : 'not set'));
-
 
 if ($w == '' || $w == 'r') {
     if (isset($_SESSION['ss_datetime'])) {
@@ -352,29 +277,6 @@ if ($w == '' || $w == 'r') {
         $wr_name = clean_xss_tags(trim($_POST['wr_name']));
         if (!$wr_name)
             alert('이름은 필히 입력하셔야 합니다.');
-
-        // 비관리자 이름 검증 (스팸 방지 - 한글이 포함되어 있으면 통과)
-        if(!$is_admin)
-        {
-            error_log("비관리자 이름 검증 시작 - 원본: " . $wr_name);
-            $wr_name_filtered = trim(preg_replace('/[^\x{1100}-\x{11FF}\x{3130}-\x{318F}\x{AC00}-\x{D7AF}\s]/u', "", $wr_name));
-            error_log("필터링 후: " . $wr_name_filtered . " (길이: " . mb_strlen($wr_name_filtered, 'UTF-8') . ")");
-            
-            // 한글이 하나라도 있는지 확인
-            if( empty($wr_name_filtered) || mb_strlen($wr_name_filtered, 'UTF-8') < 1 ) {
-                error_log("ERROR: wr_name에 한글이 없음 - alert");
-                alert('이름은 한글로 입력해주세요.');
-            }
-
-            // 스팸 키워드 체크
-            if(strstr($wr_name_filtered,'텔레')) {
-                error_log("ERROR: '텔레' 포함 - alert");
-                alert('부적절한 단어가 포함되어 있습니다.');
-            }
-            
-            error_log("비관리자 이름 검증 통과");
-        }
-
         $wr_password = get_encrypt_string($wr_password);
         $wr_email = get_email_address(trim($_POST['wr_email']));
         $wr_homepage = clean_xss_tags($wr_homepage);
@@ -927,93 +829,6 @@ if (!($w == 'u' || $w == 'cu') && $config['cf_email_use'] && $board['bo_use_emai
 
     for ($i=0; $i<count($unique_email); $i++) {
         mailer($wr_name, $wr_email, $unique_email[$i], $subject, $content, 1);
-    }
-}
-
-// 작성 완료 시 세션 정리 (모든 세션 데이터 삭제)
-if (isset($_SESSION['write_form_data'])) {
-    unset($_SESSION['write_form_data']);
-    error_log("작성 완료 - 세션 폼 데이터 삭제");
-}
-
-// online 게시판 완료 메시지 처리 (출력 전에 가장 먼저 체크)
-$final_bo_table = isset($bo_table) ? $bo_table : (isset($_POST['bo_table']) ? $_POST['bo_table'] : '');
-error_log("=== online 게시판 체크 ===");
-error_log("final_bo_table: " . $final_bo_table . ", w: " . $w . ", 조건: " . (($final_bo_table == 'online' && $w == '') ? 'TRUE' : 'FALSE'));
-
-if ($final_bo_table == 'online' && $w == '') {
-    error_log("=== online 게시판 완료 처리 시작 ===");
-    error_log("bo_table: " . $final_bo_table . ", w: " . $w);
-    
-    try {
-        // 사용자 코드 실행 (SMS 전송 등) - 출력 버퍼로 캡처
-        ob_start();
-        @include_once($board_skin_path.'/write_update.skin.php');
-        @include_once($board_skin_path.'/write_update.tail.skin.php');
-        $skin_output = ob_get_clean();
-        error_log("write_update.skin.php 실행 완료");
-        
-        delete_cache_latest($bo_table);
-        error_log("캐시 삭제 완료");
-        
-        // 모든 출력 버퍼 정리
-        $ob_level = ob_get_level();
-        error_log("출력 버퍼 레벨 (정리 전): " . $ob_level);
-        while (ob_get_level()) {
-            ob_end_clean();
-        }
-        error_log("출력 버퍼 레벨 (정리 후): " . ob_get_level());
-        
-        // 리다이렉트 URL
-        $redirect_url = G5_BBS_URL.'/board.php?bo_table='.$bo_table;
-        $success_msg = "상담이 정상적으로 접수되었습니다.\\n영업시간[평일 09:00~19:00] 외 상담신청은 응대가 늦어질 수 있으니 조금만 기다려 주십시오. 감사합니다.";
-        
-        error_log("리다이렉트 URL: " . $redirect_url);
-        error_log("헤더 전송 여부: " . (headers_sent() ? 'YES' : 'NO'));
-        
-        // 헤더가 전송되지 않았으면 헤더 설정
-        if (!headers_sent()) {
-            @header('Content-Type: text/html; charset=utf-8');
-            error_log("Content-Type 헤더 설정 완료");
-        } else {
-            error_log("WARNING: 헤더가 이미 전송됨");
-        }
-        
-        // 직접 HTML 출력하여 확실하게 리다이렉트
-        error_log("HTML 출력 시작");
-        echo '<!DOCTYPE html>';
-        echo '<html>';
-        echo '<head>';
-        echo '<meta charset="utf-8">';
-        echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
-        echo '<title>상담 접수 완료</title>';
-        echo '</head>';
-        echo '<body>';
-        echo '<script>';
-        echo 'alert("' . addslashes(str_replace('\\n', '\n', $success_msg)) . '");';
-        echo 'location.replace("' . $redirect_url . '");';
-        echo '</script>';
-        echo '<noscript>';
-        echo '<meta http-equiv="refresh" content="0;url=' . $redirect_url . '">';
-        echo '<p>상담이 정상적으로 접수되었습니다.</p>';
-        echo '<p><a href="' . $redirect_url . '">게시판으로 이동</a></p>';
-        echo '</noscript>';
-        echo '</body>';
-        echo '</html>';
-        
-        error_log("HTML 출력 완료, exit 호출");
-        flush();
-        exit;
-    } catch (Exception $e) {
-        error_log("ERROR: online 게시판 처리 중 예외 발생: " . $e->getMessage());
-        error_log("Stack trace: " . $e->getTraceAsString());
-        // 에러 발생 시에도 리다이렉트 시도
-        if (!headers_sent()) {
-            header('Location: ' . G5_BBS_URL.'/board.php?bo_table='.$bo_table);
-        } else {
-            echo '<script>location.replace("' . G5_BBS_URL.'/board.php?bo_table='.$bo_table . '");</script>';
-        }
-        exit;
     }
 }
 
