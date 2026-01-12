@@ -1,3 +1,77 @@
+#### 캐시 헤더 설정 BEGIN #####
+<IfModule mod_expires.c>
+ExpiresActive On
+
+# 이미지 파일 - 1년
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/jpg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+
+# CSS 파일 - 1년
+ExpiresByType text/css "access plus 1 year"
+
+# JavaScript 파일 - 1년
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType text/javascript "access plus 1 year"
+ExpiresByType application/x-javascript "access plus 1 year"
+
+# 폰트 파일 - 1년
+ExpiresByType font/woff "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType application/font-woff "access plus 1 year"
+ExpiresByType application/font-woff2 "access plus 1 year"
+ExpiresByType font/ttf "access plus 1 year"
+ExpiresByType application/x-font-ttf "access plus 1 year"
+ExpiresByType font/otf "access plus 1 year"
+ExpiresByType application/x-font-opentype "access plus 1 year"
+ExpiresByType font/eot "access plus 1 year"
+ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+
+# 기타 정적 파일
+ExpiresByType application/pdf "access plus 1 month"
+ExpiresByType application/x-shockwave-flash "access plus 1 month"
+ExpiresByType text/html "access plus 0 seconds"
+ExpiresByType application/json "access plus 0 seconds"
+ExpiresByType application/xml "access plus 0 seconds"
+ExpiresByType text/xml "access plus 0 seconds"
+</IfModule>
+
+# Cache-Control 헤더 설정 (mod_expires가 없을 경우 대비)
+<IfModule mod_headers.c>
+# 이미지 파일
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# CSS 파일
+<FilesMatch "\.(css)$">
+Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# JavaScript 파일
+<FilesMatch "\.(js)$">
+Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# 폰트 파일
+<FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
+Header set Cache-Control "max-age=31536000, public"
+Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# HTML 파일은 캐시하지 않음
+<FilesMatch "\.(html|htm|php)$">
+Header set Cache-Control "no-cache, no-store, must-revalidate"
+Header set Pragma "no-cache"
+Header set Expires "0"
+</FilesMatch>
+</IfModule>
+#### 캐시 헤더 설정 END #####
 
 #### 그누보드5 rewrite BEGIN #####
 <IfModule mod_rewrite.c>
