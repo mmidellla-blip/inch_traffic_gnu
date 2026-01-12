@@ -71,14 +71,14 @@ function naver_captcha_html() {
     $captcha_key = $key_result['key'];
     $image_url = NAVER_CAPTCHA_API_URL . '/ncaptcha.bin?key=' . $captcha_key;
     
-    $html = '<div class="naver-captcha-wrap">';
-    $html .= '<div class="captcha-title">아래 이미지 속 문자를 입력해주세요.</div>';
-    $html .= '<div class="captcha-image-wrap">';
-    $html .= '<img id="naver_captcha_img" src="' . $image_url . '" alt="캡차 이미지" onclick="naver_captcha_refresh();" />';
-    $html .= '<button type="button" class="captcha-refresh-btn" onclick="naver_captcha_refresh();">↻ 새로고침</button>';
+    $html = '<div class="naver-captcha-wrap" style="margin:20px 0;">';
+    $html .= '<div class="captcha-title" style="font-weight:bold; margin-bottom:10px;">자동등록방지</div>';
+    $html .= '<div class="captcha-image-wrap" style="margin-bottom:10px;">';
+    $html .= '<img id="naver_captcha_img" src="' . $image_url . '" alt="캡차 이미지" style="cursor:pointer; border:1px solid #ddd; vertical-align:middle;" onclick="naver_captcha_refresh();" />';
+    $html .= '<button type="button" class="captcha-refresh-btn" onclick="naver_captcha_refresh();" style="margin-left:10px; padding:5px 10px; cursor:pointer;">새로고침</button>';
     $html .= '</div>';
     $html .= '<div class="captcha-input-wrap">';
-    $html .= '<input type="text" name="naver_captcha_input" id="naver_captcha_input" class="captcha-input" placeholder="자동입력 방지문자" required  />';
+    $html .= '<input type="text" name="naver_captcha_input" id="naver_captcha_input" class="captcha-input" placeholder="위 이미지에 보이는 문자를 입력하세요" required style="padding:8px; width:300px; border:1px solid #ddd;" />';
     $html .= '<input type="hidden" name="naver_captcha_key" id="naver_captcha_key" value="' . $captcha_key . '" />';
     $html .= '</div>';
     $html .= '</div>';

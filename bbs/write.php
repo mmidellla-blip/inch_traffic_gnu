@@ -1,7 +1,12 @@
 <?php
 include_once('./_common.php');
 include_once(G5_EDITOR_LIB);
-include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
+// online 게시판은 네이버 캡차 사용, 나머지는 기존 캡차 사용
+if (isset($_GET['bo_table']) && $_GET['bo_table'] == 'online') {
+    include_once(G5_LIB_PATH.'/naver_captcha.lib.php');
+} else {
+    include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
+}
 
 if (!$board['bo_table']) {
     alert('존재하지 않는 게시판입니다.', G5_URL);
@@ -36,6 +41,14 @@ run_event('bbs_write', $board, $wr_id, $w);
 if ($w == '') {
     if ($wr_id) {
         alert('글쓰기에는 \$wr_id 값을 사용하지 않습니다.', G5_BBS_URL.'/board.php?bo_table='.$bo_table);
+    }
+
+    // 세션에 저장된 폼 데이터 복원 (캡차 검증 실패 시)
+    $restored_data = array();
+    if (isset($_SESSION['write_form_data']) && isset($_SESSION['write_form_data']['captcha_error'])) {
+        $restored_data = $_SESSION['write_form_data'];
+        // 복원 후 세션 데이터 삭제
+        unset($_SESSION['write_form_data']);
     }
 
     if ($member['mb_level'] < $board['bo_write_level']) {
@@ -297,7 +310,24 @@ if ($w == "" || $w == "r") {
         }
         $email = get_email_address($member['mb_email']);
         $homepage = get_text(stripslashes($member['mb_homepage']));
+    } else {
+        // 비회원이고 세션에 저장된 데이터가 있으면 복원
+        if (!empty($restored_data)) {
+            if (isset($restored_data['wr_name'])) $name = $restored_data['wr_name'];
+            if (isset($restored_data['wr_email'])) $email = $restored_data['wr_email'];
+        }
     }
+}
+
+// 세션에 저장된 추가 필드 복원 (wr_1, wr_3, wr_4, wr_5, wr_content 등)
+if (!empty($restored_data)) {
+    if (!isset($wr_1) && isset($restored_data['wr_1'])) $wr_1 = $restored_data['wr_1'];
+    if (!isset($wr_3) && isset($restored_data['wr_3'])) $wr_3 = $restored_data['wr_3'];
+    if (!isset($wr_4) && isset($restored_data['wr_4'])) $wr_4 = $restored_data['wr_4'];
+    if (!isset($wr_5) && isset($restored_data['wr_5'])) $wr_5 = $restored_data['wr_5'];
+    if (!isset($wr_8) && isset($restored_data['wr_8'])) $wr_8 = $restored_data['wr_8'];
+    if (!isset($content) && isset($restored_data['wr_content'])) $content = $restored_data['wr_content'];
+    if (!isset($subject) && isset($restored_data['wr_subject'])) $subject = $restored_data['wr_subject'];
 }
 
 $html_checked   = "";
@@ -392,8 +422,14 @@ $captcha_js   = '';
 $is_use_captcha = ((($board['bo_use_captcha'] && $w !== 'u') || $is_guest) && !$is_admin) ? 1 : 0;
 
 if ($is_use_captcha) {
-    $captcha_html = captcha_html();
-    $captcha_js   = chk_captcha_js();
+    // online 게시판은 네이버 캡차 사용
+    if (isset($bo_table) && $bo_table == 'online') {
+        $captcha_html = naver_captcha_html();
+        $captcha_js   = naver_captcha_js();
+    } else {
+        $captcha_html = captcha_html();
+        $captcha_js   = chk_captcha_js();
+    }
 }
 
 $is_dhtml_editor = false;

@@ -72,4 +72,8 @@ $g5['g5_shop_item_stocksms_table'] = G5_SHOP_TABLE_PREFIX.'item_stocksms'; // �
 $g5['g5_shop_post_log_table'] = G5_SHOP_TABLE_PREFIX.'order_post_log'; // 주문요청 로그 테이블
 $g5['g5_shop_order_data_table'] = G5_SHOP_TABLE_PREFIX.'order_data'; // 모바일 결제정보 임시저장 테이블
 $g5['g5_shop_inicis_log_table'] = G5_SHOP_TABLE_PREFIX.'inicis_log'; // 이니시스 모바일 계좌이체 로그 테이블
+
+// 네이버 캡차 API 설정
+define('NAVER_CAPTCHA_CLIENT_ID', 'xGvTu0PcI0NegkTzniUv');
+define('NAVER_CAPTCHA_CLIENT_SECRET', 'brStvA7Ea8');
 ?>

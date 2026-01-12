@@ -7937,6 +7937,85 @@ a {
 	}
 }
 
+/* 온라인상담 네이버 캡차 */
+.naver-captcha-wrap {
+    padding: 20px 30px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 600px;
+	margin: 0 auto;
+}
+.captcha-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #121212;
+	text-align: center;
+	line-height: 1.4;
+	letter-spacing: 0.01px;
+    margin-bottom: 12px;
+}
+.captcha-image-wrap {
+    display: flex;
+    align-items: center;
+	justify-content: space-between;
+    margin-bottom: 15px;
+}
+#naver_captcha_img {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+	width: 70%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+.captcha-refresh-btn {
+	width: 25%;
+    padding: 10px 12px;
+    font-size: 16px;
+    color: #666;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.captcha-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.captcha-input:focus {
+    border-color: #03c75a;
+}
+@media (hover:hover) {
+	#naver_captcha_img:hover {
+		opacity: 0.8;
+	}
+	.captcha-refresh-btn:hover {
+		background-color: #f0f0f0;
+		border-color: #bbb;
+	}
+}
+@media (max-width: 768px) {
+	.naver-captcha-wrap {
+		width: 100%;
+		padding: 15px;
+		margin-top: 10px;
+	}
+	.captcha-refresh-btn {
+		width: 25%;
+		padding: 10px 12px;
+		font-size: 14px;
+	}
+}
+/* // 온라인상담 네이버 캡차 */
 
 /* 
 	자가진단

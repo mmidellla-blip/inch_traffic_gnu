@@ -1,27 +1,11 @@
-
-<script type='text/javascript' src='//wcs.naver.net/wcslog.js'></script>
-<script type='text/javascript'>
-    if(window.wcs){
-    if(!wcs_add) var wcs_add = {};
-    wcs_add['wa'] = 's_59bf2b5a701';
-    var _conv = {};
-    	_conv.type = 'lead';    	
-    wcs.trans(_conv);
-    }
-</script>
-
-
 <?php 
 
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 if($w==""){
 // include_once(G5_LIB_PATH.'/icode.sms.lib.php'); 
-include_once(G5_LIB_PATH.'/icode.lms.lib.php'); 
-include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
-if (!chk_captcha()) {
-    alert('자동등록방지 숫자가 틀렸습니다.');
-}
+include_once(G5_LIB_PATH.'/icode.lms.lib.php');
+// 네이버 캡차 검증은 write_update.php에서 이미 처리됨
 
 define('LMS_BODY_BYTE_LIMIT',    1200); // 아이코드 LMS 본문(내용) EUC-KR 기준 바이트 한도
 define('LMS_SUBJECT_BYTE_LIMIT',   40); // 아이코드 LMS 제목 EUC-KR 기준 바이트 한도
@@ -170,10 +154,10 @@ if (!empty($_FILES['bf_file']['name'][2])) {
   $recv_hp = str_replace("-","",$recv_hp_mb); // - 제거 
   $send_number =  "$send_hp"; 
   $recv_number = "$recv_hp"; 
-
+  
   $send_number = "01034888359"; 
   $recv_number = "01034888359"; 
-  $sms_content ="[교통음주] ".$wr_8." / ".$wr_name." / ".$wr_1." / ".$wr_email." 님의 상담신청\n 상담분야 : ".$wr_5."\n 파일첨부 : ".$fileCheck."\n 제목 : ".$wr_subject."\n 내용 : ".$wr_content;  // 문자 내용           
+  $sms_content ="[통합] ".$wr_8." / ".$wr_name." / ".$wr_1." / ".$wr_email." 님의 상담신청\n 상담분야 : ".$wr_5."\n 파일첨부 : ".$fileCheck."\n 제목 : ".$wr_subject."\n 내용 : ".$wr_content;  // 문자 내용           
   $sms_content = html_to_text($sms_content);
 
 if(strpos($wr_1,"010")!==false){
@@ -199,13 +183,14 @@ if(strpos($wr_1,"010")!==false){
     $response = curl_exec($ch);
     curl_close($ch);
 }
+
   $ok = send_lms_multipart_with_icode(
     $recv_number,
     $send_number,
     $wr_subject,               // 제목(40바이트 이내 자동 조정)
     $sms_content,             // 긴 본문(UTF-8)
     ['index_suffix' => true],  // 각 파트 끝에 [1/N] 꼬리표
-    $wr_1                     
+    $wr_1                     // 꼬리표에 전화번호 추가
 );
 }
 
@@ -235,11 +220,9 @@ include_once(G5_LIB_PATH.'/icode.sms.lib.php');
 // SMS 문자전송 끝
 //----------------------------------------------------------
 
-
-
 if($w==""){
 	$_SESSION['LOGGER']="ODR";	//20200518 LOGGER
-	alert("상담이 정상적으로 접수되었습니다. 영업시간[평일 09:00~19:00] 외 상담신청은 응대가 늦어질 수 있으니 조금만 기다려 주십시오. 감사합니다.", '/bbs/write.php?bo_table='.$bo_table);
+	// 완료 메시지는 write_update.php에서 처리
 }
 
 ?>
