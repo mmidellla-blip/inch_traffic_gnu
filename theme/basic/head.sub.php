@@ -73,8 +73,20 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <title><?php echo (!empty($metaTitle))? $metaTitle : $metaTitleConf; ?></title>
   <link rel="stylesheet" type="text/css" href="/css/template.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <?php 
+  $is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
+                    basename($_SERVER['SCRIPT_NAME']) == 'index.php' ||
+                    (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
+  if ($is_index_page) { ?>
+  <!-- index.php 전용: Non-critical CSS 비동기 로드 -->
+  <link rel="preload" href="/css/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/swiper.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/slick.css"></noscript>
+  <noscript><link rel="stylesheet" href="/css/swiper.css"></noscript>
+  <?php } else { ?>
   <link rel="stylesheet" type="text/css" href="/css/slick.css">
   <link rel="stylesheet" type="text/css" href="/css/swiper.css">
+  <?php } ?>
   <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
 
   <meta name="keywords" content="<?php echo (!empty($metaKeyword))? $metaKeyword : $metaKeywordConf; ?>">
@@ -104,8 +116,20 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <title><?php echo $metaTitleConf; ?></title>
   <link rel="stylesheet" type="text/css" href="/css/template.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <?php 
+  $is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
+                    basename($_SERVER['SCRIPT_NAME']) == 'index.php' ||
+                    (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
+  if ($is_index_page) { ?>
+  <!-- index.php 전용: Non-critical CSS 비동기 로드 -->
+  <link rel="preload" href="/css/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/swiper.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/slick.css"></noscript>
+  <noscript><link rel="stylesheet" href="/css/swiper.css"></noscript>
+  <?php } else { ?>
   <link rel="stylesheet" type="text/css" href="/css/slick.css">
   <link rel="stylesheet" type="text/css" href="/css/swiper.css">
+  <?php } ?>
   <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
 
   <meta name="keywords" content="<?php echo $metaKeywordConf; ?>">
@@ -197,6 +221,45 @@ if(!defined('G5_IS_ADMIN'))
     echo $config['cf_add_script'];
 ?>
 <link rel="canonical" href="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
+<?php 
+$is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
+                  basename($_SERVER['SCRIPT_NAME']) == 'index.php' ||
+                  (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
+if ($is_index_page) { ?>
+<!-- index.php 전용: CSS 비동기 로딩 폴백 스크립트 -->
+<script>
+(function() {
+	var raf = requestAnimationFrame || function(c) { setTimeout(c, 10); };
+	var loaded = false;
+	
+	function loadCSS(href) {
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = href;
+		document.head.appendChild(link);
+	}
+	
+	raf(function() {
+		var links = document.querySelectorAll('link[rel="preload"][as="style"]');
+		links.forEach(function(link) {
+			if (link.onload) {
+				link.onload();
+			}
+		});
+		loaded = true;
+	});
+	
+	setTimeout(function() {
+		if (!loaded) {
+			var links = document.querySelectorAll('link[rel="preload"][as="style"]');
+			links.forEach(function(link) {
+				link.rel = 'stylesheet';
+			});
+		}
+	}, 3000);
+})();
+</script>
+<?php } ?>
 </head>
 <body<?php echo isset($g5['body_script']) ? $g5['body_script'] : ''; ?>>
 <?php
