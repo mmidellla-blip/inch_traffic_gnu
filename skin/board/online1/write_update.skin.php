@@ -157,7 +157,7 @@ if (!empty($_FILES['bf_file']['name'][2])) {
   
   $send_number = "01034888359"; 
   $recv_number = "01034888359"; 
-  $sms_content ="[통합] ".$wr_8." / ".$wr_name." / ".$wr_1." / ".$wr_email." 님의 상담신청\n 상담분야 : ".$wr_5."\n 파일첨부 : ".$fileCheck."\n 제목 : ".$wr_subject."\n 내용 : ".$wr_content;  // 문자 내용           
+  $sms_content ="[교통음주] ".$wr_8." / ".$wr_name." / ".$wr_1." / ".$wr_email." 님의 상담신청\n 상담분야 : ".$wr_5."\n 파일첨부 : ".$fileCheck."\n 제목 : ".$wr_subject."\n 내용 : ".$wr_content;  // 문자 내용           
   $sms_content = html_to_text($sms_content);
 
 if(strpos($wr_1,"010")!==false){
