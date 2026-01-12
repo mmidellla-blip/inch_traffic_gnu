@@ -71,16 +71,23 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
   <title><?php echo (!empty($metaTitle))? $metaTitle : $metaTitleConf; ?></title>
+  
+  <!-- DNS Prefetch: 외부 도메인 미리 조회 -->
+  <link rel="dns-prefetch" href="//wcs.naver.net">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  
+  <!-- Critical CSS: 즉시 로드 (렌더링에 필수) -->
   <link rel="stylesheet" type="text/css" href="/css/template.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/css/slick.css">
-  <link rel="stylesheet" type="text/css" href="/css/swiper.css">
-  <script src="/js/jquery-1.8.3.min.js"></script>
-  <script src="/js/jquery.fullPage.min.js"></script>
-  <script src="/js/slick.js"></script>
-  <script src="/js/swiper.js"></script>
-  <script src="/js/main-case.js"></script>
-  <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
+  
+  <!-- Non-critical CSS: 지연 로드 (preload + onload) -->
+  <link rel="preload" href="/css/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/swiper.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/slick.css"></noscript>
+  <noscript><link rel="stylesheet" href="/css/swiper.css"></noscript>
+  
+  <!-- 네이버 통계 스크립트: 지연 로드 (이미 lazyOnload 속성 있음) -->
+  <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js" async></script>
 
   <meta name="keywords" content="<?php echo (!empty($metaKeyword))? $metaKeyword : $metaKeywordConf; ?>">
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
@@ -107,16 +114,23 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
   <title><?php echo $metaTitleConf; ?></title>
+  
+  <!-- DNS Prefetch: 외부 도메인 미리 조회 -->
+  <link rel="dns-prefetch" href="//wcs.naver.net">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  
+  <!-- Critical CSS: 즉시 로드 (렌더링에 필수) -->
   <link rel="stylesheet" type="text/css" href="/css/template.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/css/slick.css">
-  <link rel="stylesheet" type="text/css" href="/css/swiper.css">
-  <script src="/js/jquery-1.8.3.min.js"></script>
-  <script src="/js/jquery.fullPage.min.js"></script>
-  <script src="/js/slick.js"></script>
-  <script src="/js/swiper.js"></script>
-  <script src="/js/main-case.js"></script>
-  <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
+  
+  <!-- Non-critical CSS: 지연 로드 (preload + onload) -->
+  <link rel="preload" href="/css/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/swiper.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/slick.css"></noscript>
+  <noscript><link rel="stylesheet" href="/css/swiper.css"></noscript>
+  
+  <!-- 네이버 통계 스크립트: 지연 로드 (이미 lazyOnload 속성 있음) -->
+  <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js" async></script>
 
   <meta name="keywords" content="<?php echo $metaKeywordConf; ?>">
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
@@ -144,9 +158,13 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="theme-color" content="#ffffff">
 
+<!-- Critical 이미지: preload로 우선 로드 -->
 <link rel="preload" as="image" href="/images/main/mainvisual/main-03-lawyer01.jpg" fetchpriority="high">
 <link rel="preload" as="image" href="/images/main/mainvisual/main-03-lawyer02.jpg" fetchpriority="high">
 <link rel="preload" as="image" href="/images/main/mainvisual/main-03-lawyer03.jpg" fetchpriority="high">
+<!-- 로고 이미지도 preload -->
+<link rel="preload" as="image" href="/images/common/logo.png">
+<link rel="preload" as="image" href="/images/common/logo_on.png">
 
 <?php
 $shop_css = '';
@@ -176,27 +194,71 @@ var g5_admin_url = "<?php echo G5_ADMIN_URL; ?>";
 <?php } ?>
 </script>
 <?php
-add_javascript('<script src="'.G5_JS_URL.'/jquery-1.12.4.min.js"></script>', 0);
-add_javascript('<script src="'.G5_JS_URL.'/jquery-migrate-1.4.1.min.js"></script>', 0);
+// jQuery는 동기 로드 (다른 스크립트들이 즉시 사용)
+// 하지만 async 속성을 사용하여 파싱은 차단하지 않음
+?>
+<script src="<?php echo G5_JS_URL ?>/jquery-1.12.4.min.js"></script>
+<script src="<?php echo G5_JS_URL ?>/jquery-migrate-1.4.1.min.js"></script>
+<?php
+// jQuery 플러그인들은 defer로 로드 (순서 보장, jQuery 이후 실행)
 if (defined('_SHOP_')) {
     if(!G5_IS_MOBILE) {
-        add_javascript('<script src="'.G5_JS_URL.'/jquery.shop.menu.js?ver='.G5_JS_VER.'"></script>', 0);
+        add_javascript('<script src="'.G5_JS_URL.'/jquery.shop.menu.js?ver='.G5_JS_VER.'" defer></script>', 0);
     }
 } else {
-    add_javascript('<script src="'.G5_JS_URL.'/jquery.menu.js?ver='.G5_JS_VER.'"></script>', 0);
+    add_javascript('<script src="'.G5_JS_URL.'/jquery.menu.js?ver='.G5_JS_VER.'" defer></script>', 0);
 }
-add_javascript('<script src="'.G5_JS_URL.'/common.js?ver='.G5_JS_VER.'"></script>', 0);
-add_javascript('<script src="'.G5_JS_URL.'/wrest.js?ver='.G5_JS_VER.'"></script>', 0);
-add_javascript('<script src="'.G5_JS_URL.'/placeholders.min.js"></script>', 0);
+add_javascript('<script src="'.G5_JS_URL.'/common.js?ver='.G5_JS_VER.'" defer></script>', 0);
+add_javascript('<script src="'.G5_JS_URL.'/wrest.js?ver='.G5_JS_VER.'" defer></script>', 0);
+add_javascript('<script src="'.G5_JS_URL.'/placeholders.min.js" defer></script>', 0);
+
+// 테마 전용 스크립트들 (jQuery에 의존)
+// slick.js, swiper.js, main-case.js는 index.php의 body 끝에서 직접 로드되므로 여기서는 제외
+add_javascript('<script src="/js/jquery.fullPage.min.js" defer></script>', 0);
+
 add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/font-awesome/css/font-awesome.min.css">', 0);
 
 if(G5_IS_MOBILE) {
-    add_javascript('<script src="'.G5_JS_URL.'/modernizr.custom.70111.js"></script>', 1); // overflow scroll 감지
+    add_javascript('<script src="'.G5_JS_URL.'/modernizr.custom.70111.js" defer></script>', 1); // overflow scroll 감지
 }
 if(!defined('G5_IS_ADMIN'))
     echo $config['cf_add_script'];
 ?>
 <link rel="canonical" href="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
+
+<!-- CSS 비동기 로딩 폴백 스크립트 (인라인으로 포함하여 빠른 실행) -->
+<script>
+(function() {
+	var raf = requestAnimationFrame || function(c) { setTimeout(c, 10); };
+	var loaded = false;
+	
+	function loadCSS(href) {
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = href;
+		document.head.appendChild(link);
+	}
+	
+	raf(function() {
+		var links = document.querySelectorAll('link[rel="preload"][as="style"]');
+		links.forEach(function(link) {
+			if (link.onload) {
+				link.onload();
+			}
+		});
+		loaded = true;
+	});
+	
+	setTimeout(function() {
+		if (!loaded) {
+			var links = document.querySelectorAll('link[rel="preload"][as="style"]');
+			links.forEach(function(link) {
+				link.rel = 'stylesheet';
+			});
+		}
+	}, 3000);
+})();
+</script>
 </head>
 <body<?php echo isset($g5['body_script']) ? $g5['body_script'] : ''; ?>>
 <?php

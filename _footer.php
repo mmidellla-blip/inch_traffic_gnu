@@ -43,12 +43,35 @@
 	
 	<!-- NAVER 공통 SCRIPT -->
 	<script type="text/javascript">
-	if (!wcs_add) var wcs_add={};
-	wcs_add["wa"] = "s_59bf2b5a701";
-	if(window.wcs) {
-			wcs.inflow("startlawyer.co.kr");
-	}
-	wcs_do();
+	(function() {
+		if (!wcs_add) var wcs_add={};
+		wcs_add["wa"] = "s_59bf2b5a701";
+		
+		// wcs_do 함수가 로드될 때까지 대기
+		function waitForWcs(callback, maxAttempts) {
+			maxAttempts = maxAttempts || 50; // 최대 2.5초 대기 (50 * 50ms)
+			var attempts = 0;
+			
+			function check() {
+				attempts++;
+				if (typeof wcs_do !== 'undefined') {
+					callback();
+				} else if (attempts < maxAttempts) {
+					setTimeout(check, 50);
+				}
+			}
+			check();
+		}
+		
+		waitForWcs(function() {
+			if(window.wcs) {
+				wcs.inflow("startlawyer.co.kr");
+			}
+			if (typeof wcs_do === 'function') {
+				wcs_do();
+			}
+		});
+	})();
 	</script>
 		
 </body>

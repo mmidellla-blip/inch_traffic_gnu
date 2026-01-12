@@ -244,7 +244,7 @@
 							</li>
 							<?php }if(!$result){?>
 								<li class="no-data">등록된 게시물이 없습니다.</li>
-							<?}?>
+							<?php } ?>
 						</ul>
 					</section>
 				</div>
@@ -301,7 +301,7 @@
 					</div>
 					<?php }if(!$result){?>
 						<div class="no-data">등록된 게시물이 없습니다.</div>
-					<?}?>
+					<?php } ?>
 				</div>
 				<a href="/bbs/board.php?bo_table=review&me_code=2010" class="view-more">View more<img src="/images/main/case_more.png" alt=""></a>
 			</div>
@@ -353,7 +353,7 @@
 					</div>
 					<?php }if(!$result){?>
 						<div class="no-data">등록된 게시물이 없습니다.</div>
-					<?}?>
+					<?php } ?>
 				</div>
 				<a href="/bbs/board.php?bo_table=media&me_code=2010" class="view-more">View more<img src="/images/main/case_more_w.png" alt=""></a>
 			</div>
@@ -543,313 +543,13 @@
 		</section>
 		<!--//main-location -->
 
-		<script type='text/javascript'>
-		function NA_Call(){
-			if(window.wcs){
-			if(!wcs_add) var wcs_add = {};
-			wcs_add["wa"] = "s_59bf2b5a701";
-			var _conv = {};
-				_conv.type = 'custom001';
-			wcs.trans(_conv);
-			}
-		}
-		</script>
-		
-		<script type='text/javascript'>
-		function NA_Katalk(){
-			if(window.wcs){
-			if(!wcs_add) var wcs_add = {};
-			wcs_add["wa"] = "s_59bf2b5a701";
-			var _conv = {};
-				_conv.type = 'custom002';
-			wcs.trans(_conv);
-			}
-		}
-		</script>
-		
-		<script type='text/javascript'>
-		function NA_Check(){
-			if(window.wcs){
-			if(!wcs_add) var wcs_add = {};
-			wcs_add["wa"] = "s_59bf2b5a701";
-			var _conv = {};
-				_conv.type = 'custom003';
-			wcs.trans(_conv);
-			}
-		}
-		</script>
-		
-		<script>
-
-			$(".main-visual-wrap").slick({
-				slide: 'div',	
-				fade: true,
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				arrows: true,
-				autoplay: true,
-				autoplaySpeed: 4000,
-				speed: 1000,
-				dots: true,
-				/*
-				dotsClass: 'custom_paging',
-				customPaging: function (slider, i) {
-					console.log(slider);
-					return  "<strong>" + (i + 1) + "</strong>" + '/' + slider.slideCount;
-				}
-				*/
-			  responsive: [
-				{
-				  breakpoint: 1200,
-				  settings: {
-					slide: 'div',	
-					fade: true,
-					slidesToShow: 1,
-					slidesToScroll: 1,
-					arrows: false,
-					autoplay: true,
-					autoplaySpeed: 4000,
-					speed: 1000,
-					dots: true,
-				  }
-				}
-			  ]
-			});
-	
-		$(".main-location-tab li").on("click",function() {
-			var tabnum = $(this).index();
-			$(".main-location-tab li").removeClass("on");
-			$(this).addClass("on");
-			$(".location-map-wrap>div").removeClass("on");
-			$(".main-location .location-address-wrap dl").removeClass("on");
-			$(".lawfirm-interior-wrap>div").removeClass("on");
-			$(".location-map-wrap>div").eq(tabnum).addClass("on");
-			$(".main-location .location-address-wrap dl").eq(tabnum).addClass("on");
-			$(".lawfirm-interior-wrap>div").eq(tabnum).addClass("on");
-			return false;
-		});
-
-		$(".lawfirm-interior-box").slick({
-			infinite: false,
-			dots: false,
-			slide: 'div',	
-			slidesToShow: 2,
-			slidesToScroll: 2,
-			arrows: true,
-			autoplay: false,
-			speed: 300,
-			  responsive: [
-				{
-				  breakpoint: 950,
-				  settings: {
-					infinite: false,
-					arrows: true,
-					dots: false,
-					slidesToShow: 1,
-					slidesToScroll: 1,
-				  }
-				}
-			  ]
-		});
-
-		$(".main-lawyer .member-list").slick({
-			infinite: false,
-			dots: false,
-			slide: 'div',	
-			slidesToShow: 4,
-			slidesToScroll: 1,
-			arrows: true,
-			// autoplay: 2000,
-			speed: 300,
-			variableWidth: true,
-			adaptiveHeight: true,
-			dots: true,
-			  responsive: [
-				{
-				  breakpoint: 1200,
-				  settings: {
-					infinite: false,
-					arrows: true,
-					dots: false,
-					slidesToShow: 1,
-					slidesToScroll: 1,
-				  }
-				}
-			  ]
-		});
-
-		$(".main-review-list").slick({
-			infinite: false,
-			dots: false,
-			slide: 'div',	
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			arrows: true,
-			autoplay: false,
-			variableWidth: true,
-			speed: 300,
-			  responsive: [
-				{
-				  breakpoint: 1200,
-				  settings: {
-					infinite: false,
-					arrows: false,
-					dots: false,
-					slidesToShow: 1,
-					slidesToScroll: 1,
-				  }
-				}
-			  ]
-		});
-
-		$(".main-case-list").slick({
-			infinite: false,
-			dots: false,
-			slide: 'div',	
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			arrows: true,
-			autoplay: false,
-			speed: 300,
-			variableWidth: true,
-		});
-
-		$(".main-media-list").slick({
-			infinite: false,
-			dots: true,
-			slide: 'div',	
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			arrows: true,
-			autoplay: false,
-			speed: 300,
-			variableWidth: true,
-		});
-
-		  $(".online-form .input-wrap li a").click(function(e){
-			e.preventDefault();
-			$(".privacy-pop").show();
-		  });
-		  $(".privacy-pop .pop-close").click(function(e){
-			e.preventDefault();
-			$(".privacy-pop").hide();
-		  });
-
-		$(window).scroll(function(){
-			if ($(window).scrollTop() >= 50) {
-			   $('#header').addClass('fixed');
-			}
-			else {
-			   $('#header').removeClass('fixed');
-			}
-		});
-			
-		// function numberCounter(target_frame, target_number) {
-		// 	this.count = 0; this.diff = 0;
-		// 	this.target_count = parseInt(target_number);
-		// 	this.target_frame = document.getElementById(target_frame);
-		// 	this.timer = null;
-		// 	this.counter();
-		// };
-		// numberCounter.prototype.counter = function() {
-		// 	var self = this;
-		// 	this.diff = this.target_count - this.count;
-			 
-		// 	if(this.diff > 0) {
-		// 		self.count += Math.ceil(this.diff / 50);
-		// 	}
-			 
-		// 	this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-			 
-		// 	if(this.count < this.target_count) {
-		// 		this.timer = setTimeout(function() { self.counter(); }, 15);
-		// 	} else {
-		// 		clearTimeout(this.timer);
-		// 	}
-		// };
-
-		// new numberCounter("counter1", 1071);
-		// new numberCounter("counter2", 80);
-
-		//비디오 팝업
-		function onVideoLayer(youtubeCODE) { //실행
-			var videoURL = '//www.youtube.com/embed/'+ youtubeCODE +'?rel=0&amp;autoplay=1&amp;vq=hd720';
-			var playViewer = '<iframe src="'+videoURL+'" id="youTube" allowfullscreen="" frameborder="0"></iframe>';
-
-			$('.youtube-box .fake-img').hide();
-			$('.youtube-box .frame').addClass('active');
-			$('.youtube-box .frame').append(playViewer);
-		}
-		</script>
-		<!-- 요일별 모달 팝업 -->
-		<script>
-			const today = new Date();
-			const dayOfWeek = today.getDay(); // 0: 일요일, 1: 월요일, ..., 6: 토요일
-
-			const modalClosedTime = localStorage.getItem('modalClosedTime');
-
-			const oneDay = 24 * 60 * 60 * 1000; // 24시간을 밀리초로 변환
-			const currentTime = today.getTime();
-
-			if ((dayOfWeek === 6 || dayOfWeek === 6) && (!modalClosedTime || currentTime - modalClosedTime > oneDay)) {
-				const modal = document.getElementById("weekendModal");
-				const closeBtn = document.querySelector(".modal-close");
-
-				modal.style.display = "block";
-
-				closeBtn.onclick = function() {
-					modal.style.display = "none";
-					localStorage.setItem('modalClosedTime', currentTime); // 모달 닫은 시간 저장
-				}
-
-				window.onclick = function(event) {
-					if (event.target === modal) {
-						modal.style.display = "none";
-					}
-				}
-			}
-    	</script>
-		<!-- // 요일별 모달 팝업 -->
-
-		<!-- 메인페이지 : 구성원 -->
-		<script>
-			$(document).ready(function(){
-				// Slick 슬라이더 초기화
-				$('.slider-wrapper').slick({
-					infinite: true, 
-					slidesToShow: 4, 
-					slidesToScroll: 1,
-					prevArrow: $('.prev'),
-					nextArrow: $('.next'),
-					responsive: [
-					{
-						breakpoint: 1200,
-						settings: {
-						slidesToShow: 4
-						}
-					},
-					{
-						breakpoint: 900,
-						settings: {
-						slidesToShow: 3
-						}
-					},
-					{
-						breakpoint: 600,
-						settings: {
-						slidesToShow: 2
-						}
-					},
-					{
-						breakpoint: 480,
-						settings: {
-						slidesToShow: 1
-						}
-					}
-					]
-				});
-			});
-		</script>
-		<!-- // 메인페이지 : 구성원 -->
+		<!-- slick.js를 먼저 로드 (main.js가 slick을 사용하므로) -->
+		<script src="/js/slick.js" defer></script>
+		<!-- swiper.js를 먼저 로드 (main-case.js가 swiper를 사용하므로) -->
+		<script src="/js/swiper.js" defer></script>
+		<!-- main-case.js는 swiper.js 이후에 로드되도록 defer 사용 (순서 보장) -->
+		<script src="/js/main-case.js" defer></script>
+		<!-- main.js는 slick.js 이후에 로드되도록 defer 사용 (순서 보장) -->
+		<script src="/js/main.js" defer></script>
 
 	<?php include('_footer.php');?>

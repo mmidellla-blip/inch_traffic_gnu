@@ -1,5 +1,9 @@
 <script>
 var g5_cookie_domain = "<?php echo G5_COOKIE_DOMAIN ?>";
+// jQuery 체크 및 별칭 설정
+if(typeof jQuery !== 'undefined' && typeof window.$ === 'undefined') {
+    window.$ = jQuery;
+}
 </script>
 <script src="<?php echo G5_JS_URL ?>/common.js?ver=<?php echo G5_JS_VER; ?>"></script>
 <?php
@@ -159,7 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <?php
 	if($gr_id!='self'){
-		define(__ONLY_NUM, "onKeyUp=\"$(this).val($(this).val().replace(/[^0-9]/gi, ''));\"");
+		define("__ONLY_NUM", "onKeyUp=\"if(typeof jQuery!=='undefined')jQuery(this).val(jQuery(this).val().replace(/[^0-9]/gi, ''));\"");
 ?>
 <!--footer-online -->
 <section class="footer-online">
