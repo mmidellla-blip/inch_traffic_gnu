@@ -95,6 +95,10 @@ a {text-decoration:none}
 }
 .modal-content img {
 	width: 100%;
+	height: auto;
+	display: block;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
 }
 .modal-close {
 	display: block;
@@ -448,9 +452,17 @@ a {
 }
 .hader-inner .logo .logo-on { 
 	display:none;
+	/* CLS 방지: 초기 크기 고정 */
+	width: 200px;
+	height: 60px;
+	object-fit: contain;
 }
 .hader-inner .logo .logo-off { 
 	display:block;
+	/* CLS 방지: 초기 크기 고정 */
+	width: 200px;
+	height: 60px;
+	object-fit: contain;
 }
 .self .hader-inner .logo .logo-on,
 .fixed .hader-inner .logo .logo-on,
@@ -865,6 +877,9 @@ a {
 	display:inline-block;
 	margin-right:5px;
 	vertical-align:middle;
+	width: 20px;
+	height: 20px;
+	object-fit: contain;
 }
 .quick-menu li:nth-child(1) a { 
 	box-sizing: border-box;
@@ -2046,7 +2061,17 @@ a {
 	background:#394b5d; 
 }
 .main-counselling-box ul li .icon { 
-	margin-bottom:50px; 
+	margin-bottom:50px;
+	/* CLS 방지: 초기 높이 고정 */
+	min-height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.main-counselling-box ul li .icon img {
+	width: auto;
+	height: 60px;
+	object-fit: contain;
 }
 .main-counselling-box ul li span { 
 	display:block; 
@@ -2079,7 +2104,10 @@ a {
 	color:#06182a;
 }
 .main-online .main-conts-tit-wrap dl dt img { 
-	margin-right:10px; 
+	margin-right:10px;
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
 }
 .main-online .main-conts-tit-wrap dl dt strong { 
 	font-weight: 700;
@@ -2536,9 +2564,16 @@ a {
 .main-review-list .main-review-slide .thumb { 
 	border:10px solid #e5dbdb;
 	transition:.3s;
+	/* CLS 방지: 초기 높이 고정 */
+	min-height: 220px;
+	aspect-ratio: 350 / 220;
 }
 .main-review-list .main-review-slide .thumb img { 
 	width:100%; 
+	height: auto;
+	display: block;
+	aspect-ratio: 350 / 220;
+	object-fit: cover;
 }
 .main-review-list .main-review-slide .conts-wrap { 
 	padding:30px;
@@ -2699,9 +2734,16 @@ a {
 }
 .main-media-list .main-media-slide .thumb {
 	position:relative;
+	/* CLS 방지: 초기 높이 고정 */
+	min-height: 240px;
+	aspect-ratio: 380 / 240;
 }
 .main-media-list .main-media-slide .thumb img {
 	width:100%;
+	height: auto;
+	display: block;
+	aspect-ratio: 380 / 240;
+	object-fit: cover;
 }
 .main-media-list .main-media-slide .thumb .icon {
 	position:absolute; top:50%; left:50%;
@@ -2867,6 +2909,8 @@ a {
 }
 .main-case .swiper-container {
 	width: 100%; overflow: hidden;
+	/* CLS 방지: 초기 높이 고정 */
+	min-height: 400px;
 }
 .main-case .swiper-container .swiper-wrapper {
 	-webkit-transition-timing-function:linear!important; transition-timing-function:linear!important;
@@ -2876,6 +2920,16 @@ a {
 	width: 300px !important;;
 	margin: 0 20px;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	/* CLS 방지: 초기 높이 고정 */
+	min-height: 400px;
+	aspect-ratio: 300 / 400;
+}
+.main-case .swiper-container .swiper-wrapper .swiper-slide img {
+	width: 100%;
+	height: auto;
+	display: block;
+	aspect-ratio: 300 / 400;
+	object-fit: cover;
 }
 .main-case .case-link {
 	margin: 50px auto 0 auto;
@@ -3282,18 +3336,28 @@ a {
 	display: flex;
 	padding-top: 100px;
 	transition: transform 0.3s ease;
+	/* CLS 방지: 초기 높이 고정 */
+	min-height: 500px;
 }
 .main-members .slider-item {
 	padding: 0 10px;
+	/* CLS 방지: 초기 높이 고정 */
+	min-height: 400px;
 }
 .main-members .img-wrap {
 	position: relative;
+	/* CLS 방지: 초기 높이 고정 */
+	min-height: 300px;
+	aspect-ratio: 1 / 1.2;
 }
 .main-members .img-wrap img {
 	width: 100%;
 	height: auto;
 	border-radius: 8px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	display: block;
+	aspect-ratio: 1 / 1.2;
+	object-fit: cover;
 }
 .main-members .label {
 	position: absolute; bottom: 0;
@@ -3455,7 +3519,10 @@ a {
 .main-location .location-map-wrap .map-box {
 	overflow:hidden;
 	position:absolute; top:-115px; left:0;
-	width:45vw; height:0;
+	width:45vw; 
+	/* CLS 방지: 초기 높이 고정 */
+	min-height: 580px;
+	height: 580px;
 }
 .main-location .location-map-wrap .map-box.on {
 	height:580px;
@@ -3464,6 +3531,8 @@ a {
 	display:block;
 	width:100%;
 	height:auto;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
 }
 .main-location .location-map-wrap .map-box > div {
 	display: flex; flex-flow: row nowrap; align-items: center;
@@ -3512,9 +3581,16 @@ a {
 .main-location .lawfirm-interior-wrap .interior-slide {
 	display: inline-block;
 	vertical-align:top;
+	/* CLS 방지: 초기 높이 고정 */
+	min-height: 300px;
+	aspect-ratio: 4 / 3;
 }
 .main-location .lawfirm-interior-wrap .interior-slide img {
 	max-width:100%;
+	height: auto;
+	display: block;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
 }
 .main-location .lawfirm-interior-wrap .slick-prev {
 	left:-60px;

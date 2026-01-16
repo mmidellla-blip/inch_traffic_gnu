@@ -31,18 +31,21 @@ a {text-decoration:none}
 	font-weight:300;
 	src:url('fonts/NanumSquareL.eot'); 
 	src:local(※), url('fonts/NanumSquareL.woff') format('woff');
+	font-display: swap;
 }
 @font-face {
 	font-family:'NanumSquare';
 	font-weight:400;
 	src:url('fonts/NanumSquareR.eot'); 
 	src:local(※), url('fonts/NanumSquareR.woff') format('woff');
+	font-display: swap;
 }
 @font-face {
 	font-family:'NanumSquare';
 	font-weight:700;
 	src:url('fonts/NanumSquareB.eot'); 
 	src:local(※), url('fonts/NanumSquareB.woff') format('woff');
+	font-display: swap;
 }
 @font-face {
 	font-family:'NanumSquare';

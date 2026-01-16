@@ -8,7 +8,7 @@
 <!-- 요일별 모달 팝업 -->
 <div id="weekendModal" class="modal">
 	<div class="modal-content">
-		<img src="/images/main/modal/upload.jpg" alt="주말팝업">
+		<img src="/images/main/modal/upload.jpg" alt="주말팝업" width="500" height="375">
 		<span class="modal-close">24시간 동안 보이지 않기 &times;</span>
 	</div>
 </div>
@@ -20,11 +20,11 @@
 	<?php include('_menu.php');?>
 	<section class="quick-menu">
 		<ul>
-			<li><a href="/page/self_test.php?me_code=7010" target="_blank" onMouseDown="javascript:try{NA_Check();}catch(e){}"><img src="/images/common/quick_icon_self.png" alt="">음주진단</a></li>
-			<li><a href="tel:1522-3394" target="_blank" onMouseDown="javascript:try{NA_Call();}catch(e){}"><img src="/images/common/quick_icon01.png" alt="">전화상담</a></li>
-			<li><a href="https://pf.kakao.com/_Rpbxmxb/chat" target="_blank" onMouseDown="javascript:try{NA_Katalk();}catch(e){}"><img src="/images/common/quick_icon02.png" alt="">카톡상담</a></li>
-			<li><a href="/bbs/board.php?bo_table=online&me_code=6010"><img src="/images/common/quick_icon03.png" alt="">온라인 상담</a></li>
-			<li><a href="/page/location.php?me_code=1040"><img src="/images/common/quick_icon04.png" alt="">오시는 길</a></li>
+			<li><a href="/page/self_test.php?me_code=7010" target="_blank" onMouseDown="javascript:try{NA_Check();}catch(e){}"><img src="/images/common/quick_icon_self.png" alt="" width="20" height="20">음주진단</a></li>
+			<li><a href="tel:1522-3394" target="_blank" onMouseDown="javascript:try{NA_Call();}catch(e){}"><img src="/images/common/quick_icon01.png" alt="" width="20" height="20">전화상담</a></li>
+			<li><a href="https://pf.kakao.com/_Rpbxmxb/chat" target="_blank" onMouseDown="javascript:try{NA_Katalk();}catch(e){}"><img src="/images/common/quick_icon02.png" alt="" width="20" height="20">카톡상담</a></li>
+			<li><a href="/bbs/board.php?bo_table=online&me_code=6010"><img src="/images/common/quick_icon03.png" alt="" width="20" height="20">온라인 상담</a></li>
+			<li><a href="/page/location.php?me_code=1040"><img src="/images/common/quick_icon04.png" alt="" width="20" height="20">오시는 길</a></li>
 		</ul>
 	</section>
 	<!-- contents -->
@@ -155,10 +155,10 @@
 					</section>
 					<section class="main-counselling-box">
 						<ul>
-							<li><span class="icon"><img src="/images/main/main_counselling_icon01.png" alt=""></span>평일·주말 <strong>24시간</strong><br>긴급상담 가능</li>
-							<li><span class="icon"><img src="/images/main/main_counselling_icon02.png" alt=""></span>대표/파트너변호사가 <br><strong>직접 상담 진행</strong></li>
-							<li><span class="icon"><img src="/images/main/main_counselling_icon03.png" alt=""></span>개인이 아닌  <br><strong>‘로이어팀’이 조력</strong></li>
-							<li><span class="icon"><img src="/images/main/main_counselling_icon04.png" alt=""></span>분야별 <br><strong>‘진짜’ 전문 자문단</strong></li>
+							<li><span class="icon"><img src="/images/main/main_counselling_icon01.png" alt="" width="60" height="60"></span>평일·주말 <strong>24시간</strong><br>긴급상담 가능</li>
+							<li><span class="icon"><img src="/images/main/main_counselling_icon02.png" alt="" width="60" height="60"></span>대표/파트너변호사가 <br><strong>직접 상담 진행</strong></li>
+							<li><span class="icon"><img src="/images/main/main_counselling_icon03.png" alt="" width="60" height="60"></span>개인이 아닌  <br><strong>‘로이어팀’이 조력</strong></li>
+							<li><span class="icon"><img src="/images/main/main_counselling_icon04.png" alt="" width="60" height="60"></span>분야별 <br><strong>‘진짜’ 전문 자문단</strong></li>
 						</ul>
 					</section>
 				</div>
@@ -169,7 +169,7 @@
 						<h2><span>Lawfirm Dongju</span>30분 내 <em>신속 답변 서비스</em></h2>
 						<p>모든 문의는 신속히 확인하여 유선으로 안내해 드립니다.<br>영업시간 외 문의 역시 빠르게 안내 받으실 수 있습니다.</p>
 						<dl>
-							<dt><img src="/images/main/icon_clock.png" alt=""><strong>24시간 언제나</strong> 상담 가능</dt>
+							<dt><img src="/images/main/icon_clock.png" alt="" width="24" height="24"><strong>24시간 언제나</strong> 상담 가능</dt>
 							<dd>주말 : 토요일 방문상담 가능</dd>
 						</dl>
 					</section>
@@ -277,7 +277,7 @@
 								$thumb = get_list_thumbnail("review", $list['wr_id'], $thumb_width, $thumb_height); // 썸네일 크기를 위에서 선언한 크기사용
 
 								if($thumb['src']) {
-									$img_content = '<img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" loading="lazy">';
+									$img_content = '<img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="'.$thumb_width.'" height="'.$thumb_height.'" loading="lazy">';
 								} else {
 									$img_content = '<span>no image</span>';
 								}
@@ -303,7 +303,7 @@
 						<div class="no-data">등록된 게시물이 없습니다.</div>
 					<?php } ?>
 				</div>
-				<a href="/bbs/board.php?bo_table=review&me_code=2010" class="view-more">View more<img src="/images/main/case_more.png" alt="" loading="lazy"></a>
+				<a href="/bbs/board.php?bo_table=review&me_code=2010" class="view-more">View more<img src="/images/main/case_more.png" alt="" width="10" height="10" loading="lazy"></a>
 			</div>
 		</section>
 		<!--//main-review -->
@@ -331,13 +331,13 @@
 								$thumb = get_list_thumbnail("media", $list['wr_id'], $thumb_width, $thumb_height); // 썸네일 크기를 위에서 선언한 크기사용
 
 								if($thumb['src']) {
-									$img_content = '<img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" loading="lazy">';
+									$img_content = '<img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="'.$thumb_width.'" height="'.$thumb_height.'" loading="lazy">';
 								} else {
 									$img_content = '<span>no image</span>';
 								}
 								echo $img_content;
 							 ?>
-							 <span class="icon"><img src="/images/main/thumb_icon.png" alt="" loading="lazy"></span>
+							 <span class="icon"><img src="/images/main/thumb_icon.png" alt="" width="50" height="50" loading="lazy"></span>
 							</div>
 							 <div class="conts-wrap">
 							 	
@@ -355,7 +355,7 @@
 						<div class="no-data">등록된 게시물이 없습니다.</div>
 					<?php } ?>
 				</div>
-				<a href="/bbs/board.php?bo_table=media&me_code=2010" class="view-more">View more<img src="/images/main/case_more_w.png" alt="" loading="lazy"></a>
+				<a href="/bbs/board.php?bo_table=media&me_code=2010" class="view-more">View more<img src="/images/main/case_more_w.png" alt="" width="10" height="10" loading="lazy"></a>
 			</div>
 		</section>
 		<!--//main-media -->
@@ -383,7 +383,7 @@
 								<a href="/page/lawyer_view.php?me_code=1020&wr_id=<?=$row['wr_id'];?>">
 									<div class="img-wrap">
 									<?php if ($row['file'][0]['view']) { ?>
-										<img src="<?=$row['file'][0]['path'];?>/<?=$row['file'][0]['file'];?>" alt="" loading="lazy">
+										<img src="<?=$row['file'][0]['path'];?>/<?=$row['file'][0]['file'];?>" alt="" width="300" height="360" loading="lazy">
 										<?php if ($row['wr_8'] != "") { ?>
 										<span class="label"><?=$row['wr_8'];?></span>
 										<?php } ?>
@@ -408,14 +408,14 @@
 			<h3>대표 성공사례를 확인해보세요</h3>
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
-					<a href="/bbs/board.php?bo_table=case&wr_id=77" class="swiper-slide"><img src="/images/main/main-case/main-case-01.jpg" alt="교통음주대표사례01" loading="lazy"></a>
-					<a href="/bbs/board.php?bo_table=case&wr_id=90" class="swiper-slide"><img src="/images/main/main-case/main-case-02.jpg" alt="교통음주대표사례02" loading="lazy"></a>
-					<a href="/bbs/board.php?bo_table=case&wr_id=72" class="swiper-slide"><img src="/images/main/main-case/main-case-03.jpg" alt="교통음주대표사례03" loading="lazy"></a>
-					<a href="/bbs/board.php?bo_table=case&wr_id=83" class="swiper-slide"><img src="/images/main/main-case/main-case-04.jpg" alt="교통음주대표사례04" loading="lazy"></a>
-					<a href="/bbs/board.php?bo_table=case&wr_id=76" class="swiper-slide"><img src="/images/main/main-case/main-case-05.jpg" alt="교통음주대표사례05" loading="lazy"></a>
-					<a href="/bbs/board.php?bo_table=case&wr_id=53" class="swiper-slide"><img src="/images/main/main-case/main-case-06.jpg" alt="교통음주대표사례06" loading="lazy"></a>
-					<a href="/bbs/board.php?bo_table=case&wr_id=44" class="swiper-slide"><img src="/images/main/main-case/main-case-07.jpg" alt="교통음주대표사례07" loading="lazy"></a>
-					<a href="/bbs/board.php?bo_table=case&wr_id=40" class="swiper-slide"><img src="/images/main/main-case/main-case-08.jpg" alt="교통음주대표사례08" loading="lazy"></a>
+					<a href="/bbs/board.php?bo_table=case&wr_id=77" class="swiper-slide"><img src="/images/main/main-case/main-case-01.jpg" alt="교통음주대표사례01" width="300" height="400" loading="lazy"></a>
+					<a href="/bbs/board.php?bo_table=case&wr_id=90" class="swiper-slide"><img src="/images/main/main-case/main-case-02.jpg" alt="교통음주대표사례02" width="300" height="400" loading="lazy"></a>
+					<a href="/bbs/board.php?bo_table=case&wr_id=72" class="swiper-slide"><img src="/images/main/main-case/main-case-03.jpg" alt="교통음주대표사례03" width="300" height="400" loading="lazy"></a>
+					<a href="/bbs/board.php?bo_table=case&wr_id=83" class="swiper-slide"><img src="/images/main/main-case/main-case-04.jpg" alt="교통음주대표사례04" width="300" height="400" loading="lazy"></a>
+					<a href="/bbs/board.php?bo_table=case&wr_id=76" class="swiper-slide"><img src="/images/main/main-case/main-case-05.jpg" alt="교통음주대표사례05" width="300" height="400" loading="lazy"></a>
+					<a href="/bbs/board.php?bo_table=case&wr_id=53" class="swiper-slide"><img src="/images/main/main-case/main-case-06.jpg" alt="교통음주대표사례06" width="300" height="400" loading="lazy"></a>
+					<a href="/bbs/board.php?bo_table=case&wr_id=44" class="swiper-slide"><img src="/images/main/main-case/main-case-07.jpg" alt="교통음주대표사례07" width="300" height="400" loading="lazy"></a>
+					<a href="/bbs/board.php?bo_table=case&wr_id=40" class="swiper-slide"><img src="/images/main/main-case/main-case-08.jpg" alt="교통음주대표사례08" width="300" height="400" loading="lazy"></a>
 				</div>
 			</div>
 			<div class="case-link"><a href="/bbs/board.php?bo_table=case&me_code=3010">더 많은 성공사례 알아보기</a></div>
@@ -488,51 +488,51 @@
 				<div class="location-map-wrap">
 					<!-- 서울사무소 -->
 					<div class="map-box on">
-						<a href="http://kko.to/dBj8nGkHz" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt="" loading="lazy"><span>카카오맵 보기</span></a>
-						<img src="/images/main/main-location/map01.jpg" alt="서울사무소" loading="lazy">
-						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵" loading="lazy"></div>
+						<a href="http://kko.to/dBj8nGkHz" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt="" width="50" height="50" loading="lazy"><span>카카오맵 보기</span></a>
+						<img src="/images/main/main-location/map01.jpg" alt="서울사무소" width="580" height="435" loading="lazy">
+						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵" width="80" height="20" loading="lazy"></div>
 					</div>
 					<!-- 수원사무소 -->
 					<div class="map-box">
-						<a href="http://kko.to/2tQ_xcEhY" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt="" loading="lazy"><span>카카오맵 보기</span></a>
-						<img src="/images/main/main-location/map03.jpg" alt="수원사무소" loading="lazy">
-						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵" loading="lazy"></div>
+						<a href="http://kko.to/2tQ_xcEhY" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt="" width="50" height="50" loading="lazy"><span>카카오맵 보기</span></a>
+						<img src="/images/main/main-location/map03.jpg" alt="수원사무소" width="580" height="435" loading="lazy">
+						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵" width="80" height="20" loading="lazy"></div>
 					</div>
 					<!-- 인천사무소 -->
 					<div class="map-box">
-						<a href="http://kko.to/R_cP-PPp4" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt="" loading="lazy"><span>카카오맵 보기</span></a>
-						<img src="/images/main/main-location/map04.jpg" alt="인천사무소" loading="lazy">
-						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵" loading="lazy"></div>
+						<a href="http://kko.to/R_cP-PPp4" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt="" width="50" height="50" loading="lazy"><span>카카오맵 보기</span></a>
+						<img src="/images/main/main-location/map04.jpg" alt="인천사무소" width="580" height="435" loading="lazy">
+						<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵" width="80" height="20" loading="lazy"></div>
 					</div>
 				</div>
 				<!-- 사무소 사진 -->
 				<div class="lawfirm-interior-wrap">
 					<!-- 서울사무소 -->
 					<div class="lawfirm-interior-box on">
-						<div class="interior-slide"><img src="/images/main/interior1_01.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior1_02.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior1_03.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior1_04.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior1_05.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior1_06.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior1_07.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior1_08.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior1_09.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior1_10.jpg" alt="" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior1_01.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior1_02.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior1_03.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior1_04.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior1_05.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior1_06.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior1_07.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior1_08.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior1_09.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior1_10.jpg" alt="" width="400" height="300" loading="lazy"></div>
 					</div>
 					<!-- 수원 사무소 -->
 					<div class="lawfirm-interior-box">
-						<div class="interior-slide"><img src="/images/main/interior2_01.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior2_02.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior2_03.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior2_04.jpg" alt="" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior2_01.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior2_02.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior2_03.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior2_04.jpg" alt="" width="400" height="300" loading="lazy"></div>
 					</div>
 					<!-- 인천 사무소 -->
 					<div class="lawfirm-interior-box">
-						<div class="interior-slide"><img src="/images/main/interior3_01.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior3_02.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior3_03.jpg" alt="" loading="lazy"></div>
-						<div class="interior-slide"><img src="/images/main/interior3_04.jpg" alt="" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior3_01.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior3_02.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior3_03.jpg" alt="" width="400" height="300" loading="lazy"></div>
+						<div class="interior-slide"><img src="/images/main/interior3_04.jpg" alt="" width="400" height="300" loading="lazy"></div>
 					</div>
 				</div>
 				<ul class="hashtag">

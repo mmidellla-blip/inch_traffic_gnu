@@ -22,8 +22,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<section class="hader-inner">
 		<p class="logo">
 			<a href="/">
-				<img src="/images/common/logo.png" alt="법무법인동주 음주운전변호사 음주운전전문변호사" class="logo-off">
-				<img src="/images/common/logo_on.png" alt="법무법인동주 음주운전변호사 음주운전전문변호사" class="logo-on">
+				<img src="/images/common/logo.png" alt="법무법인동주 음주운전변호사 음주운전전문변호사" class="logo-off" width="200" height="60">
+				<img src="/images/common/logo_on.png" alt="법무법인동주 음주운전변호사 음주운전전문변호사" class="logo-on" width="200" height="60">
 			</a>
 		</p>
 		<nav class="gnb">
