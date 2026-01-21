@@ -24,12 +24,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 	<article id="bo_v" style="width:<?php echo $width; ?>">
 		<header>
-			<span id="bo_v_title"><!-- 
+			<h1 id="bo_v_title"><!-- 
 				<span class="cate-name">[<?php if ($category_name) echo $view['ca_name']; // 분류 출력 끝 ?>]</span> -->
 				<?php
 				echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력
 				?>
-			</span>
+			</h1>
 		</header>
 
 		<section id="bo_v_info">
