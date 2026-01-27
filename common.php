@@ -838,3 +838,15 @@ header('Pragma: no-cache'); // HTTP/1.0
 run_event('common_header');
 
 $html_process = new html_process();
+
+// CSS/JS 버전 쿼리스트링 함수 (캐시 무효화용) - 한 번만 정의
+if (!function_exists('get_asset_version')) {
+    function get_asset_version($file_path) {
+        $base_path = G5_PATH;
+        $full_path = $base_path . $file_path;
+        if (file_exists($full_path)) {
+            return filemtime($full_path);
+        }
+        return time();
+    }
+}

@@ -71,21 +71,21 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
   <title><?php echo (!empty($metaTitle))? $metaTitle : $metaTitleConf; ?></title>
-  <link rel="stylesheet" type="text/css" href="/css/template.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/template.css?ver=<?php echo get_asset_version('/css/template.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo get_asset_version('/css/style.css'); ?>">
   <?php 
   $is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
                     basename($_SERVER['SCRIPT_NAME']) == 'index.php' ||
                     (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
   if ($is_index_page) { ?>
   <!-- index.php 전용: Non-critical CSS 비동기 로드 -->
-  <link rel="preload" href="/css/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/css/swiper.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/css/slick.css"></noscript>
-  <noscript><link rel="stylesheet" href="/css/swiper.css"></noscript>
+  <link rel="preload" href="/css/slick.css?ver=<?php echo get_asset_version('/css/slick.css'); ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/swiper.css?ver=<?php echo get_asset_version('/css/swiper.css'); ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/slick.css?ver=<?php echo get_asset_version('/css/slick.css'); ?>"></noscript>
+  <noscript><link rel="stylesheet" href="/css/swiper.css?ver=<?php echo get_asset_version('/css/swiper.css'); ?>"></noscript>
   <?php } else { ?>
-  <link rel="stylesheet" type="text/css" href="/css/slick.css">
-  <link rel="stylesheet" type="text/css" href="/css/swiper.css">
+  <link rel="stylesheet" type="text/css" href="/css/slick.css?ver=<?php echo get_asset_version('/css/slick.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="/css/swiper.css?ver=<?php echo get_asset_version('/css/swiper.css'); ?>">
   <?php } ?>
   <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
 
@@ -114,21 +114,21 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
   <title><?php echo $metaTitleConf; ?></title>
-  <link rel="stylesheet" type="text/css" href="/css/template.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/template.css?ver=<?php echo get_asset_version('/css/template.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo get_asset_version('/css/style.css'); ?>">
   <?php 
   $is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
                     basename($_SERVER['SCRIPT_NAME']) == 'index.php' ||
                     (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
   if ($is_index_page) { ?>
   <!-- index.php 전용: Non-critical CSS 비동기 로드 -->
-  <link rel="preload" href="/css/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/css/swiper.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/css/slick.css"></noscript>
-  <noscript><link rel="stylesheet" href="/css/swiper.css"></noscript>
+  <link rel="preload" href="/css/slick.css?ver=<?php echo get_asset_version('/css/slick.css'); ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/swiper.css?ver=<?php echo get_asset_version('/css/swiper.css'); ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/slick.css?ver=<?php echo get_asset_version('/css/slick.css'); ?>"></noscript>
+  <noscript><link rel="stylesheet" href="/css/swiper.css?ver=<?php echo get_asset_version('/css/swiper.css'); ?>"></noscript>
   <?php } else { ?>
-  <link rel="stylesheet" type="text/css" href="/css/slick.css">
-  <link rel="stylesheet" type="text/css" href="/css/swiper.css">
+  <link rel="stylesheet" type="text/css" href="/css/slick.css?ver=<?php echo get_asset_version('/css/slick.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="/css/swiper.css?ver=<?php echo get_asset_version('/css/swiper.css'); ?>">
   <?php } ?>
   <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
 

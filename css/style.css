@@ -452,16 +452,12 @@ a {
 }
 .hader-inner .logo .logo-on { 
 	display:none;
-	/* CLS 방지: 초기 크기 고정 */
 	width: 200px;
-	height: 60px;
 	object-fit: contain;
 }
 .hader-inner .logo .logo-off { 
 	display:block;
-	/* CLS 방지: 초기 크기 고정 */
 	width: 200px;
-	height: 60px;
 	object-fit: contain;
 }
 .self .hader-inner .logo .logo-on,
@@ -2564,8 +2560,6 @@ a {
 .main-review-list .main-review-slide .thumb { 
 	border:10px solid #e5dbdb;
 	transition:.3s;
-	/* CLS 방지: 초기 높이 고정 */
-	min-height: 220px;
 	aspect-ratio: 350 / 220;
 }
 .main-review-list .main-review-slide .thumb img { 
@@ -2734,8 +2728,6 @@ a {
 }
 .main-media-list .main-media-slide .thumb {
 	position:relative;
-	/* CLS 방지: 초기 높이 고정 */
-	min-height: 240px;
 	aspect-ratio: 380 / 240;
 }
 .main-media-list .main-media-slide .thumb img {
@@ -3640,9 +3632,11 @@ a {
 	.main-location .location-map-wrap .map-box {
 		position:relative; top:auto; left:auto;
 		width:100%;
+		display:none; /* 모바일에서 기본적으로 숨김 */
 	}
 	.main-location .location-map-wrap .map-box.on {
 		width:100%;
+		display:block; /* 선택된 탭만 표시 */
 	}
 	.main-location .lawfirm-interior-wrap {	
 		width:100%; 
