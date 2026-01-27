@@ -50,15 +50,102 @@ $scheme = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'h
 $host = 'trafficdrinking-law-dongju.com';
 $uri  = $_SERVER['REQUEST_URI']; // ? 포함 전체 경로
 $canonical = $scheme . '://' . $host . $uri;
-$metaTitleConf = $g5_head_title;
-//음주운전변호사 법무법인 동주입니다. 음주운전 전문 상담을 통해 음주운전 사고 사건을 대처하세요. 음주운전 전문 변호사가 사건을 직접 진행합니다. 음주 사고, 음주운전 처벌, 음주운전 구제에 관한 정보를 지금 바로 확인하세요.
+
+// SEO 최적화된 title 생성 함수
+if (!function_exists('get_seo_title')) {
+function get_seo_title($page_title = '', $board_name = '', $is_detail = false) {
+	$brand = '법무법인 동주';
+	$max_length = 60; // 최대 60자
+	
+	// 메인 페이지
+	$is_index = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
+	             basename($_SERVER['SCRIPT_NAME']) == 'index.php' ||
+	             (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
+	
+	if ($is_index) {
+		return '음주운전변호사 전문 상담 | ' . $brand;
+	}
+	
+	// 게시글 상세 페이지
+	if ($is_detail && !empty($page_title)) {
+		$board_part = !empty($board_name) ? $board_name . ' | ' : '';
+		$title = $page_title . ' | ' . $board_part . $brand;
+		
+		// 60자 초과 시 글제목만 자르기
+		if (mb_strlen($title, 'UTF-8') > $max_length) {
+			$brand_part = ' | ' . $brand;
+			$board_part_len = mb_strlen($board_part, 'UTF-8');
+			$available_len = $max_length - mb_strlen($brand_part, 'UTF-8') - $board_part_len;
+			$page_title = mb_substr($page_title, 0, $available_len, 'UTF-8');
+			$title = $page_title . ' | ' . $board_part . $brand;
+		}
+		return $title;
+	}
+	
+	// 게시판 목록 페이지
+	if (!empty($board_name)) {
+		return $board_name . ' | ' . $brand;
+	}
+	
+	// 일반 페이지
+	if (!empty($page_title)) {
+		$title = $page_title . ' | ' . $brand;
+		if (mb_strlen($title, 'UTF-8') > $max_length) {
+			$brand_part = ' | ' . $brand;
+			$available_len = $max_length - mb_strlen($brand_part, 'UTF-8');
+			$page_title = mb_substr($page_title, 0, $available_len, 'UTF-8');
+			$title = $page_title . $brand_part;
+		}
+		return $title;
+	}
+	
+	// 기본값
+	return '음주운전변호사 전문 상담 | ' . $brand;
+}
+}
+
+// 현재 페이지 정보 파악
+$is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
+                  basename($_SERVER['SCRIPT_NAME']) == 'index.php' ||
+                  (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
+$is_board_detail = (!empty($_GET['wr_id']) && !empty($_GET['bo_table']));
+$is_board_list = (!empty($_GET['bo_table']) && empty($_GET['wr_id']));
+
+// 게시판명 가져오기
+$board_name = '';
+if (isset($board) && !empty($board) && isset($board['bo_subject']) && !empty($board['bo_subject'])) {
+	$board_name = (G5_IS_MOBILE && !empty($board['bo_mobile_subject'])) ? $board['bo_mobile_subject'] : $board['bo_subject'];
+}
+
+// SEO 최적화된 title 생성
+if ($is_board_detail && isset($write) && !empty($write)) {
+	// 게시글 상세: wr_2(메타 타이틀) 우선, 없으면 wr_subject 사용
+	$page_title = '';
+	if (!empty($write['wr_2'])) {
+		$page_title = $write['wr_2'];
+	} elseif (isset($write['wr_subject']) && !empty($write['wr_subject'])) {
+		$page_title = strip_tags(conv_subject($write['wr_subject'], 255));
+	}
+	$metaTitleConf = get_seo_title($page_title, $board_name, true);
+} elseif ($is_board_list && !empty($board_name)) {
+	// 게시판 목록
+	$metaTitleConf = get_seo_title('', $board_name, false);
+} elseif (!empty($g5_head_title) && $g5_head_title != $config['cf_title']) {
+	// 커스텀 페이지 (page/*.php 등)
+	$metaTitleConf = get_seo_title($g5_head_title, '', false);
+} else {
+	// 기본 (메인 페이지)
+	$metaTitleConf = get_seo_title('', '', false);
+}
+
 $metaDescriptionConf = '음주운전변호사 | 음주전문변호사 | 음주운전처벌 | 음주운전사고 | 법무법인 동주 음주운전센터';
 $metaKeywordConf = '음주 면허 취소,음주운전 행정심판,음주운전 면허취소,행정소송,행정심판,행정법전문변호사,행정사,영업정지 구제, 행정처분';
 
-if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
-	$metaTitle = $write['wr_2'];
-	$metaDescription = $write['wr_3'];
-	$metaKeyword = $write['wr_4'];
+if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empty($write)) {
+	// 게시글 상세 페이지
+	$metaTitle = $metaTitleConf; // 위에서 이미 생성됨
+	$metaDescription = isset($write['wr_3']) ? $write['wr_3'] : '';
+	$metaKeyword = isset($write['wr_4']) ? $write['wr_4'] : '';
 ?>
 
   <!-- $config['cf_add_meta'] 대체 시작 -->
@@ -66,11 +153,11 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <meta name="description" content="<?php echo (!empty($metaDescription))? $metaDescription : $metaDescriptionConf; ?>">
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="<?php echo (!empty($metaTitle))? $metaTitle : $metaTitleConf; ?>">
+  <meta name="twitter:title" content="<?php echo $metaTitle; ?>">
   <meta name="twitter:description" content="<?php echo (!empty($metaDescription))? $metaDescription : $metaDescriptionConf; ?>">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
-  <title><?php echo (!empty($metaTitle))? $metaTitle : $metaTitleConf; ?></title>
+  <title><?php echo $metaTitle; ?></title>
   <link rel="stylesheet" type="text/css" href="/css/template.css?ver=<?php echo get_asset_version('/css/template.css'); ?>">
   <link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo get_asset_version('/css/style.css'); ?>">
   <?php 
@@ -94,8 +181,8 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table'])) {
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   <meta property="og:url" content="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="<?php echo (!empty($metaTitle))? $metaTitle : $metaTitleConf; ?>">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="<?php echo $metaTitle; ?>">
   <meta property="og:description" content="<?php echo (!empty($metaDescription))? $metaDescription : $metaDescriptionConf; ?>">
   <meta property="og:image" content="/images/common/ogimg-brand.png">
   <!-- $config['cf_add_meta'] 대체 끝 -->
