@@ -183,7 +183,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<!-- <li><input class="sec07_input" type="text" name="h_tel" id="h_tel" placeholder="연락처 입력" required <?=__ONLY_NUM?> /></li> -->
 				<li><input class="sec07_input" type="text" name="h_place" id="h_place" placeholder="지역 입력" required /></li>
 				<li>
-					<select CLASS="sec07_input" name="wr_5" id="wr_5" required>
+					<select class="sec07_input" name="wr_5" id="wr_5" required>
 						<option value="" disabled selected>상담분야 선택</option>
 						<option value="음주 행정심판">음주 행정심판</option>
 						<option value="음주 형사처벌">음주 형사처벌</option>

@@ -1035,15 +1035,27 @@ a {
 	color:#fff; 
 }
 .footer-online .input-wrap li select { 
-	width:100%; height:38px;
+	width:100%; height:42px;
+	min-height: 42px;
 	border:0 none; border-bottom:1px solid #fff;
 	background: transparent;
-	padding-right: 28px;
+	padding: 8px 28px 8px 0;
+	line-height: 1.4;
+	box-sizing: border-box;
 	-webkit-appearance: menulist;
 	-moz-appearance: menulist;
 	appearance: menulist;
 	font-family: 'Pretendard'; font-weight:500; font-size:16px;
 	color:#fff; 
+}
+/* placeholder(상담분야 선택) 선택 시 글자 노출 */
+.footer-online .input-wrap li select:invalid {
+	color: #ccc;
+	-webkit-text-fill-color: #ccc;
+}
+.footer-online .input-wrap li select:valid {
+	color: #fff;
+	-webkit-text-fill-color: #fff;
 }
 .footer-online .input-wrap li input::placeholder {
 	font-weight: 500; font-size: 16px; color: #aaa; line-height: 1;
@@ -1052,9 +1064,8 @@ a {
 .footer-online .input-wrap li select option { 
 	color: #333;
 }
-.footer-online .input-wrap li select:invalid,
 .footer-online .input-wrap li select option[value=""] { 
-	color:#aaa;
+	color: #999;
 }
 .footer-online .input-wrap li:last-child { 
 	margin-left:0;
@@ -1172,10 +1183,26 @@ a {
 		font-size:10px;
 	}
 	.footer-online .input-wrap li input[type="text"] ,
-	.footer-online .input-wrap li input[type="tel"] ,
-	.footer-online .input-wrap li select {
+	.footer-online .input-wrap li input[type="tel"] {
 		width:100%; height:20px;
 		font-size:10px;
+	}
+	.footer-online .input-wrap li select {
+		width:100%;
+		height: 26px;
+		min-height: 26px;
+		padding: 4px 24px 4px 0;
+		font-size: 11px;
+		line-height: 1.3;
+		box-sizing: border-box;
+	}
+	.footer-online .input-wrap li select:invalid {
+		color: #ccc;
+		-webkit-text-fill-color: #ccc;
+	}
+	.footer-online .input-wrap li select:valid {
+		color: #fff;
+		-webkit-text-fill-color: #fff;
 	}
 	.footer-online .input-wrap li input::placeholder {
 		font-size: 10px;
