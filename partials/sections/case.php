@@ -12,7 +12,7 @@
 ?>
 <!-- main-case -->
 <section class="section main-case">
-	<h3>대표 성공사례를 확인해보세요</h3>
+	<h2 class="title-h2">음주운전 대표 성공사례를 확인해 보세요</h2>
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 			<a href="/bbs/board.php?bo_table=case&wr_id=77" class="swiper-slide"><img src="/images/main/main-case/main-case-01.jpg" alt="교통음주대표사례01" width="300" height="400" loading="lazy"></a>

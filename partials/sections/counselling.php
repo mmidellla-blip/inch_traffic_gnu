@@ -14,10 +14,12 @@
 <section class="section main-counselling-wrap">
 	<section class="main-counselling">
 		<div class="inner">
-			<section class="main-conts-tit-wrap">
-				<h2><span>Counselling</span>수임보다는 '<em>상담</em>'이 먼저입니다.</h2>
-				<p><strong>'동주'</strong>는 충분히 사건을 파악하고 검토한 후 의뢰인에게 이익이 될 때 수임을 제안드립니다.</p>
-			</section>
+		<section class="main-conts-tit-wrap">
+			<header>
+				<h2 class="title-h2 svc-main-heading">수임보다는 '<em>상담</em>'이 먼저입니다.</h2>
+				<p class="title-sub"><strong>'동주'</strong>는 충분히 사건을 파악하고 검토한 후 의뢰인에게 이익이 될 때 수임을 제안드립니다.</p>
+			</header>
+		</section>
 			<section class="main-counselling-box">
 				<ul>
 					<li><span class="icon"><img src="/images/main/main_counselling_icon01.png" alt="" width="60" height="60"></span>평일·주말 <strong>24시간</strong><br>긴급상담 가능</li>
@@ -31,14 +33,16 @@
 	<section class="main-online">
 		<div class="inner">
 			<section class="main-conts-tit-wrap">
-				<h2><span>Lawfirm Dongju</span>30분 내 <em>신속 답변 서비스</em></h2>
-				<p>모든 문의는 신속히 확인하여 유선으로 안내해 드립니다.<br>영업시간 외 문의 역시 빠르게 안내 받으실 수 있습니다.</p>
+				<header>
+					<h2 class="title-h2 svc-main-heading">30분 내 <em>신속 답변</em> 서비스</h2>
+					<p class="title-sub">모든 문의는 신속히 확인하여 유선으로 안내해 드립니다.<br>영업시간 외 문의 역시 빠르게 안내 받으실 수 있습니다.</p>
+				</header>
 				<dl>
 					<dt><img src="/images/main/icon_clock.png" alt="" width="24" height="24"><strong>24시간 언제나</strong> 상담 가능</dt>
 					<dd>주말 : 토요일 방문상담 가능</dd>
 				</dl>
 			</section>
-			<section class="online-form">
+			<section class="online-form emphasized-border">
 				<form action="<?php echo G5_URL ?>/_ok.php" method="post">
 					<input type="hidden" name="wr_1" id="wr_1" value="<?php echo isset($write['wr_1']) ? $write['wr_1'] : '';?>">
 					<input type="hidden" id="secret" name="secret" value="secret">
@@ -59,7 +63,7 @@
 					</ul>
 					<p class="btn-wrap"><button id='submit_btn'>상담신청</button></p>
 					<section class="privacy-pop">
-						<h2>개인정보 수집 및 이용안내</h2>
+						<div class="privacy-pop-title">개인정보 수집 및 이용안내</div>
 						<section class="pop-inner">
 							<p>법무법인 동주는 아래와 같은 개인정보 처리방침을 수립·시행하고 있습니다.<br><br>
 							<strong>개인정보의 처리 목적</strong><br>
@@ -84,7 +88,7 @@
 				</form>
 			</section>
 			<section  class="main-online-list">
-				<h2>상담신청 현황</h2>
+				<h3 class="title-h3">상담신청 현황</h3>
 				<ul>
 					<?php 
 					$result = sql_query("select wr_subject, wr_name, wr_id, wr_2, wr_3, wr_5, ca_name, wr_datetime from g5_write_online order by wr_id desc limit 6");

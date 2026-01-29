@@ -15,8 +15,10 @@
 	<div class="inner">
 		<section class="member-list">
 			<div class="tit">
-				<h5>음주운전 변호사 · 교통사고 변호사</h5>
-				<p>음주운전 · 교통사고 분야 전문가들이 TF로 구성됩니다.</p>
+				<header class="section-head svc-title">
+					<h2 class="title-h2 svc-main-heading">음주운전 변호사 · 교통사고 변호사</h2>
+					<p class="title-sub">음주운전 · 교통사고 분야 전문가들이 TF로 구성됩니다.</p>
+				</header>
 			</div>
 			<div class="slider-container">
 				<button class="slider-nav prev" aria-label="Previous Slide"><</button>

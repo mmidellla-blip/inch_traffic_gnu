@@ -11,15 +11,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 <!-- <h2 id="container_title"><?php echo $board['bo_subject'] ?><span class="sound_only"> 목록</span></h2> -->
 
-<section class="quick-menu">
-	<ul>
-		<li><a href="https://pf.kakao.com/_Rpbxmxb/chat" target="_blank"><img src="/images/common/quick_icon02.png" alt="">카톡상담</a></li>
-		<li><a href="tel:1522-3394" target="_blank"><img src="/images/common/quick_icon01.png" alt="">전화상담</a></li>
-		<li><a href="/bbs/board.php?bo_table=online&me_code=6010" target="_blank"><img src="/images/common/quick_icon03.png" alt="">온라인 상담</a></li>
-		<li><a href="/page/location.php?me_code=1040" target="_blank"><img src="/images/common/quick_icon04.png" alt="">오시는 길</a></li>
-		<li><a href="#" target="_blank"><img src="/images/common/quick_icon05.png" alt="">즐겨찾기 추가</a></li>
-	</ul>
-</section>
+<?php 
+$quick_menu_path = dirname(dirname(dirname(dirname(__FILE__)))).'/partials/sections/quick-menu.php';
+if (file_exists($quick_menu_path)) include_once($quick_menu_path);
+?>
 
 <section class="sub-conts-wrap review">
 	<h1 class="sub-conts-title wow fadeInUp"><span><?php echo $g5['title'] ?></span></h1>

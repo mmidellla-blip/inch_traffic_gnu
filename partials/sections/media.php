@@ -18,8 +18,10 @@ $thumb_height = '240';
 <section class="section main-media">
 	<div class="inner">
 		<section class="main-conts-tit-wrap">
-			<h2><span>Media</span>법무법인 동주의 실력과 전문성</h2>
-			<p>다양한 언론사로부터 인정받고 있습니다.</p>
+			<header class="section-head svc-title">
+				<h2 class="title-h2">법무법인 동주의 실력과 전문성</h2>
+				<p class="title-sub">다양한 언론사로부터 인정받고 있습니다.</p>
+			</header>
 		</section>
 		<div class="main-media-list">
 			<?php 

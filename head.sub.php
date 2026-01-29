@@ -60,9 +60,17 @@ if (defined('G5_IS_ADMIN')) {
     if(!defined('_THEME_PREVIEW_'))
         echo '<link rel="stylesheet" href="'.run_replace('head_css_url', G5_ADMIN_URL.'/css/admin.css?ver='.G5_CSS_VER, G5_URL).'">'.PHP_EOL;
 } else {
-    $shop_css = '';
-    if (defined('_SHOP_')) $shop_css = '_shop';
-    echo '<link rel="stylesheet" href="'.run_replace('head_css_url', G5_CSS_URL.'/'.(G5_IS_MOBILE?'mobile':'default').$shop_css.'.css?ver='.G5_CSS_VER, G5_URL).'">'.PHP_EOL;
+    // default.css는 common.css로 대체되었습니다.
+    // $shop_css = '';
+    // if (defined('_SHOP_')) $shop_css = '_shop';
+    // echo '<link rel="stylesheet" href="'.run_replace('head_css_url', G5_CSS_URL.'/'.(G5_IS_MOBILE?'mobile':'default').$shop_css.'.css?ver='.G5_CSS_VER, G5_URL).'">'.PHP_EOL;
+    
+    // common.css 로드
+    if (function_exists('get_asset_version')) {
+        echo '<link rel="stylesheet" href="/assets/css/common.css?ver='.get_asset_version('/assets/css/common.css').'">'.PHP_EOL;
+    } else {
+        echo '<link rel="stylesheet" href="/assets/css/common.css">'.PHP_EOL;
+    }
 }
 ?>
 <!--[if lte IE 8]>

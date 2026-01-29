@@ -10,7 +10,7 @@ if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     include('partials/head.custom.php');
 }
 ?>
-<body class="index">
+<body class="index page-index">
 
 
 <!-- wrapper -->

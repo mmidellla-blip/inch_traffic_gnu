@@ -32,15 +32,10 @@ $g5['title'] = $row['wr_subject'];
 ?>
 
 <section class="member-view">
-	<section class="quick-menu">
-		<ul>
-			<li><a href="/page/self_test.php?me_code=7010" target="_blank"><img src="/images/common/quick_icon_self.png" alt="">음주진단</a></li>
-			<li><a href="tel:1522-3394" target="_blank"><img src="/images/common/quick_icon01.png" alt="">전화상담</a></li>
-			<li><a href="https://pf.kakao.com/_Rpbxmxb/chat" target="_blank"><img src="/images/common/quick_icon02.png" alt="">카톡상담</a></li>
-			<li><a href="/bbs/board.php?bo_table=online&me_code=6010"><img src="/images/common/quick_icon03.png" alt="">온라인 상담</a></li>
-			<li><a href="/page/location.php?me_code=1040"><img src="/images/common/quick_icon04.png" alt="">오시는 길</a></li>
-		</ul>
-	</section>
+	<?php 
+	$quick_menu_path = dirname(__FILE__).'/../partials/sections/quick-menu.php';
+	if (file_exists($quick_menu_path)) include_once($quick_menu_path);
+	?>
 	<section class="member-view-header lawyer_view">
 		<div class="txt-wrap">
 			<h2><strong><?=$row['wr_subject'];?> </strong> </h2>

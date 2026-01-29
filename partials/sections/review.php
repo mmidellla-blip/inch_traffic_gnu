@@ -18,8 +18,10 @@ $thumb_height = '220';
 <section class="section main-review">
 	<div class="inner">
 		<section class="main-conts-tit-wrap">
-			<h2><span>Client Review</span>의뢰인의 진짜 후기가 입증하는 동주의 실력</h2>
-			<p>동주는 의뢰인에게 이익이 될 때만 수임을 제안 드립니다. 그리고 결과로 입증합니다.</p>
+		<header>
+			<h2 class="title-h2 svc-main-heading">의뢰인의 진짜 후기가 입증하는 동주의 실력</h2> <!-- <span> 부분 제거 -->
+			<p class="title-sub">동주는 의뢰인에게 이익이 될 때만 수임을 제안 드립니다. 그리고 결과로 입증합니다.</p>
+		</header>
 		</section>
 		<div class="main-review-list">
 			<?php 

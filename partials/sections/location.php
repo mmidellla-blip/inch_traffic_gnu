@@ -14,7 +14,7 @@
 <section class="section main-location">
 	<div class="inner">
 		<div class="txt-wrap">
-			<h2><span>Contact US</span>오시는 길</h2>
+			<h2 class="title-h2">오시는 길</h2>
 			<!-- 탭 -->
 			<ul class="main-location-tab">
 				<li class="on"><a href="#">서울사무소</a></li>

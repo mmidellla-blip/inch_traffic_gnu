@@ -9,7 +9,7 @@
 <!-- main-center -->
 <section class="section main-center">
 	<div class="inner">
-		<h2>법무법인 동주 <br>업무분야</h2>
+		<h2 class="title-h2">법무법인 동주 <br>업무분야</h2>
 		<ul>
 			<li><a href="https://criminal-law-dongju.com" target="_blank"><div>형사</div></a></li>
 			<li><a href="https://sexcrimecenter-dongju.com" target="_blank"><div>성범죄</div></a></li>

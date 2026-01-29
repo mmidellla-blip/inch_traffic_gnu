@@ -18,7 +18,8 @@
 		<div class="main-box01">
 			<div class="copy">
 				<div class="copy_icon"></div>
-				<h5>철저한 익명 보장 원칙<br>30분 이내 신속 답변 서비스</h5>
+				<h1 class="title-h1">철저한 익명 보장 원칙<br>30분 이내 신속 답변 서비스</h1>
+				<div class="copy-sub"></div>
 			</div>
 			<div class="space"></div>
 			<a href="tel:1522-3394" onMouseDown="javascript:try{NA_Call();}catch(e){}"><div class="telnum"><div class="telnum_icon"></div>1522-3394</div></a>
@@ -35,7 +36,7 @@
 					</ul>
 					<p class="btn-wrap"><button id='submit_btn'>상담신청</button></p>
 					<section class="privacy-pop">
-						<h2>개인정보 수집 및 이용안내</h2>
+						<div class="privacy-pop-title">개인정보 수집 및 이용안내</div>
 						<section class="pop-inner">
 							<p>법무법인 동주는 아래와 같은 개인정보 처리방침을 수립·시행하고 있습니다.<br><br>
 							<strong>개인정보의 처리 목적</strong><br>
@@ -63,30 +64,30 @@
 		<div class="main-area01">
 			<div class="m-copy m-copy02">
 				<div class="m-copy_icon"></div>
-				<h5>형사부터 행정까지<br>음주운전 ONE-STOP 구제</h5>
+				<div class="m-copy-text">형사부터 행정까지<br>음주운전 ONE-STOP 구제</div>
 			</div>
 			<div class="main-box02">
 				<div class="box02_list box02-1">
 					<div class="box02-icon"></div>
-					<h5>경찰조사 시뮬레이션 등<br>단계별 맞춤 서비스</h5>
+					<div class="box02-text">경찰조사 시뮬레이션 등<br>단계별 맞춤 서비스</div>
 				</div>
 				<div class="box02_list box02-2">
 					<div class="box02-icon"></div>
-					<h5>대표/파트너변호사가<br>직접 상담 진행</h5>
+					<div class="box02-text">대표/파트너변호사가<br>직접 상담 진행</div>
 				</div>
 				<div class="box02_list box02-3">
 					<div class="box02-icon"></div>
-					<h5>개인이 아닌<br>'로이어팀'이 조력</h5>
+					<div class="box02-text">개인이 아닌<br>'로이어팀'이 조력</div>
 				</div>
 				<div class="box02_list box02-4">
 					<div class="box02-icon"></div>
-					<h5>형사/행정<br>'분야별' 연구팀</h5>
+					<div class="box02-text">형사/행정<br>'분야별' 연구팀</div>
 				</div>
 			</div>
 
 			<div class="m-copy m-copy03">
 				<div class="m-copy_icon"></div>
-				<h5>10년 이상 경력의<br>음주전문변호사 구성</h5>
+				<div class="m-copy-text">10년 이상 경력의<br>음주전문변호사 구성</div>
 			</div>
 			<div class="main-box03">
 				<div class="box03_list box03-1">

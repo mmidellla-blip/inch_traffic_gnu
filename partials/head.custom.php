@@ -14,14 +14,13 @@ $is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' ||
                   (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
 
 if ($is_index_page) {
-    // LCP 이미지 preload는 head.sub.php에 이미 있음
-    // 추가 리소스가 필요하면 여기에 작성
-    
-    // 예시: 추가 DNS prefetch
-    // echo '<link rel="dns-prefetch" href="//example.com">' . PHP_EOL;
-    
-    // 예시: 추가 메타 태그
-    // echo '<meta name="..." content="...">' . PHP_EOL;
-   echo '<meta name="naver-site-verification" content="8aca2004fc829309d2ad81a2bea09be81918272d">' . PHP_EOL;
+    // 메타 태그
+    echo '<meta name="naver-site-verification" content="8aca2004fc829309d2ad81a2bea09be81918272d">' . PHP_EOL;
+   
+   // index.css 로드 (Non-critical - LCP 이후 로드)
+   // LCP CSS는 head.sub.php에서 이미 로드됨
+   $index_css_version = function_exists('get_asset_version') ? get_asset_version('/assets/css/index.css') : time();
+   echo '<link rel="preload" href="/assets/css/index.css?ver=' . $index_css_version . '" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . PHP_EOL;
+   echo '<noscript><link rel="stylesheet" href="/assets/css/index.css?ver=' . $index_css_version . '"></noscript>' . PHP_EOL;
 }
 ?>

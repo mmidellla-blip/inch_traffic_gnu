@@ -158,12 +158,39 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
   <title><?php echo $metaTitle; ?></title>
+  <?php 
+  // index.php 전용 LCP CSS 로드 (최우선) - 동기 로드 필수
+  $lcp_css_path = '/assets/css/index-lcp.css';
+  $lcp_css_file = G5_PATH . $lcp_css_path;
+  
+  // 조건 확인: $is_index_page 또는 직접 체크
+  $load_lcp = false;
+  if (isset($is_index_page) && $is_index_page) {
+    $load_lcp = true;
+  } elseif (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF']) == 'index.php') {
+    $load_lcp = true;
+  } elseif (isset($_SERVER['SCRIPT_NAME']) && basename($_SERVER['SCRIPT_NAME']) == 'index.php') {
+    $load_lcp = true;
+  } elseif (isset($_SERVER['REQUEST_URI'])) {
+    $uri = $_SERVER['REQUEST_URI'];
+    if (preg_match('#^/?$|^/index\.php#', $uri) || $uri == '/' || $uri == '/index.php' || strpos($uri, '/index.php') === 0) {
+      $load_lcp = true;
+    }
+  }
+  
+  // 파일이 존재하고 조건이 맞으면 로드
+  if ($load_lcp && file_exists($lcp_css_file)) {
+    $lcp_css_version = filemtime($lcp_css_file);
+  ?>
+  <!-- LCP Critical CSS -->
+  <link rel="stylesheet" type="text/css" href="<?php echo $lcp_css_path; ?>?ver=<?php echo $lcp_css_version; ?>">
+  <?php 
+  }
+  ?>
   <link rel="stylesheet" type="text/css" href="/css/template.css?ver=<?php echo get_asset_version('/css/template.css'); ?>">
   <link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo get_asset_version('/css/style.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="/assets/css/common.css?ver=<?php echo get_asset_version('/assets/css/common.css'); ?>">
   <?php 
-  $is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
-                    basename($_SERVER['SCRIPT_NAME']) == 'index.php' ||
-                    (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
   if ($is_index_page) { ?>
   <!-- index.php 전용: Non-critical CSS 비동기 로드 -->
   <link rel="preload" href="/css/slick.css?ver=<?php echo get_asset_version('/css/slick.css'); ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -201,8 +228,38 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
   <title><?php echo $metaTitleConf; ?></title>
+  <?php 
+  // index.php 전용 LCP CSS 로드 (최우선) - 동기 로드 필수
+  $lcp_css_path = '/assets/css/index-lcp.css';
+  $lcp_css_file = G5_PATH . $lcp_css_path;
+  
+  // 조건 확인: $is_index_page 또는 직접 체크
+  $load_lcp = false;
+  if (isset($is_index_page) && $is_index_page) {
+    $load_lcp = true;
+  } elseif (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF']) == 'index.php') {
+    $load_lcp = true;
+  } elseif (isset($_SERVER['SCRIPT_NAME']) && basename($_SERVER['SCRIPT_NAME']) == 'index.php') {
+    $load_lcp = true;
+  } elseif (isset($_SERVER['REQUEST_URI'])) {
+    $uri = $_SERVER['REQUEST_URI'];
+    if (preg_match('#^/?$|^/index\.php#', $uri) || $uri == '/' || $uri == '/index.php' || strpos($uri, '/index.php') === 0) {
+      $load_lcp = true;
+    }
+  }
+  
+  // 파일이 존재하고 조건이 맞으면 로드
+  if ($load_lcp && file_exists($lcp_css_file)) {
+    $lcp_css_version = filemtime($lcp_css_file);
+  ?>
+  <!-- LCP Critical CSS -->
+  <link rel="stylesheet" type="text/css" href="<?php echo $lcp_css_path; ?>?ver=<?php echo $lcp_css_version; ?>">
+  <?php 
+  }
+  ?>
   <link rel="stylesheet" type="text/css" href="/css/template.css?ver=<?php echo get_asset_version('/css/template.css'); ?>">
   <link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo get_asset_version('/css/style.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="/assets/css/common.css?ver=<?php echo get_asset_version('/assets/css/common.css'); ?>">
   <?php 
   $is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
                     basename($_SERVER['SCRIPT_NAME']) == 'index.php' ||
@@ -250,9 +307,10 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
 <link rel="preload" as="image" href="/images/main/mainvisual/main-03-lawyer03.jpg" fetchpriority="high">
 
 <?php
-$shop_css = '';
-if (defined('_SHOP_')) $shop_css = '_shop';
-echo '<link rel="stylesheet" href="'.run_replace('head_css_url', G5_THEME_CSS_URL.'/'.(G5_IS_MOBILE?'mobile':'default').$shop_css.'.css?ver='.G5_CSS_VER, G5_THEME_URL).'">'.PHP_EOL;
+// default.css는 common.css로 대체되었습니다.
+// $shop_css = '';
+// if (defined('_SHOP_')) $shop_css = '_shop';
+// echo '<link rel="stylesheet" href="'.run_replace('head_css_url', G5_THEME_CSS_URL.'/'.(G5_IS_MOBILE?'mobile':'default').$shop_css.'.css?ver='.G5_CSS_VER, G5_THEME_URL).'">'.PHP_EOL;
 ?>
 <!--[if lte IE 8]>
 <script src="<?php echo G5_JS_URL ?>/html5.js"></script>

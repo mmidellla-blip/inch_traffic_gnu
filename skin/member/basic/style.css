@@ -330,7 +330,7 @@
 #pw_confirm p {padding:0 20px 40px;border-bottom:1px solid #e9e9e9;font-size:1.083em;line-height:1.4em;color:#656565}
 #pw_confirm p strong {display:block;color:#3ca1ff;font-size:1.167em;margin:0 0 5px}
 #pw_confirm fieldset {padding:50px;text-align:center}
-#pw_confirm fieldset .frm_input {background-color:#fff !important}
+#pw_confirm fieldset .frm_input {background-color:#fff !important; height: 45px;}
 #pw_confirm label {letter-spacing:-0.1em}
 #pw_confirm_id {display:inline-block;margin-right:20px;font-weight:bold}
 #mb_confirm_id {}
