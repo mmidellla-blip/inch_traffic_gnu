@@ -193,7 +193,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<li><input type="checkbox" id="chk" required/><label for="chk">개인정보 수집동의</label><a href="#">자세히 보기</a></li>
 			</ul>
 			<section class="footerPop">
-				<h2>개인정보보호를 위한 이용자 동의 사항</h2>
+				<strong>개인정보보호를 위한 이용자 동의 사항</strong>
 				<section class="pop-inner">
 					1. 개인정보의 수집 및 이용 목적 : 문의에 대한 답변<br>
 					2. 수집항목 : 연락처, 이메일<br>
