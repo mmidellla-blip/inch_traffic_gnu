@@ -709,16 +709,18 @@ a {
 #footer { 
 	overflow:hidden;
 	background:#000;
+    padding-bottom: 150px; 
 }
-#footer .footer-utils { 
-	padding:0 5%;
+.footer-sec {
+    padding: 30px 5vw;
+}
+#footer .footer-utils {
 	border-bottom:1px solid rgba(255,255,255,.2);
 	font-size:0;
 	display: flex; flex-flow: row wrap;
 }
 #footer .footer-utils li { 
 	width: auto;
-	margin: 30px 0;
 	padding: 0 20px;
 }
 #footer .footer-utils li a { 
@@ -728,7 +730,6 @@ a {
 }
 #footer .footer-address { 
 	position:relative;
-	padding:40px 5% 175px; 
 	font-size:0;
 	display: flex; flex-flow: row wrap;
 }
@@ -783,6 +784,39 @@ a {
 #footer .footer-address .footer-address-conts .info-wrap p:nth-child(4) {
     width: 100%;
 }
+.footer-social {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+}
+.footer-social a {
+    display: inline-flex;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #666;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+.footer-social svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+.footer-social .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+.social-naverblog:hover,
+.social-naverblog:focus { color: #03c75a; }
+.social-kakao:hover,
+.social-kakao:focus     { color: #fae100; }
+.social-youtube:hover,
+.social-youtube:focus   { color: #ff0000; }
+.social-insta:hover,
+.social-insta:focus   { color: #dd0ac1; }
 
 @media screen and (max-width: 950px) { 
 	#footer .footer-utils { 
@@ -807,9 +841,7 @@ a {
 	#footer .footer-utils li:nth-child(8) {
 		padding: 0 0 0 0;
 	}
-	
-	#footer .footer-address { 
-		padding-top:20px; padding-bottom:40px;
+	#footer .footer-address {
 		flex-flow: column;
 	}
 	#footer .footer-address .footer-address-telNum {
@@ -825,7 +857,6 @@ a {
 		content: '';
 		position: absolute; top: 35%; left: -36px; transform: translateY(-35%);
 		width: 30px; height: 30px;
-		/* background-color: #fff; */
 		background-image: url('/images/main/icon-telNum.png'); background-size: cover;
 	}
 	#footer .footer-address .footer-address-telNum span {
@@ -840,10 +871,10 @@ a {
 		margin-bottom: 6px;
 	}
 }
-@media screen and (max-width: 640px) { 
-	.index #footer .footer-address {  
-		padding-bottom:120px; 
-	}
+@media screen and (max-width: 640px) {
+	.footer-sec {
+        padding: 20px 5vw;
+    }
 	#footer .footer-utils { 
 		padding: 0 5px 15px 5px;
 	}
