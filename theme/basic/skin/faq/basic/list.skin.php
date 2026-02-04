@@ -8,7 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$faq_skin_url.'/style.css">', 0);
 <!-- FAQ 시작 { -->
 <?php
 if ($himg_src)
-    echo '<div id="faq_himg" class="faq_img"><img src="'.$himg_src.'" alt=""></div>';
+    echo '<div id="faq_himg" class="faq_img"><img src="'.$himg_src.'" alt="FAQ"></div>';
 
 // 상단 HTML
 echo '<div id="faq_hhtml">'.conv_content($fm['fm_head_html'], 1).'</div>';
@@ -97,7 +97,7 @@ if( count($faq_master_list) ){
 echo '<div id="faq_thtml">'.conv_content($fm['fm_tail_html'], 1).'</div>';
 
 if ($timg_src)
-    echo '<div id="faq_timg" class="faq_img"><img src="'.$timg_src.'" alt=""></div>';
+    echo '<div id="faq_timg" class="faq_img"><img src="'.$timg_src.'" alt="FAQ"></div>';
 ?>
 
 

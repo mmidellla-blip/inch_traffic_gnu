@@ -36,6 +36,7 @@ header("Pragma: no-cache"); // HTTP/1.0
 <head>
 	
 <meta charset="utf-8">
+<meta name="robots" content="index, follow">
 <?php
 if (G5_IS_MOBILE) {
     echo '<meta name="viewport" id="meta_viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10">'.PHP_EOL;
@@ -48,8 +49,10 @@ if (G5_IS_MOBILE) {
 
 $scheme = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http';
 $host = 'trafficdrinking-law-dongju.com';
-$uri  = $_SERVER['REQUEST_URI']; // ? 포함 전체 경로
-$canonical = $scheme . '://' . $host . $uri;
+$uri  = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+// 메인 페이지는 베이스 URL 하나로 통일 (캐노니컬 정규화)
+$is_index_for_canonical = (str_replace('\\', '/', $_SERVER['PHP_SELF'] ?? '') === '/index.php' || $uri === '' || $uri === '/' || preg_match('#^/?index\.php(\?|$)#', $uri));
+$canonical = $is_index_for_canonical ? $scheme . '://' . $host . '/' : $scheme . '://' . $host . $uri;
 
 // SEO 최적화된 title 생성 함수
 if (!function_exists('get_seo_title')) {
@@ -63,7 +66,7 @@ function get_seo_title($page_title = '', $board_name = '', $is_detail = false) {
 	             (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
 	
 	if ($is_index) {
-		return '음주운전변호사 전문 상담 | ' . $brand;
+		return '음주운전 변호사 전문 상담 | 면허취소·행정심판·형사대응 | ' . $brand . ' 음주운전센터';
 	}
 	
 	// 게시글 상세 페이지
@@ -99,8 +102,8 @@ function get_seo_title($page_title = '', $board_name = '', $is_detail = false) {
 		return $title;
 	}
 	
-	// 기본값
-	return '음주운전변호사 전문 상담 | ' . $brand;
+	// 기본값 (메인과 동일)
+	return '음주운전 변호사 전문 상담 | 면허취소·행정심판·형사대응 | ' . $brand . ' 음주운전센터';
 }
 }
 
@@ -115,6 +118,32 @@ $is_board_list = (!empty($_GET['bo_table']) && empty($_GET['wr_id']));
 $board_name = '';
 if (isset($board) && !empty($board) && isset($board['bo_subject']) && !empty($board['bo_subject'])) {
 	$board_name = (G5_IS_MOBILE && !empty($board['bo_mobile_subject'])) ? $board['bo_mobile_subject'] : $board['bo_subject'];
+}
+
+// og:image 절대 URL (게시글 상세는 대표 이미지 우선)
+// SNS/검증기는 HTTPS 이미지 URL 필요 — 항상 https로 출력
+$base_url_og = ($host === 'trafficdrinking-law-dongju.com') ? 'https://' . $host : ($scheme . '://' . $host);
+$og_image_path = ''; // 서버 경로 (width/height용)
+$og_image_url = $base_url_og . '/images/common/ogimg-brand.png';
+if ($is_board_detail && !empty($bo_table) && !empty($wr_id) && function_exists('get_board_file_db')) {
+	$og_file = get_board_file_db($bo_table, $wr_id, 'bf_file', " and bf_type between '1' and '3' ", true);
+	if (!empty($og_file['bf_file'])) {
+		$og_image_url = $base_url_og . '/' . G5_DATA_DIR . '/file/' . $bo_table . '/' . $og_file['bf_file'];
+	}
+}
+if (strpos($og_image_url, '/images/common/') !== false) {
+	$og_default_file = (file_exists(G5_PATH . '/images/common/ogimg-brand.png')) ? 'ogimg-brand.png' : (file_exists(G5_PATH . '/images/common/logo.png') ? 'logo.png' : 'ogimg-brand.png');
+	$og_image_url = $base_url_og . '/images/common/' . $og_default_file;
+	$og_image_path = G5_PATH . '/images/common/' . $og_default_file;
+}
+$og_image_width = '';
+$og_image_height = '';
+if ($og_image_path && file_exists($og_image_path) && function_exists('getimagesize')) {
+	$og_sizes = @getimagesize($og_image_path);
+	if (!empty($og_sizes[0]) && !empty($og_sizes[1])) {
+		$og_image_width = $og_sizes[0];
+		$og_image_height = $og_sizes[1];
+	}
 }
 
 // SEO 최적화된 title 생성
@@ -141,20 +170,36 @@ if ($is_board_detail && isset($write) && !empty($write)) {
 $metaDescriptionConf = '음주운전변호사 | 음주전문변호사 | 음주운전처벌 | 음주운전사고 | 법무법인 동주 음주운전센터';
 $metaKeywordConf = '음주 면허 취소,음주운전 행정심판,음주운전 면허취소,행정소송,행정심판,행정법전문변호사,행정사,영업정지 구제, 행정처분';
 
+// 페이지별 메타 설명: 각 페이지에서 $meta_description_page 설정 시 우선, 없으면 스크립트명/메인 기준 맵 사용
+$meta_description_page = isset($meta_description_page) ? trim((string)$meta_description_page) : '';
+$script_name = basename($_SERVER['SCRIPT_NAME'] ?? '');
+$page_descriptions = array(
+	'index.php'       => '법무법인 동주 음주운전센터는 음주운전·교통사고 전문 로펌입니다. 음주운전처벌, 면허취소·행정심판·행정소송, 형사대응까지 원스톱 상담. 서울·수원·인천 사무소, 24시간 전화·카카오톡 상담. 음주운전변호사 이세환 대표. 초기 대응이 사건 결과를 바꿉니다. 지금 상담 예약하세요.',
+	'greetings.php'   => '법무법인 동주 대표 변호사 인사말. 음주운전·교통 전문 변호사 이세환이 드리는 인사와 변호사 소개.',
+	'location.php'   => '법무법인 동주 오시는 길. 서울·수원·인천 사무소 위치, 지도, 주차, 상담 예약 안내.',
+	'differentiation.php' => '동주만의 차별화. 행정법전문변호사·행정사 보유, 행정심판·행정소송 원스톱 전담, 음주운전 전문 로펌.',
+	'lawyer.php'      => '음주운전 변호사 구성원 소개. 법무법인 동주 음주운전센터 전문 변호사 프로필.',
+	'lawyer_view.php' => '음주운전 변호사 상세 소개. 법무법인 동주 전문 변호사 프로필 및 경력.',
+	'self_test.php'   => '음주운전 자가진단. 혈중알코올농도·처벌 수위 간이 확인, 법무법인 동주 상담 연결.',
+	'drunken01.php'   => '음주운전 형사 대응. 처벌·형사소송·조력 업무, 법무법인 동주 음주운전센터.',
+	'drunken02.php'   => '음주운전 행정 대응. 행정심판·행정소송·소청·조력, 면허취소 구제, 법무법인 동주.',
+	'specialized01.php' => '음주운전·교통 전문 법률 서비스. 법무법인 동주 업무분야 및 변호사 소개.',
+	'center_info.php' => '법무법인 동주 연구센터. 음주운전·교통 분야 연구와 실무 연계.',
+);
+$metaDescriptionFallback = ($meta_description_page !== '') ? $meta_description_page : (isset($page_descriptions[$script_name]) ? $page_descriptions[$script_name] : $metaDescriptionConf);
+
 if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empty($write)) {
 	// 게시글 상세 페이지
 	$metaTitle = $metaTitleConf; // 위에서 이미 생성됨
-	$metaDescription = isset($write['wr_3']) ? $write['wr_3'] : '';
+	$metaDescription = isset($write['wr_3']) ? trim((string)$write['wr_3']) : '';
 	$metaKeyword = isset($write['wr_4']) ? $write['wr_4'] : '';
+	$metaDescriptionOut = ($metaDescription !== '') ? $metaDescription : $metaDescriptionFallback;
 ?>
 
   <!-- $config['cf_add_meta'] 대체 시작 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="<?php echo (!empty($metaDescription))? $metaDescription : $metaDescriptionConf; ?>">
+  <meta name="description" content="<?php echo htmlspecialchars($metaDescriptionOut, ENT_QUOTES, 'UTF-8'); ?>">
   <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="<?php echo $metaTitle; ?>">
-  <meta name="twitter:description" content="<?php echo (!empty($metaDescription))? $metaDescription : $metaDescriptionConf; ?>">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
   <title><?php echo $metaTitle; ?></title>
@@ -210,21 +255,27 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <meta property="og:url" content="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
   <meta property="og:type" content="article">
   <meta property="og:title" content="<?php echo $metaTitle; ?>">
-  <meta property="og:description" content="<?php echo (!empty($metaDescription))? $metaDescription : $metaDescriptionConf; ?>">
-  <meta property="og:image" content="/images/common/ogimg-brand.png">
+  <meta property="og:description" content="<?php echo htmlspecialchars($metaDescriptionOut, ENT_QUOTES, 'UTF-8'); ?>">
+  <meta property="og:image" content="<?php echo htmlspecialchars($og_image_url, ENT_QUOTES, 'UTF-8'); ?>">
+  <?php if ($og_image_width !== '' && $og_image_height !== '') { ?>
+  <meta property="og:image:width" content="<?php echo (int)$og_image_width; ?>">
+  <meta property="og:image:height" content="<?php echo (int)$og_image_height; ?>">
+  <?php } ?>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<?php echo $metaTitle; ?>">
+  <meta name="twitter:description" content="<?php echo htmlspecialchars($metaDescriptionOut, ENT_QUOTES, 'UTF-8'); ?>">
+  <meta name="twitter:image" content="<?php echo htmlspecialchars($og_image_url, ENT_QUOTES, 'UTF-8'); ?>">
   <!-- $config['cf_add_meta'] 대체 끝 -->
 
 <?php 
 }else{
+	$metaDescriptionOut = $metaDescriptionFallback;
 ?>  
 
   <!-- $config['cf_add_meta'] 대체 시작 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="<?php echo $metaDescriptionConf; ?>">
+  <meta name="description" content="<?php echo htmlspecialchars($metaDescriptionOut, ENT_QUOTES, 'UTF-8'); ?>">
   <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="<?php echo $metaTitleConf; ?>">
-  <meta name="twitter:description" content="<?php echo $metaDescriptionConf; ?>">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
   <title><?php echo $metaTitleConf; ?></title>
@@ -283,8 +334,16 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <meta property="og:url" content="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
   <meta property="og:type" content="website">
   <meta property="og:title" content="<?php echo $metaTitleConf; ?>">
-  <meta property="og:description" content="<?php echo $metaDescriptionConf; ?>">
-  <meta property="og:image" content="/images/common/ogimg-brand.png">
+  <meta property="og:description" content="<?php echo htmlspecialchars($metaDescriptionOut, ENT_QUOTES, 'UTF-8'); ?>">
+  <meta property="og:image" content="<?php echo htmlspecialchars($og_image_url, ENT_QUOTES, 'UTF-8'); ?>">
+  <?php if ($og_image_width !== '' && $og_image_height !== '') { ?>
+  <meta property="og:image:width" content="<?php echo (int)$og_image_width; ?>">
+  <meta property="og:image:height" content="<?php echo (int)$og_image_height; ?>">
+  <?php } ?>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<?php echo $metaTitleConf; ?>">
+  <meta name="twitter:description" content="<?php echo htmlspecialchars($metaDescriptionOut, ENT_QUOTES, 'UTF-8'); ?>">
+  <meta name="twitter:image" content="<?php echo htmlspecialchars($og_image_url, ENT_QUOTES, 'UTF-8'); ?>">
   <!-- $config['cf_add_meta'] 대체 끝 -->
 
 <?php 
@@ -294,11 +353,26 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
 // }
 ?>
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/common/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/common/favicon/favicon-32x32.png">
-<link rel="icon" type="image/ico" sizes="16x16" href="/images/common/favicon/favicon.ico">
-<link rel="manifest" href="/images/common/favicon/site.webmanifest">
-<link rel="mask-icon" href="/images/common/favicon/safari-pinned-tab.svg" color="#877b77">
+<?php
+$favicon_dir = G5_PATH . '/images/common/favicon';
+$favicon_url = '/images/common/favicon';
+// 기본 파비콘(항상 노출, 404 방지)
+if (is_file($favicon_dir . '/favicon.ico')) {
+	echo '<link rel="icon" type="image/x-icon" href="' . $favicon_url . '/favicon.ico">' . PHP_EOL;
+}
+if (is_file($favicon_dir . '/apple-touch-icon.png')) {
+	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . $favicon_url . '/apple-touch-icon.png">' . PHP_EOL;
+}
+if (is_file($favicon_dir . '/favicon-32x32.png')) {
+	echo '<link rel="icon" type="image/png" sizes="32x32" href="' . $favicon_url . '/favicon-32x32.png">' . PHP_EOL;
+}
+if (is_file($favicon_dir . '/site.webmanifest')) {
+	echo '<link rel="manifest" href="' . $favicon_url . '/site.webmanifest">' . PHP_EOL;
+}
+if (is_file($favicon_dir . '/safari-pinned-tab.svg')) {
+	echo '<link rel="mask-icon" href="' . $favicon_url . '/safari-pinned-tab.svg" color="#877b77">' . PHP_EOL;
+}
+?>
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="theme-color" content="#ffffff">
 
@@ -364,8 +438,149 @@ if(G5_IS_MOBILE) {
 }
 if(!defined('G5_IS_ADMIN'))
     echo $config['cf_add_script'];
+$canonical_esc = htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8');
+$base_url = $scheme . '://' . $host;
 ?>
-<link rel="canonical" href="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
+<link rel="canonical" href="<?php echo $canonical_esc; ?>">
+<link rel="alternate" hreflang="ko" href="<?php echo $canonical_esc; ?>">
+<link rel="alternate" hreflang="x-default" href="<?php echo $canonical_esc; ?>">
+<?php
+// 구조화 데이터 (Organization, WebSite, 퀵메뉴·소셜) — 풍부한 검색 결과용
+$sd_organization = array(
+	'@type' => 'LegalService',
+	'@id'   => $base_url . '/#organization',
+	'name'  => '법무법인 동주',
+	'url'   => $base_url,
+	'logo'  => array( '@type' => 'ImageObject', 'url' => $base_url . '/images/common/ogimg-brand.png' ),
+	'image' => $base_url . '/images/common/ogimg-brand.png',
+	'telephone' => '+82-1522-3394',
+	'faxNumber'  => '+82-2-523-7260',
+	'address' => array(
+		'@type' => 'PostalAddress',
+		'streetAddress' => '서초중앙로 123 (서초동), 13층 (서초동, 엘렌타워)',
+		'addressLocality' => '서초동',
+		'addressRegion' => '서울',
+		'addressCountry' => 'KR'
+	),
+	'sameAs' => array(
+		'https://pf.kakao.com/_Rpbxmxb/chat'
+	),
+	'contactPoint' => array(
+		array(
+			'@type' => 'ContactPoint',
+			'telephone' => '+82-1522-3394',
+			'contactType' => 'customer service',
+			'areaServed' => 'KR',
+			'availableLanguage' => 'Korean',
+			'url' => $base_url,
+			'contactOption' => 'toll-free'
+		),
+		array(
+			'@type' => 'ContactPoint',
+			'contactType' => 'chat',
+			'url' => 'https://pf.kakao.com/_Rpbxmxb/chat',
+			'areaServed' => 'KR',
+			'availableLanguage' => 'Korean'
+		)
+	)
+);
+$sd_website = array(
+	'@type' => 'WebSite',
+	'@id'   => $base_url . '/#website',
+	'url'   => $base_url,
+	'name'  => '법무법인 동주 음주운전센터',
+	'description' => '음주운전변호사 | 음주전문변호사 | 음주운전처벌 | 음주운전사고 | 법무법인 동주 음주운전센터',
+	'inLanguage' => 'ko',
+	'publisher' => array( '@id' => $base_url . '/#organization' )
+);
+$sd_quickmenu = array(
+	'@type' => 'ItemList',
+	'name'  => '퀵메뉴',
+	'description' => '음주운전 상담 퀵메뉴',
+	'itemListElement' => array(
+		array( '@type' => 'ListItem', 'position' => 1, 'name' => '음주진단', 'url' => $base_url . '/page/self_test.php?me_code=7010' ),
+		array( '@type' => 'ListItem', 'position' => 2, 'name' => '전화상담', 'url' => 'tel:1522-3394' ),
+		array( '@type' => 'ListItem', 'position' => 3, 'name' => '카톡상담', 'url' => 'https://pf.kakao.com/_Rpbxmxb/chat' ),
+		array( '@type' => 'ListItem', 'position' => 4, 'name' => '온라인 상담', 'url' => $base_url . '/bbs/board.php?bo_table=online&me_code=6010' ),
+		array( '@type' => 'ListItem', 'position' => 5, 'name' => '오시는 길', 'url' => $base_url . '/page/location.php?me_code=1040' )
+	)
+);
+
+// BreadcrumbList: 서브·게시판·게시글별 경로 노출 (검색 스니펫 클릭률 개선)
+$bc_items = array();
+$bc_items[] = array( 'name' => '홈', 'url' => rtrim($base_url, '/') . '/' );
+$bbs_path = $base_url . '/' . (defined('G5_BBS_DIR') ? G5_BBS_DIR : 'bbs');
+
+if ($is_board_detail && !empty($bo_table) && isset($write) && !empty($write)) {
+	// 게시글 상세: 홈 > 섹션 > [게시판명(섹션과 다를 때만)] > 글제목
+	$bo_sections = array(
+		'case'   => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=case&me_code=3010' ),
+		'review'  => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=review&me_code=3020' ),
+		'column' => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=column&me_code=4010' ),
+		'media'  => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=media&me_code=4020' ),
+		'online' => array( 'label' => '온라인 상담', 'url' => $bbs_path . '/board.php?bo_table=online&me_code=6010' ),
+	);
+	if (isset($bo_sections[$bo_table])) {
+		$bc_items[] = array( 'name' => $bo_sections[$bo_table]['label'], 'url' => $bo_sections[$bo_table]['url'] );
+	}
+	if (!empty($board_name) && (!isset($bo_sections[$bo_table]) || $bo_sections[$bo_table]['label'] !== $board_name)) {
+		$bc_items[] = array( 'name' => $board_name, 'url' => $bbs_path . '/board.php?bo_table=' . urlencode($bo_table) . (isset($_GET['me_code']) ? '&me_code=' . (int)$_GET['me_code'] : '') );
+	}
+	$article_title = !empty($write['wr_2']) ? $write['wr_2'] : (isset($write['wr_subject']) ? strip_tags(conv_subject($write['wr_subject'], 120)) : '');
+	if ($article_title !== '') {
+		$bc_items[] = array( 'name' => $article_title, 'url' => $canonical );
+	}
+} elseif ($is_board_list && !empty($bo_table) && !empty($board_name)) {
+	// 게시판 목록: 홈 > 섹션(필요 시) > 게시판명
+	$bo_sections = array(
+		'case'   => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=case&me_code=3010' ),
+		'review'  => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=review&me_code=3020' ),
+		'column' => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=column&me_code=4010' ),
+		'media'  => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=media&me_code=4020' ),
+		'online' => array( 'label' => '온라인 상담', 'url' => $bbs_path . '/board.php?bo_table=online&me_code=6010' ),
+	);
+	if (isset($bo_sections[$bo_table]) && $bo_sections[$bo_table]['label'] !== $board_name) {
+		$bc_items[] = array( 'name' => $bo_sections[$bo_table]['label'], 'url' => $bo_sections[$bo_table]['url'] );
+	}
+	$bc_items[] = array( 'name' => $board_name, 'url' => $canonical );
+} elseif (!empty($gr_id) && !empty($g5_head_title)) {
+	// 서브 페이지(page/*): 홈 > 섹션 > 현재페이지
+	$gr_sections = array(
+		'intro'    => array( 'label' => '동주소개', 'url' => $base_url . '/page/greetings.php?me_code=1010' ),
+		'member'   => array( 'label' => '변호사 구성원', 'url' => $base_url . '/page/lawyer.php?me_code=2010' ),
+		'center'   => array( 'label' => '연구센터', 'url' => $base_url . '/page/center_info.php?me_code=2010' ),
+		'case'     => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=case&me_code=3010' ),
+		'magazine' => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=column&me_code=4010' ),
+		'business' => array( 'label' => '업무분야', 'url' => $base_url . '/page/drunken01.php?me_code=5010' ),
+		'online'   => array( 'label' => '온라인 상담', 'url' => $bbs_path . '/board.php?bo_table=online&me_code=6010' ),
+		'self'     => array( 'label' => '음주진단', 'url' => $base_url . '/page/self_test.php?me_code=7010' ),
+		'lawyer'   => array( 'label' => '변호사 구성원', 'url' => $base_url . '/page/lawyer.php?me_code=2010' ),
+	);
+	if (isset($gr_sections[$gr_id]) && $gr_sections[$gr_id]['label'] !== $g5_head_title) {
+		$bc_items[] = array( 'name' => $gr_sections[$gr_id]['label'], 'url' => $gr_sections[$gr_id]['url'] );
+	}
+	$bc_items[] = array( 'name' => $g5_head_title, 'url' => $canonical );
+}
+// 메인 페이지는 홈만 있음(1개). 2개 이상일 때 BreadcrumbList 출력
+if (count($bc_items) >= 2) {
+	$sd_breadcrumb = array(
+		'@type' => 'BreadcrumbList',
+		'itemListElement' => array()
+	);
+	foreach ($bc_items as $i => $item) {
+		$sd_breadcrumb['itemListElement'][] = array(
+			'@type' => 'ListItem',
+			'position' => $i + 1,
+			'name' => $item['name'],
+			'item' => $item['url']
+		);
+	}
+	$sd_graph = array( $sd_organization, $sd_website, $sd_quickmenu, $sd_breadcrumb );
+} else {
+	$sd_graph = array( $sd_organization, $sd_website, $sd_quickmenu );
+}
+?>
+<script type="application/ld+json"><?php echo json_encode(array( '@context' => 'https://schema.org', '@graph' => $sd_graph ), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
 <?php 
 $is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
                   basename($_SERVER['SCRIPT_NAME']) == 'index.php' ||
@@ -406,7 +621,7 @@ if ($is_index_page) { ?>
 </script>
 <?php } ?>
 </head>
-<body<?php echo isset($g5['body_script']) ? $g5['body_script'] : ''; ?>>
+<body<?php echo isset($g5['body_class']) && $g5['body_class'] !== '' ? ' class="' . htmlspecialchars($g5['body_class'], ENT_QUOTES, 'UTF-8') . '"' : ''; ?><?php echo isset($g5['body_script']) ? $g5['body_script'] : ''; ?>>
 <?php
 if ($is_member) { // 회원이라면 로그인 중이라는 메세지를 출력해준다.
     $sr_admin_msg = '';

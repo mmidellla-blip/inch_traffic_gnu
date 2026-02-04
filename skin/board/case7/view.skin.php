@@ -11,7 +11,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 <!-- 게시물 읽기 시작 { -->
 <section class="board-wrap">
 <section class="sub-conts-wrap">
-	<h1 class="sub-conts-title wow fadeInUp"><span><?php echo $board['bo_subject'] ?></span></h1>
+	<h2 class="sub-conts-title wow fadeInUp"><span><?php echo $board['bo_subject'] ?></span></h2>
 
 	<article id="bo_v" style="width:<?php echo $width; ?>">
 		<header>
@@ -210,7 +210,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 <section class="board-quick">
 	<div class="board-quick-inner">
 		<div>
-			<h1>담당변호사</h1>
+			<h2>담당변호사</h2>
 			<ul class="board-quick-lawyer">
 			<?php
 				// 담당변호사 가져오기
@@ -237,7 +237,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				<li>
 					<a href="/page/lawyer_view01.php?me_code=1020">
 						<span class="photo-wrap"><?php if(!empty($lawyer_pic)) { ?>
-								<img src="<?php echo $lawyer_pic; ?>" alt="">
+								<img src="<?php echo $lawyer_pic; ?>" alt="<?php echo htmlspecialchars($lawyer_row['wr_subject']); ?> 변호사 프로필">
 							<?php } ?></span>
 						<span class="name"><strong><?php echo $lawyer_row["wr_subject"] ?></strong> 변호사</span>
 					</a>
@@ -249,7 +249,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 			</ul>
 		</div>
 		<div class="view-online">
-			<h1>상담문의</h1>
+			<h2>상담문의</h2>
 			<section class="online-form">
 				<form action="<?php echo G5_URL ?>/_ok.php" method="post">
 					<input type="hidden" name="wr_1" id="wr_1" value="<?php echo $write['wr_1'];?>">

@@ -22,10 +22,10 @@
 		</section>
 			<section class="main-counselling-box">
 				<ul>
-					<li><span class="icon"><img src="/images/main/main_counselling_icon01.png" alt="" width="60" height="60"></span>평일·주말 <strong>24시간</strong><br>긴급상담 가능</li>
-					<li><span class="icon"><img src="/images/main/main_counselling_icon02.png" alt="" width="60" height="60"></span>대표/파트너변호사가 <br><strong>직접 상담 진행</strong></li>
-					<li><span class="icon"><img src="/images/main/main_counselling_icon03.png" alt="" width="60" height="60"></span>개인이 아닌  <br><strong>'로이어팀'이 조력</strong></li>
-					<li><span class="icon"><img src="/images/main/main_counselling_icon04.png" alt="" width="60" height="60"></span>분야별 <br><strong>'진짜' 전문 자문단</strong></li>
+					<li><span class="icon"><img src="/images/main/main_counselling_icon01.png" alt="24시간 음주운전 긴급상담 아이콘" width="60" height="60"></span>평일·주말 <strong>24시간</strong><br>긴급상담 가능</li>
+					<li><span class="icon"><img src="/images/main/main_counselling_icon02.png" alt="대표변호사 직접 상담 아이콘" width="60" height="60"></span>대표/파트너변호사가 <br><strong>직접 상담 진행</strong></li>
+					<li><span class="icon"><img src="/images/main/main_counselling_icon03.png" alt="로이어팀 음주운전 사건 조력 아이콘" width="60" height="60"></span>개인이 아닌  <br><strong>'로이어팀'이 조력</strong></li>
+					<li><span class="icon"><img src="/images/main/main_counselling_icon04.png" alt="분야별 전문 변호사 자문단 아이콘" width="60" height="60"></span>분야별 <br><strong>'진짜' 전문 자문단</strong></li>
 				</ul>
 			</section>
 		</div>
@@ -38,7 +38,7 @@
 					<p class="title-sub">모든 문의는 신속히 확인하여 유선으로 안내해 드립니다.<br>영업시간 외 문의 역시 빠르게 안내 받으실 수 있습니다.</p>
 				</header>
 				<dl>
-					<dt><img src="/images/main/icon_clock.png" alt="" width="24" height="24"><strong>24시간 언제나</strong> 상담 가능</dt>
+					<dt><img src="/images/main/icon_clock.png" alt="24시간 상담 가능" width="24" height="24"><strong>24시간 언제나</strong> 상담 가능</dt>
 					<dd>주말 : 토요일 방문상담 가능</dd>
 				</dl>
 			</section>

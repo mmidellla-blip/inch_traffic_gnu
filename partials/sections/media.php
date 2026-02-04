@@ -40,7 +40,7 @@ $thumb_height = '240';
 						}
 						echo $img_content;
 						?>
-						<span class="icon"><img src="/images/main/thumb_icon.png" alt="" width="50" height="50" loading="lazy"></span>
+						<span class="icon"><img src="/images/main/thumb_icon.png" alt="미디어 보도자료 썸네일" width="50" height="50" loading="lazy"></span>
 					</div>
 					<div class="conts-wrap">
 						<span class="subject"><?php echo cut_str($list['wr_subject'],100)?></span>
@@ -57,7 +57,7 @@ $thumb_height = '240';
 				<div class="no-data">등록된 게시물이 없습니다.</div>
 			<?php } ?>
 		</div>
-		<a href="/bbs/board.php?bo_table=media&me_code=2010" class="view-more">View more<img src="/images/main/case_more_w.png" alt="" width="10" height="10" loading="lazy"></a>
+		<a href="/bbs/board.php?bo_table=media&me_code=2010" class="view-more">View more<img src="/images/main/case_more_w.png" alt="미디어 보도자료 더보기" width="10" height="10" loading="lazy"></a>
 	</div>
 </section>
 <!--//main-media -->

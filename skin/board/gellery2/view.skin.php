@@ -202,9 +202,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	</article>
 	</section>
 	<section class="board-view-outer">
-		<h1>관련 분야</h1>
+		<h2>관련 분야</h2>
 		<p><?php echo $view["ca_name"]; ?></p>
-		<h1>관련 구성원<a href="#">구성원 더보기</a></h1>
+		<h2>관련 구성원<a href="#">구성원 더보기</a></h2>
 		<ul>
 			<?php
 				// 담당변호사 가져오기
@@ -232,11 +232,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 					<a href="">
 						<div class="img-wrap">
 							<?php if(!empty($lawyer_pic)) { ?>
-								<img src="<?php echo $lawyer_pic; ?>" alt="">
+								<img src="<?php echo $lawyer_pic; ?>" alt="<?php echo htmlspecialchars($lawyer_row['wr_subject']); ?> 변호사 프로필">
 							<?php } ?>
 						</div>
 						<div class="text-wrap">
-							<h1><strong><?php echo $lawyer_row["wr_subject"] ?></strong><?php echo $lawyer_row["ca_name"] ?></h1>
+							<h3><strong><?php echo $lawyer_row["wr_subject"] ?></strong><?php echo $lawyer_row["ca_name"] ?></h3>
 							<ul>
 								<li>M. <?php echo $lawyer_row["wr_1"] ?></li>
 								<li>E. <?php echo $lawyer_row["wr_email"] ?></li>
@@ -253,10 +253,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 			<li>
 				<a href="">
 					<div class="img-wrap">
-						<img src="/images/sub/member_thumb01.jpg" alt="">
+						<img src="/images/sub/member_thumb01.jpg" alt="법무법인 동주 구성원 변호사">
 					</div>
 					<div class="text-wrap">
-						<h1><strong>기윤도</strong>대표변호사</h1>
+						<h3><strong>기윤도</strong>대표변호사</h3>
 						<ul>
 							<li>M. 010-2690-7180</li>
 							<li>E. ki@seoyul.co.kr</li>
@@ -267,10 +267,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 			<li>
 				<a href="">
 					<div class="img-wrap">
-						<img src="/images/sub/member_thumb02.jpg" alt="">
+						<img src="/images/sub/member_thumb02.jpg" alt="법무법인 동주 구성원 변호사">
 					</div>
 					<div class="text-wrap">
-						<h1><strong>김현지</strong>대표변호사</h1>
+						<h3><strong>김현지</strong>대표변호사</h3>
 						<ul>
 							<li>M. 010-2690-7180</li>
 							<li>E. ki@seoyul.co.kr</li>

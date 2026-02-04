@@ -21,19 +21,19 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 		<div class="self-title">
 			<h5>위기상황 비상탈출</h5>
 			<h1>법무법인 동주의 <br>음주운전 구제 프로그램</h1>
-			<p><img src="../images/sub/self_title.png" alt=""/></p>
+			<p><img src="../images/sub/self_title.png" alt="법무법인 동주 음주운전 구제 프로그램"/></p>
 			<div class="re_btn"><a href="/page/self_test.php">진단 초기화</a></div>
 		</div>
 		<div class="diagnosis">
 			<form name="frm_form" method="post" action="<?php echo G5_URL ?>/_ok_process.php">
 				<div class="diagnosiscnt diagnosiscnt0">
 					<ul class="step-list">
-						<li class="on"><span><img src="../images/sub/self_step01_on.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step02.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step03.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step04.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step05.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step06.png" alt=""/></span></li>
+						<li class="on"><span><img src="../images/sub/self_step01_on.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step02.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step03.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step04.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step05.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step06.png" alt="음주진단 단계"/></span></li>
 					</ul>
 					<h3 class="title"><strong>01</strong>운전면허 취소처분 통지서를 받고 며칠이 지났나요?</h3>
 					<ul class="list row2">
@@ -49,12 +49,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 				</div>
 				<div class="diagnosiscnt diagnosiscnt1">
 					<ul class="step-list">
-						<li><span><img src="../images/sub/self_step01.png" alt=""/></span></li>
-						<li class="on"><span><img src="../images/sub/self_step02_on.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step03.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step04.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step05.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step06.png" alt=""/></span></li>
+						<li><span><img src="../images/sub/self_step01.png" alt="음주진단 단계"/></span></li>
+						<li class="on"><span><img src="../images/sub/self_step02_on.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step03.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step04.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step05.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step06.png" alt="음주진단 단계"/></span></li>
 					</ul>
 					<h3 class="title"><strong>02</strong>적발 당시 혈중알코올농도 수치는 얼마였나요?</h3>
 					<ul class="list row5">
@@ -82,12 +82,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 				</div>
 				<div class="diagnosiscnt diagnosiscnt2">
 					<ul class="step-list">
-						<li><span><img src="../images/sub/self_step01.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step02.png" alt=""/></span></li>
-						<li class="on"><span><img src="../images/sub/self_step03_on.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step04.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step05.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step06.png" alt=""/></span></li>
+						<li><span><img src="../images/sub/self_step01.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step02.png" alt="음주진단 단계"/></span></li>
+						<li class="on"><span><img src="../images/sub/self_step03_on.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step04.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step05.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step06.png" alt="음주진단 단계"/></span></li>
 					</ul>
 					<h3 class="title"><strong>03</strong>과거 음주운전으로 적발된 적이 있으셨나요?</h3>
 					<ul class="list row3">
@@ -107,12 +107,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 				</div>
 				<div class="diagnosiscnt diagnosiscnt3">
 					<ul class="step-list">
-						<li><span><img src="../images/sub/self_step01.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step02.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step03.png" alt=""/></span></li>
-						<li class="on"><span><img src="../images/sub/self_step04_on.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step05.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step06.png" alt=""/></span></li>
+						<li><span><img src="../images/sub/self_step01.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step02.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step03.png" alt="음주진단 단계"/></span></li>
+						<li class="on"><span><img src="../images/sub/self_step04_on.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step05.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step06.png" alt="음주진단 단계"/></span></li>
 					</ul>
 					<h3 class="title"><strong>04</strong>음주운전 적발 당시 해당되는 내용이 있으셨나요?</h3>
 					<ul class="list row3">
@@ -132,12 +132,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 				</div>
 				<div class="diagnosiscnt diagnosiscnt4">
 					<ul class="step-list">
-						<li><span><img src="../images/sub/self_step01.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step02.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step03.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step04.png" alt=""/></span></li>
-						<li class="on"><span><img src="../images/sub/self_step05_on.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step06.png" alt=""/></span></li>
+						<li><span><img src="../images/sub/self_step01.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step02.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step03.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step04.png" alt="음주진단 단계"/></span></li>
+						<li class="on"><span><img src="../images/sub/self_step05_on.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step06.png" alt="음주진단 단계"/></span></li>
 					</ul>
 					<h3 class="title"><strong>05</strong>음주운전 당시 교통사고가 발생했나요?</h3>
 					<ul class="list row4">
@@ -161,12 +161,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 				</div>
 				<div class="diagnosiscnt diagnosiscnt5">
 					<ul class="step-list">
-						<li><span><img src="../images/sub/self_step01.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step02.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step03.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step04.png" alt=""/></span></li>
-						<li><span><img src="../images/sub/self_step05.png" alt=""/></span></li>
-						<li class="on"><span><img src="../images/sub/self_step06_on.png" alt=""/></span></li>
+						<li><span><img src="../images/sub/self_step01.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step02.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step03.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step04.png" alt="음주진단 단계"/></span></li>
+						<li><span><img src="../images/sub/self_step05.png" alt="음주진단 단계"/></span></li>
+						<li class="on"><span><img src="../images/sub/self_step06_on.png" alt="음주진단 단계"/></span></li>
 					</ul>
 					<h3 class="title"><strong>06</strong>현재 운전면허가 필요한 직업을 갖고 계신가요? </h3>
 					<ul class="list row3">
@@ -190,7 +190,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 
 						<div class="case">
 							<a href="/bbs/board.php?bo_table=case&me_code=3010">
-								<div class="img"><img src="../images/sub/self_case.jpg" alt=""/></div>
+								<div class="img"><img src="../images/sub/self_case.jpg" alt="음주운전 관련 판례 및 사례"/></div>
 								<div class="text">
 									<h3>비슷한 상황,<br>동주와 함께한 의뢰인의 결과는?</h3>
 									<!-- <p>음주운전 재범,<br>면허취소처분을 <strong>이의신청을 통해 구제</strong> 받은 사례</p> -->

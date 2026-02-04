@@ -172,13 +172,13 @@ if (file_exists($quick_menu_path)) include_once($quick_menu_path);
 						?>
 						<ul class="name">
 							<li><?php echo $tmp_law_name ?></li>
-							<li><img src="<?php echo $tmp_law_pic ?>" alt=""></li>
+							<li><img src="<?php echo $tmp_law_pic ?>" alt="담당 변호사 프로필"></li>
 						</ul>
 						<?php } ?>
 						<!-- 
 						<ul class="name">
 							<li><strong>부지석</strong>대표변호사</li>
-							<li><img src="/images/main/board_photo.jpg" alt=""></li>
+							<li><img src="/images/main/board_photo.jpg" alt="음주운전 성공사례 게시판"></li>
 						</ul>
 						 -->
 						<span class="more">more view</span>

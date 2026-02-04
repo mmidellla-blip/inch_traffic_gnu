@@ -1,16 +1,12 @@
-<?php include('_common.php');?>
-<!DOCTYPE html>
-<html lang="ko">
+<?php include('_common.php');
+$g5['body_class'] = 'index page-index';
+?>
 <?php 
-// 그누보드 기본 head
 include_once(G5_THEME_PATH.'/head.sub.php'); 
-
-// 커스텀 head 확장 (선택사항)
 if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     include('partials/head.custom.php');
 }
 ?>
-<body class="index page-index">
 
 
 <!-- wrapper -->

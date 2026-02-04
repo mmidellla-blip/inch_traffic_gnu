@@ -68,7 +68,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 				<em>법무법인 동주 대표변호사 <strong>이세환</strong></em>
 			</p>
 		</div>
-		<div class="img-wrap"><img src="/images/sub/greetings.jpg" alt=""></div>
+		<div class="img-wrap"><img src="/images/sub/greetings.jpg" alt="법무법인 동주 대표변호사 인사말"></div>
 	</section>
 </section>
 <!-- sub-conts-wrap -->

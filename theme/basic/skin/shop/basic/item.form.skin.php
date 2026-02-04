@@ -34,7 +34,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	        }
 	
 	        if($big_img_count == 0) {
-	            echo '<img src="'.G5_SHOP_URL.'/img/no_image.gif" alt="">';
+	            echo '<img src="'.G5_SHOP_URL.'/img/no_image.gif" alt="상품 이미지 없음">';
 	        }
 	        ?>
 	        <a href="<?php echo G5_SHOP_URL; ?>/largeimage.php?it_id=<?php echo $it['it_id']; ?>&amp;no=1" target="_blank" id="popup_item_image" class="popup_item_image"><i class="fa fa-search-plus" aria-hidden="true"></i><span class="sound_only">확대보기</span></a>
@@ -73,7 +73,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	        <div id="sit_star_sns">
 	            <?php if ($star_score) { ?>
 	            <span class="sound_only">고객평점</span> 
-	            <img src="<?php echo G5_SHOP_URL; ?>/img/s_star<?php echo $star_score?>.png" alt="" class="sit_star" width="100">
+	            <img src="<?php echo G5_SHOP_URL; ?>/img/s_star<?php echo $star_score?>.png" alt="별점" class="sit_star" width="100">
 	            <span class="sound_only">별<?php echo $star_score?>개</span> 
 	            <?php } ?>
 	            

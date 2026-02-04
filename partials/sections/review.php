@@ -60,7 +60,7 @@ $thumb_height = '220';
 				<div class="no-data">등록된 게시물이 없습니다.</div>
 			<?php } ?>
 		</div>
-		<a href="/bbs/board.php?bo_table=review&me_code=2010" class="view-more">View more<img src="/images/main/case_more.png" alt="" width="10" height="10" loading="lazy"></a>
+		<a href="/bbs/board.php?bo_table=review&me_code=2010" class="view-more">View more<img src="/images/main/case_more.png" alt="음주운전 상담 후기 더보기" width="10" height="10" loading="lazy"></a>
 	</div>
 </section>
 <!--//main-review -->

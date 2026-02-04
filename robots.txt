@@ -1,2 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /adm/
+Disallow: /install/
+Disallow: /dbeditor/
+Disallow: /bbs/write.php
+Disallow: /bbs/password.php
+Disallow: /bbs/login.php
+Disallow: /plugin/social/
+
+# 사이트맵 인덱스(정적 페이지 lastmod 자동 반영 + 게시글)
+Sitemap: https://trafficdrinking-law-dongju.com/sitemap_index.php

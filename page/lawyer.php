@@ -38,7 +38,7 @@ if (file_exists($quick_menu_path)) include_once($quick_menu_path);
 					<div class="img-wrap"><?php
 						if ($row['file'][0]['view']) {
 							?>	
-								<img src="<?=$row['file'][0]['path'];?>/<?=$row['file'][0]['file'];?>" alt="">
+								<img src="<?=$row['file'][0]['path'];?>/<?=$row['file'][0]['file'];?>" alt="<?php echo htmlspecialchars(strip_tags($row['wr_subject'])); ?> 변호사 프로필">
 								<?php if( $row['wr_8'] != "")
 								{ ?>
 									<span><?=$row['wr_8'];?></span>

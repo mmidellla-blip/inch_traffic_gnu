@@ -35,7 +35,7 @@
 							<a href="/page/lawyer_view.php?me_code=1020&wr_id=<?=$row['wr_id'];?>">
 								<div class="img-wrap">
 									<?php if ($row['file'][0]['view']) { ?>
-										<img src="<?=$row['file'][0]['path'];?>/<?=$row['file'][0]['file'];?>" alt="" width="300" height="360" loading="lazy">
+										<img src="<?=$row['file'][0]['path'];?>/<?=$row['file'][0]['file'];?>" alt="<?php echo htmlspecialchars(strip_tags($row['wr_subject'])); ?> 음주운전 전문 변호사 프로필" width="300" height="360" loading="lazy">
 										<?php if ($row['wr_8'] != "") { ?>
 										<span class="label"><?=$row['wr_8'];?></span>
 										<?php } ?>
