@@ -18,7 +18,7 @@
 		<div class="main-box01">
 			<div class="copy">
 				<div class="copy_icon"></div>
-				<h1 class="title-h1">철저한 익명 보장 원칙<br>30분 이내 신속 답변 서비스</h1>
+				<h1 class="title-h1">음주운전 변호사 전문 상담<br>익명 보장 · 30분 내 답변 | 법무법인 동주</h1>
 				<div class="copy-sub"></div>
 			</div>
 			<div class="space"></div>

@@ -1,5 +1,3 @@
-User-agent: *
-Allow: /
 Disallow: /adm/
 Disallow: /install/
 Disallow: /dbeditor/

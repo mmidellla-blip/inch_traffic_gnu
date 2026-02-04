@@ -173,9 +173,10 @@ $metaKeywordConf = '음주 면허 취소,음주운전 행정심판,음주운전 
 // 페이지별 메타 설명: 각 페이지에서 $meta_description_page 설정 시 우선, 없으면 스크립트명/메인 기준 맵 사용
 $meta_description_page = isset($meta_description_page) ? trim((string)$meta_description_page) : '';
 $script_name = basename($_SERVER['SCRIPT_NAME'] ?? '');
+// 메타 설명: 한글 기준 120~160자 권장(검색 결과 잘림 방지)
 $page_descriptions = array(
-	'index.php'       => '법무법인 동주 음주운전센터는 음주운전·교통사고 전문 로펌입니다. 음주운전처벌, 면허취소·행정심판·행정소송, 형사대응까지 원스톱 상담. 서울·수원·인천 사무소, 24시간 전화·카카오톡 상담. 음주운전변호사 이세환 대표. 초기 대응이 사건 결과를 바꿉니다. 지금 상담 예약하세요.',
-	'greetings.php'   => '법무법인 동주 대표 변호사 인사말. 음주운전·교통 전문 변호사 이세환이 드리는 인사와 변호사 소개.',
+	'index.php'       => '법무법인 동주 음주운전센터. 음주운전·교통사고 전문, 면허취소·행정심판·형사대응 원스톱 상담. 서울·수원·인천, 24시간 전화·카카오톡. 초기 대응이 사건 결과를 바꿉니다.',
+	'greetings.php'   => '법무법인 동주 대표 변호사 인사말. 음주운전·교통 전문 변호사 이세환 인사 및 변호사 소개.',
 	'location.php'   => '법무법인 동주 오시는 길. 서울·수원·인천 사무소 위치, 지도, 주차, 상담 예약 안내.',
 	'differentiation.php' => '동주만의 차별화. 행정법전문변호사·행정사 보유, 행정심판·행정소송 원스톱 전담, 음주운전 전문 로펌.',
 	'lawyer.php'      => '음주운전 변호사 구성원 소개. 법무법인 동주 음주운전센터 전문 변호사 프로필.',
@@ -199,7 +200,6 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <!-- $config['cf_add_meta'] 대체 시작 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="<?php echo htmlspecialchars($metaDescriptionOut, ENT_QUOTES, 'UTF-8'); ?>">
-  <meta property="og:type" content="article">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
   <title><?php echo $metaTitle; ?></title>
@@ -249,7 +249,6 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
 
   <meta name="keywords" content="<?php echo (!empty($metaKeyword))? $metaKeyword : $metaKeywordConf; ?>">
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   <meta property="og:url" content="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
@@ -275,7 +274,6 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <!-- $config['cf_add_meta'] 대체 시작 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="<?php echo htmlspecialchars($metaDescriptionOut, ENT_QUOTES, 'UTF-8'); ?>">
-  <meta property="og:type" content="article">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
   <title><?php echo $metaTitleConf; ?></title>
@@ -328,7 +326,6 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <script type="text/javascript" data-nscript="lazyOnload" src="//wcs.naver.net/wcslog.js"></script>
 
   <meta name="keywords" content="<?php echo $metaKeywordConf; ?>">
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   <meta property="og:url" content="<?php echo htmlspecialchars($canonical, ENT_QUOTES); ?>">
@@ -578,6 +575,29 @@ if (count($bc_items) >= 2) {
 	$sd_graph = array( $sd_organization, $sd_website, $sd_quickmenu, $sd_breadcrumb );
 } else {
 	$sd_graph = array( $sd_organization, $sd_website, $sd_quickmenu );
+}
+
+// 게시글 상세: Article 스키마 (리치 스니펫·날짜·작성자 노출)
+if ($is_board_detail && !empty($bo_table) && isset($write) && !empty($write)) {
+	$article_headline = !empty($write['wr_2']) ? $write['wr_2'] : (isset($write['wr_subject']) ? strip_tags(conv_subject($write['wr_subject'], 120)) : '');
+	if ($article_headline !== '') {
+		$date_published = isset($write['wr_datetime']) && $write['wr_datetime'] ? date('c', strtotime($write['wr_datetime'])) : '';
+		$date_modified  = !empty($write['wr_last']) ? date('c', strtotime($write['wr_last'])) : $date_published;
+		$author_name    = !empty($write['wr_name']) ? trim(strip_tags($write['wr_name'])) : '법무법인 동주';
+		$sd_article = array(
+			'@type'     => 'Article',
+			'headline'  => $article_headline,
+			'url'       => $canonical,
+			'author'    => array( '@type' => 'Person', 'name' => $author_name ),
+			'publisher' => array( '@id' => $base_url . '/#organization' ),
+			'image'     => isset($og_image_url) ? $og_image_url : ( $base_url . '/images/common/ogimg-brand.png' )
+		);
+		if ($date_published !== '') {
+			$sd_article['datePublished'] = $date_published;
+			$sd_article['dateModified']  = $date_modified !== '' ? $date_modified : $date_published;
+		}
+		$sd_graph[] = $sd_article;
+	}
 }
 ?>
 <script type="application/ld+json"><?php echo json_encode(array( '@context' => 'https://schema.org', '@graph' => $sd_graph ), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
