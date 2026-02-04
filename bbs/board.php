@@ -1,8 +1,20 @@
 <?php
 include_once('./_common.php');
 
+if (!$bo_table) {
+    send_error_404('게시판을 지정해 주세요. (board.php?bo_table=게시판코드)', isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null);
+}
 if (!$board['bo_table']) {
-   alert('존재하지 않는 게시판입니다.', G5_URL);
+    send_error_404('존재하지 않는 게시판입니다.', isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null);
+}
+
+// me_code 파라미터가 있으면 정확한 값만 허용 (잘못된 값은 404 — 200 정상 노출 방지)
+$board_me_codes = array('case' => 3010, 'review' => 3020, 'column' => 4010, 'media' => 4020, 'online' => 6010);
+if (isset($_GET['me_code']) && array_key_exists($bo_table, $board_me_codes)) {
+    $requested_me = (int) $_GET['me_code'];
+    if ($requested_me !== (int) $board_me_codes[$bo_table]) {
+        send_error_404('요청한 페이지를 찾을 수 없습니다.', isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null);
+    }
 }
 
 check_device($board['bo_device']);
@@ -11,26 +23,19 @@ if (isset($write['wr_is_comment']) && $write['wr_is_comment']) {
     goto_url(get_pretty_url($bo_table, $write['wr_parent'], '#c_'.$wr_id));
 }
 
-if (!$bo_table) {
-    $msg = "bo_table 값이 넘어오지 않았습니다.\\n\\nboard.php?bo_table=code 와 같은 방식으로 넘겨 주세요.";
-    alert($msg);
-}
-
 $g5['board_title'] = ((G5_IS_MOBILE && $board['bo_mobile_subject']) ? $board['bo_mobile_subject'] : $board['bo_subject']);
 
 // wr_id 값이 있으면 글읽기
 if ((isset($wr_id) && $wr_id) || (isset($wr_seo_title) && $wr_seo_title)) {
-    // 글이 없을 경우 해당 게시판 목록으로 이동
+    // 글이 없을 경우 404 (검색엔진에 올바른 상태 코드 전달)
     if (!$write['wr_id']) {
-        $msg = '글이 존재하지 않습니다.\\n\\n글이 삭제되었거나 이동된 경우입니다.';
-        alert($msg, get_pretty_url($bo_table));
+        send_error_404('글이 존재하지 않습니다. 삭제되었거나 이동된 경우일 수 있습니다.', isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null);
     }
 
-    // 그룹접근 사용
+    // 그룹접근 사용 — 비로그인/비회원 접근 시 403 (리다이렉트 대신 상태 코드 유지)
     if (isset($group['gr_use_access']) && $group['gr_use_access']) {
         if ($is_guest) {
-            $msg = "비회원은 이 게시판에 접근할 권한이 없습니다.\\n\\n회원이시라면 로그인 후 이용해 보십시오.";
-            alert($msg, G5_BBS_URL.'/login.php?wr_id='.$wr_id.$qstr.'&amp;url='.urlencode(get_pretty_url($bo_table, $wr_id, $qstr)));
+            send_error_403('비회원은 이 게시판에 접근할 권한이 없습니다. 회원이시라면 로그인 후 이용해 보십시오.', G5_BBS_URL.'/login.php?wr_id='.$wr_id.$qstr.'&url='.urlencode(get_pretty_url($bo_table, $wr_id, $qstr)));
         }
 
         // 그룹관리자 이상이라면 통과
@@ -41,17 +46,18 @@ if ((isset($wr_id) && $wr_id) || (isset($wr_seo_title) && $wr_seo_title)) {
             $sql = " select count(*) as cnt from {$g5['group_member_table']} where gr_id = '{$board['gr_id']}' and mb_id = '{$member['mb_id']}' ";
             $row = sql_fetch($sql);
             if (!$row['cnt']) {
-                alert("접근 권한이 없으므로 글읽기가 불가합니다.\\n\\n궁금하신 사항은 관리자에게 문의 바랍니다.", G5_URL);
+                send_error_403('접근 권한이 없으므로 글읽기가 불가합니다. 궁금하신 사항은 관리자에게 문의 바랍니다.');
             }
         }
     }
 
-    // 로그인된 회원의 권한이 설정된 읽기 권한보다 작다면
+    // 로그인된 회원의 권한이 설정된 읽기 권한보다 작다면 — 403
     if ($member['mb_level'] < $board['bo_read_level']) {
-        if ($is_member)
-            alert('글을 읽을 권한이 없습니다.', G5_URL);
-        else
-            alert('글을 읽을 권한이 없습니다.\\n\\n회원이시라면 로그인 후 이용해 보십시오.', G5_BBS_URL.'/login.php?wr_id='.$wr_id.$qstr.'&amp;url='.urlencode(get_pretty_url($bo_table, $wr_id, $qstr)));
+        if ($is_member) {
+            send_error_403('글을 읽을 권한이 없습니다.');
+        } else {
+            send_error_403('글을 읽을 권한이 없습니다. 회원이시라면 로그인 후 이용해 보십시오.', G5_BBS_URL.'/login.php?wr_id='.$wr_id.$qstr.'&url='.urlencode(get_pretty_url($bo_table, $wr_id, $qstr)));
+        }
     }
 
     // 본인확인을 사용한다면

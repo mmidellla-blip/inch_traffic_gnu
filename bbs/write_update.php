@@ -956,63 +956,29 @@ if ($final_bo_table == 'online' && $w == '') {
         delete_cache_latest($bo_table);
         error_log("캐시 삭제 완료");
         
-        // 모든 출력 버퍼 정리
-        $ob_level = ob_get_level();
-        error_log("출력 버퍼 레벨 (정리 전): " . $ob_level);
+        // 서버 리다이렉션(302) — JS/meta refresh 미사용 (SEO·웹표준)
         while (ob_get_level()) {
             ob_end_clean();
         }
-        error_log("출력 버퍼 레벨 (정리 후): " . ob_get_level());
-        
-        // 리다이렉트 URL
         $redirect_url = G5_BBS_URL.'/board.php?bo_table='.$bo_table;
-        $success_msg = "상담이 정상적으로 접수되었습니다.\\n영업시간[평일 09:00~19:00] 외 상담신청은 응대가 늦어질 수 있으니 조금만 기다려 주십시오. 감사합니다.";
-        
-        error_log("리다이렉트 URL: " . $redirect_url);
-        error_log("헤더 전송 여부: " . (headers_sent() ? 'YES' : 'NO'));
-        
-        // 헤더가 전송되지 않았으면 헤더 설정
         if (!headers_sent()) {
-            @header('Content-Type: text/html; charset=utf-8');
-            error_log("Content-Type 헤더 설정 완료");
-        } else {
-            error_log("WARNING: 헤더가 이미 전송됨");
+            header('Location: ' . $redirect_url, true, 302);
         }
-        
-        // 직접 HTML 출력하여 확실하게 리다이렉트
-        error_log("HTML 출력 시작");
-        echo '<!DOCTYPE html>';
-        echo '<html>';
-        echo '<head>';
-        echo '<meta charset="utf-8">';
-        echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
-        echo '<title>상담 접수 완료</title>';
-        echo '</head>';
-        echo '<body>';
-        echo '<script>';
-        echo 'alert("' . addslashes(str_replace('\\n', '\n', $success_msg)) . '");';
-        echo 'location.replace("' . $redirect_url . '");';
-        echo '</script>';
-        echo '<noscript>';
-        echo '<meta http-equiv="refresh" content="0;url=' . $redirect_url . '">';
-        echo '<p>상담이 정상적으로 접수되었습니다.</p>';
-        echo '<p><a href="' . $redirect_url . '">게시판으로 이동</a></p>';
-        echo '</noscript>';
-        echo '</body>';
-        echo '</html>';
-        
-        error_log("HTML 출력 완료, exit 호출");
-        flush();
+        echo '<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>상담 접수 완료</title></head><body>';
+        echo '<p>상담이 정상적으로 접수되었습니다. 영업시간(평일 09:00~19:00) 외 상담신청은 응대가 늦어질 수 있습니다.</p>';
+        echo '<p><a href="' . htmlspecialchars($redirect_url, ENT_QUOTES, 'UTF-8') . '">게시판으로 이동</a></p>';
+        echo '</body></html>';
         exit;
     } catch (Exception $e) {
         error_log("ERROR: online 게시판 처리 중 예외 발생: " . $e->getMessage());
-        error_log("Stack trace: " . $e->getTraceAsString());
-        // 에러 발생 시에도 리다이렉트 시도
-        if (!headers_sent()) {
-            header('Location: ' . G5_BBS_URL.'/board.php?bo_table='.$bo_table);
-        } else {
-            echo '<script>location.replace("' . G5_BBS_URL.'/board.php?bo_table='.$bo_table . '");</script>';
+        while (ob_get_level()) {
+            ob_end_clean();
         }
+        $redirect_url = G5_BBS_URL.'/board.php?bo_table='.$bo_table;
+        if (!headers_sent()) {
+            header('Location: ' . $redirect_url, true, 302);
+        }
+        echo '<p><a href="' . htmlspecialchars($redirect_url, ENT_QUOTES, 'UTF-8') . '">게시판으로 이동</a></p>';
         exit;
     }
 }

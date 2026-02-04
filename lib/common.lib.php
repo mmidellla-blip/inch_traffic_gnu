@@ -92,23 +92,18 @@ function print_r2($var)
 }
 
 
-// 메타태그를 이용한 URL 이동
-// header("location:URL") 을 대체
+// URL 이동 — HTTP 302 기준 (SEO: JS/meta refresh 사용 금지, 헤더 불가 시에만 폴백)
 function goto_url($url)
 {
     $url = str_replace("&amp;", "&", $url);
-    //echo "<script> location.replace('$url'); </script>";
-
-    if (!headers_sent())
-        header('Location: '.$url);
-    else {
-        echo '<script>';
-        echo 'location.replace("'.$url.'");';
-        echo '</script>';
-        echo '<noscript>';
-        echo '<meta http-equiv="refresh" content="0;url='.$url.'" />';
-        echo '</noscript>';
+    if (!headers_sent()) {
+        header('Location: ' . $url, true, 302);
+        exit;
     }
+    // 헤더 이미 전송된 경우에만 폴백 (가능하면 출력 전 goto_url 호출 권장)
+    echo '<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>이동</title></head><body>';
+    echo '<p><a href="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '">이동하기</a></p>';
+    echo '</body></html>';
     exit;
 }
 
@@ -163,7 +158,7 @@ function get_cookie($cookie_name)
 }
 
 
-// 경고메세지를 경고창으로
+// 경고메세지를 경고창으로 (리다이렉트 시 HTTP 302 사용 — JS/meta refresh 미사용, SEO 정책)
 function alert($msg='', $url='', $error=true, $post=false)
 {
     global $g5, $config, $member;
@@ -172,6 +167,30 @@ function alert($msg='', $url='', $error=true, $post=false)
     run_event('alert', $msg, $url, $error, $post);
 
     $msg = $msg ? strip_tags($msg, '<br>') : '올바른 방법으로 이용해 주십시오.';
+
+    // 리다이렉트 대상이 있으면 서버 302로 처리 (중간 안내 페이지 + JS 이동 금지)
+    if ($url !== '') {
+        $url = clean_xss_tags($url, 1);
+        if (!$url) {
+            $url = isset($_SERVER['HTTP_REFERER']) ? clean_xss_tags($_SERVER['HTTP_REFERER'], 1) : '';
+        }
+        $url = preg_replace("/[\<\>\'\"\\\'\\\"\(\)]/", "", $url);
+        $url = preg_replace('/\r\n|\r|\n|[^\x20-\x7e]/', '', $url);
+        if ($url !== '') {
+            check_url_host($url, $msg);
+            if (!headers_sent()) {
+                while (ob_get_level()) {
+                    ob_end_clean();
+                }
+                header('Location: ' . $url, true, 302);
+            }
+        }
+        echo '<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>안내</title></head><body>';
+        echo '<p>' . nl2br(htmlspecialchars(str_replace("\\n", "\n", $msg), ENT_QUOTES, 'UTF-8')) . '</p>';
+        echo '<p><a href="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '">이동</a></p>';
+        echo '</body></html>';
+        exit;
+    }
 
     $header = '';
     if (isset($g5['title'])) {

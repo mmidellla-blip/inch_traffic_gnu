@@ -3,6 +3,8 @@
  * 게시글 상세 동적 사이트맵 (네이버·구글용)
  * bbs/board.php?bo_table=xxx&wr_id=yyy 형태 URL 출력
  * 호출: /sitemap_posts.php 또는 /sitemap_posts.php?bo_table=case (특정 게시판만)
+ *
+ * SEO 방어: 오류 URL 미포함 — g5_board에 있는 게시판만 대상, wr_parent=0 & wr_del=0 인 글만 포함.
  */
 define('_GNUBOARD_', true);
 define('G5_SET_TIME_LIMIT', 60);
