@@ -10,7 +10,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 <!-- 게시물 읽기 시작 { -->
 <section class="sub-conts-wrap board">
-	<h1 class="sub-conts-title"><?php echo $board['bo_subject'] ?></h1>
+	<h2 class="sub-conts-title"><?php echo $board['bo_subject'] ?></h2>
 	<div id="bo_v_table"><?php echo $board['bo_subject']; ?></div>
 
 	<article id="bo_v" style="width:<?php echo $width; ?>">

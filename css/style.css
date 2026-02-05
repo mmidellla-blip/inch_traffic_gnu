@@ -14,6 +14,17 @@
 .hd_pops_footer .hd_pops_reject {background:#000;text-align:left}
 .hd_pops_footer .hd_pops_close {background:#393939;position:absolute;top:0;right:0}/* layout */
 
+/* 로그인 상태 문구(최고관리자 ~ 로그아웃) 화면에는 비표시, 스크린리더 등 접근성용으로만 유지 */
+#hd_login_msg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+}
 
  @media screen and (max-width: 1024px) { 
 	.hd_pops { 

@@ -203,9 +203,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	</section>
 
 	<section class="board-view-outer">
-		<h1>관련 분야</h1>
+		<h2>관련 분야</h2>
 		<p><?php echo $view["ca_name"]; ?></p>
-		<h1>관련 구성원<a href="#">구성원 더보기</a></h1>
+		<h2>관련 구성원<a href="#">구성원 더보기</a></h2>
 		<ul>
 			<?php
 				// 담당변호사 가져오기
@@ -236,7 +236,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 							<?php } ?>
 						</div>
 						<div class="text-wrap">
-							<h1><strong><?php echo $lawyer_row["wr_subject"] ?></strong><?php echo $lawyer_row["ca_name"] ?></h1>
+							<h3><strong><?php echo $lawyer_row["wr_subject"] ?></strong><?php echo $lawyer_row["ca_name"] ?></h3>
 							<ul>
 								<li>M. <?php echo $lawyer_row["wr_1"] ?></li>
 								<li>E. <?php echo $lawyer_row["wr_email"] ?></li>

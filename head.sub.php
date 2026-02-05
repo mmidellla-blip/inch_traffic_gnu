@@ -53,8 +53,11 @@ if (G5_IS_MOBILE) {
 
 if($config['cf_add_meta'])
     echo $config['cf_add_meta'].PHP_EOL;
+
+$head_description = '법무법인 동주 음주운전센터. 음주운전·교통사고 전문, 면허취소·행정심판·형사대응 원스톱 상담.';
 ?>
-<title><?php echo $g5_head_title; ?></title>
+<meta name="description" content="<?php echo htmlspecialchars($head_description, ENT_QUOTES, 'UTF-8'); ?>">
+<title><?php echo htmlspecialchars(trim((string)($g5_head_title ?? '')) !== '' ? $g5_head_title : '법무법인 동주', ENT_QUOTES, 'UTF-8'); ?></title>
 <?php
 if (defined('G5_IS_ADMIN')) {
     if(!defined('_THEME_PREVIEW_'))

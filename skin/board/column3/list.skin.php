@@ -55,7 +55,7 @@ if (file_exists($quick_menu_path)) include_once($quick_menu_path);
 		<!-- } 게시판 검색 끝 -->   
 
 		<div class="cate-wrap">
-			<h1>고객후기</h1>
+			<h2 class="sound_only">고객후기</h2>
 			<?php if ($is_category) { ?>
 
 			<nav id="bo_cate">

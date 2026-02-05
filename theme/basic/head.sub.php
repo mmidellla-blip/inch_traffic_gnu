@@ -187,22 +187,48 @@ $page_descriptions = array(
 	'specialized01.php' => '음주운전·교통 전문 법률 서비스. 법무법인 동주 업무분야 및 변호사 소개.',
 	'center_info.php' => '법무법인 동주 연구센터. 음주운전·교통 분야 연구와 실무 연계.',
 );
-$metaDescriptionFallback = ($meta_description_page !== '') ? $meta_description_page : (isset($page_descriptions[$script_name]) ? $page_descriptions[$script_name] : $metaDescriptionConf);
+// 게시판 목록은 bo_table별로 서로 다른 설명 사용 (동일 설명문 중복 방지)
+$board_list_descriptions = array(
+	'case'    => '음주운전·교통사고 성공사례. 무죄·감경·면허유지 등 법무법인 동주 수임 결과.',
+	'review'  => '법무법인 동주 의뢰인 후기. 음주운전·면허취소·행정심판 수임 후기.',
+	'column'  => '음주운전·교통 법률 칼럼. 면허취소, 행정심판, 형사대응 등 법무법인 동주 전문글.',
+	'media'   => '법무법인 동주 언론 보도. 음주운전·교통 전문 로펌 관련 기사.',
+	'online'  => '온라인 상담 신청. 법무법인 동주 24시간 음주운전·교통 상담.',
+	'member'  => '회원전용 게시판. 법무법인 동주 음주운전센터.',
+	'selftest' => '음주운전 자가진단·문의. 법무법인 동주 상담 연결.',
+);
+if ($meta_description_page !== '') {
+	$metaDescriptionFallback = $meta_description_page;
+} elseif ($is_board_list && !empty($_GET['bo_table'])) {
+	$bo_key = preg_replace('/[^a-zA-Z0-9_]/', '', (string)$_GET['bo_table']);
+	$metaDescriptionFallback = isset($board_list_descriptions[$bo_key]) ? $board_list_descriptions[$bo_key] : ($board_name !== '' ? $board_name . ' 목록. 법무법인 동주 음주운전센터.' : $metaDescriptionConf);
+} elseif (isset($page_descriptions[$script_name])) {
+	$metaDescriptionFallback = $page_descriptions[$script_name];
+} else {
+	$metaDescriptionFallback = $metaDescriptionConf;
+}
 
 if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empty($write)) {
 	// 게시글 상세 페이지
 	$metaTitle = $metaTitleConf; // 위에서 이미 생성됨
 	$metaDescription = isset($write['wr_3']) ? trim((string)$write['wr_3']) : '';
 	$metaKeyword = isset($write['wr_4']) ? $write['wr_4'] : '';
-	$metaDescriptionOut = ($metaDescription !== '') ? $metaDescription : $metaDescriptionFallback;
+	// wr_3 없을 때도 글 제목 포함해 상세 페이지마다 서로 다른 설명 사용
+	if ($metaDescription !== '') {
+		$metaDescriptionOut = $metaDescription;
+	} else {
+		$subj = isset($write['wr_subject']) ? strip_tags(conv_subject($write['wr_subject'], 100)) : '';
+		$metaDescriptionOut = ($subj !== '') ? $subj . ' | ' . ($board_name !== '' ? $board_name . ' ' : '') . '법무법인 동주' : $metaDescriptionFallback;
+	}
 ?>
 
   <!-- $config['cf_add_meta'] 대체 시작 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="<?php echo htmlspecialchars($metaDescriptionOut, ENT_QUOTES, 'UTF-8'); ?>">
+  <?php $desc_out = trim((string)($metaDescriptionOut ?? '')) !== '' ? $metaDescriptionOut : '법무법인 동주 음주운전센터. 음주운전·교통사고 전문, 면허취소·행정심판·형사대응 원스톱 상담.'; ?>
+  <meta name="description" content="<?php echo htmlspecialchars($desc_out, ENT_QUOTES, 'UTF-8'); ?>">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
-  <title><?php echo $metaTitle; ?></title>
+  <title><?php echo htmlspecialchars(trim((string)($metaTitle ?? '')) !== '' ? $metaTitle : '음주운전 변호사 전문 상담 | 법무법인 동주', ENT_QUOTES, 'UTF-8'); ?></title>
   <?php 
   // index.php 전용 LCP CSS 로드 (최우선) - 동기 로드 필수
   $lcp_css_path = '/assets/css/index-lcp.css';
@@ -273,10 +299,11 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
 
   <!-- $config['cf_add_meta'] 대체 시작 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="<?php echo htmlspecialchars($metaDescriptionOut, ENT_QUOTES, 'UTF-8'); ?>">
+  <?php $desc_out = trim((string)($metaDescriptionOut ?? '')) !== '' ? $metaDescriptionOut : '법무법인 동주 음주운전센터. 음주운전·교통사고 전문, 면허취소·행정심판·형사대응 원스톱 상담.'; ?>
+  <meta name="description" content="<?php echo htmlspecialchars($desc_out, ENT_QUOTES, 'UTF-8'); ?>">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
-  <title><?php echo $metaTitleConf; ?></title>
+  <title><?php echo htmlspecialchars(trim((string)($metaTitleConf ?? '')) !== '' ? $metaTitleConf : '음주운전 변호사 전문 상담 | 법무법인 동주', ENT_QUOTES, 'UTF-8'); ?></title>
   <?php 
   // index.php 전용 LCP CSS 로드 (최우선) - 동기 로드 필수
   $lcp_css_path = '/assets/css/index-lcp.css';

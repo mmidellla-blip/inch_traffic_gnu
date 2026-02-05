@@ -1,31 +1,33 @@
-<?php include('_common.php');
+<?php
+$index_dir = __DIR__;
+include($index_dir . '/_common.php');
 $g5['body_class'] = 'index page-index';
 ?>
-<?php 
-include_once(G5_THEME_PATH.'/head.sub.php'); 
+<?php
+include_once(G5_THEME_PATH.'/head.sub.php');
 if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-    include('partials/head.custom.php');
+    include($index_dir . '/partials/head.custom.php');
 }
 ?>
 
-
 <!-- wrapper -->
 <section id="wrapper">
-    <?php include('_menu.php');?>
+    <?php include($index_dir . '/_menu.php');?>
     
-    <?php include('partials/sections/modal.php'); ?>
-    <?php include('partials/sections/quick-menu.php'); ?>
+    <?php include($index_dir . '/partials/sections/modal.php'); ?>
+    <?php include($index_dir . '/partials/sections/quick-menu.php'); ?>
     
     <!-- contents -->
     <section id="contents" class="main-contents">
-        <?php include('partials/sections/hero.php'); ?>
-        <?php include('partials/sections/counselling.php'); ?>
-        <?php include('partials/sections/review.php'); ?>
-        <?php include('partials/sections/media.php'); ?>
-        <?php include('partials/sections/members.php'); ?>
-        <?php include('partials/sections/case.php'); ?>
-        <?php include('partials/sections/center.php'); ?>
-        <?php include('partials/sections/location.php'); ?>
+        <?php
+        $sections = array('hero', 'counselling', 'review', 'media', 'members', 'case', 'center', 'location');
+        foreach ($sections as $name) {
+            $path = $index_dir . '/partials/sections/' . $name . '.php';
+            if (is_file($path)) {
+                include($path);
+            }
+        }
+        ?>
     </section>
     <!--//contents -->
     
@@ -41,7 +43,7 @@ if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     <script src="/js/main-case.js?ver=<?php echo get_asset_version('/js/main-case.js'); ?>" defer></script>
     <script src="/js/main.js?ver=<?php echo get_asset_version('/js/main.js'); ?>" defer></script>
     
-    <?php include('_footer.php');?>
+    <?php include($index_dir . '/_footer.php');?>
 </section>
 <!-- //wrapper -->
 </body>

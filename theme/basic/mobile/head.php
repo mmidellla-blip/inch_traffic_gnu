@@ -17,7 +17,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
 ?>
 
 <header id="hd">
-    <h1 id="hd_h1"><?php echo $g5['title'] ?></h1>
+    <h2 id="hd_h1" class="sound_only"><?php echo $g5['title'] ?></h2>
 
     <div class="to_content"><a href="#container">본문 바로가기</a></div>
 

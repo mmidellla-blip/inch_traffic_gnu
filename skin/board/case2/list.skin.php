@@ -53,7 +53,7 @@ if (file_exists($quick_menu_path)) include_once($quick_menu_path);
 		<!-- } 게시판 검색 끝 -->   
 
 		<div class="cate-wrap">
-			<h1>성공사례</h1>
+			<h2 class="sound_only">성공사례</h2>
 
 		<?php if ($is_category) { ?>
 
