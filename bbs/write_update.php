@@ -395,6 +395,16 @@ if ($w == '' || $w == 'r') {
         $wr_reply = '';
     }
     if(strpos($write_table, 'online') !== false){
+        $uip = $_SERVER['REMOTE_ADDR'];
+        $minutes = date('Y-m-d H:i:s', strtotime('-5 minutes'));
+        $sql = "select count(*) as cnt from $write_table where wr_datetime >= '$minutes' and (wr_1 = '$wr_1' OR wr_ip = '$$uip') ";
+        $row = sql_fetch($sql);
+
+        if ($row['cnt'] > 1) {
+            // 30분 이내에 이미 신청한 경우
+            alert("5분 이내에 2건 이상 신청한 기록이 있습니다. 나중에 다시 시도해주세요.");
+            exit;
+        }
         $sql = " insert into $write_table
                 set wr_num = '$wr_num',
                      wr_reply = '$wr_reply',
