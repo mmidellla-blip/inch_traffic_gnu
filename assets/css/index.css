@@ -1599,6 +1599,56 @@
 	}
 }
 
+/* -------- main-content-seo (SEO·텍스트 비율 강화) -------- */
+.page-index .main-content-seo {
+	order: 4;
+	background:#fff;
+	border-top:1px solid #e6e6e6;
+}
+
+.page-index .main-content-seo .content-seo-article {
+	max-width:900px;
+	margin:0 auto;
+}
+
+.page-index .main-content-seo .content-seo-body {
+	font-size:1.067em;
+	line-height:1.85;
+	color:#333;
+	word-break:keep-all;
+}
+
+.page-index .main-content-seo .content-seo-body p {
+	margin-bottom:1.2em;
+}
+
+.page-index .main-content-seo .content-seo-body p:last-child {
+	margin-bottom:0;
+}
+
+.page-index .main-content-seo .content-seo-h3 {
+	font-size:1.2em;
+	font-weight:700;
+	color:#1a1a1a;
+	margin:2em 0 0.75em;
+	padding:0;
+}
+
+.page-index .main-content-seo .content-seo-body .content-seo-h3:first-child {
+	margin-top:0;
+}
+
+@media screen and (max-width: 768px) {
+	.page-index .main-content-seo .content-seo-body {
+		font-size:1em;
+		line-height:1.8;
+	}
+	.page-index .main-content-seo .content-seo-h3 {
+		font-size:1.1em;
+		margin-top:1.6em;
+	}
+}
+
 /* -------- main-location -------- */
 .page-index .main-location { 
 	position:relative; z-index:11;
