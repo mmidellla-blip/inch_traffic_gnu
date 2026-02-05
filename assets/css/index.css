@@ -5,10 +5,6 @@
    모든 스타일은 .page-index 스코프로 감싸져 있습니다.
    ============================================ */
 
-.page-index {
-	/* Typography는 common.css에서 상속 */
-}
-
 /*메인 텍스트 title heading*/
 .page-index .main-members .svc-main-heading,
 .page-index .main-review .svc-main-heading,
@@ -2056,5 +2052,52 @@
 	}
 	.page-index .main-location .location-address-wrap dl div {
 		margin-bottom: 60px;
+	}
+}
+
+/* ============================================
+   모바일 전용 최적화 (Mobile-First Index / Core Web Vitals / UX)
+   PC(≥1024px)에는 영향 없음 - max-width 미디어쿼리만 사용
+   ============================================ */
+
+/* 모바일: fixed 퀵메뉴가 콘텐츠를 가리지 않도록 하단 패딩 */
+@media screen and (max-width: 1023px) {
+	.page-index .main-contents {
+		padding-bottom: 120px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.page-index .main-contents {
+		padding-bottom: 100px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.page-index .main-contents {
+		padding-bottom: 100px;
+	}
+}
+
+/* 모바일: content-seo 렌더링 최적화 (content-visibility) */
+@media screen and (max-width: 1023px) {
+	.page-index .main-content-seo {
+		content-visibility: auto;
+		contain-intrinsic-size: auto 600px;
+	}
+}
+
+/* 모바일: content-seo 가독성 향상 (글자 크기, 줄간격, 터치 영역) */
+@media screen and (max-width: 640px) {
+	.page-index .main-content-seo .content-seo-body {
+		font-size: 0.95em;
+		line-height: 1.9;
+	}
+	.page-index .main-content-seo .content-seo-body p {
+		margin-bottom: 1em;
+	}
+	.page-index .main-content-seo .content-seo-h3 {
+		font-size: 1.05em;
+		margin-top: 1.5em;
 	}
 }

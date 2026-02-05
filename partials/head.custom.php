@@ -17,6 +17,9 @@ if ($is_index_page) {
     // 메타 태그
     echo '<meta name="naver-site-verification" content="8aca2004fc829309d2ad81a2bea09be81918272d">' . PHP_EOL;
    
+   // 모바일 LCP: 첫 화면 아이콘 preload (768px 이하에서만)
+   echo '<link rel="preload" href="/images/main/mainvisual/copy_icon01.png" as="image" media="(max-width: 768px)">' . PHP_EOL;
+   
    // index.css 로드 (Non-critical - LCP 이후 로드)
    // LCP CSS는 head.sub.php에서 이미 로드됨
    $index_css_version = function_exists('get_asset_version') ? get_asset_version('/assets/css/index.css') : time();

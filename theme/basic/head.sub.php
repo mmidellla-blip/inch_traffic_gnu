@@ -259,7 +259,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   }
   ?>
   <link rel="stylesheet" type="text/css" href="/css/template.css?ver=<?php echo get_asset_version('/css/template.css'); ?>">
-  <link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo get_asset_version('/css/style.css'); ?>">
+  <?php if (!$is_index_page) { ?><link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo get_asset_version('/css/style.css'); ?>"><?php } ?>
   <link rel="stylesheet" type="text/css" href="/assets/css/common.css?ver=<?php echo get_asset_version('/assets/css/common.css'); ?>">
   <?php 
   if ($is_index_page) { ?>
@@ -334,7 +334,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   }
   ?>
   <link rel="stylesheet" type="text/css" href="/css/template.css?ver=<?php echo get_asset_version('/css/template.css'); ?>">
-  <link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo get_asset_version('/css/style.css'); ?>">
+  <?php if (!$is_index_page) { ?><link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo get_asset_version('/css/style.css'); ?>"><?php } ?>
   <link rel="stylesheet" type="text/css" href="/assets/css/common.css?ver=<?php echo get_asset_version('/assets/css/common.css'); ?>">
   <?php 
   $is_index_page = (basename($_SERVER['PHP_SELF']) == 'index.php' || 
