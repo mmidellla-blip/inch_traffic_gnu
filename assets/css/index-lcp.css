@@ -30,7 +30,7 @@
 .page-index .main-visual { 
 	position:relative;
 	width:100%; 
-	height: 960px;
+	min-height: 960px;
 	display: flex; 
 	flex-flow: row nowrap; 
 	justify-content: center; 
@@ -516,7 +516,7 @@
 /* 1200px 이하 */
 @media screen and (max-width: 1200px) {
 	.page-index .main-visual {
-		height: 1800px;
+		min-height: 1800px;
 	}
 	.page-index .main-visual .main-menubg {
 		height: 90px;
@@ -663,7 +663,7 @@
 
 @media screen and (max-width: 768px) {
 	.page-index .main-visual {
-	  height: 1600px;
+		min-height: 1700px;
 	}
 	
 	.page-index .main-visual .main-menubg {
@@ -686,12 +686,13 @@
 	
 	/* 메인비주얼 박스1 > 카피 분리 */
 	.page-index .main-visual .main-box01 .copy {
-	  margin-bottom: 15px;
+	  margin-bottom: 0;
+	  padding: 15px 10px;
 	}
 	
 	.page-index .main-visual .main-box01 .copy .copy_icon {
-	  width: 40px;
-	  height: 40px;
+	  width: 32px;
+	  height: 32px;
 	  margin-right: 13px;
 	}
 	
@@ -725,7 +726,7 @@
 	
 	.page-index .main-visual .main-area01 .main-box02 {
 	  order: 4;
-	  margin-bottom: 24px;
+	  margin-bottom: 0;
 	}
 	
 	.page-index .main-visual .main-area01 .m-copy03 {
@@ -849,8 +850,9 @@
 	
 	.page-index .main-visual .main-area01 {
 	  width: 100%;
-	  height: 920px;
+	  height: auto;
 	  order: 1;
+	  margin-bottom: 0;
 	}
 	
 	/* 메인비주얼 박스2(mo) */
