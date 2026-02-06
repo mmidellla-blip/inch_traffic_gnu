@@ -22,8 +22,12 @@ enp('send', 'conversion', 'truemate', { device: 'B', convType: 'etc', productNam
 
 <?php include('_common.php');
 
-$wr_1=$_POST['h_tel'];
-if($wr_1 == '01033323333') {
+$wr_1 = isset($_POST['h_tel']) ? trim((string)$_POST['h_tel']) : '';
+// 차단 번호: 숫자만 비교 (010-3326-2212 / 01033262212 동일 처리)
+$wr_1_digits = preg_replace('/\D/', '', $wr_1);
+$blocked_phones = ['01033323333', '01033262212'];
+if ($wr_1_digits !== '' && in_array($wr_1_digits, $blocked_phones, true)) {
+    error_log('[상담신청 차단] 연락처: ' . $wr_1);
     exit;
 }
 $wr_3=$_POST['wr_3'];
