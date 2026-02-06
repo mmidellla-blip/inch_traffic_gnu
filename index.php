@@ -20,7 +20,7 @@ if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     <!-- contents -->
     <section id="contents" class="main-contents">
         <?php
-        $sections = array('hero', 'counselling', 'content-seo', 'review', 'media', 'members', 'case', 'center', 'location');
+        $sections = array('hero', 'counselling', 'review', 'media', 'members', 'case', 'content-seo', 'center', 'location');
         foreach ($sections as $name) {
             $path = $index_dir . '/partials/sections/' . $name . '.php';
             if (is_file($path)) {

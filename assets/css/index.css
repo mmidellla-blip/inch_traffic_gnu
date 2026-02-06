@@ -10,7 +10,8 @@
 .page-index .main-review .svc-main-heading,
 .page-index .main-online .svc-main-heading,
 .page-index .main-counselling .svc-main-heading,
-.page-index .main-media .svc-main-heading {
+.page-index .main-media .svc-main-heading,
+.page-index .main-case .svc-main-heading {
     font-weight: 800;
     margin-bottom: 0;
 }
@@ -429,24 +430,31 @@
 }
 
 .page-index .main-online .online-form .input-wrap li:last-child { 
-	padding-left:86px; 
+	padding-left:86px;
+	display:flex;
+	align-items:center;
+	flex-wrap:nowrap;
+	white-space:nowrap;
 }
 
 .page-index .main-online .online-form .input-wrap li:last-child input { 
 	margin-right:8px;
-	width:26px; height:26px; 
+	width:26px; height:26px;
+	flex-shrink:0;
 }
 
 .page-index .main-online .online-form .input-wrap li:last-child label { 
 	font-size:16px; line-height:26px;
 	color:#808080;
+	flex-shrink:0;
 }
 
 .page-index .main-online .online-form .input-wrap li:last-child a { 
-	float:right;
+	margin-left:12px;
 	font-size:16px; line-height:26px;
 	color:#1a1a1a;
 	text-decoration:underline;
+	flex-shrink:0;
 }
 
 .page-index .main-online .online-form .btn-wrap { 
@@ -663,28 +671,36 @@
 		width:calc(100% - 55px); 
 	}
 	.page-index .main-online .online-form .input-wrap li:last-child { 
-		padding-left:55px; 
+		padding-left:55px;
+		display:flex;
+		align-items:center;
+		flex-wrap:nowrap;
+		white-space:nowrap;
 	}
 	.page-index .main-online .online-form .input-wrap li:last-child input { 
 		margin-right:5px;
-		width:16px; height:16px; 
+		width:16px; height:16px;
+		flex-shrink:0;
 	}
 	.page-index .main-online .online-form .input-wrap li:last-child label { 
-		font-size:14px; line-height:16px; 
+		font-size:14px; line-height:16px;
+		flex-shrink:0;
 	}
 	.page-index .main-online .online-form .input-wrap li:last-child a { 
-		font-size:14px; line-height:16px; 
+		font-size:14px; line-height:16px;
+		margin-left:8px;
+		flex-shrink:0;
 	}
 	.page-index .main-online .online-form .input-wrap input[type="text"], 
 	.page-index .main-online .online-form .input-wrap input[type="tel"] { 
 		padding:0 10px;
 		height:45px;
-		font-size:14px;
+		font-size:16px;
 	}
 	.page-index .main-online .online-form .input-wrap select { 
 		padding:0 28px 0 10px;
 		height:45px;
-		font-size:14px;
+		font-size:16px;
 		-webkit-appearance: menulist;
 		-moz-appearance: menulist;
 		appearance: menulist;
@@ -1388,7 +1404,7 @@
 @media screen and (max-width: 480px) {
 	
 	.page-index .main-members .tit .svc-title {
-		font-size: 22px;
+		font-size: 25px;
 	}
 
 	.page-index .main-members .slider-nav {
@@ -1421,11 +1437,26 @@
 	order: 3;
 }
 
-.page-index .main-case > h2,
-.page-index .main-case > h2.title-h2 {
-	font-size: 50px; font-weight: 800; text-align: center; color: #000;
+.page-index .main-case .section-head {
+	text-align: center;
 	margin-bottom: 60px;
-	font-family: 'Malgun Gothic', dotum, sans-serif;
+}
+.page-index .main-case .svc-title {
+	font-family:'SUIT'; font-weight: 800;
+	font-size: 40px; color: #333; letter-spacing: 0.2px;
+	margin-bottom: 10px;
+}
+.page-index .main-case .svc-title .title-h2,
+.page-index .main-case .svc-title .svc-main-heading {
+	font-family:'SUIT'; font-weight: 800;
+	font-size: 40px; color: #333; letter-spacing: 0.2px;
+	margin-bottom: 0;
+}
+.page-index .main-case .svc-title .title-sub {
+	margin-top: 10px;
+	font-weight: 500;
+	font-size: 28px;
+	color: #5C5C5C;
 }
 
 .page-index .main-case .swiper-container {
@@ -1479,15 +1510,49 @@
 	width: 100%; height: 100%;
 }
 
+@media screen and (max-width: 768px) {
+	.page-index .main-case .svc-title,
+	.page-index .main-case .svc-title .title-h2,
+	.page-index .main-case .svc-title .svc-main-heading {
+		font-size: 32px;
+		font-weight: 800;
+	}
+	.page-index .main-case .svc-title .title-sub {
+		font-size: 20px;
+		font-weight: 500;
+	}
+}
+
 @media screen and (max-width: 640px) { 
-	.page-index .main-case > h2,
-	.page-index .main-case > h2.title-h2 {
-		font-size: 28px;
+	.page-index .main-case .section-head {
 		margin-bottom: 40px;
+	}
+	.page-index .main-case .svc-title,
+	.page-index .main-case .svc-title .title-h2,
+	.page-index .main-case .svc-title .svc-main-heading {
+		font-size: 25px;
+		font-weight: 800;
+		letter-spacing: 0;
+		margin-bottom: 10px;
+	}
+	.page-index .main-case .svc-title .title-sub {
+		font-size: 16px;
+		font-weight: 500;
+		margin-top: 8px;
 	}
 	.page-index .main-case .case-link {
 		width: 260px; height: 60px;
 		font-size: 20px; line-height: 60px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.page-index .main-case .svc-title,
+	.page-index .main-case .svc-title .title-h2,
+	.page-index .main-case .svc-title .svc-main-heading {
+		font-size: 25px;
+		font-weight: 800;
+		letter-spacing: 0;
 	}
 }
 
@@ -1597,9 +1662,27 @@
 
 /* -------- main-content-seo (SEO·텍스트 비율 강화) -------- */
 .page-index .main-content-seo {
-	order: 4;
+	order: 8;
+	position:relative;
 	background:#fff;
 	border-top:1px solid #e6e6e6;
+	overflow:hidden;
+}
+.page-index .main-content-seo .content-seo-bg {
+	position:absolute;
+	top:0;left:0;right:0;bottom:0;
+	z-index:0;
+	pointer-events:none;
+}
+.page-index .main-content-seo .content-seo-bg img {
+	width:100%;
+	height:100%;
+	object-fit:cover;
+	opacity:0.14;
+}
+.page-index .main-content-seo .inner {
+	position:relative;
+	z-index:1;
 }
 
 .page-index .main-content-seo .content-seo-article {
@@ -1923,16 +2006,26 @@
 		margin-right:0;
 	}
 	.page-index .main-location .location-map-wrap {
+		display:block;
 		width:100%;
 	}
 	.page-index .main-location .location-map-wrap .map-box {
 		position:relative; top:auto; left:auto;
 		width:100%;
+		min-height:0;
+		height:auto;
 		display:none;
 	}
 	.page-index .main-location .location-map-wrap .map-box.on {
 		width:100%;
+		min-height:0;
+		height:280px;
 		display:block;
+	}
+	.page-index .main-location .location-map-wrap .map-box.on > img {
+		width:100%;
+		height:100%;
+		object-fit:cover;
 	}
 	.page-index .main-location .lawfirm-interior-wrap {	
 		width:100%; 
@@ -2001,7 +2094,8 @@
 	}
 
 	.page-index .main-location .location-map-wrap .map-box.on {
-		height:260px;
+		height:240px;
+		min-height:0;
 	}
 	.page-index .main-location .location-map-wrap .root_daum_roughmap .wrap_map {
 		height:380px !important;
@@ -2040,6 +2134,21 @@
         font-size: 15px; /* 모바일에서 폰트 크기 축소 */
         margin-bottom: 3px; /* 간격도 줄임 */
     }
+	.page-index .main-location .location-map-wrap .map-box.on {
+		height:220px;
+	}
+	.page-index .main-location .location-map-wrap .map-box .map-view {
+		width:60px;
+		height:60px;
+		padding-top:10px;
+	}
+	.page-index .main-location .location-map-wrap .map-box .map-view img {
+		height:16px;
+		margin-bottom:4px;
+	}
+	.page-index .main-location .location-map-wrap .map-box .map-view span {
+		font-size:10px;
+	}
 	.page-index .main-location .lawfirm-interior-wrap .slick-prev, 
 	.page-index .main-location .lawfirm-interior-wrap .slick-next { 
 		margin-top:-45px; 
@@ -2085,10 +2194,16 @@
 		content-visibility: auto;
 		contain-intrinsic-size: auto 600px;
 	}
+	.page-index .main-content-seo .content-seo-bg img {
+		opacity: 0.22;
+	}
 }
 
 /* 모바일: content-seo 가독성 향상 (글자 크기, 줄간격, 터치 영역) */
 @media screen and (max-width: 640px) {
+	.page-index .main-content-seo .content-seo-bg img {
+		opacity: 0.28;
+	}
 	.page-index .main-content-seo .content-seo-body {
 		font-size: 0.95em;
 		line-height: 1.9;

@@ -12,7 +12,10 @@
 ?>
 <!-- main-case -->
 <section class="section main-case">
-	<h2 class="title-h2">음주운전 대표 성공사례를 확인해 보세요</h2>
+	<header class="section-head svc-title">
+		<h2 class="title-h2 svc-main-heading">음주운전 변호사 업무사례</h2>
+		<p class="title-sub">10년 넘는 경력의 20인 이상 전문가들이 축적한 사례입니다.</p>
+	</header>
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 			<a href="/bbs/board.php?bo_table=case&wr_id=77" class="swiper-slide"><img src="/images/main/main-case/main-case-01.jpg" alt="교통음주대표사례01" width="300" height="400" loading="lazy"></a>
