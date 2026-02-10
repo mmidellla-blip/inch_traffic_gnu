@@ -54,10 +54,10 @@ if (G5_IS_MOBILE) {
 if($config['cf_add_meta'])
     echo $config['cf_add_meta'].PHP_EOL;
 
-$head_description = '법무법인 동주 음주운전센터. 음주운전·교통사고 전문, 면허취소·행정심판·형사대응 원스톱 상담.';
+$head_description = '법무법인 동주 음주운전센터입니다. 음주운전·교통사고·재범·면허취소구제 원스톱 전문. 서울·수원·인천·전국 24시간 상담. 경찰조사부터 면허구제까지 형사처벌과 행정처분 한 번에 대응. 부장검사출신 변호사 포함 10년 이상 경력의 TF팀이 1:1 신속 조력합니다.';
 ?>
 <meta name="description" content="<?php echo htmlspecialchars($head_description, ENT_QUOTES, 'UTF-8'); ?>">
-<title><?php echo htmlspecialchars(trim((string)($g5_head_title ?? '')) !== '' ? $g5_head_title : '법무법인 동주', ENT_QUOTES, 'UTF-8'); ?></title>
+<title><?php echo htmlspecialchars(trim((string)($g5_head_title ?? '')) !== '' ? $g5_head_title : '음주운전 변호사 전문 상담 | 교통사고·재범·면허취소구제 | 법무법인 동주 음주운전센터', ENT_QUOTES, 'UTF-8'); ?></title>
 <?php
 if (defined('G5_IS_ADMIN')) {
     if(!defined('_THEME_PREVIEW_'))
