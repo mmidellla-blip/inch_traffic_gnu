@@ -132,7 +132,7 @@ if ($is_board_detail && !empty($bo_table) && !empty($wr_id) && function_exists('
 	}
 }
 if (strpos($og_image_url, '/images/common/') !== false) {
-	$og_default_file = (file_exists(G5_PATH . '/images/common/ogimg-brand.png')) ? 'ogimg-brand.png' : (file_exists(G5_PATH . '/images/common/logo.png') ? 'logo.png' : 'ogimg-brand.png');
+	$og_default_file = (file_exists(G5_PATH . '/images/common/ogimg-brand.png')) ? 'ogimg-brand.png' : (file_exists(G5_PATH . '/images/common/logo_on.png') ? 'logo_on.png' : 'ogimg-brand.png');
 	$og_image_url = $base_url_og . '/images/common/' . $og_default_file;
 	$og_image_path = G5_PATH . '/images/common/' . $og_default_file;
 }
