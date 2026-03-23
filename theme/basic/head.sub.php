@@ -66,7 +66,7 @@ function get_seo_title($page_title = '', $board_name = '', $is_detail = false) {
 	             (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
 	
 	if ($is_index) {
-		return '음주운전 변호사 전문 상담 | 교통사고·재범·면허취소구제 | ' . $brand . ' 음주운전센터';
+		return '음주운전변호사 전문 상담 | 교통사고·재범·면허구제 | 법무법인 동주';
 	}
 	
 	// 게시글 상세 페이지
@@ -103,7 +103,7 @@ function get_seo_title($page_title = '', $board_name = '', $is_detail = false) {
 	}
 	
 	// 기본값 (메인과 동일)
-	return '음주운전 변호사 전문 상담 | 교통사고·재범·면허취소구제 | ' . $brand . ' 음주운전센터';
+	return '음주운전변호사 전문 상담 | 교통사고·재범·면허구제 | 법무법인 동주';
 }
 }
 
@@ -167,7 +167,7 @@ if ($is_board_detail && isset($write) && !empty($write)) {
 	$metaTitleConf = get_seo_title('', '', false);
 }
 
-$metaDescriptionConf = '법무법인 동주 음주운전센터입니다. 음주운전·교통사고·재범·면허취소구제 원스톱 전문. 서울·수원·인천·전국 24시간 상담. 경찰조사부터 면허구제까지 형사처벌과 행정처분 한 번에 대응. 부장검사출신 변호사 포함 10년 이상 경력의 TF팀이 1:1 신속 조력합니다.';
+$metaDescriptionConf = '법무법인 동주 음주운전센터입니다. 음주운전 교통사고·재범·면허구제 원스톱 전문. 서울·수원·인천·전국 24시간 음주운전변호사 상담. 경찰조사부터 면허구제까지 형사처벌과 행정처분 한 번에 대응. 부장검사출신 변호사 포함 10년 이상 경력 TF팀이 1:1 조력합니다';
 $metaKeywordConf = '음주운전변호사, 음주재범 변호사, 음주운전 면허취소 구제, 음주운전 교통사고 변호사, 음주운전 행정심판 및 행정소송, 음주운전 전문 상담, 법무법인 동주';
 
 // 페이지별 메타 설명: 각 페이지에서 $meta_description_page 설정 시 우선, 없으면 스크립트명/메인 기준 맵 사용
@@ -175,7 +175,7 @@ $meta_description_page = isset($meta_description_page) ? trim((string)$meta_desc
 $script_name = basename($_SERVER['SCRIPT_NAME'] ?? '');
 // 메타 설명: 한글 기준 120~160자 권장(검색 결과 잘림 방지)
 $page_descriptions = array(
-	'index.php'       => '법무법인 동주 음주운전센터입니다. 음주운전·교통사고·재범·면허취소구제 원스톱 전문. 서울·수원·인천·전국 24시간 상담. 경찰조사부터 면허구제까지 형사처벌과 행정처분 한 번에 대응. 부장검사출신 변호사 포함 10년 이상 경력의 TF팀이 1:1 신속 조력합니다.',
+	'index.php'       => '법무법인 동주 음주운전센터입니다. 음주운전 교통사고·재범·면허구제 원스톱 전문. 서울·수원·인천·전국 24시간 음주운전변호사 상담. 경찰조사부터 면허구제까지 형사처벌과 행정처분 한 번에 대응. 부장검사출신 변호사 포함 10년 이상 경력 TF팀이 1:1 조력합니다',
 	'greetings.php'   => '법무법인 동주 대표 변호사 인사말. 음주운전·교통 전문 변호사 이세환 인사 및 변호사 소개.',
 	'location.php'   => '법무법인 동주 오시는 길. 서울·수원·인천 사무소 위치, 지도, 주차, 상담 예약 안내.',
 	'differentiation.php' => '동주만의 차별화. 행정법전문변호사·행정사 보유, 행정심판·행정소송 원스톱 전담, 음주운전 전문 로펌.',
@@ -228,7 +228,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <meta name="description" content="<?php echo htmlspecialchars($desc_out, ENT_QUOTES, 'UTF-8'); ?>">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
-  <title><?php echo htmlspecialchars(trim((string)($metaTitle ?? '')) !== '' ? $metaTitle : '음주운전 변호사 전문 상담 | 교통사고·재범·면허취소구제 | 법무법인 동주 음주운전센터', ENT_QUOTES, 'UTF-8'); ?></title>
+  <title><?php echo htmlspecialchars(trim((string)($metaTitle ?? '')) !== '' ? $metaTitle : '음주운전변호사 전문 상담 | 교통사고·재범·면허구제 | 법무법인 동주', ENT_QUOTES, 'UTF-8'); ?></title>
   <?php 
   // index.php 전용 LCP CSS 로드 (최우선) - 동기 로드 필수
   $lcp_css_path = '/assets/css/index-lcp.css';
@@ -303,7 +303,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <meta name="description" content="<?php echo htmlspecialchars($desc_out, ENT_QUOTES, 'UTF-8'); ?>">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
-  <title><?php echo htmlspecialchars(trim((string)($metaTitleConf ?? '')) !== '' ? $metaTitleConf : '음주운전 변호사 전문 상담 | 교통사고·재범·면허취소구제 | 법무법인 동주 음주운전센터', ENT_QUOTES, 'UTF-8'); ?></title>
+  <title><?php echo htmlspecialchars(trim((string)($metaTitleConf ?? '')) !== '' ? $metaTitleConf : '음주운전변호사 전문 상담 | 교통사고·재범·면허구제 | 법무법인 동주', ENT_QUOTES, 'UTF-8'); ?></title>
   <?php 
   // index.php 전용 LCP CSS 로드 (최우선) - 동기 로드 필수
   $lcp_css_path = '/assets/css/index-lcp.css';
@@ -513,7 +513,7 @@ $sd_website = array(
 	'@id'   => $base_url . '/#website',
 	'url'   => $base_url,
 	'name'  => '법무법인 동주 음주운전센터',
-	'description' => '법무법인 동주 음주운전센터입니다. 음주운전·교통사고·재범·면허취소구제 원스톱 전문. 서울·수원·인천·전국 24시간 상담. 경찰조사부터 면허구제까지 형사처벌과 행정처분 한 번에 대응. 부장검사출신 변호사 포함 10년 이상 경력의 TF팀이 1:1 신속 조력합니다.',
+	'description' => '법무법인 동주 음주운전센터입니다. 음주운전 교통사고·재범·면허구제 원스톱 전문. 서울·수원·인천·전국 24시간 음주운전변호사 상담. 경찰조사부터 면허구제까지 형사처벌과 행정처분 한 번에 대응. 부장검사출신 변호사 포함 10년 이상 경력 TF팀이 1:1 조력합니다',
 	'inLanguage' => 'ko',
 	'publisher' => array( '@id' => $base_url . '/#organization' )
 );
