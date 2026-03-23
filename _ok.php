@@ -1,18 +1,5 @@
-
-<script type='text/javascript' src='//wcs.naver.net/wcslog.js'></script>
-<script type='text/javascript'>
-    if(window.wcs){
-    if(!wcs_add) var wcs_add = {};
-    wcs_add['wa'] = 's_59bf2b5a701';
-    var _conv = {};
-    	_conv.type = 'lead';    	
-    wcs.trans(_conv);
-    }
-</script>
-
-
-
-<?php include('_common.php');
+<?php
+include('_common.php');
 
 $wr_1 = isset($_POST['h_tel']) ? trim((string)$_POST['h_tel']) : '';
 // 차단 번호: 숫자만 비교 (010-3326-2212 / 01033262212 동일 처리)
@@ -51,15 +38,25 @@ if (!isset($_POST['h_tel']) || !trim($_POST['h_tel'])){
 	 alert('연락처를 입력하여 주십시오.');
 }
 
-$uip = $_SERVER['REMOTE_ADDR'];
-$minutes = date('Y-m-d H:i:s', strtotime('-5 minutes'));
-$sql = "select count(*) as cnt from g5_write_online where wr_datetime >= '$minutes' and (wr_1 = '$wr_1' OR wr_ip = '$uip') ";
-$row = sql_fetch($sql);
+if ($wr_1_digits !== '') {
+    $minutes = date('Y-m-d H:i:s', strtotime('-5 minutes'));
+    $minutes_esc = sql_real_escape_string($minutes);
+    $wr_1_esc = sql_real_escape_string($wr_1);
+    $digits_esc = sql_real_escape_string($wr_1_digits);
+    // 동일 공인 IP(회사·통신사 NAT 등)만으로 건수가 합산되면 오탐 → 연락처(숫자 정규화) 기준만 사용
+    $sql = "select count(*) as cnt from g5_write_online
+        where wr_datetime >= '{$minutes_esc}'
+        and (
+            wr_1 = '{$wr_1_esc}'
+            or REPLACE(REPLACE(REPLACE(wr_1,'-',''),' ',''),'.','') = '{$digits_esc}'
+        ) ";
+    $row = sql_fetch($sql);
 
-if ($row['cnt'] > 1) {
-    // 30분 이내에 이미 신청한 경우
-    alert("5분 이내에 2건 이상 신청한 기록이 있습니다. 나중에 다시 시도해주세요.");
-    exit;
+    if ($row['cnt'] > 1) {
+        // 5분 이내 동일 연락처로 2건 이상(기존 2건)인 경우
+        alert("5분 이내에 2건 이상 신청한 기록이 있습니다. 나중에 다시 시도해주세요.");
+        exit;
+    }
 }
 
 /*
@@ -212,9 +209,35 @@ foreach ($phoneNums as $index => $phone) {
 
 
 
-if($result) {
-	$_SESSION['LOGGER']="ODR";	//20200518 LOGGER
-	alert("상담이 정상적으로 접수되었습니다. 영업시간[평일 09:00~19:00] 외 상담신청은 응대가 늦어질 수 있으니 조금만 기다려 주십시오. 감사합니다.", "/");
+if ($result) {
+	$_SESSION['LOGGER'] = 'ODR'; // 20200518 LOGGER
+	$ok_msg = '상담이 정상적으로 접수되었습니다. 영업시간[평일 09:00~19:00] 외 상담신청은 응대가 늦어질 수 있으니 조금만 기다려 주십시오. 감사합니다.';
+	header('Content-Type: text/html; charset=utf-8');
+	$ok_msg_js = json_encode($ok_msg, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE);
+	?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>안내</title>
+<script src="//wcs.naver.net/wcslog.js"></script>
+<script>
+(function () {
+	if (window.wcs) {
+		if (!wcs_add) var wcs_add = {};
+		wcs_add['wa'] = 's_59bf2b5a701';
+		wcs.trans({ type: 'lead' });
+	}
+	alert(<?php echo $ok_msg_js; ?>);
+	location.replace('/');
+})();
+</script>
+</head>
+<body></body>
+</html>
+<?php
+	exit;
 }
 else {
 	alert("상담접수 오류 \n 관리자에게 문의해주세요.");

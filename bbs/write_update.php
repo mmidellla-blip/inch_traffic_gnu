@@ -395,15 +395,26 @@ if ($w == '' || $w == 'r') {
         $wr_reply = '';
     }
     if(strpos($write_table, 'online') !== false){
-        $uip = $_SERVER['REMOTE_ADDR'];
-        $minutes = date('Y-m-d H:i:s', strtotime('-5 minutes'));
-        $sql = "select count(*) as cnt from $write_table where wr_datetime >= '$minutes' and (wr_1 = '$wr_1' OR wr_ip = '$$uip') ";
-        $row = sql_fetch($sql);
+        $wr_1_digits_chk = preg_replace('/\D/', '', (string)$wr_1);
+        if ($wr_1_digits_chk !== '') {
+            $minutes = date('Y-m-d H:i:s', strtotime('-5 minutes'));
+            $minutes_esc = sql_real_escape_string($minutes);
+            $wr_1_esc = sql_real_escape_string($wr_1);
+            $digits_esc = sql_real_escape_string($wr_1_digits_chk);
+            // 공인 IP만으로 타인 신청이 합산되면 오탐 → 연락처(숫자 정규화) 기준만 사용 ($$uip 오타 제거)
+            $sql = "select count(*) as cnt from $write_table
+                where wr_datetime >= '{$minutes_esc}'
+                and (
+                    wr_1 = '{$wr_1_esc}'
+                    or REPLACE(REPLACE(REPLACE(wr_1,'-',''),' ',''),'.','') = '{$digits_esc}'
+                ) ";
+            $row = sql_fetch($sql);
 
-        if ($row['cnt'] > 1) {
-            // 30분 이내에 이미 신청한 경우
-            alert("5분 이내에 2건 이상 신청한 기록이 있습니다. 나중에 다시 시도해주세요.");
-            exit;
+            if ($row['cnt'] > 1) {
+                // 5분 이내 동일 연락처로 2건 이상(기존 2건)인 경우
+                alert("5분 이내에 2건 이상 신청한 기록이 있습니다. 나중에 다시 시도해주세요.");
+                exit;
+            }
         }
         $sql = " insert into $write_table
                 set wr_num = '$wr_num',

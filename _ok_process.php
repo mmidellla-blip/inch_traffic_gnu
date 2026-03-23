@@ -1,26 +1,5 @@
-<!-- Enliple Tracker Start -->
-<script type="text/javascript">
-(function(a,g,e,n,t){a.enp=a.enp||function(){(a.enp.q=a.enp.q||[]).push(arguments)};n=g.createElement(e);n.defer=!0;n.src="<a href="">https://cdn.megadata.co.kr/dist/prod/enp_tracker_self_hosted.min.js";t=g.getElementsByTagName(e)[0];t[removed].insertBefore(n,t)})(window,document,"script");
-enp('create', 'conversion', 'truemate', { device: 'B', convType: 'etd', productName: 'counsel'}); // 디바이스 타입  W:웹, M: 모바일, B: 반응형
-enp('send', 'conversion', 'truemate', { device: 'B', convType: 'etc', productName: 'counsel'});
-</script>
-<!-- Enliple Tracker End -->
-
-
-
-<script type='text/javascript' src='//wcs.naver.net/wcslog.js'></script>
-<script type='text/javascript'>
-    if(window.wcs){
-    if(!wcs_add) var wcs_add = {};
-    wcs_add['wa'] = 's_59bf2b5a701';
-    var _conv = {};
-    	_conv.type = 'lead';    	
-    wcs.trans(_conv);
-    }
-</script>
-
-
-<?php include('_common.php');
+<?php
+include('_common.php');
 
 $wr_1 = isset($_POST['h_tel']) ? trim((string)$_POST['h_tel']) : '';
 // 차단 번호: 숫자만 비교 (010-3326-2212 / 01033262212 동일 처리)
@@ -52,15 +31,25 @@ if( isset($wr_name) && !preg_replace("/[a-zA-Z0-9]/",'', $wr_name) ) die;
 if (!$is_admin)
 	$sql_ip = " , wr_ip = '{$_SERVER['REMOTE_ADDR']}' ";
 
-$uip = $_SERVER['REMOTE_ADDR'];
-$minutes = date('Y-m-d H:i:s', strtotime('-5 minutes'));
-$sql = "select count(*) as cnt from g5_write_selftest where wr_datetime >= '$minutes' and (wr_1 = '$wr_1' OR wr_ip = '$$uip') ";
-$row = sql_fetch($sql);
+if ($wr_1_digits !== '') {
+    $minutes = date('Y-m-d H:i:s', strtotime('-5 minutes'));
+    $minutes_esc = sql_real_escape_string($minutes);
+    $wr_1_esc = sql_real_escape_string($wr_1);
+    $digits_esc = sql_real_escape_string($wr_1_digits);
+    $selftest_table = $g5['write_prefix'] . 'selftest';
+    $sql = "select count(*) as cnt from `{$selftest_table}`
+        where wr_datetime >= '{$minutes_esc}'
+        and (
+            wr_1 = '{$wr_1_esc}'
+            or REPLACE(REPLACE(REPLACE(wr_1,'-',''),' ',''),'.','') = '{$digits_esc}'
+        ) ";
+    $row = sql_fetch($sql);
 
-if ($row['cnt'] > 1) {
-    // 30분 이내에 이미 신청한 경우
-    alert("5분 이내에 2건 이상 신청한 기록이 있습니다. 나중에 다시 시도해주세요.");
-    exit;
+    if ($row['cnt'] > 1) {
+        // 5분 이내 동일 연락처로 2건 이상(기존 2건)인 경우
+        alert("5분 이내에 2건 이상 신청한 기록이 있습니다. 나중에 다시 시도해주세요.");
+        exit;
+    }
 }
 
 if (isset($_SESSION['ss_datetime'])) {
@@ -260,13 +249,35 @@ include_once(G5_LIB_PATH.'/icode.sms.lib.php');
 
 
 
-if($result) {
-
-	
-	$_SESSION['LOGGER']="ODR";	//20200518 LOGGER
-
-	alert("상담이 정상적으로 접수되었습니다. 영업시간[평일 09:00~19:00] 외 상담신청은 응대가 늦어질 수 있으니 조금만 기다려 주십시오. 감사합니다.", "/");
-	
+if ($result) {
+	$_SESSION['LOGGER'] = 'ODR'; // 20200518 LOGGER
+	$ok_msg = '상담이 정상적으로 접수되었습니다. 영업시간[평일 09:00~19:00] 외 상담신청은 응대가 늦어질 수 있으니 조금만 기다려 주십시오. 감사합니다.';
+	header('Content-Type: text/html; charset=utf-8');
+	$ok_msg_js = json_encode($ok_msg, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE);
+	?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>안내</title>
+<script src="//wcs.naver.net/wcslog.js"></script>
+<script>
+(function () {
+	if (window.wcs) {
+		if (!wcs_add) var wcs_add = {};
+		wcs_add['wa'] = 's_59bf2b5a701';
+		wcs.trans({ type: 'lead' });
+	}
+	alert(<?php echo $ok_msg_js; ?>);
+	location.replace('/');
+})();
+</script>
+</head>
+<body></body>
+</html>
+<?php
+	exit;
 }
 else {
 	alert("상담접수 오류 \n 관리자에게 문의해주세요.");

@@ -201,7 +201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				</section>
 				<a href="#" class="pop-close"></a>
 			</section>
-			<p class="btn-wrap"><button id='submit_btn'>상담신청</button></p>
+			<p class="btn-wrap"><button type="submit" id="submit_btn">상담신청</button></p>
 		</section>
 	</form>
 </section>

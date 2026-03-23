@@ -108,6 +108,10 @@
 		});
 	})();
 	</script>
-		
+	<?php if (function_exists('get_asset_version')) { ?>
+	<script src="/js/double-submit-guard.js?ver=<?php echo get_asset_version('/js/double-submit-guard.js'); ?>"></script>
+	<?php } else { ?>
+	<script src="/js/double-submit-guard.js"></script>
+	<?php } ?>
 </body>
 </html>
