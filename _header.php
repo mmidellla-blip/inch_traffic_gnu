@@ -58,7 +58,7 @@
 	<div>
 		<ul>
 			<li <?php if($_GET['bo_table'] == 'case') { echo " class=\"on\""; } ?>><a href="/bbs/board.php?bo_table=case&me_code=3010">성공사례</a></li>
-			<li <?php if($_GET['bo_table'] == 'review') { echo " class=\"on\""; } ?>><a href="/bbs/board.php?bo_table=review&me_code=2010">고객후기</a></li>
+			<li <?php if($_GET['bo_table'] == 'review') { echo " class=\"on\""; } ?>><a href="/bbs/board.php?bo_table=review&me_code=3020">고객후기</a></li>
 		</ul>
 	</div>
 	<?php }else if($gr_id=='magazine'){?>
