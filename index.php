@@ -1,6 +1,9 @@
 <?php
 $index_dir = __DIR__;
-include($index_dir . '/_common.php');
+require_once $index_dir . '/landing_bootstrap.php';
+if (!defined('_INDEX_')) {
+    define('_INDEX_', true);
+}
 $g5['body_class'] = 'index page-index';
 ?>
 <?php
@@ -20,7 +23,7 @@ if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     <!-- contents -->
     <section id="contents" class="main-contents">
         <?php
-        $sections = array('hero', 'counselling', 'review', 'media', 'members', 'case', 'content-seo', 'center', 'location');
+        $sections = array('hero', 'counselling', 'review', 'media', 'members', 'case', 'center', 'location');
         foreach ($sections as $name) {
             $path = $index_dir . '/partials/sections/' . $name . '.php';
             if (is_file($path)) {
@@ -44,7 +47,4 @@ if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     <script src="/js/main.js?ver=<?php echo get_asset_version('/js/main.js'); ?>" defer></script>
     
     <?php include($index_dir . '/_footer.php');?>
-</section>
-<!-- //wrapper -->
-</body>
-</html>
+<?php include_once G5_THEME_PATH . '/tail.sub.php'; ?>

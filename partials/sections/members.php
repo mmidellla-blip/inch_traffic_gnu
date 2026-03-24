@@ -1,48 +1,41 @@
 <?php
-/**
- * partials/sections/members.php
- * 
- * main-members 섹션 (구성원)
- * DB 쿼리 의존성 있음 (g5_write_member)
- * 
- * 주의사항:
- * - get_file() 함수 사용
- * - slick 슬라이더 사용 (main.js에서 초기화)
- */
+if (!defined('_GNUBOARD_')) {
+    exit;
+}
+$dj = defined('LANDING_LIVE_URL') ? LANDING_LIVE_URL : 'https://trafficdrinking-law-dongju.com';
+$dj_h = htmlspecialchars($dj, ENT_QUOTES, 'UTF-8');
+$members_static = array(
+	array('name' => '박동진', 'role' => '대표변호사', 'label' => '음주운전 재판', 'img' => '/images/main/mainvisual/main-03-lawyer01.jpg'),
+	array('name' => '이세환', 'role' => '대표변호사', 'label' => '형사전문', 'img' => '/images/main/mainvisual/main-03-lawyer02.jpg'),
+	array('name' => '조원진', 'role' => '파트너변호사', 'label' => '형사전문', 'img' => '/images/main/mainvisual/main-03-lawyer03.jpg'),
+	array('name' => '오서진', 'role' => '파트너변호사', 'label' => '행정·면허구제', 'img' => '/images/main/mainvisual/main-03-lawyer01.jpg'),
+);
 ?>
-<!-- 메인페이지 : 구성원 (25.04.28) -->
+<!-- 메인페이지 : 구성원 (정적 껍데기 → 공식 사이트 링크) -->
 <section class="section main-members">
 	<div class="inner">
 		<section class="member-list">
 			<div class="tit">
 				<header class="section-head svc-title">
 					<h2 class="title-h2 svc-main-heading">음주운전 변호사 · 교통사고 변호사</h2>
-					<p class="title-sub">음주운전 · 교통사고 분야 전문가들이 TF로 구성됩니다.</p>
+					<p class="title-sub">서울·수원·인천을 아우르는 음주운전·교통사고 전문 변호사들이 TF로 구성됩니다.</p>
 				</header>
 			</div>
 			<div class="slider-container">
 				<button class="slider-nav prev" aria-label="Previous Slide"><</button>
 				<button class="slider-nav next" aria-label="Next Slide">></button>
 				<div class="slider-wrapper">
-					<?php
-					$sql = "select * from g5_write_member order by wr_1 asc";
-					$result = sql_query($sql);
-
-					while ($row = sql_fetch_array($result)) {
-						$row['file'] = get_file("member", $row['wr_id']);
-					?>
+					<?php foreach ($members_static as $m) { ?>
 						<div class="slider-item">
-							<a href="/page/lawyer_view.php?me_code=1020&wr_id=<?=$row['wr_id'];?>">
+							<a href="<?php echo $dj_h; ?>/">
 								<div class="img-wrap">
-									<?php if ($row['file'][0]['view']) { ?>
-										<img src="<?=$row['file'][0]['path'];?>/<?=$row['file'][0]['file'];?>" alt="<?php echo htmlspecialchars(strip_tags($row['wr_subject'])); ?> 음주운전 전문 변호사 프로필" width="300" height="360" loading="lazy">
-										<?php if ($row['wr_8'] != "") { ?>
-										<span class="label"><?=$row['wr_8'];?></span>
-										<?php } ?>
+									<img src="<?php echo htmlspecialchars($m['img'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($m['name'], ENT_QUOTES, 'UTF-8'); ?> 음주운전 전문 변호사 프로필" width="300" height="360" loading="lazy">
+									<?php if ($m['label'] !== '') { ?>
+									<span class="label"><?php echo htmlspecialchars($m['label'], ENT_QUOTES, 'UTF-8'); ?></span>
 									<?php } ?>
 								</div>
 								<div class="txt-wrap">
-									<span><strong><?=$row['wr_subject'];?></strong> <?=$row['wr_7'];?></span>
+									<span><strong><?php echo htmlspecialchars($m['name'], ENT_QUOTES, 'UTF-8'); ?></strong> <?php echo htmlspecialchars($m['role'], ENT_QUOTES, 'UTF-8'); ?></span>
 								</div>
 							</a>
 						</div>

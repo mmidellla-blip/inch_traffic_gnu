@@ -11,20 +11,21 @@
  */
 ?>
 <!-- main-location -->
-<section class="section main-location">
+<section id="location" class="section main-location">
 	<div class="inner">
 		<div class="txt-wrap">
 			<h2 class="title-h2">오시는 길</h2>
+			<p class="title-sub">미추홀구 학익동 인천사무소에서도 동일하게 상담·수임이 진행됩니다. 탭에서 사무소를 선택해 주세요.</p>
 			<!-- 탭 -->
 			<ul class="main-location-tab">
-				<li class="on"><a href="#">서울사무소</a></li>
+				<li><a href="#">서울사무소</a></li>
 				<li><a href="#">수원사무소</a></li>
-				<li><a href="#">인천사무소</a></li>
+				<li class="on"><a href="#">인천사무소</a></li>
 			</ul>
 			<!-- 사무소 정보 -->
 			<section class="location-address-wrap">
 				<!-- 서울사무소 -->
-				<dl class="on">
+				<dl>
 					<dt>주소</dt>
 					<dd>서울 서초구 서초중앙로 123 (서초동), 13층 (서초동, 엘렌타워)</dd>
 					<dt>TEL.</dt>
@@ -42,7 +43,7 @@
 					<dd><span>031-216-1160</span></dd>
 				</dl>
 				<!-- 인천사무소 -->
-				<dl>
+				<dl class="on">
 					<dt>주소</dt>
 					<dd>인천시 미추홀구 학익소로 66, 403-404호(학익동, 선정빌딩)</dd>
 					<dt>TEL.</dt>
@@ -55,7 +56,7 @@
 		<!-- 지도 -->
 		<div class="location-map-wrap">
 			<!-- 서울사무소 -->
-			<div class="map-box on">
+			<div class="map-box">
 				<a href="http://kko.to/dBj8nGkHz" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt="법무법인 동주 서울사무소 카카오맵 보기" width="50" height="50" loading="lazy"><span>카카오맵 보기</span></a>
 				<img src="/images/main/main-location/map01.jpg" alt="서울사무소" width="580" height="435" loading="lazy">
 				<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵" width="80" height="20" loading="lazy"></div>
@@ -67,7 +68,7 @@
 				<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵" width="80" height="20" loading="lazy"></div>
 			</div>
 			<!-- 인천사무소 -->
-			<div class="map-box">
+			<div class="map-box on">
 				<a href="http://kko.to/R_cP-PPp4" target="_blank" class="map-view"><img src="/images/main/icon_map.png" alt="법무법인 동주 인천사무소 카카오맵 보기" width="50" height="50" loading="lazy"><span>카카오맵 보기</span></a>
 				<img src="/images/main/main-location/map04.jpg" alt="인천사무소" width="580" height="435" loading="lazy">
 				<div>출처 : <img src="/images/main/main-location/logo-kakao.png" alt="카카오맵" width="80" height="20" loading="lazy"></div>
@@ -76,7 +77,7 @@
 		<!-- 사무소 사진 -->
 		<div class="lawfirm-interior-wrap">
 			<!-- 서울사무소 -->
-			<div class="lawfirm-interior-box on">
+			<div class="lawfirm-interior-box">
 				<div class="interior-slide"><img src="/images/main/interior1_01.jpg" alt="법무법인 동주 서울사무소 엘렌타워 내부 1" width="400" height="300" loading="lazy"></div>
 				<div class="interior-slide"><img src="/images/main/interior1_02.jpg" alt="법무법인 동주 서울사무소 엘렌타워 내부 2" width="400" height="300" loading="lazy"></div>
 				<div class="interior-slide"><img src="/images/main/interior1_03.jpg" alt="법무법인 동주 서울사무소 엘렌타워 내부 3" width="400" height="300" loading="lazy"></div>
@@ -96,7 +97,7 @@
 				<div class="interior-slide"><img src="/images/main/interior2_04.jpg" alt="법무법인 동주 수원사무소 원희캐슬광교 내부 4" width="400" height="300" loading="lazy"></div>
 			</div>
 			<!-- 인천 사무소 -->
-			<div class="lawfirm-interior-box">
+			<div class="lawfirm-interior-box on">
 				<div class="interior-slide"><img src="/images/main/interior3_01.jpg" alt="법무법인 동주 인천사무소 선정빌딩 내부 1" width="400" height="300" loading="lazy"></div>
 				<div class="interior-slide"><img src="/images/main/interior3_02.jpg" alt="법무법인 동주 인천사무소 선정빌딩 내부 2" width="400" height="300" loading="lazy"></div>
 				<div class="interior-slide"><img src="/images/main/interior3_03.jpg" alt="법무법인 동주 인천사무소 선정빌딩 내부 3" width="400" height="300" loading="lazy"></div>

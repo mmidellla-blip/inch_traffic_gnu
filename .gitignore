@@ -1,4 +1,8 @@
 .vscode/
 data/cache/
 data/session/
+data/log/
+data/dbconfig.php
+extend/user.config.php
 *.md
+!README.md

@@ -7,9 +7,13 @@ if(typeof jQuery !== 'undefined' && typeof window.$ === 'undefined') {
 </script>
 <script src="<?php echo G5_JS_URL ?>/common.js?ver=<?php echo G5_JS_VER; ?>"></script>
 <?php
-if(defined('_INDEX_')) { // index에서만 실행
-	include G5_BBS_PATH.'/newwin.inc.php'; // 팝업레이어
+if (defined('_INDEX_') && (!defined('LANDING_STATIC') || !LANDING_STATIC)) {
+	include G5_BBS_PATH . '/newwin.inc.php';
 }
+$dj_site = defined('LANDING_LIVE_URL') ? rtrim(LANDING_LIVE_URL, '/') : 'https://trafficdrinking-law-dongju.com';
+$dj_e = static function ($path) use ($dj_site) {
+	return htmlspecialchars($dj_site . $path, ENT_QUOTES, 'UTF-8');
+};
 ?>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -28,61 +32,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		</p>
 		<nav class="gnb">
 			<ul id="gnb-1depth">
-				<?php
-				$sql = " select *
-							from {$g5['menu_table']}
-							where me_use = '1'
-							  and length(me_code) = '2'
-							order by me_order, me_id ";
-				$result = sql_query($sql, false);
-				$gnb_zindex = 999; // gnb-1depth-li z-index 값 설정용
-				$menu_datas = array();
-
-				for ($i=0; $row=sql_fetch_array($result); $i++) {
-					$menu_datas[$i] = $row;
-
-					$sql2 = " select *
-								from {$g5['menu_table']}
-								where me_use = '1'
-								  and length(me_code) = '4'
-								  and substring(me_code, 1, 2) = '{$row['me_code']}'
-								order by me_order, me_id ";
-					$result2 = sql_query($sql2);
-					for ($k=0; $row2=sql_fetch_array($result2); $k++) {
-						$menu_datas[$i]['sub'][$k] = $row2;
-					}
-				}
-				$i = 0;
-				foreach( $menu_datas as $row ){
-					if( empty($row) ) continue; 
-				?>
-				<li class="gnb-1depth-li" style="z-index:<?php echo $gnb_zindex--; ?>">
-					<a href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb-1depth-a"><?php echo $row['me_name'] ?></a>
-					<?php
-					$k = 0;
-					foreach( (array) $row['sub'] as $row2 ){
-
-						if( empty($row2) ) continue; 
-
-						if($k == 0)
-							echo '<ul class="gnb-2depth">'.PHP_EOL;
-					?>
-						<li class="gnb-2depth-li"><a href="<?php echo $row2['me_link']; ?>" target="_<?php echo $row2['me_target']; ?>" class="gnb-2depth-a"><?php echo $row2['me_name'] ?></a></li>
-					<?php
-					$k++;
-					}   //end foreach $row2
-
-					if($k > 0)
-						echo '</ul>'.PHP_EOL;
-					?>
+				<li class="gnb-1depth-li" style="z-index:999">
+					<a href="<?php echo $dj_e('/page/greetings.php?me_code=1010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">동주소개</a>
+					<ul class="gnb-2depth">
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/greetings.php?me_code=1010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">대표인사말</a></li>
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/differentiation.php?me_code=1020'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">동주만의 차별화</a></li>
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/location.php?me_code=1030'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">오시는 길</a></li>
+					</ul>
 				</li>
-				<?php
-				$i++;
-				}   //end foreach $row
-
-				if ($i == 0) {  ?>
-					<li class="gnb_empty">메뉴 준비 중입니다.<?php if ($is_admin) { ?> <a href="<?php echo G5_ADMIN_URL; ?>/menu_list.php">관리자모드 &gt; 환경설정 &gt; 메뉴설정</a>에서 설정하실 수 있습니다.<?php } ?></li>
-				<?php } ?>
+				<li class="gnb-1depth-li" style="z-index:998">
+					<a href="<?php echo $dj_e('/page/lawyer.php?me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">변호사 구성원</a>
+					<ul class="gnb-2depth">
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/lawyer.php?me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주운전 변호사</a></li>
+					</ul>
+				</li>
+				<li class="gnb-1depth-li" style="z-index:997">
+					<a href="<?php echo $dj_e('/bbs/board.php?bo_table=case&me_code=3010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">성공사례</a>
+					<ul class="gnb-2depth">
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=case&me_code=3010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">성공사례</a></li>
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=review&me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">고객후기</a></li>
+					</ul>
+				</li>
+				<li class="gnb-1depth-li" style="z-index:996">
+					<a href="<?php echo $dj_e('/bbs/board.php?bo_table=column&me_code=4010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">동주 매거진</a>
+					<ul class="gnb-2depth">
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=column&me_code=4010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">칼럼</a></li>
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=media&me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">언론보도</a></li>
+					</ul>
+				</li>
+				<li class="gnb-1depth-li" style="z-index:995">
+					<a href="<?php echo $dj_e('/page/drunken01.php'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">업무분야</a>
+					<ul class="gnb-2depth">
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/drunken01.php'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주운전 형사절차</a></li>
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/drunken02.php'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주운전 행정절차</a></li>
+					</ul>
+				</li>
+				<li class="gnb-1depth-li" style="z-index:994">
+					<a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">온라인 상담</a>
+					<ul class="gnb-2depth">
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">온라인 상담</a></li>
+					</ul>
+				</li>
+				<li class="gnb-1depth-li" style="z-index:993">
+					<a href="<?php echo $dj_e('/page/self_test.php?me_code=7010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">음주진단</a>
+					<ul class="gnb-2depth">
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/self_test.php?me_code=7010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주진단</a></li>
+					</ul>
+				</li>
 			</ul>
 		</nav>
 
@@ -95,61 +91,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<div class="gnb-bg"></div>
 	<div class="nav-full">
 		<ul id="full-gnb-1depth">
-			<?php
-			$sql = " select *
-						from {$g5['menu_table']}
-						where me_use = '1'
-						  and length(me_code) = '2'
-						order by me_order, me_id ";
-			$result = sql_query($sql, false);
-			$gnb_zindex = 999; // gnb-1depth-li z-index 값 설정용
-			$menu_datas = array();
-
-			for ($i=0; $row=sql_fetch_array($result); $i++) {
-				$menu_datas[$i] = $row;
-
-				$sql2 = " select *
-							from {$g5['menu_table']}
-							where me_use = '1'
-							  and length(me_code) = '4'
-							  and substring(me_code, 1, 2) = '{$row['me_code']}'
-							order by me_order, me_id ";
-				$result2 = sql_query($sql2);
-				for ($k=0; $row2=sql_fetch_array($result2); $k++) {
-					$menu_datas[$i]['sub'][$k] = $row2;
-				}
-			}
-			$i = 0;
-			foreach( $menu_datas as $row ){
-				if( empty($row) ) continue; 
-			?>
-			<li class="full-gnb-1depth-li" style="z-index:<?php echo $gnb_zindex--; ?>">
-				<a href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb-1depth-a"><?php echo $row['me_name'] ?></a>
-				<?php
-				$k = 0;
-				foreach( (array) $row['sub'] as $row2 ){
-
-					if( empty($row2) ) continue; 
-
-					if($k == 0)
-						echo '<ul class="gnb-2depth">'.PHP_EOL;
-				?>
-					<li class="gnb-2depth-li"><a href="<?php echo $row2['me_link']; ?>" target="_<?php echo $row2['me_target']; ?>" class="gnb-2depth-a"><?php echo $row2['me_name'] ?></a></li>
-				<?php
-				$k++;
-				}   //end foreach $row2
-
-				if($k > 0)
-					echo '</ul>'.PHP_EOL;
-				?>
+			<li class="full-gnb-1depth-li" style="z-index:999">
+				<a href="<?php echo $dj_e('/page/greetings.php?me_code=1010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">동주소개</a>
+				<ul class="gnb-2depth">
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/greetings.php?me_code=1010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">대표인사말</a></li>
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/differentiation.php?me_code=1020'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">동주만의 차별화</a></li>
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/location.php?me_code=1030'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">오시는 길</a></li>
+				</ul>
 			</li>
-			<?php
-			$i++;
-			}   //end foreach $row
-
-			if ($i == 0) {  ?>
-				<li class="gnb_empty">메뉴 준비 중입니다.<?php if ($is_admin) { ?> <a href="<?php echo G5_ADMIN_URL; ?>/menu_list.php">관리자모드 &gt; 환경설정 &gt; 메뉴설정</a>에서 설정하실 수 있습니다.<?php } ?></li>
-			<?php } ?>
+			<li class="full-gnb-1depth-li" style="z-index:998">
+				<a href="<?php echo $dj_e('/page/lawyer.php?me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">변호사 구성원</a>
+				<ul class="gnb-2depth">
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/lawyer.php?me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주운전 변호사</a></li>
+				</ul>
+			</li>
+			<li class="full-gnb-1depth-li" style="z-index:997">
+				<a href="<?php echo $dj_e('/bbs/board.php?bo_table=case&me_code=3010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">성공사례</a>
+				<ul class="gnb-2depth">
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=case&me_code=3010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">성공사례</a></li>
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=review&me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">고객후기</a></li>
+				</ul>
+			</li>
+			<li class="full-gnb-1depth-li" style="z-index:996">
+				<a href="<?php echo $dj_e('/bbs/board.php?bo_table=column&me_code=4010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">동주 매거진</a>
+				<ul class="gnb-2depth">
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=column&me_code=4010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">칼럼</a></li>
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=media&me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">언론보도</a></li>
+				</ul>
+			</li>
+			<li class="full-gnb-1depth-li" style="z-index:995">
+				<a href="<?php echo $dj_e('/page/drunken01.php'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">업무분야</a>
+				<ul class="gnb-2depth">
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/drunken01.php'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주운전 형사절차</a></li>
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/drunken02.php'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주운전 행정절차</a></li>
+				</ul>
+			</li>
+			<li class="full-gnb-1depth-li" style="z-index:994">
+				<a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">온라인 상담</a>
+				<ul class="gnb-2depth">
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">온라인 상담</a></li>
+				</ul>
+			</li>
+			<li class="full-gnb-1depth-li" style="z-index:993">
+				<a href="<?php echo $dj_e('/page/self_test.php?me_code=7010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">음주진단</a>
+				<ul class="gnb-2depth">
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/self_test.php?me_code=7010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주진단</a></li>
+				</ul>
+			</li>
 		</ul>
 		<div class="close-btn">
 			<span></span>
@@ -167,8 +155,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ?>
 <!--footer-online -->
 <section class="footer-online">
-	<form action="<?php echo G5_URL ?>/_ok.php" method="post">
-		<input type="hidden" name="wr_1" id="wr_1" value="<?php echo $write['wr_1'];?>">
+	<form action="<?php echo defined('DJ_FORM_ACTION') ? DJ_FORM_ACTION : (G5_URL . '/_ok.php'); ?>" method="post">
+		<input type="hidden" name="wr_1" id="wr_1" value="<?php echo isset($write['wr_1']) ? htmlspecialchars((string) $write['wr_1'], ENT_QUOTES, 'UTF-8') : ''; ?>">
 		<input type="hidden" id="secret" name="secret" value="secret">
 		<dl>
 			<dt>실시간 전화</dt>

@@ -19,7 +19,7 @@
 			<div class="copy">
 				<div class="copy_icon"></div>
 				<h1 class="title-h1">음주운전 변호사 전문 상담<br>익명 보장 · 30분 내 답변 | 법무법인 동주</h1>
-				<div class="copy-sub"></div>
+				<p class="copy-sub">인천 음주운전 변호사 · 수도권 거점 동일 기준</p>
 			</div>
 			<div class="space"></div>
 			<a href="tel:1522-3394" onMouseDown="javascript:try{NA_Call();}catch(e){}"><div class="telnum"><div class="telnum_icon"></div>1522-3394</div></a>

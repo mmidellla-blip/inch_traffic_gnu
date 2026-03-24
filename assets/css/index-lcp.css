@@ -111,11 +111,14 @@
 }
 
 .page-index .main-visual .main-box01 .copy-sub {
-	font-family: 'SUIT'; 
-	font-size: 18px; 
-	color: #fff;
-	margin-top: 10px;
-	line-height: 1.5;
+	font-family: 'SUIT', 'Noto Sans KR', sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.88);
+	margin: 10px 0 0;
+	line-height: 1.45;
+	max-width: 20.5rem;
+	letter-spacing: -0.01em;
 }
 
 .page-index .main-visual .main-box01 .space {
@@ -550,6 +553,11 @@
 	  color: #fff;
 	}
 	
+	.page-index .main-visual .main-box01 .copy-sub {
+	  font-size: 14px;
+	  max-width: 24rem;
+	}
+	
 	.page-index .main-visual .main-box01 > h3 {
 	  font-size: 44px;
 	  margin-bottom: 35px;
@@ -700,6 +708,12 @@
 	  font-size: 18px;
 	  font-weight: 700;
 	  color: #fff;
+	}
+	
+	.page-index .main-visual .main-box01 .copy-sub {
+	  font-size: 11px;
+	  margin-top: 6px;
+	  max-width: none;
 	}
 	
 	.page-index .main-visual .main-box01 .space {

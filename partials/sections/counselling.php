@@ -1,23 +1,17 @@
 <?php
-/**
- * partials/sections/counselling.php
- * 
- * main-counselling-wrap 섹션
- * DB 쿼리 의존성 있음 (g5_write_online)
- * 
- * 주의사항:
- * - sql_query(), sql_fetch_array() 사용
- * - $write 변수는 isset 체크 필요
- */
+if (!defined('_GNUBOARD_')) {
+    exit;
+}
+$dj = defined('LANDING_LIVE_URL') ? LANDING_LIVE_URL : 'https://trafficdrinking-law-dongju.com';
 ?>
 <!-- main-counselling-wrap -->
-<section class="section main-counselling-wrap">
+<section id="counselling" class="section main-counselling-wrap">
 	<section class="main-counselling">
 		<div class="inner">
 		<section class="main-conts-tit-wrap">
 			<header>
 				<h2 class="title-h2 svc-main-heading">수임보다는 '<em>상담</em>'이 먼저입니다.</h2>
-				<p class="title-sub"><strong>'동주'</strong>는 충분히 사건을 파악하고 검토한 후 의뢰인에게 이익이 될 때 수임을 제안드립니다.</p>
+				<p class="title-sub"><strong>'동주'</strong>는 충분히 사건을 파악하고 검토한 후 의뢰인에게 이익이 될 때 수임을 제안드립니다. 서울·수원·인천 사무소 모두 같은 기준으로 안내합니다.</p>
 			</header>
 		</section>
 			<section class="main-counselling-box">
@@ -43,7 +37,7 @@
 				</dl>
 			</section>
 			<section class="online-form emphasized-border">
-				<form action="<?php echo G5_URL ?>/_ok.php" method="post">
+				<form action="<?php echo defined('DJ_FORM_ACTION') ? DJ_FORM_ACTION : (G5_URL . '/_ok.php'); ?>" method="post">
 					<input type="hidden" name="wr_1" id="wr_1" value="<?php echo isset($write['wr_1']) ? $write['wr_1'] : '';?>">
 					<input type="hidden" id="secret" name="secret" value="secret">
 					<input type="hidden" id="gclid_field" name="gclid_field" value="gclid_field">
@@ -90,30 +84,66 @@
 			<section  class="main-online-list">
 				<h3 class="title-h3">상담신청 현황</h3>
 				<ul>
-					<?php 
-					$result = sql_query("select wr_subject, wr_name, wr_id, wr_2, wr_3, wr_5, ca_name, wr_datetime from g5_write_online order by wr_id desc limit 6");
-					for ($i=0; $online=sql_fetch_array($result); $i++){
-					?>
-					<?php if($online['wr_name']== "") 
-						$online['wr_name'] = "신속"; 
-						?>
 					<li>
-						<a href="/bbs/board.php?bo_table=online&wr_id=<?php echo $online['wr_id']?>">
+						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
 							<ul>
-								<li class="date"><?php echo date("Y.m.d", strtotime($online['wr_datetime']))?></li>
-								<?php if($online['wr_name'] != "신속") { ?>
-								<li class="subject"><?php echo cut_str($online['wr_name'],1,'**')?></li>
-								<?php } else { ?>
-								<li class="subject"><?php echo $online['wr_name'] ?></li>
-								<?php } ?>
-								<li class="cate"><?php echo $online['wr_5']?></li>
-								<li class="type"><span class="<?php if($online['wr_2'] == "접수완료"){ echo "progress ing"; } else if($online['wr_2'] == "상담중") { echo "progress";} else if($online['wr_2'] == "상담완료"){ echo "progress end";}?>"><?php echo cut_str($online['wr_2'],4) ?></span></li>
+								<li class="date">2026.03.23</li>
+								<li class="subject">신속</li>
+								<li class="cate">음주 형사처벌</li>
+								<li class="type"><span class="progress ing">접수완료</span></li>
 							</ul>
 						</a>
 					</li>
-					<?php }if(!$result){?>
-						<li class="no-data">등록된 게시물이 없습니다.</li>
-					<?php } ?>
+					<li>
+						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+							<ul>
+								<li class="date">2026.03.23</li>
+								<li class="subject">신속</li>
+								<li class="cate">음주 행정심판</li>
+								<li class="type"><span class="progress ing">접수완료</span></li>
+							</ul>
+						</a>
+					</li>
+					<li>
+						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+							<ul>
+								<li class="date">2026.03.23</li>
+								<li class="subject">신속</li>
+								<li class="cate">음주 행정심판</li>
+								<li class="type"><span class="progress ing">접수완료</span></li>
+							</ul>
+						</a>
+					</li>
+					<li>
+						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+							<ul>
+								<li class="date">2026.03.22</li>
+								<li class="subject">신속</li>
+								<li class="cate">음주 행정심판</li>
+								<li class="type"><span class="progress ing">접수완료</span></li>
+							</ul>
+						</a>
+					</li>
+					<li>
+						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+							<ul>
+								<li class="date">2026.03.22</li>
+								<li class="subject">신속</li>
+								<li class="cate">음주 행정심판</li>
+								<li class="type"><span class="progress ing">접수완료</span></li>
+							</ul>
+						</a>
+					</li>
+					<li>
+						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+							<ul>
+								<li class="date">2026.03.20</li>
+								<li class="subject">신속</li>
+								<li class="cate">—</li>
+								<li class="type"><span class="progress ing">접수완료</span></li>
+							</ul>
+						</a>
+					</li>
 				</ul>
 			</section>
 		</div>
