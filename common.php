@@ -169,31 +169,22 @@ if (file_exists($dbconfig_file)) {
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>오류! <?php echo G5_VERSION ?> 설치하기</title>
-<link rel="stylesheet" href="install/install.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>설정 오류</title>
+<style>
+body{font-family:'Malgun Gothic',sans-serif;max-width:42em;margin:3rem auto;padding:0 1rem;line-height:1.6;color:#333}
+h1{font-size:1.2rem;margin-bottom:1rem}
+ul{padding-left:1.25rem}
+code,li strong{font-size:.9rem;word-break:break-all}
+</style>
 </head>
 <body>
-
-<div id="ins_bar">
-    <span id="bar_img">GNUBOARD5</span>
-    <span id="bar_txt">Message</span>
-</div>
-<h1>그누보드5를 먼저 설치해주십시오.</h1>
-<div class="ins_inner">
-    <p>다음 파일을 찾을 수 없습니다.</p>
-    <ul>
-        <li><strong><?php echo G5_DATA_DIR.'/'.G5_DBCONFIG_FILE ?></strong></li>
-    </ul>
-    <p>그누보드 설치 후 다시 실행하시기 바랍니다.</p>
-    <div class="inner_btn">
-        <a href="<?php echo G5_URL; ?>/install/"><?php echo G5_VERSION ?> 설치하기</a>
-    </div>
-</div>
-<div id="ins_ft">
-    <strong>GNUBOARD5</strong>
-    <p>GPL! OPEN SOURCE GNUBOARD</p>
-</div>
-
+<h1>DB 설정 파일이 없습니다.</h1>
+<p>다음 경로에 설정 파일이 있어야 합니다.</p>
+<ul>
+    <li><strong><?php echo G5_DATA_DIR.'/'.G5_DBCONFIG_FILE ?></strong></li>
+</ul>
+<p>배포 환경에 맞게 DB 연결 정보를 구성한 뒤 다시 접속해 주세요.</p>
 </body>
 </html>
 

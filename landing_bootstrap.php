@@ -124,7 +124,7 @@ $_REQUEST = array_map_deep(G5_ESCAPE_FUNCTION, $_REQUEST);
 include_once G5_PATH . '/version.php';
 
 $config = array(
-    'cf_title' => '인천음주운전변호사',
+    'cf_title' => '인천음주운전변호사 | 교통사고·재범·면허구제 | 법무법인 동주',
     'cf_add_script' => '',
     'cf_editor' => '',
     'cf_captcha' => '',

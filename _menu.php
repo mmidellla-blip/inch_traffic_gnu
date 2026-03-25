@@ -25,9 +25,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <header id="header">
 	<section class="hader-inner">
 		<p class="logo">
-			<a href="/">
-				<img src="/images/common/logo.png" alt="법무법인동주 음주운전변호사 음주운전전문변호사" class="logo-off" width="200" height="60">
-				<img src="/images/common/logo_on.png" alt="법무법인동주 음주운전변호사 음주운전전문변호사" class="logo-on" width="200" height="60">
+			<a href="/" class="logo-link">
+				<span class="logo-visual">
+					<img src="/images/common/logo.png" alt="법무법인동주 음주운전변호사 음주운전전문변호사" class="logo-off" width="200" height="60">
+					<img src="/images/common/logo_on.png" alt="법무법인동주 음주운전변호사 음주운전전문변호사" class="logo-on" width="200" height="60">
+				</span>
+				<span class="logo-tagline">인천음주운전변호사</span>
 			</a>
 		</p>
 		<nav class="gnb">
@@ -50,14 +53,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					<a href="<?php echo $dj_e('/bbs/board.php?bo_table=case&me_code=3010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">성공사례</a>
 					<ul class="gnb-2depth">
 						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=case&me_code=3010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">성공사례</a></li>
-						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=review&me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">고객후기</a></li>
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=review&me_code=3020'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">고객후기</a></li>
 					</ul>
 				</li>
 				<li class="gnb-1depth-li" style="z-index:996">
 					<a href="<?php echo $dj_e('/bbs/board.php?bo_table=column&me_code=4010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">동주 매거진</a>
 					<ul class="gnb-2depth">
 						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=column&me_code=4010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">칼럼</a></li>
-						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=media&me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">언론보도</a></li>
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=media&me_code=4020'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">언론보도</a></li>
 					</ul>
 				</li>
 				<li class="gnb-1depth-li" style="z-index:995">
@@ -109,14 +112,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<a href="<?php echo $dj_e('/bbs/board.php?bo_table=case&me_code=3010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">성공사례</a>
 				<ul class="gnb-2depth">
 					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=case&me_code=3010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">성공사례</a></li>
-					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=review&me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">고객후기</a></li>
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=review&me_code=3020'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">고객후기</a></li>
 				</ul>
 			</li>
 			<li class="full-gnb-1depth-li" style="z-index:996">
 				<a href="<?php echo $dj_e('/bbs/board.php?bo_table=column&me_code=4010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">동주 매거진</a>
 				<ul class="gnb-2depth">
 					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=column&me_code=4010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">칼럼</a></li>
-					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=media&me_code=2010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">언론보도</a></li>
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=media&me_code=4020'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">언론보도</a></li>
 				</ul>
 			</li>
 			<li class="full-gnb-1depth-li" style="z-index:995">

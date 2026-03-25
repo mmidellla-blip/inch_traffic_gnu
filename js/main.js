@@ -255,19 +255,20 @@ function initMainSliders() {
 
 // 이벤트 핸들러 초기화 함수
 function initMainEvents() {
-	// 메인 위치 탭 변경
-	$(".main-location-tab li").on("click",function() {
-		var tabnum = $(this).index();
-		$(".main-location-tab li").removeClass("on");
-		$(this).addClass("on");
-		$(".location-map-wrap>div").removeClass("on");
-		$(".main-location .location-address-wrap dl").removeClass("on");
-		$(".lawfirm-interior-wrap>div").removeClass("on");
-		$(".location-map-wrap>div").eq(tabnum).addClass("on");
-		$(".main-location .location-address-wrap dl").eq(tabnum).addClass("on");
-		$(".lawfirm-interior-wrap>div").eq(tabnum).addClass("on");
-		return false;
-	});
+	// 메인 위치 탭 변경 (지도·주소·내부사진 동기화, #location 범위로 한정)
+	var $loc = $("#location.main-location");
+	if ($loc.length) {
+		$loc.find(".main-location-tab li").on("click", function (e) {
+			e.preventDefault();
+			var tabnum = $(this).index();
+			$loc.find(".main-location-tab li").removeClass("on");
+			$(this).addClass("on");
+			$loc.find(".location-map-wrap .map-box").removeClass("on").eq(tabnum).addClass("on");
+			$loc.find(".location-address-wrap dl").removeClass("on").eq(tabnum).addClass("on");
+			$loc.find(".lawfirm-interior-wrap .lawfirm-interior-box").removeClass("on").eq(tabnum).addClass("on");
+			return false;
+		});
+	}
 
 	// 개인정보 수집 동의 팝업
 	$(".online-form .input-wrap li a").click(function(e){

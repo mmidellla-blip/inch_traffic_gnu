@@ -66,7 +66,7 @@ function get_seo_title($page_title = '', $board_name = '', $is_detail = false) {
 	             (isset($_SERVER['REQUEST_URI']) && preg_match('#^/?$|^/index\.php#', $_SERVER['REQUEST_URI'])));
 	
 	if ($is_index) {
-		return '인천 음주운전 변호사 상담 | 교통사고·재범·면허구제 | 법무법인 동주';
+		return '인천음주운전변호사 | 교통사고·재범·면허구제 | 법무법인 동주';
 	}
 	
 	// 게시글 상세 페이지
@@ -103,7 +103,7 @@ function get_seo_title($page_title = '', $board_name = '', $is_detail = false) {
 	}
 	
 	// 기본값 (메인과 동일)
-	return '인천 음주운전 변호사 상담 | 교통사고·재범·면허구제 | 법무법인 동주';
+	return '인천음주운전변호사 | 교통사고·재범·면허구제 | 법무법인 동주';
 }
 }
 
@@ -228,7 +228,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <meta name="description" content="<?php echo htmlspecialchars($desc_out, ENT_QUOTES, 'UTF-8'); ?>">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
-  <title><?php echo htmlspecialchars(trim((string)($metaTitle ?? '')) !== '' ? $metaTitle : '인천 음주운전 변호사 상담 | 교통사고·재범·면허구제 | 법무법인 동주', ENT_QUOTES, 'UTF-8'); ?></title>
+  <title><?php echo htmlspecialchars(trim((string)($metaTitle ?? '')) !== '' ? $metaTitle : '인천음주운전변호사 | 교통사고·재범·면허구제 | 법무법인 동주', ENT_QUOTES, 'UTF-8'); ?></title>
   <?php 
   // index.php 전용 LCP CSS 로드 (최우선) - 동기 로드 필수
   $lcp_css_path = '/assets/css/index-lcp.css';
@@ -303,7 +303,7 @@ if(!empty($_GET['wr_id']) && !empty($_GET['bo_table']) && isset($write) && !empt
   <meta name="description" content="<?php echo htmlspecialchars($desc_out, ENT_QUOTES, 'UTF-8'); ?>">
   <meta name="Copyright" content="법무법인 동주 음주운전센터">
 
-  <title><?php echo htmlspecialchars(trim((string)($metaTitleConf ?? '')) !== '' ? $metaTitleConf : '인천 음주운전 변호사 상담 | 교통사고·재범·면허구제 | 법무법인 동주', ENT_QUOTES, 'UTF-8'); ?></title>
+  <title><?php echo htmlspecialchars(trim((string)($metaTitleConf ?? '')) !== '' ? $metaTitleConf : '인천음주운전변호사 | 교통사고·재범·면허구제 | 법무법인 동주', ENT_QUOTES, 'UTF-8'); ?></title>
   <?php 
   // index.php 전용 LCP CSS 로드 (최우선) - 동기 로드 필수
   $lcp_css_path = '/assets/css/index-lcp.css';
@@ -453,8 +453,6 @@ add_javascript('<script src="'.G5_JS_URL.'/placeholders.min.js" defer></script>'
 
 // 테마 전용 스크립트들 (jQuery에 의존)
 // slick.js, swiper.js, main-case.js는 index.php의 body 끝에서 직접 로드되므로 여기서는 제외
-add_javascript('<script src="/js/jquery.fullPage.min.js" defer></script>', 0);
-
 add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/font-awesome/css/font-awesome.min.css">', 0);
 
 if(G5_IS_MOBILE) {
@@ -539,9 +537,9 @@ if ($is_board_detail && !empty($bo_table) && isset($write) && !empty($write)) {
 	// 게시글 상세: 홈 > 섹션 > [게시판명(섹션과 다를 때만)] > 글제목
 	$bo_sections = array(
 		'case'   => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=case&me_code=3010' ),
-		'review'  => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=review&me_code=2010' ),
+		'review'  => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=review&me_code=3020' ),
 		'column' => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=column&me_code=4010' ),
-		'media'  => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=media&me_code=2010' ),
+		'media'  => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=media&me_code=4020' ),
 		'online' => array( 'label' => '온라인 상담', 'url' => $bbs_path . '/board.php?bo_table=online&me_code=6010' ),
 	);
 	if (isset($bo_sections[$bo_table])) {
@@ -558,9 +556,9 @@ if ($is_board_detail && !empty($bo_table) && isset($write) && !empty($write)) {
 	// 게시판 목록: 홈 > 섹션(필요 시) > 게시판명
 	$bo_sections = array(
 		'case'   => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=case&me_code=3010' ),
-		'review'  => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=review&me_code=2010' ),
+		'review'  => array( 'label' => '성공사례', 'url' => $bbs_path . '/board.php?bo_table=review&me_code=3020' ),
 		'column' => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=column&me_code=4010' ),
-		'media'  => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=media&me_code=2010' ),
+		'media'  => array( 'label' => '동주 매거진', 'url' => $bbs_path . '/board.php?bo_table=media&me_code=4020' ),
 		'online' => array( 'label' => '온라인 상담', 'url' => $bbs_path . '/board.php?bo_table=online&me_code=6010' ),
 	);
 	if (isset($bo_sections[$bo_table]) && $bo_sections[$bo_table]['label'] !== $board_name) {

@@ -2,7 +2,10 @@
 if (!defined('_GNUBOARD_')) {
     exit;
 }
-$dj = defined('LANDING_LIVE_URL') ? LANDING_LIVE_URL : 'https://trafficdrinking-law-dongju.com';
+$dj_base = defined('LANDING_LIVE_URL') ? rtrim(LANDING_LIVE_URL, '/') : 'https://trafficdrinking-law-dongju.com';
+$u = static function ($path) use ($dj_base) {
+	return htmlspecialchars($dj_base . $path, ENT_QUOTES, 'UTF-8');
+};
 ?>
 <!-- main-counselling-wrap -->
 <section id="counselling" class="section main-counselling-wrap">
@@ -85,7 +88,7 @@ $dj = defined('LANDING_LIVE_URL') ? LANDING_LIVE_URL : 'https://trafficdrinking-
 				<h3 class="title-h3">상담신청 현황</h3>
 				<ul>
 					<li>
-						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+						<a href="<?php echo $u('/bbs/board.php?bo_table=online&wr_id=3444'); ?>" target="_blank" rel="noopener noreferrer">
 							<ul>
 								<li class="date">2026.03.23</li>
 								<li class="subject">신속</li>
@@ -95,7 +98,7 @@ $dj = defined('LANDING_LIVE_URL') ? LANDING_LIVE_URL : 'https://trafficdrinking-
 						</a>
 					</li>
 					<li>
-						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+						<a href="<?php echo $u('/bbs/board.php?bo_table=online&wr_id=3443'); ?>" target="_blank" rel="noopener noreferrer">
 							<ul>
 								<li class="date">2026.03.23</li>
 								<li class="subject">신속</li>
@@ -105,7 +108,7 @@ $dj = defined('LANDING_LIVE_URL') ? LANDING_LIVE_URL : 'https://trafficdrinking-
 						</a>
 					</li>
 					<li>
-						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+						<a href="<?php echo $u('/bbs/board.php?bo_table=online&wr_id=3442'); ?>" target="_blank" rel="noopener noreferrer">
 							<ul>
 								<li class="date">2026.03.23</li>
 								<li class="subject">신속</li>
@@ -115,7 +118,7 @@ $dj = defined('LANDING_LIVE_URL') ? LANDING_LIVE_URL : 'https://trafficdrinking-
 						</a>
 					</li>
 					<li>
-						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+						<a href="<?php echo $u('/bbs/board.php?bo_table=online&wr_id=3441'); ?>" target="_blank" rel="noopener noreferrer">
 							<ul>
 								<li class="date">2026.03.22</li>
 								<li class="subject">신속</li>
@@ -125,7 +128,7 @@ $dj = defined('LANDING_LIVE_URL') ? LANDING_LIVE_URL : 'https://trafficdrinking-
 						</a>
 					</li>
 					<li>
-						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+						<a href="<?php echo $u('/bbs/board.php?bo_table=online&wr_id=3440'); ?>" target="_blank" rel="noopener noreferrer">
 							<ul>
 								<li class="date">2026.03.22</li>
 								<li class="subject">신속</li>
@@ -135,11 +138,11 @@ $dj = defined('LANDING_LIVE_URL') ? LANDING_LIVE_URL : 'https://trafficdrinking-
 						</a>
 					</li>
 					<li>
-						<a href="<?php echo htmlspecialchars($dj, ENT_QUOTES, 'UTF-8'); ?>/">
+						<a href="<?php echo $u('/bbs/board.php?bo_table=online&wr_id=3439'); ?>" target="_blank" rel="noopener noreferrer">
 							<ul>
 								<li class="date">2026.03.20</li>
 								<li class="subject">신속</li>
-								<li class="cate">—</li>
+								<li class="cate"></li>
 								<li class="type"><span class="progress ing">접수완료</span></li>
 							</ul>
 						</a>
