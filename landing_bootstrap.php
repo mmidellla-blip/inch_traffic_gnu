@@ -223,40 +223,6 @@ include_once __DIR__ . '/landing_html_process.php';
 define('G5_HTTP_BBS_URL', https_url(G5_BBS_DIR, false));
 define('G5_HTTPS_BBS_URL', https_url(G5_BBS_DIR, true));
 
-define('G5_CAPTCHA_DIR', !empty($config['cf_captcha']) ? $config['cf_captcha'] : 'kcaptcha');
-define('G5_CAPTCHA_URL', G5_PLUGIN_URL . '/' . G5_CAPTCHA_DIR);
-define('G5_CAPTCHA_PATH', G5_PLUGIN_PATH . '/' . G5_CAPTCHA_DIR);
-
-define('G5_EDITOR_LIB', G5_LIB_PATH . '/editor.lib.php');
-
-if (G5_IS_MOBILE) {
-    $board_skin_path = get_skin_path('board', $board['bo_mobile_skin']);
-    $board_skin_url = get_skin_url('board', $board['bo_mobile_skin']);
-    $member_skin_path = get_skin_path('member', $config['cf_mobile_member_skin']);
-    $member_skin_url = get_skin_url('member', $config['cf_mobile_member_skin']);
-    $new_skin_path = get_skin_path('new', $config['cf_mobile_new_skin']);
-    $new_skin_url = get_skin_url('new', $config['cf_mobile_new_skin']);
-    $search_skin_path = get_skin_path('search', $config['cf_mobile_search_skin']);
-    $search_skin_url = get_skin_url('search', $config['cf_mobile_search_skin']);
-    $connect_skin_path = get_skin_path('connect', $config['cf_mobile_connect_skin']);
-    $connect_skin_url = get_skin_url('connect', $config['cf_mobile_connect_skin']);
-    $faq_skin_path = get_skin_path('faq', $config['cf_mobile_faq_skin']);
-    $faq_skin_url = get_skin_url('faq', $config['cf_mobile_faq_skin']);
-} else {
-    $board_skin_path = get_skin_path('board', $board['bo_skin']);
-    $board_skin_url = get_skin_url('board', $board['bo_skin']);
-    $member_skin_path = get_skin_path('member', $config['cf_member_skin']);
-    $member_skin_url = get_skin_url('member', $config['cf_member_skin']);
-    $new_skin_path = get_skin_path('new', $config['cf_new_skin']);
-    $new_skin_url = get_skin_url('new', $config['cf_new_skin']);
-    $search_skin_path = get_skin_path('search', $config['cf_search_skin']);
-    $search_skin_url = get_skin_url('search', $config['cf_search_skin']);
-    $connect_skin_path = get_skin_path('connect', $config['cf_connect_skin']);
-    $connect_skin_url = get_skin_url('connect', $config['cf_connect_skin']);
-    $faq_skin_path = get_skin_path('faq', $config['cf_faq_skin']);
-    $faq_skin_url = get_skin_url('faq', $config['cf_faq_skin']);
-}
-
 if (is_file(G5_EXTEND_PATH . '/version.extend.php')) {
     include_once G5_EXTEND_PATH . '/version.extend.php';
 }

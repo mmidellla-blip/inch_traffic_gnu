@@ -1,5 +1,7 @@
 <?php
 /**
+ * 이 저장소는 index 랜딩 전용(DB 미사용)입니다. 전체 그누보드로 되돌릴 때만 사용하세요.
+ *
  * 로컬 설정용 템플릿 — 이 파일을 복사해 dbconfig.php 로 저장한 뒤 값을 채우세요.
  * cp dbconfig.example.php dbconfig.php
  */
