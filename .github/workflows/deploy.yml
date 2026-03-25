@@ -1,25 +1,29 @@
-# PHP(그누보드) 사이트 — 빌드 단계 없이 저장소 내용을 FTPS로 서버에 동기화합니다.
-# (npm/composer 등 로컬 빌드는 하지 않음; 서버는 PHP만 실행)
+# PHP(그누보드) — 빌드 없이 저장소를 FTPS(포트 21, explicit)로 동기화합니다.
 #
-# GitHub → Settings → Secrets and variables → Actions:
-#   FTP_HOST 또는 FTP_SERVER, FTP_USER, FTP_PASSWORD
+# Secrets: FTP_HOST 또는 FTP_SERVER, FTP_USER, FTP_PASSWORD
+# data/dbconfig.php 는 .gitignore → 서버에만 둠.
 #
-# data/dbconfig.php 는 .gitignore 이므로 Git에는 없고, 서버에만 두는 것이 일반적입니다.
-#
-# FTP 타임아웃·접속 실패 시:
-#   - 호스팅이 GitHub Actions IP 대역의 FTP를 막는 경우가 많음 → SSH/SFTP·셀프호스티드 러너 검토
-#   - Hostinger 는 보통 FTPS(명시적 TLS, 포트 21) — protocol: ftps 유지
+# --- "ECONNRESET" / "TLS connection was established" 오류 ---
+# 1) 첫 배포·대량 업로드에서 잘 남. 우회: hPanel 파일 관리자로 *배포 대상 폴더*
+#    (server-dir, 보통 public_html 또는 FTP 홈)에 빈 파일을 만듦:
+#    파일 이름: .ftp-deploy-sync-state.json   내용 없음(0바이트) OK
+#    → SamKirkland/FTP-Deploy-Action 이슈 #489/#510 등에서 보고된 방법.
+# 2) 그래도 TLS 직후 끊기면: 호스팅이 GitHub Actions IP 대역을 막는 경우가 많음.
+#    → Hostinger Git 연동, SSH(SFTP) 배포, 셀프호스티드 러너, 또는 PC에서 FileZilla 배포 검토.
+# 3) protocol: ftps-legacy 는 implicit FTPS(보통 990)용이라 21 explicit Hostinger 와 섞지 말 것.
 
 name: Deploy PHP (FTP)
 
 on:
   push:
     branches: [main, master]
+  workflow_dispatch:
 
 jobs:
   deploy:
     name: Sync to hosting
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check FTP secrets
         env:
@@ -30,7 +34,7 @@ jobs:
         run: |
           HOST="${FTP_HOST:-$FTP_SERVER}"
           if [ -z "$HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASSWORD" ]; then
-            echo "::error::Secrets에 FTP_HOST(또는 FTP_SERVER), FTP_USER, FTP_PASSWORD 를 모두 등록하세요. Settings → Secrets and variables → Actions"
+            echo "::error::Secrets에 FTP_HOST(또는 FTP_SERVER), FTP_USER, FTP_PASSWORD 를 모두 등록하세요."
             exit 1
           fi
 
@@ -47,8 +51,9 @@ jobs:
           protocol: ftps
           security: loose
           timeout: 120000
+          log-level: standard
+          state-name: .ftp-deploy-sync-state.json
           local-dir: ./
-          # FTP 루트가 이미 public_html 인 계정이 많음 → public_html/ 를 쓰면 중첩될 수 있음
           server-dir: ./
           exclude: |
             **/.git/**
