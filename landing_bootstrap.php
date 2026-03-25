@@ -13,7 +13,9 @@ if (!defined('DJ_FORM_ACTION')) {
     define('DJ_FORM_ACTION', rtrim(LANDING_LIVE_URL, '/') . '/_ok.php');
 }
 
-define('_GNUBOARD_', true);
+if (!defined('_GNUBOARD_')) {
+    define('_GNUBOARD_', true);
+}
 
 error_reporting(E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING);
 header('P3P: CP="ALL CURa ADMa DEVa TAIa OUR BUS IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC OTC"');
