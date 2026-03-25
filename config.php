@@ -9,7 +9,7 @@ if (!defined('_GNUBOARD_')) {
     define('_GNUBOARD_', true);
 }
 
-include_once($g5_path['path'].'/version.php');   // 설정 파일
+require_once $g5_path['path'].'/version.php';   // 설정 파일
 
 // 기본 시간대 설정
 date_default_timezone_set("Asia/Seoul");

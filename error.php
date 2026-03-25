@@ -7,7 +7,9 @@
  *
  * 최소 부트스트랩만 사용 (DB·세션 불필요)
  */
-define('_GNUBOARD_', true);
+if (!defined('_GNUBOARD_')) {
+    define('_GNUBOARD_', true);
+}
 $code = isset($_GET['code']) ? (int) $_GET['code'] : 404;
 if (!in_array($code, array(404, 403, 503), true)) {
     $code = 404;

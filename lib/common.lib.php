@@ -2629,7 +2629,7 @@ class html_process {
         $nl = '';
         if($javascript)
             $nl = "\n";
-        $buffer = preg_replace('#(</head>[^<]*<body[^>]*>)#', "$javascript{$nl}$1", $buffer);
+        $buffer = preg_replace('#(</head>[^<]*<body[^>]*>)#', $javascript . $nl . '$1', $buffer);
         
         $meta_tag = run_replace('html_process_add_meta', '');
         
@@ -2639,7 +2639,7 @@ class html_process {
             전에 메타태그가 위치 하도록 하게 한다.
             */
             $nl = "\n";
-            $buffer = preg_replace('#(<title[^>]*>.*?</title>)#', "$meta_tag{$nl}$1", $buffer);
+            $buffer = preg_replace('#(<title[^>]*>.*?</title>)#', $meta_tag . $nl . '$1', $buffer);
         }
 
         return $buffer;

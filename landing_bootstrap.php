@@ -77,7 +77,7 @@ if (!function_exists('g5_path')) {
 }
 
 $g5_path = g5_path();
-include_once $g5_path['path'] . '/config.php';
+require_once $g5_path['path'] . '/config.php';
 unset($g5_path);
 
 if (!isset($_SERVER['SERVER_ADDR'])) {
@@ -132,7 +132,7 @@ $_REQUEST = array_map_deep(G5_ESCAPE_FUNCTION, $_REQUEST);
 @extract($_POST, EXTR_SKIP);
 @extract($_SERVER, EXTR_SKIP);
 
-include_once G5_PATH . '/version.php';
+// version.php 는 config.php 에서 이미 require_once 됨
 
 $config = array(
     'cf_title' => '인천음주운전변호사 | 교통사고·재범·면허구제 | 법무법인 동주',
