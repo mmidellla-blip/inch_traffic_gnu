@@ -1,0 +1,115 @@
+#### 캐시 헤더 설정 BEGIN #####
+<IfModule mod_expires.c>
+ExpiresActive On
+
+# 이미지 파일 - 1년
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/jpg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+
+# CSS 파일 - 1년
+ExpiresByType text/css "access plus 1 year"
+
+# JavaScript 파일 - 1년
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType text/javascript "access plus 1 year"
+ExpiresByType application/x-javascript "access plus 1 year"
+
+# 폰트 파일 - 1년
+ExpiresByType font/woff "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType application/font-woff "access plus 1 year"
+ExpiresByType application/font-woff2 "access plus 1 year"
+ExpiresByType font/ttf "access plus 1 year"
+ExpiresByType application/x-font-ttf "access plus 1 year"
+ExpiresByType font/otf "access plus 1 year"
+ExpiresByType application/x-font-opentype "access plus 1 year"
+ExpiresByType font/eot "access plus 1 year"
+ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+
+# 기타 정적 파일
+ExpiresByType application/pdf "access plus 1 month"
+ExpiresByType application/x-shockwave-flash "access plus 1 month"
+ExpiresByType text/html "access plus 0 seconds"
+ExpiresByType application/json "access plus 0 seconds"
+ExpiresByType application/xml "access plus 0 seconds"
+ExpiresByType text/xml "access plus 0 seconds"
+</IfModule>
+
+# Cache-Control 헤더 설정 (mod_expires가 없을 경우 대비)
+<IfModule mod_headers.c>
+# 이미지 파일
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# CSS 파일
+<FilesMatch "\.(css)$">
+Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# JavaScript 파일
+<FilesMatch "\.(js)$">
+Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# 폰트 파일
+<FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
+Header set Cache-Control "max-age=31536000, public"
+Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# HTML 파일은 캐시하지 않음
+<FilesMatch "\.(html|htm|php)$">
+Header set Cache-Control "no-cache, no-store, must-revalidate"
+Header set Pragma "no-cache"
+Header set Expires "0"
+</FilesMatch>
+</IfModule>
+#### 캐시 헤더 설정 END #####
+
+#### HTTP 오류 문서 (SEO: 404/403/503 시 200 미반환) ####
+ErrorDocument 404 /error.php?code=404
+ErrorDocument 403 /error.php?code=403
+ErrorDocument 503 /error.php?code=503
+
+# 호스팅 기본 문서 (index 미지정 시 빈 디렉터리·403 방지)
+DirectoryIndex index.php index.html
+
+#### 그누보드5 rewrite BEGIN #####
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# HTTP → HTTPS (리버스 프록시: X-Forwarded-Proto 가 https 면 이미 SSL 처리된 요청 — 무한 리다이렉트·500 방지)
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^localhost(:\d+)?$ [NC]
+RewriteCond %{HTTP_HOST} !^127\.0\.0\.1(:\d+)?$ [NC]
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.trafficdrinking-law-dongju\.com$ [NC]
+RewriteRule ^(.*)$ https://trafficdrinking-law-dongju.com/$1 [R=301,L]
+
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^shop/list-([0-9a-z]+)$  shop/list.php?ca_id=$1&rewrite=1  [QSA,L]
+RewriteRule ^shop/type-([0-9a-z]+)$  shop/listtype.php?type=$1&rewrite=1  [QSA,L]
+RewriteRule ^shop/([0-9a-zA-Z_\-]+)$  shop/item.php?it_id=$1&rewrite=1  [QSA,L]
+RewriteRule ^shop/([^/]+)/$  shop/item.php?it_seo_title=$1&rewrite=1  [QSA,L]
+# 아래 bbs 단축 URL은 배포본에 bbs/board.php·content.php 등이 없어 요청 시 500/404 유발 → 비활성화
+#RewriteRule ^content/([0-9a-zA-Z_]+)$  bbs/content.php?co_id=$1&rewrite=1  [QSA,L]
+#RewriteRule ^content/([^/]+)/$  bbs/content.php?co_seo_title=$1&rewrite=1      [QSA,L]
+#RewriteRule ^rss/([0-9a-zA-Z_]+)$  bbs/rss.php?bo_table=$1        [QSA,L]
+#RewriteRule ^([0-9a-zA-Z_]+)$  bbs/board.php?bo_table=$1&rewrite=1      [QSA,L]
+#RewriteRule ^([0-9a-zA-Z_]+)/([^/]+)/$ bbs/board.php?bo_table=$1&wr_seo_title=$2&rewrite=1      [QSA,L]
+#RewriteRule ^([0-9a-zA-Z_]+)/write$  bbs/write.php?bo_table=$1&rewrite=1    [QSA,L]
+#RewriteRule ^([0-9a-zA-Z_]+)/([0-9]+)$  bbs/board.php?bo_table=$1&wr_id=$2&rewrite=1  [QSA,L]
+</IfModule>
+#### 그누보드5 rewrite END #####
