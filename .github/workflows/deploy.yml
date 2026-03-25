@@ -1,3 +1,8 @@
+# GitHub → Settings → Secrets and variables → Actions 에 다음 저장:
+#   FTP_HOST = 153.92.10.202  (또는 이름만 FTP_SERVER 로 등록해도 됨)
+#   FTP_USER = (호스팅 FTP 사용자명)
+#   FTP_PASSWORD = (FTP 비밀번호)
+
 name: Deploy (FTP)
 
 on:
@@ -7,14 +12,30 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      # Node 20 액션 경고 완화: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
+      - name: Check FTP secrets
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          HOST="${FTP_HOST:-$FTP_SERVER}"
+          if [ -z "$HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASSWORD" ]; then
+            echo "::error::저장소 Secrets에 FTP_HOST(또는 FTP_SERVER), FTP_USER, FTP_PASSWORD 를 모두 등록하세요. Settings → Secrets and variables → Actions"
+            exit 1
+          fi
+
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ${{ secrets.FTP_HOST }}
+          server: ${{ secrets.FTP_HOST || secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
