@@ -83,7 +83,8 @@ ErrorDocument 503 /error.php?code=503
 RewriteEngine On
 RewriteBase /
 
-# HTTP → HTTPS, 비표준 호스트 → 정규 호스트 (301, 실서버에서만 — localhost 제외)
+# HTTP → HTTPS (리버스 프록시: X-Forwarded-Proto 가 https 면 이미 SSL 처리된 요청 — 무한 리다이렉트·500 방지)
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP_HOST} !^localhost(:\d+)?$ [NC]
 RewriteCond %{HTTP_HOST} !^127\.0\.0\.1(:\d+)?$ [NC]

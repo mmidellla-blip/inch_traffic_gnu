@@ -3,6 +3,8 @@ git_key
 
 .vscode/
 data/cache/
+data/editor/
+data/carousel/
 data/session/
 data/log/
 data/dbconfig.php
