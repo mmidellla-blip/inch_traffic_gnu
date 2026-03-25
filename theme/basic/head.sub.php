@@ -47,8 +47,12 @@ if (G5_IS_MOBILE) {
     echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">'.PHP_EOL;
 }
 
-$scheme = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http';
-$host = 'trafficdrinking-law-dongju.com';
+$scheme = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+    || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string)$_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
+    ? 'https' : 'http';
+// 임시 도메인(hostingersite.com)에서도 동작·캐노니컬 일치를 위해 실제 호스트 사용 (운영 도메인 전용 규칙은 아래 www 리다이렉트 등에서 처리)
+$host = isset($_SERVER['HTTP_HOST']) ? preg_replace('/:[0-9]+$/', '', $_SERVER['HTTP_HOST']) : 'trafficdrinking-law-dongju.com';
+$host = preg_replace("/[\<\>\'\"\\\'\\\"\%\=\(\)\/\^\*]/", '', $host);
 $uri  = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
 // 메인 페이지는 베이스 URL 하나로 통일 (캐노니컬 정규화)
 $is_index_for_canonical = (str_replace('\\', '/', $_SERVER['PHP_SELF'] ?? '') === '/index.php' || $uri === '' || $uri === '/' || preg_match('#^/?index\.php(\?|$)#', $uri));

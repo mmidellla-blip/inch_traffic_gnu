@@ -43,8 +43,15 @@ for ($i = 0; $i < $ext_cnt; $i++) {
 if (!function_exists('g5_path')) {
     function g5_path()
     {
-        $chroot = substr($_SERVER['SCRIPT_FILENAME'], 0, strpos($_SERVER['SCRIPT_FILENAME'], dirname(__FILE__)));
-        $result['path'] = str_replace('\\', '/', $chroot . dirname(__FILE__));
+        // Hostinger 등: SCRIPT_FILENAME에 dirname(__FILE__) 문자열이 없으면 strpos=false → PHP 8에서 substr TypeError → HTTP 500
+        $base_norm = str_replace('\\', '/', dirname(__FILE__));
+        $sf_norm = str_replace('\\', '/', $_SERVER['SCRIPT_FILENAME']);
+        $pos = strpos($sf_norm, $base_norm);
+        if ($pos === false) {
+            $result['path'] = $base_norm;
+        } else {
+            $result['path'] = substr($sf_norm, 0, $pos) . $base_norm;
+        }
         $server_script_name = preg_replace('/\/+/', '/', str_replace('\\', '/', $_SERVER['SCRIPT_NAME']));
         $server_script_filename = preg_replace('/\/+/', '/', str_replace('\\', '/', $_SERVER['SCRIPT_FILENAME']));
         $tilde_remove = preg_replace('/^\/\~[^\/]+(.*)$/', '$1', $server_script_name);
@@ -52,7 +59,9 @@ if (!function_exists('g5_path')) {
         $pattern = '/.*?' . preg_quote($document_root, '/') . '/i';
         $root = preg_replace($pattern, '', $result['path']);
         $port = ($_SERVER['SERVER_PORT'] == 80 || $_SERVER['SERVER_PORT'] == 443) ? '' : ':' . $_SERVER['SERVER_PORT'];
-        $http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
+        $https_on = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+            || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string)$_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https');
+        $http = 'http' . ($https_on ? 's' : '') . '://';
         $user = str_replace(preg_replace($pattern, '', $server_script_filename), '', $server_script_name);
         $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'];
         if (isset($_SERVER['HTTP_HOST']) && preg_match('/:[0-9]+$/', $host)) {
