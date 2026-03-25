@@ -1,3 +1,6 @@
+# 로컬 FTP 비밀번호 등 — 커밋 금지 (GitHub Secrets 사용)
+git_key
+
 .vscode/
 data/cache/
 data/session/
