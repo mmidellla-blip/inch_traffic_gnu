@@ -47,7 +47,9 @@ jobs:
           security: loose
           timeout: 120000
           local-dir: ./
-          server-dir: public_html/
+          # Hostinger: FTP 접속 시 이미 public_html 이 루트인 계정이 많음 → public_html/ 를 쓰면 public_html/public_html 중첩됨
+          # 접속 후 상위(홈)에 있다면 아래를 public_html/ 로 바꿀 것
+          server-dir: ./
           exclude: |
             **/.git/**
             **/.github/**
