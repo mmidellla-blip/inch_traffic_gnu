@@ -2,6 +2,10 @@
 #   FTP_HOST = 153.92.10.202  (또는 이름만 FTP_SERVER 로 등록해도 됨)
 #   FTP_USER = (호스팅 FTP 사용자명)
 #   FTP_PASSWORD = (FTP 비밀번호)
+#
+# 여전히 "Timeout (control socket)" 이면:
+#   - 호스팅이 GitHub Actions IP 대역의 FTP 접속을 막는 경우가 많음 → hPanel SSH/SFTP·Git 배포·셀프호스티드 러너 검토
+#   - Hostinger는 FTPS(명시적 TLS, 포트 21)가 일반적 — 아래 protocol: ftps 유지
 
 name: Deploy (FTP)
 
@@ -39,7 +43,9 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          protocol: ftp
+          protocol: ftps
+          security: loose
+          timeout: 120000
           local-dir: ./
           server-dir: public_html/
           exclude: |
