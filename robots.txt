@@ -1,9 +1,0 @@
-Disallow: /adm/
-Disallow: /install/
-Disallow: /dbeditor/
-Disallow: /bbs/write.php
-Disallow: /bbs/password.php
-Disallow: /bbs/login.php
-Disallow: /plugin/social/
-
-Sitemap: https://trafficdrinking-law-dongju.com/sitemap.xml
