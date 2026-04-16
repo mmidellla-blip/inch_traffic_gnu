@@ -125,19 +125,23 @@ if (isset($board) && !empty($board) && isset($board['bo_subject']) && !empty($bo
 }
 
 // og:image 절대 URL (게시글 상세는 대표 이미지 우선)
-// SNS/검증기는 HTTPS 이미지 URL 필요 — 항상 https로 출력
+// SNS 크롤러는 브라우저와 동일한 웹 루트가 필요함. Hostinger 등 하위 폴더 설치 시 G5_URL에 경로가 포함됨.
 $base_url_og = ($host === 'trafficdrinking-law-dongju.com') ? 'https://' . $host : ($scheme . '://' . $host);
+$og_url_base = (defined('G5_URL') && G5_URL !== '') ? rtrim((string) G5_URL, '/') : rtrim($base_url_og, '/');
+if ($host === 'trafficdrinking-law-dongju.com' && strncasecmp($og_url_base, 'http://', 7) === 0) {
+	$og_url_base = 'https://' . substr($og_url_base, 7);
+}
 $og_image_path = ''; // 서버 경로 (width/height용)
-$og_image_url = $base_url_og . '/images/common/ogimg-brand.png';
+$og_image_url = $og_url_base . '/images/common/ogimg-brand.png';
 if ($is_board_detail && !empty($bo_table) && !empty($wr_id) && function_exists('get_board_file_db')) {
 	$og_file = get_board_file_db($bo_table, $wr_id, 'bf_file', " and bf_type between '1' and '3' ", true);
 	if (!empty($og_file['bf_file'])) {
-		$og_image_url = $base_url_og . '/' . G5_DATA_DIR . '/file/' . $bo_table . '/' . $og_file['bf_file'];
+		$og_image_url = $og_url_base . '/' . G5_DATA_DIR . '/file/' . $bo_table . '/' . $og_file['bf_file'];
 	}
 }
 if (strpos($og_image_url, '/images/common/') !== false) {
 	$og_default_file = (file_exists(G5_PATH . '/images/common/ogimg-brand.png')) ? 'ogimg-brand.png' : (file_exists(G5_PATH . '/images/common/logo_on.png') ? 'logo_on.png' : 'ogimg-brand.png');
-	$og_image_url = $base_url_og . '/images/common/' . $og_default_file;
+	$og_image_url = $og_url_base . '/images/common/' . $og_default_file;
 	$og_image_path = G5_PATH . '/images/common/' . $og_default_file;
 }
 $og_image_width = '';
@@ -477,8 +481,8 @@ $sd_organization = array(
 	'@id'   => $base_url . '/#organization',
 	'name'  => '법무법인 동주',
 	'url'   => $base_url,
-	'logo'  => array( '@type' => 'ImageObject', 'url' => $base_url . '/images/common/ogimg-brand.png' ),
-	'image' => $base_url . '/images/common/ogimg-brand.png',
+	'logo'  => array( '@type' => 'ImageObject', 'url' => $og_url_base . '/images/common/ogimg-brand.png' ),
+	'image' => $og_url_base . '/images/common/ogimg-brand.png',
 	'telephone' => '+82-1522-3394',
 	'faxNumber'  => '+82-2-523-7260',
 	'address' => array(
@@ -619,7 +623,7 @@ if ($is_board_detail && !empty($bo_table) && isset($write) && !empty($write)) {
 			'url'       => $canonical,
 			'author'    => array( '@type' => 'Person', 'name' => $author_name ),
 			'publisher' => array( '@id' => $base_url . '/#organization' ),
-			'image'     => isset($og_image_url) ? $og_image_url : ( $base_url . '/images/common/ogimg-brand.png' )
+			'image'     => isset($og_image_url) ? $og_image_url : ( $og_url_base . '/images/common/ogimg-brand.png' )
 		);
 		if ($date_published !== '') {
 			$sd_article['datePublished'] = $date_published;
@@ -671,6 +675,7 @@ if ($is_index_page) { ?>
 <?php } ?>
 </head>
 <body<?php echo isset($g5['body_class']) && $g5['body_class'] !== '' ? ' class="' . htmlspecialchars($g5['body_class'], ENT_QUOTES, 'UTF-8') . '"' : ''; ?><?php echo isset($g5['body_script']) ? $g5['body_script'] : ''; ?>>
+
 <?php
 if ($is_member) { // 회원이라면 로그인 중이라는 메세지를 출력해준다.
     $sr_admin_msg = '';

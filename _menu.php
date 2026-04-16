@@ -20,7 +20,7 @@ $dj_e = static function ($path) use ($dj_site) {
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5JZW7QT');</script>
+})(window,document,'script','dataLayer','GTM-NP48KVBH');</script>
 <!-- End Google Tag Manager -->
 <header id="header">
 	<section class="hader-inner">
@@ -149,7 +149,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	</div>
 </header>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JZW7QT"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP48KVBH"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <?php

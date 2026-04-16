@@ -1,0 +1,14 @@
+# 법무법인 동주 음주운전센터 (키워드·랜딩 포함 공개 크롤 허용)
+# 표준 파일명은 robots.txt 입니다 (robots.xml 아님).
+
+User-agent: *
+Allow: /
+
+# 관리·설정·데이터 (그누보드 공통)
+Disallow: /adm/
+Disallow: /data/
+Disallow: /extend/
+Disallow: /plugin/
+Disallow: /install/
+
+Sitemap: https://rthomasconsulting.com/sitemap.xml
