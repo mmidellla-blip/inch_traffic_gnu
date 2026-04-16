@@ -71,15 +71,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					</ul>
 				</li>
 				<li class="gnb-1depth-li" style="z-index:994">
-					<a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">온라인 상담</a>
+					<a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010&from=rthomas'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">온라인 상담</a>
 					<ul class="gnb-2depth">
-						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">온라인 상담</a></li>
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010&from=rthomas'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">온라인 상담</a></li>
 					</ul>
 				</li>
 				<li class="gnb-1depth-li" style="z-index:993">
-					<a href="<?php echo $dj_e('/page/self_test.php?me_code=7010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">음주진단</a>
+					<a href="<?php echo $dj_e('/page/self_test.php?me_code=7010&from=rthomas'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">음주진단</a>
 					<ul class="gnb-2depth">
-						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/self_test.php?me_code=7010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주진단</a></li>
+						<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/self_test.php?me_code=7010&from=rthomas'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주진단</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -130,15 +130,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				</ul>
 			</li>
 			<li class="full-gnb-1depth-li" style="z-index:994">
-				<a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">온라인 상담</a>
+				<a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010&from=rthomas'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">온라인 상담</a>
 				<ul class="gnb-2depth">
-					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">온라인 상담</a></li>
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/bbs/board.php?bo_table=online&me_code=6010&from=rthomas'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">온라인 상담</a></li>
 				</ul>
 			</li>
 			<li class="full-gnb-1depth-li" style="z-index:993">
-				<a href="<?php echo $dj_e('/page/self_test.php?me_code=7010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">음주진단</a>
+				<a href="<?php echo $dj_e('/page/self_test.php?me_code=7010&from=rthomas'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-1depth-a">음주진단</a>
 				<ul class="gnb-2depth">
-					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/self_test.php?me_code=7010'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주진단</a></li>
+					<li class="gnb-2depth-li"><a href="<?php echo $dj_e('/page/self_test.php?me_code=7010&from=rthomas'); ?>" target="_blank" rel="noopener noreferrer" class="gnb-2depth-a">음주진단</a></li>
 				</ul>
 			</li>
 		</ul>
