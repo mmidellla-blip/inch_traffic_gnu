@@ -253,6 +253,142 @@ function initMainSliders() {
 	}
 }
 
+function seoulItTowerCoords() {
+	if (!window.daum || !daum.maps || !daum.maps.LatLng) return null;
+	return new daum.maps.LatLng(37.5035467, 127.04703394).toCoords();
+}
+
+function centerSeoulOfficeMap() {
+	var inst = window.daum && daum.roughmap && daum.roughmap.instances && daum.roughmap.instances["1656517417699"];
+	var coords = seoulItTowerCoords();
+	if (!inst || !inst.jsMap || !coords) return false;
+	inst.jsMap.setLevel(3);
+	inst.jsMap.setCenter(coords);
+	try {
+		if (!inst._itTowerMarker || (inst._itTowerMarker.getMap && inst._itTowerMarker.getMap() !== inst.jsMap)) {
+			inst._itTowerMarker = new daum.maps.Marker({ position: coords });
+			inst._itTowerMarker.setMap(inst.jsMap);
+		} else {
+			inst._itTowerMarker.setPosition(coords);
+		}
+		if (inst._officeLabel && inst._officeLabel.setMap) {
+			inst._officeLabel.setMap(null);
+			inst._officeLabel = null;
+		}
+	} catch (err) {
+		window.__seoulMarkerError = String(err);
+	}
+	return true;
+}
+
+window.centerSeoulOfficeMap = centerSeoulOfficeMap;
+
+function seoulMapIsFocused() {
+	var inst = window.daum && daum.roughmap && daum.roughmap.instances && daum.roughmap.instances["1656517417699"];
+	if (!inst || !inst.jsMap || !inst.jsMap.getCenter) return false;
+	var center = inst.jsMap.getCenter();
+	return Math.abs(center.getX() - 510397) < 30 && Math.abs(center.getY() - 1112247) < 30;
+}
+
+function watchSeoulOfficeMap(attempt) {
+	attempt = attempt || 0;
+	centerSeoulOfficeMap();
+	if (seoulMapIsFocused() && attempt > 8) return;
+	if (attempt > 40) return;
+	setTimeout(function () { watchSeoulOfficeMap(attempt + 1); }, 200);
+}
+
+function renderOfficeRoughmap(el) {
+	if (!el || el.getAttribute("data-roughmap-ready") === "1") return;
+	if (!window.daum || !daum.roughmap || !daum.roughmap.Lander) return;
+	var box = el.closest(".map-box");
+	var width = el.getAttribute("data-map-width") || ((box && box.clientWidth) ? box.clientWidth : 1200);
+	var height = el.getAttribute("data-map-height") || ((box && box.clientHeight) ? box.clientHeight : 580);
+	new daum.roughmap.Lander({
+		timestamp: el.getAttribute("data-timestamp"),
+		key: el.getAttribute("data-key"),
+		mapWidth: String(width),
+		mapHeight: String(height)
+	}).render();
+	el.setAttribute("data-roughmap-ready", "1");
+	if (el.getAttribute("data-timestamp") === "1656517417699") {
+		watchSeoulOfficeMap();
+	}
+}
+
+function relayoutOfficeRoughmap(box) {
+	if (!box || !window.daum || !daum.roughmap || !daum.roughmap.instances) return;
+	var root = box.querySelector(".root_daum_roughmap");
+	if (!root) return;
+	var ts = root.getAttribute("data-timestamp") || "";
+	var inst = daum.roughmap.instances[ts];
+	if (inst && inst.jsMap && typeof inst.jsMap.relayout === "function") {
+		inst.jsMap.relayout();
+		if (ts === "1656517417699") {
+			centerSeoulOfficeMap();
+			return;
+		}
+		if (typeof inst.getMapCenter === "function" && typeof inst.jsMap.setCenter === "function") {
+			inst.jsMap.setCenter(inst.getMapCenter());
+		}
+	}
+}
+
+function initMobileRoughmap($loc) {
+	var nodes = $loc.find(".map-loader-mobile");
+	if (!nodes.length) return;
+
+	function renderVisible() {
+		var el = $loc.find(".map-box.on .map-loader-mobile").get(0);
+		if (!el) return;
+		if (!window.daum || !daum.roughmap || !daum.roughmap.Lander) {
+			setTimeout(renderVisible, 80);
+			return;
+		}
+		renderOfficeRoughmap(el);
+	}
+
+	function boot() {
+		if (window.daum && daum.roughmap && daum.roughmap.Lander) {
+			renderVisible();
+			return;
+		}
+		var loader = document.querySelector("script.daum_roughmap_loader_script");
+		if (loader) {
+			setTimeout(renderVisible, 80);
+			return;
+		}
+		var originalWrite = document.write;
+		document.write = function (html) {
+			document.write = originalWrite;
+			var matched = String(html).match(/src="([^"]+)"/);
+			if (!matched) return;
+			var lander = document.createElement("script");
+			lander.charset = "UTF-8";
+			lander.src = matched[1];
+			lander.onload = renderVisible;
+			document.head.appendChild(lander);
+		};
+		var script = document.createElement("script");
+		script.charset = "UTF-8";
+		script.className = "daum_roughmap_loader_script";
+		script.src = "https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js";
+		document.head.appendChild(script);
+	}
+
+	var section = document.getElementById("location");
+	if (!section || !("IntersectionObserver" in window)) {
+		boot();
+		return;
+	}
+	var observer = new IntersectionObserver(function (entries) {
+		if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+		observer.disconnect();
+		boot();
+	}, { rootMargin: "200px" });
+	observer.observe(section);
+}
+
 // 이벤트 핸들러 초기화 함수
 function initMainEvents() {
 	// 메인 위치 탭 변경 (지도·주소·내부사진 동기화, #location 범위로 한정)
@@ -263,11 +399,27 @@ function initMainEvents() {
 			var tabnum = $(this).index();
 			$loc.find(".main-location-tab li").removeClass("on");
 			$(this).addClass("on");
-			$loc.find(".location-map-wrap .map-box").removeClass("on").eq(tabnum).addClass("on");
 			$loc.find(".location-address-wrap dl").removeClass("on").eq(tabnum).addClass("on");
 			$loc.find(".lawfirm-interior-wrap .lawfirm-interior-box").removeClass("on").eq(tabnum).addClass("on");
+			$loc.find(".location-map-wrap .map-box").removeClass("on").eq(tabnum).addClass("on");
+			var box = $loc.find(".location-map-wrap .map-box").eq(tabnum).get(0);
+			var loader = box ? box.querySelector(".map-loader-mobile") : null;
+			if (loader && loader.getAttribute("data-roughmap-ready") !== "1" && window.daum && daum.roughmap && daum.roughmap.Lander) {
+				renderOfficeRoughmap(loader);
+			} else if (box) {
+				relayoutOfficeRoughmap(box);
+			}
+			if (tabnum === 0) {
+				var seoulTries = 0;
+				var seoulTimer = setInterval(function () {
+					centerSeoulOfficeMap();
+					seoulTries += 1;
+					if (seoulTries > 20) clearInterval(seoulTimer);
+				}, 200);
+			}
 			return false;
 		});
+		initMobileRoughmap($loc);
 	}
 
 	// 개인정보 수집 동의 팝업

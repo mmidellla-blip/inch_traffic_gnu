@@ -487,9 +487,10 @@ $sd_organization = array(
 	'faxNumber'  => '+82-2-523-7260',
 	'address' => array(
 		'@type' => 'PostalAddress',
-		'streetAddress' => '서초중앙로 123 (서초동), 13층 (서초동, 엘렌타워)',
-		'addressLocality' => '서초동',
-		'addressRegion' => '서울',
+		'streetAddress' => '테헤란로 326 아이타워 16층',
+		'addressLocality' => '강남구',
+		'addressRegion' => '서울특별시',
+		'postalCode' => '06211',
 		'addressCountry' => 'KR'
 	),
 	'sameAs' => array(

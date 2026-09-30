@@ -1945,13 +1945,17 @@
 	width:45vw; 
 	min-height: 580px;
 	height: 580px;
-	/* 탭별로 하나만 보이게 (겹침 시 마지막 박스만 보이던 문제 방지) */
-	display: none;
+	/* 탭별로 하나만 보이게. display:none이면 roughmap이 크기 0으로 그려진다 */
+	display: block;
+	visibility: hidden;
+	pointer-events: none;
 	z-index: 1;
 }
 
 .page-index .main-location .location-map-wrap .map-box.on {
 	display: block;
+	visibility: visible;
+	pointer-events: auto;
 	height:580px;
 	z-index: 2;
 }
@@ -1964,40 +1968,69 @@
 	object-fit: cover;
 }
 
-.page-index .main-location .location-map-wrap .map-box > div {
+.page-index .main-location .location-map-wrap .map-box > iframe {
+	display:block;
+	width:100%;
+	height:100%;
+	border:0;
+}
+
+.page-index .main-location .location-map-wrap .map-box > .map-source {
 	display: flex; flex-flow: row nowrap; align-items: center;
 	position:absolute; bottom:6px; right:12px;
 	z-index:22 !important;
 	font-family: 'Pretendard'; font-weight: 500; color: #000; font-size: 14px;
 }
 
-.page-index .main-location .location-map-wrap .map-box > div img {
+.page-index .main-location .location-map-wrap .map-box > .map-source img {
 	display:inline-block;
 	width:auto; height:14px;
 	margin-left:10px;
 }
 
 .page-index .main-location .location-map-wrap .map-box .root_daum_roughmap {
-	width:100% !important;
+	width:1200px !important;
+	height:100% !important;
+	position:relative;
+	left:50%;
+	transform:translateX(-50%);
+}
+
+.page-index .main-location .location-map-wrap .map-box .roughmap_maker_label,
+.page-index .main-location .location-map-wrap .map-box .roughmap_lebel_text {
+	display: none !important;
+}
+.page-index .main-location .location-map-wrap .map-box .root_daum_roughmap .wrap_map {
+	width:1200px !important;
+	height:100% !important;
 }
 
 .page-index .main-location .location-map-wrap .map-box .map-view {
 	position:absolute; top:0; left:0;
 	z-index:22 !important;
-	padding-top:23px;
+	display:flex; flex-direction:column; align-items:center; justify-content:center;
+	gap:12px;
+	padding:0 6px;
 	width:108px; height:108px;
 	background:#00296B;
 	text-align:center;
+	overflow:hidden;
 }
 
+/* 아이콘 원본 24x31: 높이만 지정하고 너비는 비율대로 */
 .page-index .main-location .location-map-wrap .map-box .map-view img {
-	display:inline-block;
-	margin-bottom:15px;
+	display:block;
+	flex:0 0 auto;
+	width:auto; height:31px;
+	max-width:none;
+	margin:0;
 }
 
 .page-index .main-location .location-map-wrap .map-box .map-view span {
 	display:block;
-	font-size:16px; line-height:1;
+	font-size:15px; line-height:1.2;
+	letter-spacing:-0.03em;
+	white-space:nowrap;
 	color:#fff;
 }
 
@@ -2090,14 +2123,19 @@
 		min-height:0;
 		height:auto;
 		display:none;
+		visibility:hidden;
+		pointer-events:none;
 	}
 	.page-index .main-location .location-map-wrap .map-box.on {
 		width:100%;
 		min-height:0;
 		height:280px;
 		display:block;
+		visibility:visible;
+		pointer-events:auto;
 	}
-	.page-index .main-location .location-map-wrap .map-box.on > img {
+	.page-index .main-location .location-map-wrap .map-box.on > img,
+	.page-index .main-location .location-map-wrap .map-box.on > iframe {
 		width:100%;
 		height:100%;
 		object-fit:cover;
@@ -2173,23 +2211,23 @@
 		min-height:0;
 	}
 	.page-index .main-location .location-map-wrap .root_daum_roughmap .wrap_map {
-		height:380px !important;
+		height:100% !important;
 	}
-	.page-index .main-location .location-map-wrap .map-box > div {
+	.page-index .main-location .location-map-wrap .map-box > .map-source {
 		position:absolute; bottom:5px; right:10px;
 		font-size: 10px;
 	}
-	.page-index .main-location .location-map-wrap .map-box > div img {
+	.page-index .main-location .location-map-wrap .map-box > .map-source img {
 		width:auto; height:10px;
 		margin-left:5px;
 	}
 	.page-index .main-location .location-map-wrap .map-box .map-view {
-		padding-top: 15px;
-		width:70px; height:70px;
+		gap:6px;
+		padding:0 4px;
+		width:72px; height:72px;
 	}
 	.page-index .main-location .location-map-wrap .map-box .map-view img {
-		margin-bottom: 7px;
-		height:20px;
+		height:22px;
 	}
 	.page-index .main-location .location-map-wrap .map-box .map-view span {
 		font-size:11px;
@@ -2213,13 +2251,12 @@
 		height:220px;
 	}
 	.page-index .main-location .location-map-wrap .map-box .map-view {
-		width:60px;
-		height:60px;
-		padding-top:10px;
+		gap:4px;
+		width:64px;
+		height:64px;
 	}
 	.page-index .main-location .location-map-wrap .map-box .map-view img {
-		height:16px;
-		margin-bottom:4px;
+		height:18px;
 	}
 	.page-index .main-location .location-map-wrap .map-box .map-view span {
 		font-size:10px;
