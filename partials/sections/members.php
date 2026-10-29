@@ -37,8 +37,9 @@ $members_static = array(
 	array(
 		'name' => '조원진', 'headline' => '변호사',
 		'label' => "대한변협 형사전문변호사\n군인·공무원음주운전 책임변호사",
-		'img' => '/data/file/member/2130706433_6dCpRmXk_dbfd87627d20d1f639727426aff17fbf180638d7.jpg',
+		'img' => '/data/file/member/2130706433_cEQUfP0x_d1142bec1e1d5bd44ed6e28516be4ec4ecfbe1a2.jpg',
 		'url' => '/page/lawyer_view.php?me_code=1020&wr_id=2',
+		'alt' => '조원진 음주운전 전문 변호사 프로필',
 		'lines' => array('·인천광역시의회 법률·입법 고문변호사', '·前 국가정보원(NIS) 기획조정실 변호사', '·前 해군본부 국선변호인'),
 	),
 	array(
@@ -337,7 +338,7 @@ $members_static = array(
 						<div class="slider-item">
 							<a href="<?php echo $dj_h . $e(isset($m['url']) ? $m['url'] : '/'); ?>">
 								<div class="img-wrap">
-									<img src="<?php echo $e($dj_base . $m['img']); ?>" alt="<?php echo $e($m['name']); ?> 프로필" width="300" height="360" loading="lazy">
+									<img src="<?php echo $e($dj_base . $m['img']); ?>" alt="<?php echo $e(isset($m['alt']) ? $m['alt'] : ($m['name'] . ' 프로필')); ?>" width="300" height="360" loading="lazy">
 									<?php if ($label !== '') { ?>
 									<span class="label"><?php echo nl2br($e($label)); ?></span>
 									<?php } ?>

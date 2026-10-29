@@ -30,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					<img src="/images/common/logo.png" alt="법무법인동주 음주운전변호사 음주운전전문변호사" class="logo-off" width="200" height="60">
 					<img src="/images/common/logo_on.png" alt="법무법인동주 음주운전변호사 음주운전전문변호사" class="logo-on" width="200" height="60">
 				</span>
-				<span class="logo-tagline">인천음주운전변호사</span>
+				<span class="logo-tagline">음주운전변호사</span>
 			</a>
 		</p>
 		<nav class="gnb">

@@ -18,8 +18,8 @@
 		<div class="main-box01">
 			<div class="copy">
 				<div class="copy_icon"></div>
-				<h1 class="title-h1">음주운전 변호사 전문 상담<br>익명 보장 · 30분 내 답변 | 법무법인 동주</h1>
-				<p class="copy-sub">인천 음주운전 변호사 · 수도권 거점 동일 기준</p>
+				<h1 class="title-h1">경찰/검찰/재판 단계별 전문가<br>음주운전 변호사 상담 1:1 진행<br>면허취소구제까지</h1>
+				<div class="copy-sub"></div>
 			</div>
 			<div class="space"></div>
 			<a href="tel:1522-3394" onMouseDown="javascript:try{NA_Call();}catch(e){}"><div class="telnum"><div class="telnum_icon"></div>1522-3394</div></a>
@@ -64,59 +64,77 @@
 		<div class="main-area01">
 			<div class="m-copy m-copy02">
 				<div class="m-copy_icon"></div>
-				<div class="m-copy-text">형사부터 행정까지<br>음주운전 ONE-STOP 구제</div>
+				<div class="m-copy-text">수사부터 면허구제까지,<br>음주운전 ONE-STOP 구제</div>
 			</div>
 			<div class="main-box02">
 				<div class="box02_list box02-1">
-					<div class="box02-icon"></div>
-					<div class="box02-text">경찰조사 시뮬레이션 등<br>단계별 맞춤 서비스</div>
+					<div class="box02-icon" aria-hidden="true">
+						<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 48h36" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M20 42h24" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M38 14l12 12M34 18l12 12" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/><path d="M28 28l16-16 8 8-16 16-10-2 2-10z" stroke="currentColor" stroke-width="3.4" stroke-linejoin="round"/><path d="M18 46L36 28" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/></svg>
+					</div>
+					<div class="box02-text">前부장판사·부장검사<br>변호사 총괄</div>
 				</div>
 				<div class="box02_list box02-2">
-					<div class="box02-icon"></div>
-					<div class="box02-text">대표/파트너변호사가<br>직접 상담 진행</div>
+					<div class="box02-icon" aria-hidden="true">
+						<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 16v34" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M32 16c-3.2-2.4-8.2-3.5-13.5-3.5C13.2 12.5 10 13.4 10 15.2V46c0 1.8 3.2 2.7 8.5 2.7 5.3 0 10.3-1.1 13.5-3.5" stroke="currentColor" stroke-width="3.4" stroke-linejoin="round"/><path d="M32 16c3.2-2.4 8.2-3.5 13.5-3.5 5.3 0 8.5.9 8.5 2.7V46c0 1.8-3.2 2.7-8.5 2.7-5.3 0-10.3-1.1-13.5-3.5" stroke="currentColor" stroke-width="3.4" stroke-linejoin="round"/><path d="M15 22h10M15 29h10M15 36h8M39 22h10M39 29h10M39 36h8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+					</div>
+					<div class="box02-text">10년 이상 실무 경력의<br>음주운전변호사 배치</div>
 				</div>
 				<div class="box02_list box02-3">
-					<div class="box02-icon"></div>
-					<div class="box02-text">개인이 아닌<br>'로이어팀'이 조력</div>
+					<div class="box02-icon" aria-hidden="true">
+						<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 8.5l18.5 7.5v13.8c0 13.2-8.2 20.6-18.5 23.7C21.7 50.4 13.5 43 13.5 29.8V16L32 8.5z" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/><circle cx="32" cy="26" r="5.2" stroke="currentColor" stroke-width="3.1"/><path d="M22.5 42.5c1.8-5.2 5.2-7.8 9.5-7.8s7.7 2.6 9.5 7.8" stroke="currentColor" stroke-width="3.1" stroke-linecap="round"/></svg>
+					</div>
+					<div class="box02-text">수사관 경력<br>음주운전 경찰조사 출석 동행</div>
 				</div>
 				<div class="box02_list box02-4">
-					<div class="box02-icon"></div>
-					<div class="box02-text">형사/행정<br>'분야별' 연구팀</div>
+					<div class="box02-icon" aria-hidden="true">
+						<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="20" r="5" stroke="currentColor" stroke-width="3.3"/><circle cx="32" cy="20" r="5" stroke="currentColor" stroke-width="3.3"/><circle cx="50" cy="20" r="5" stroke="currentColor" stroke-width="3.3"/><path d="M19 20h8M37 20h8" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M32 25v8" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><rect x="18" y="34" width="28" height="18" rx="3" stroke="currentColor" stroke-width="3.4"/><circle cx="27" cy="43" r="4" stroke="currentColor" stroke-width="2.8"/><path d="M34 40h7M34 46h7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg>
+					</div>
+					<div class="box02-text">경찰/검찰/재판 전단계는 물론,<br>면허구제까지 해결</div>
 				</div>
 			</div>
 
 			<div class="m-copy m-copy03">
 				<div class="m-copy_icon"></div>
-				<div class="m-copy-text">10년 이상 경력의<br>음주전문변호사 구성</div>
+				<div class="m-copy-text">前부장판사·부장검사 사건 총괄,<br>10년 이상 경력의 음주운전변호사</div>
 			</div>
 			<div class="main-box03">
 				<div class="box03_list box03-1">
 					<div class="profile">
 						<div class="profile-name">
-							<p><strong>박동진 </strong>대표변호사</p>
+							<p><strong>김용빈 </strong>총괄변호사</p>
 						</div>
 						<div class="profile-career">
-							<p>前 서울중앙지방검찰청 부장검사<br>前 부산지방검찰청 부장검사<br>前 대전지방검찰청 부장검사</p>
+							<p>前 춘천지방법원장<br>前 서울고등법원 부장판사<br>前 사법연수원장</p>
 						</div>
 					</div>
 				</div>
 				<div class="box03_list box03-2">
 					<div class="profile">
 						<div class="profile-name">
-							<p><strong>이세환 </strong>대표변호사</p>
+							<p><strong>박동진 </strong>총괄변호사</p>
 						</div>
 						<div class="profile-career">
-							<p>대한변호사협회 형사법 전문변호사<br>대한변호사협회 대의원<br>수원남부경찰서 수사민원상담변호사</p>
+							<p>前 서울중앙지방검찰청 부장검사<br>前 원주·진주·경주지청장<br>前 부산지방검찰청 부장검사</p>
 						</div>
 					</div>
 				</div>
 				<div class="box03_list box03-3">
 					<div class="profile">
 						<div class="profile-name">
-							<p><strong>조원진 </strong>파트너변호사</p>
+							<p><strong>이세환 </strong>책임변호사</p>
 						</div>
 						<div class="profile-career">
-							<p>대한변호사협회 형사법 전문변호사<br>대법원 국선변호인<br>해군본부 군검찰 국선변호인</p>
+							<p>대한변협 형사전문변호사<br>前 대한변호사협회 대의원<br>수원남부경찰서 수사민원상담변호사</p>
+						</div>
+					</div>
+				</div>
+				<div class="box03_list box03-4">
+					<div class="profile">
+						<div class="profile-name">
+							<p><strong>조원진 </strong>책임변호사</p>
+						</div>
+						<div class="profile-career">
+							<p>대한변협 형사전문변호사<br>前 국가정보원(NIS) 기획조정실 변호사<br>前 해군본부 국선변호인</p>
 						</div>
 					</div>
 				</div>
