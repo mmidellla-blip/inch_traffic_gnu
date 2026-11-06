@@ -258,6 +258,8 @@ a {
 	#footer .footer-address .footer-address-conts li {margin-bottom:6px;}
 	#footer .footer-address .footer-address-conts > li:last-child {margin-bottom:0;}
 }
+/* 메인: 퀵메뉴가 저작권 문구 아래에 오도록 하단 여백 확보 */
+@media screen and (max-width: 1024px) {.index #footer .footer-social {padding-bottom:180px;}}
 @media screen and (max-width: 640px) {
 	.footer-sec {padding:20px 5vw;}
 	#footer .footer-utils {padding:0 5px 15px 5px;}
@@ -816,8 +818,8 @@ img {
 }
 
 @media screen and (max-width: 1024px) { 
-	.quick-menu { 
-		bottom: 100px; 
+	.quick-menu {
+		bottom: 150px;
 		top: auto; 
 		transform: none;
 		z-index: 1000;
@@ -840,7 +842,7 @@ img {
 @media screen and (max-width: 768px) { 
 	.quick-menu { 
 		right: 8px;
-		bottom: 320px;
+		bottom: 140px;
 		margin-bottom: 0;
 		z-index: 1000;
 	}
@@ -885,7 +887,7 @@ img {
 
 @media screen and (max-width: 640px) {
 	.quick-menu {
-		bottom: 320px;
+		bottom: 140px;
 		z-index: 1000;
 	}
 	/* 터치 영역 최소 44px 유지 */
