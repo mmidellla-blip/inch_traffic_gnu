@@ -242,8 +242,8 @@ a {
 .footer-social svg {width:32px;height:32px;fill:currentColor;}
 .footer-social .sr-only {position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
 .social-naverblog:hover,.social-naverblog:focus {color:#03c75a;}
-.social-kakao:hover,.social-kakao:focus {color:#fae100;}
-.social-youtube:hover,.social-youtube:focus {color:#ff0000;}
+#footer .social-kakao {color:#fae100;}
+#footer .social-youtube {color:#ff0000;}
 .social-insta:hover,.social-insta:focus {color:#dd0ac1;}
 @media screen and (max-width: 950px) {
 	#footer .footer-utils {flex-flow:row wrap;padding:0 15px 20px 15px;}
