@@ -26,7 +26,9 @@ $u = static function ($path) use ($dj_base) {
 		<li><a href="<?php echo $u('/page/self_test.php?me_code=7010&from=rthomas'); ?>" target="_blank" rel="noopener noreferrer" data-gtm-click="float_selftest"><img src="/images/common/quick_icon_self.png" alt="음주진단 자가진단">음주진단</a></li>
 		<li><a href="tel:1522-3394"><img src="/images/common/quick_icon01.png" alt="전화상담 1522-3394">전화상담</a></li>
 		<li><a href="https://pf.kakao.com/_Rpbxmxb/chat" target="_blank" rel="noopener noreferrer"><img src="/images/common/quick_icon02.png" alt="카카오톡 음주운전 상담">카톡상담</a></li>
+		<?php /* 모바일 퀵메뉴: 음주진단·전화상담·카톡상담만 노출 (임시 주석)
 		<li><a href="<?php echo $u('/bbs/board.php?bo_table=online&me_code=6010&from=rthomas'); ?>" target="_blank" rel="noopener noreferrer" data-gtm-click="float_online"><img src="/images/common/quick_icon03.png" alt="온라인 상담 신청">온라인 상담</a></li>
 		<li><a href="<?php echo $u('/page/location.php?me_code=1040'); ?>" target="_blank" rel="noopener noreferrer"><img src="/images/common/quick_icon04.png" alt="법무법인 동주 오시는 길">오시는 길</a></li>
+		*/ ?>
 	</ul>
 </section>
