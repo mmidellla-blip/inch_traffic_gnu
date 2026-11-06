@@ -226,7 +226,7 @@ a {
 #footer .footer-utils li {width:auto;padding:0 20px;}
 #footer .footer-utils li a {display:block;font-size:15px;text-align:center;color:#ccc;}
 #footer .footer-address {position:relative;font-size:0;display:flex;flex-flow:row wrap;}
-.index #footer .footer-address {padding-bottom:180px;}
+.index #footer .footer-social {padding-bottom:180px;}
 #footer .footer-address p {order:1;font-size:15px;color:#fff;width:150px;}
 #footer .footer-address .footer-address-telNum {order:2;display:none;}
 #footer .footer-address .footer-address-conts {order:3;width:calc(100%-150px);height:100%;display:flex;flex-flow:row nowrap;font-size:14px;font-style:normal;color:#999;}
@@ -238,7 +238,7 @@ a {
 #footer .footer-address .footer-address-conts .info-wrap {display:flex;flex-wrap:wrap;align-items:center;gap:0 20px;}
 #footer .footer-address .footer-address-conts .info-wrap p {width:auto;margin:0;padding:2px 0;font-size:14px;font-style:normal;color:#999;}
 #footer .footer-address .footer-address-conts .info-wrap p:nth-child(4) {width:100%;}
-.footer-social {display:flex;gap:16px;margin:0;}
+#footer .footer-social {display:flex;gap:16px;margin:0;padding-top:0;}
 .footer-social a {display:inline-flex;padding:8px;border-radius:50%;background-color:#666;color:#fff;transition:color .3s ease;}
 .footer-social svg {width:32px;height:32px;fill:currentColor;}
 .footer-social .sr-only {position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}

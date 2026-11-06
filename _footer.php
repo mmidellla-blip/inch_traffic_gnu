@@ -49,11 +49,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://blog.naver.com/cckjjt"
+                    <a href="https://blog.naver.com/dong-ju-law"
                         class="social-naverblog social-link"
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="네이버 블로그">
+                        title="법무법인 동주 공식블로그"
+                        aria-label="법무법인 동주 공식블로그">
                         <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24">
                             <path d="M3 3h6.2l5.6 8.2V3H21v18h-6.2l-5.6-8.2V21H3V3z"/>
                         </svg>
