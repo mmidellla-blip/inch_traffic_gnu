@@ -238,12 +238,16 @@ a {
 #footer .footer-address .footer-address-conts .info-wrap p {width:auto;margin:0;padding:2px 0;font-size:14px;font-style:normal;color:#999;}
 #footer .footer-address .footer-address-conts .info-wrap p:nth-child(4) {width:100%;}
 #footer .footer-social {display:flex;gap:16px;margin:0;padding-top:40px;padding-bottom:40px;}
-.footer-social a {display:inline-flex;padding:8px;border-radius:50%;background-color:#666;color:#fff;transition:color .3s ease;}
-.footer-social svg {width:32px;height:32px;fill:currentColor;}
+.footer-social a {display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background-color:#666;color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:transform .25s ease,box-shadow .25s ease;}
+.footer-social a:hover,.footer-social a:focus {transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.35);}
+.footer-social svg {width:26px;height:26px;fill:currentColor;}
 .footer-social .sr-only {position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
-.social-naverblog:hover,.social-naverblog:focus {color:#03c75a;}
-#footer .social-kakao {color:#fae100;}
-#footer .social-youtube {color:#ff0000;}
+/* 브랜드 아이콘: 카카오톡(노랑), 네이버 블로그(초록), 유튜브(빨강) */
+#footer .social-kakao {background-color:#fee500;color:#3c1e1e;}
+#footer .social-kakao svg {width:30px;height:30px;}
+#footer .social-naverblog {background-color:#03c75a;color:#fff;}
+#footer .social-naverblog svg {width:20px;height:20px;}
+#footer .social-youtube {background-color:#ff0000;color:#fff;}
 .social-insta:hover,.social-insta:focus {color:#dd0ac1;}
 @media screen and (max-width: 950px) {
 	#footer .footer-utils {flex-flow:row wrap;padding:0 15px 20px 15px;}
